@@ -1,0 +1,12 @@
+Some rooms can only be reserved by employees
+some by employees and students
+some rooms by neither, admins only
+
+Admin user interfacer and client user interface
+
+No particular rules for assignment
+try ensure not taking too big rooms
+
+All room should have tv/whiteboard
+
+Notification system

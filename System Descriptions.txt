@@ -1,0 +1,9 @@
+Rooms fall into 3 categories, obv. staff can book student, admin can book staff & student
+ - Student bookable
+ - Staff bookable
+ - Admin bookable
+
+Interface for Clients (students and staff)
+Interface for Admins
+
+Open ended notification system (event based?)

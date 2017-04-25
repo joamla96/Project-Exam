@@ -10,7 +10,7 @@ A message appears on her screen, displaying that a request for a room has gone t
 
 // No room is available
 Cameron is sitting in school for nornal class. Their teacher presents them a new project, and assigns everyone a group. Camerons group meets, and they decide they would like to start their project work tomorrow, and therefor need a room.
-s
+
 Cameron opens the EAL App, and navigates to the section for project rooms, selecting the option to book a new one.
 
 Camerons group has 14 members, so he fills in 14 in the option for group members, and selects the time-frame: 8:00 to 16:00 the next day. He finishes off by cliking "Request Reservation".

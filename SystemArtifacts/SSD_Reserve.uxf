@@ -4,19 +4,19 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>341</x>
-      <y>143</y>
+      <x>957</x>
+      <y>11</y>
       <w>66</w>
       <h>121</h>
     </coordinates>
-    <panel_attributes>Actor</panel_attributes>
+    <panel_attributes>Admin</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>781</x>
-      <y>198</y>
+      <x>671</x>
+      <y>66</y>
       <w>110</w>
       <h>33</h>
     </coordinates>
@@ -26,30 +26,30 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>825</x>
-      <y>220</y>
+      <x>715</x>
+      <y>88</y>
       <w>33</w>
-      <h>583</h>
+      <h>484</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;510.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;420.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>363</x>
-      <y>231</y>
+      <x>253</x>
+      <y>99</y>
       <w>33</w>
-      <h>583</h>
+      <h>484</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;510.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;420.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>363</x>
-      <y>396</y>
+      <x>253</x>
+      <y>297</y>
       <w>495</w>
       <h>44</h>
     </coordinates>
@@ -60,44 +60,32 @@ Selects date</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>363</x>
-      <y>704</y>
-      <w>495</w>
-      <h>44</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-Saves the reservation</panel_attributes>
-    <additional_attributes>10.0;20.0;430.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>363</x>
-      <y>264</y>
+      <x>253</x>
+      <y>187</y>
       <w>495</w>
       <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Selects time from what reservation will start</panel_attributes>
+Selects time from when reservation will start</panel_attributes>
     <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>363</x>
-      <y>308</y>
+      <x>253</x>
+      <y>242</y>
       <w>495</w>
       <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Selects time until what reservation will end</panel_attributes>
+Selects time until when reservation will end</panel_attributes>
     <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>363</x>
-      <y>363</y>
+      <x>253</x>
+      <y>352</y>
       <w>495</w>
       <h>44</h>
     </coordinates>
@@ -108,44 +96,20 @@ Selects amount of people</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>363</x>
-      <y>660</y>
+      <x>253</x>
+      <y>407</y>
       <w>495</w>
       <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Presses button: Reserve room</panel_attributes>
+Press button: Reserve room</panel_attributes>
     <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>187</x>
-      <y>451</y>
-      <w>682</w>
-      <h>198</h>
-    </coordinates>
-    <panel_attributes>ALT
-[If Admin user]</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>187</x>
-      <y>352</y>
-      <w>682</w>
-      <h>99</h>
-    </coordinates>
-    <panel_attributes>OPT
-[If student user]</panel_attributes>
-    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>363</x>
-      <y>462</y>
+      <x>979</x>
+      <y>352</y>
       <w>495</w>
       <h>44</h>
     </coordinates>
@@ -156,37 +120,247 @@ Selects user</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>363</x>
-      <y>572</y>
+      <x>979</x>
+      <y>462</y>
       <w>495</w>
       <h>44</h>
     </coordinates>
     <panel_attributes>Select time when to repeat: Every week, every day, every month
-lt=&lt;&lt;&lt;-</panel_attributes>
+lt=&lt;&lt;&lt;-
+group=1</panel_attributes>
     <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>209</x>
-      <y>561</y>
+      <x>825</x>
+      <y>440</y>
       <w>638</w>
       <h>77</h>
     </coordinates>
     <panel_attributes>OPT
-[If selected: Repeat]</panel_attributes>
+[If selected: Repeat]
+group=1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>363</x>
-      <y>506</y>
+      <x>979</x>
+      <y>407</y>
       <w>495</w>
       <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 Selects Room</panel_attributes>
     <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>187</x>
+      <y>0</y>
+      <w>154</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>Student / Teacher</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>979</x>
+      <y>110</y>
+      <w>33</w>
+      <h>473</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;410.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1397</x>
+      <y>66</y>
+      <w>110</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>System</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1441</x>
+      <y>99</y>
+      <w>33</w>
+      <h>484</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;420.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>979</x>
+      <y>297</y>
+      <w>495</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Selects time from when reservation will end</panel_attributes>
+    <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>979</x>
+      <y>242</y>
+      <w>495</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Selects time from when reservation will start</panel_attributes>
+    <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>979</x>
+      <y>132</y>
+      <w>495</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Enter Reserve Room</panel_attributes>
+    <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>979</x>
+      <y>187</y>
+      <w>495</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+List Available Rooms</panel_attributes>
+    <additional_attributes>10.0;20.0;430.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>253</x>
+      <y>132</y>
+      <w>495</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Enter "Reserve Room"</panel_attributes>
+    <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>253</x>
+      <y>462</y>
+      <w>495</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Notify reserved room ID</panel_attributes>
+    <additional_attributes>10.0;20.0;430.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>187</x>
+      <y>770</y>
+      <w>154</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>Student / Teacher</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>253</x>
+      <y>869</y>
+      <w>33</w>
+      <h>231</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>660</x>
+      <y>836</y>
+      <w>110</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>:system</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>704</x>
+      <y>858</y>
+      <w>33</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>253</x>
+      <y>946</y>
+      <w>484</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+RequestReservation(From, To, People, IUser)</panel_attributes>
+    <additional_attributes>420.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>253</x>
+      <y>979</y>
+      <w>484</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Confirmation Message</panel_attributes>
+    <additional_attributes>10.0;20.0;420.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>253</x>
+      <y>880</y>
+      <w>484</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Enter "Reserve Room"</panel_attributes>
+    <additional_attributes>420.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>253</x>
+      <y>913</y>
+      <w>484</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+"Reserve Room" Section</panel_attributes>
+    <additional_attributes>10.0;20.0;420.0;20.0</additional_attributes>
   </element>
 </diagram>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>420</y>
+      <w>270</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>User
+--
++ Username : String
++ Email : String
++ Reservations : List&lt;Reservation&gt;
++ PermissionLevel : enum.Permission</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>420</y>
+      <w>280</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Room
+--
++ ID : String
++ Building : Char
++ Floor : Int
++ Nr : Int
++ MaxPeople : Int
++ Reservations : List&lt;Reservations&gt;
++ MinPermissionLevel: enum.Permission</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>420</y>
+      <w>200</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Reservation
+--
++ User : IUser
++ Room : IRoom
++ PeopleNr: Int
++ From : DateTime
++ To : DateTime</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1560</x>
+      <y>670</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>/AbstractClass/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>420</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>420</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+</diagram>

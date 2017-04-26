@@ -1,0 +1,18 @@
+// A room is available
+Sarah comes to school, tuesday morning at around 8 am. She meets up with her group, ready to work for today.
+
+Sarah opens her phone, and enters the EAL App. She navigates to the section for project rooms.
+
+Sarahs group has 4 members, including herself. She selects the option to book a new room, and fills in the form; number of people, time period, and date. She finishes off, by clicking "Reqest Booking".
+
+A message appears on her screen, displaying that a request for a room has gone thru. After a few seconds, another message appears, explaining which room she has been assigned.
+
+
+// No room is available
+Cameron is sitting in school for nornal class. Their teacher presents them a new project, and assigns everyone a group. Camerons group meets, and they decide they would like to start their project work tomorrow, and therefor need a room.
+
+Cameron opens the EAL App, and navigates to the section for project rooms, selecting the option to book a new one.
+
+Camerons group has 14 members, so he fills in 14 in the option for group members, and selects the time-frame: 8:00 to 16:00 the next day. He finishes off by cliking "Request Reservation".
+
+A message appears on his screen, informing that the request is being processed. Few seconds later, another message explaining, that no rooms are available in the selected time frame.

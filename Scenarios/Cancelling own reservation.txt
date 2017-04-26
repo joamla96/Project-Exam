@@ -1,0 +1,6 @@
+// Teacher meeting cancelled
+Leo was arraning a meeting between some teachers, but something has happend and he no longer needs his booked meeting room.
+
+Leo opens up the booking system, and enters the section to list own reservations. He marks the reservation for the room he no longer needs, and clicks "Delete Reservation".
+
+A message ensures Leo that his reservation has been cancelled.

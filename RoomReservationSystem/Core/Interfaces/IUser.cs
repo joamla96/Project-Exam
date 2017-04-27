@@ -2,7 +2,7 @@
 
 namespace Core.Interfaces
 {
-	interface IUser
+	public interface IUser
 	{
 		string Username { get; }
 		string Email { get; }

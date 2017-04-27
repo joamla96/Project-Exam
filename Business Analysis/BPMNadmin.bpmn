@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
   <bpmn:process id="Process_1" isExecutable="false">
-    <bpmn:startEvent id="StartEvent_1" name="User Main Menu">
+    <bpmn:startEvent id="StartEvent_1" name="Admin Main Menu">
       <bpmn:outgoing>SequenceFlow_1u5akd8</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:exclusiveGateway id="ExclusiveGateway_19c9r1m" name="Make or delete reservation">
-      <bpmn:incoming>SequenceFlow_1u5akd8</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0b9dg24</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1v9pc0x</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_15w4xwy</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:sequenceFlow id="SequenceFlow_1u5akd8" sourceRef="StartEvent_1" targetRef="ExclusiveGateway_19c9r1m" />
+    <bpmn:sequenceFlow id="SequenceFlow_1u5akd8" sourceRef="StartEvent_1" targetRef="IntermediateThrowEvent_0uhq6we" />
     <bpmn:task id="Task_0sdbpjg" name="Delete reservation">
       <bpmn:incoming>SequenceFlow_023ljnx</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0icna55</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:sequenceFlow id="SequenceFlow_1v9pc0x" sourceRef="ExclusiveGateway_19c9r1m" targetRef="Task_09r2u63" />
+    <bpmn:sequenceFlow id="SequenceFlow_1v9pc0x" sourceRef="ExclusiveGateway_19c9r1m" targetRef="Task_1si769b" />
     <bpmn:task id="Task_0912i3k" name="Make reservation">
       <bpmn:incoming>SequenceFlow_15w4xwy</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1lwxnlg</bpmn:outgoing>
@@ -41,7 +41,7 @@
     </bpmn:intermediateThrowEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0gw1w2f" name="Yes" sourceRef="ExclusiveGateway_1ppwsus" targetRef="Task_15pbyc9" />
     <bpmn:sequenceFlow id="SequenceFlow_0xgr3mh" sourceRef="Task_15pbyc9" targetRef="IntermediateThrowEvent_0pny49c" />
-    <bpmn:intermediateThrowEvent id="IntermediateThrowEvent_07pk8wp" name="Notify Room Unavailability">
+    <bpmn:intermediateThrowEvent id="IntermediateThrowEvent_07pk8wp" name="Notify Specific Room Unavailability">
       <bpmn:incoming>SequenceFlow_0fary5c</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1kcmxsk</bpmn:outgoing>
       <bpmn:messageEventDefinition />
@@ -54,22 +54,17 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_19qsbxb" sourceRef="IntermediateThrowEvent_0pny49c" targetRef="IntermediateThrowEvent_0femodg" />
     <bpmn:sequenceFlow id="SequenceFlow_1kcmxsk" sourceRef="IntermediateThrowEvent_07pk8wp" targetRef="EndEvent_0hzl3px" />
-    <bpmn:intermediateThrowEvent id="IntermediateThrowEvent_0femodg" name="Confirmation message &#38; Notify Room Info ">
+    <bpmn:intermediateThrowEvent id="IntermediateThrowEvent_0femodg" name="Confirmation message">
       <bpmn:incoming>SequenceFlow_19qsbxb</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1fnqfxx</bpmn:outgoing>
       <bpmn:messageEventDefinition />
     </bpmn:intermediateThrowEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1fnqfxx" sourceRef="IntermediateThrowEvent_0femodg" targetRef="EndEvent_0hzl3px" />
     <bpmn:task id="Task_1si769b" name="Select reservation">
-      <bpmn:incoming>SequenceFlow_1gqu2nt</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1v9pc0x</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_023ljnx</bpmn:outgoing>
     </bpmn:task>
     <bpmn:sequenceFlow id="SequenceFlow_023ljnx" sourceRef="Task_1si769b" targetRef="Task_0sdbpjg" />
-    <bpmn:task id="Task_09r2u63" name="Show Own Reservation List">
-      <bpmn:incoming>SequenceFlow_1v9pc0x</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1gqu2nt</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="SequenceFlow_1gqu2nt" sourceRef="Task_09r2u63" targetRef="Task_1si769b" />
     <bpmn:intermediateThrowEvent id="IntermediateThrowEvent_1hlavkv" name="Confirmation message">
       <bpmn:incoming>SequenceFlow_00sxrcu</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0g5iqiv</bpmn:outgoing>
@@ -77,13 +72,18 @@
     </bpmn:intermediateThrowEvent>
     <bpmn:sequenceFlow id="SequenceFlow_00sxrcu" sourceRef="IntermediateThrowEvent_1ulgvoh" targetRef="IntermediateThrowEvent_1hlavkv" />
     <bpmn:sequenceFlow id="SequenceFlow_0g5iqiv" sourceRef="IntermediateThrowEvent_1hlavkv" targetRef="EndEvent_0hzl3px" />
+    <bpmn:intermediateThrowEvent id="IntermediateThrowEvent_0uhq6we" name="Manage reservations">
+      <bpmn:incoming>SequenceFlow_1u5akd8</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0b9dg24</bpmn:outgoing>
+    </bpmn:intermediateThrowEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0b9dg24" sourceRef="IntermediateThrowEvent_0uhq6we" targetRef="ExclusiveGateway_19c9r1m" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="145" y="163" width="36" height="36" />
+        <dc:Bounds x="5" y="163" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="123" y="199" width="80" height="12" />
+          <dc:Bounds x="-20" y="199" width="87" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ExclusiveGateway_19c9r1m_di" bpmnElement="ExclusiveGateway_19c9r1m" isMarkerVisible="true">
@@ -93,10 +93,10 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1u5akd8_di" bpmnElement="SequenceFlow_1u5akd8">
-        <di:waypoint xsi:type="dc:Point" x="181" y="181" />
-        <di:waypoint xsi:type="dc:Point" x="246" y="181" />
+        <di:waypoint xsi:type="dc:Point" x="41" y="181" />
+        <di:waypoint xsi:type="dc:Point" x="131" y="181" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="213.5" y="160" width="0" height="12" />
+          <dc:Bounds x="41" y="160" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Task_0sdbpjg_di" bpmnElement="Task_0sdbpjg">
@@ -107,7 +107,7 @@
         <di:waypoint xsi:type="dc:Point" x="271" y="352" />
         <di:waypoint xsi:type="dc:Point" x="340" y="352" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="286" y="273" width="0" height="12" />
+          <dc:Bounds x="241" y="273" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Task_0912i3k_di" bpmnElement="Task_0912i3k">
@@ -172,7 +172,7 @@
       <bpmndi:BPMNShape id="IntermediateThrowEvent_0tp9394_di" bpmnElement="IntermediateThrowEvent_07pk8wp">
         <dc:Bounds x="890" y="239" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="876" y="279" width="63" height="24" />
+          <dc:Bounds x="873" y="277" width="69" height="36" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0fary5c_di" bpmnElement="SequenceFlow_0fary5c">
@@ -207,7 +207,7 @@
       <bpmndi:BPMNShape id="IntermediateThrowEvent_1dlujpi_di" bpmnElement="IntermediateThrowEvent_0femodg">
         <dc:Bounds x="890" y="163" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="865" y="122" width="86" height="36" />
+          <dc:Bounds x="877" y="132" width="61" height="24" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1fnqfxx_di" bpmnElement="SequenceFlow_1fnqfxx">
@@ -218,23 +218,13 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Task_1si769b_di" bpmnElement="Task_1si769b">
-        <dc:Bounds x="487.9876126126126" y="312" width="100" height="80" />
+        <dc:Bounds x="340" y="312" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_023ljnx_di" bpmnElement="SequenceFlow_023ljnx">
-        <di:waypoint xsi:type="dc:Point" x="588" y="352" />
+        <di:waypoint xsi:type="dc:Point" x="440" y="352" />
         <di:waypoint xsi:type="dc:Point" x="635" y="352" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="611.5" y="331" width="0" height="12" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Task_09r2u63_di" bpmnElement="Task_09r2u63">
-        <dc:Bounds x="339.9876126126126" y="312" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_1gqu2nt_di" bpmnElement="SequenceFlow_1gqu2nt">
-        <di:waypoint xsi:type="dc:Point" x="440" y="352" />
-        <di:waypoint xsi:type="dc:Point" x="488" y="352" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="464" y="331" width="0" height="12" />
+          <dc:Bounds x="492.5" y="331" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="IntermediateThrowEvent_0kcob2m_di" bpmnElement="IntermediateThrowEvent_1hlavkv">
@@ -256,6 +246,19 @@
         <di:waypoint xsi:type="dc:Point" x="1000" y="199" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="963" y="331" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="IntermediateThrowEvent_0uhq6we_di" bpmnElement="IntermediateThrowEvent_0uhq6we">
+        <dc:Bounds x="131.44466666666665" y="163" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="119" y="203" width="61" height="24" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0b9dg24_di" bpmnElement="SequenceFlow_0b9dg24">
+        <di:waypoint xsi:type="dc:Point" x="167" y="181" />
+        <di:waypoint xsi:type="dc:Point" x="246" y="181" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="206.5" y="160" width="0" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>

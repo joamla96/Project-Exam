@@ -17,10 +17,6 @@ namespace Core.UnitTest
 		IUser _teacher;
 		IUser _admin;
 
-		Reservation _reservation1;
-		Reservation _reservation2;
-		Reservation _reservation3;
-
 		[TestInitialize]
 		public void TestsInitialize() {
 			_room1 = new Room('A', 1, 2, 4, Permission.Student);
@@ -30,8 +26,7 @@ namespace Core.UnitTest
 			_student = new User("roxa0198", "roxa0188@edu.eal.dk", Permission.Student);
 			_teacher = new User("lehe", "lehe@eal.dk", Permission.Teacher);
 			_admin = new User("joro", "fictive@example.com", Permission.Admin);
-
-
 		}
+
 	}
 }

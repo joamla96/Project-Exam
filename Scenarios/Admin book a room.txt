@@ -1,2 +1,6 @@
 // Admin book a room
-Moria
+Moria has been tasked with booking a meeting room for some teachers.
+
+She enters the booking system, and types in when the booking needs to be, and selects which room, the booking should be valid for.
+
+She hits the button to book the room, and a message appreas that confirms the booking.

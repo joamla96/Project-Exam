@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.UnitTest
+namespace Core.Interfaces
 {
-    public class Class1
-    {
-    }
+	interface IUser
+	{
+		string Username { get; }
+		string Email { get; }
+	}
 }

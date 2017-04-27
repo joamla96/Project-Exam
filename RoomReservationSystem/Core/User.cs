@@ -10,11 +10,8 @@ namespace Core
 	{
 		Admin, Teacher, Student
 	}
-    public class Class1
+    public class User
     {
-		public Permision PermissionLevel { get {
-				return Permision.Admin;
-			}
-		}
+
 	}
 }

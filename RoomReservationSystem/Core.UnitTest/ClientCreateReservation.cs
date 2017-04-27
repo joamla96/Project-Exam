@@ -7,6 +7,8 @@ namespace Core.UnitTest
     public class ClientCreateReservation
     {
 		[TestInitialize]
+		public void TestsInitialize() {
 
+		}
     }
 }

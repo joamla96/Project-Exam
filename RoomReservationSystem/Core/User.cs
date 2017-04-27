@@ -3,7 +3,7 @@ using Core.Interfaces
 
 namespace Core
 {
-	public enum Permision
+	public enum Permission
 	{
 		Admin, Teacher, Student
 	}

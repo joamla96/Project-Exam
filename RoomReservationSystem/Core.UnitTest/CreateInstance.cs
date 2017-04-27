@@ -20,9 +20,40 @@ namespace Core.UnitTest
         Reservation _reservation3;
 
         [TestMethod]
-        public void CanCreateRoomInstance()
+        public void CanCreateRoomInstanceID()
         {
-            _room1 = new Room()
+            _room1 = new Room('A', 2, 9, 6, Permission.Student);
+            Assert.AreEqual("A2.09", _room1.ID);
+        }
+        [TestMethod]
+        public void CanCreateRoomInstanceBuilding()
+        {
+            _room1 = new Room('A', 2, 9, 6, Permission.Student);
+            Assert.AreEqual('A', _room1.Building);
+        }
+        [TestMethod]
+        public void CanCreateRoomInstanceFloor()
+        {
+            _room1 = new Room('A', 2, 9, 6, Permission.Student);
+            Assert.AreEqual(2, _room1.Floor);
+        }
+        [TestMethod]
+        public void CanCreateRoomInstanceNr()
+        {
+            _room1 = new Room('A', 2, 9, 6, Permission.Student);
+            Assert.AreEqual(9, _room1.Nr);
+        }
+        [TestMethod]
+        public void CanCreateRoomInstanceMaxPeople()
+        {
+            _room1 = new Room('A', 2, 9, 6, Permission.Student);
+            Assert.AreEqual(6, _room1.MaxPeople);
+        }
+        [TestMethod]
+        public void CanCreateRoomInstanceMinPermissionLevel()
+        {
+            _room1 = new Room('A', 2, 9, 6, Permission.Student);
+            Assert.AreEqual(Permission.Student, _room1.MinPermissionLevel);
         }
     }
 }

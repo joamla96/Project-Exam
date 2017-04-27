@@ -1,0 +1,12 @@
+Operation:
+ - ReservationRepository.Delete(Reservation)
+
+Cross Reference:
+ - SSD: SSD_Delete
+ - UC: Client cancel own reservation; Admin cancels a reservation
+
+Preconditions:
+ - Reservation Exists
+
+Postconditions:
+ - Reservation no longer exists

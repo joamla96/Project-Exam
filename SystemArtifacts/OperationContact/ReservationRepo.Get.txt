@@ -1,0 +1,12 @@
+Operation: 
+ - ReservationRepo.Get(IUser)
+
+Cross References:
+ - SSD: SSD_Delete
+ - UC: Client cancel own reservation; 
+
+Preconditions:
+ - None
+
+Post conditions
+ - None

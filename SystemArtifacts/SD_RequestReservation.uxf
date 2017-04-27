@@ -21,7 +21,7 @@
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=()-&gt;&gt;&gt;
-RequestReservation(datetime from, datetime to, int people, IUser user)
+RequestReservation(datetime from, datetime to, int peopleNr, IUser user)
 layer=0</panel_attributes>
     <additional_attributes>10.0;20.0;520.0;20.0</additional_attributes>
   </element>
@@ -151,7 +151,7 @@ rooms.Pop()</panel_attributes>
       <h>90</h>
     </coordinates>
     <panel_attributes>WHILE
-[currentRoom.MaxPeople &lt; people]</panel_attributes>
+[currentRoom.MaxPeople &lt; peopleNr]</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -284,7 +284,7 @@ Exception: NoRoomsAvailable</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-new Reservation(user, foundRoom, people, from, to)</panel_attributes>
+new Reservation(user, foundRoom, peopleNr, from, to)</panel_attributes>
     <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>

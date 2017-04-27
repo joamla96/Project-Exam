@@ -7,9 +7,9 @@ namespace Core.UnitTest
     [TestClass]
     public class CreateInstance
     {
-        IRoom _room1;
-        IRoom _room2;
-        IRoom _room3;
+        IRoom _room1 = new Room('A', 2, 9, 6, Permission.Student);
+        IRoom _room2 = new Room('A', 2, 15, 6, Permission.Student);
+        IRoom _room3 = new Room('A', 2, 115, 6, Permission.Student);
 
         IUser _student;
         IUser _teacher;
@@ -20,39 +20,50 @@ namespace Core.UnitTest
         Reservation _reservation3;
 
         [TestMethod]
-        public void CanCreateRoomInstanceID()
+        public void CanCreateRoomInstanceID1()
         {
-            _room1 = new Room('A', 2, 9, 6, Permission.Student);
             Assert.AreEqual("A2.09", _room1.ID);
         }
+
+        [TestMethod]
+        public void CanCreateRoomInstanceID2()
+        {
+            Assert.AreEqual("A2.15", _room2.ID);
+        }
+
+        [TestMethod]
+        public void CanCreateRoomInstanceID3()
+        {
+            Assert.AreEqual("A2.115", _room3.ID);
+        }
+
         [TestMethod]
         public void CanCreateRoomInstanceBuilding()
         {
-            _room1 = new Room('A', 2, 9, 6, Permission.Student);
             Assert.AreEqual('A', _room1.Building);
         }
+
         [TestMethod]
         public void CanCreateRoomInstanceFloor()
         {
-            _room1 = new Room('A', 2, 9, 6, Permission.Student);
             Assert.AreEqual(2, _room1.Floor);
         }
+
         [TestMethod]
         public void CanCreateRoomInstanceNr()
         {
-            _room1 = new Room('A', 2, 9, 6, Permission.Student);
             Assert.AreEqual(9, _room1.Nr);
         }
+
         [TestMethod]
         public void CanCreateRoomInstanceMaxPeople()
         {
-            _room1 = new Room('A', 2, 9, 6, Permission.Student);
             Assert.AreEqual(6, _room1.MaxPeople);
         }
+
         [TestMethod]
         public void CanCreateRoomInstanceMinPermissionLevel()
         {
-            _room1 = new Room('A', 2, 9, 6, Permission.Student);
             Assert.AreEqual(Permission.Student, _room1.MinPermissionLevel);
         }
     }

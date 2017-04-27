@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-    class UserRepository
+    public class UserRepository
     {
     }
 }

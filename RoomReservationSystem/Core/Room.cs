@@ -15,5 +15,15 @@ namespace Core
         public Permission MinPermissionLevel { get; set; }
 
         List<Reservation> _reservations = new List<Reservation>();
+        
+
+        public Room(char building, int floor, int nr, int maxPeople, Permission minPremissionLevel)
+        {
+            this.Building = building;
+            this.Floor = floor;
+            this.Nr = nr;
+            this.MaxPeople = maxPeople;
+            this.MinPermissionLevel = minPremissionLevel;
+        }
     }
 }

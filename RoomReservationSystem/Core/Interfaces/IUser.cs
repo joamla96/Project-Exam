@@ -6,5 +6,6 @@ namespace Core.Interfaces
 	{
 		string Username { get; }
 		string Email { get; }
-	}
+        Permission PermissionLevel { get; set; }
+    }
 }

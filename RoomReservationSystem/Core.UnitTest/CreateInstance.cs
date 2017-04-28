@@ -11,9 +11,9 @@ namespace Core.UnitTest
         IRoom _room2 = new Room('A', 2, 15, 6, Permission.Student);
         IRoom _room3 = new Room('A', 2, 115, 6, Permission.Student);
 
-        IUser _student;
-        IUser _teacher;
-        IUser _admin;
+        IUser _student = new User("matt2694", "matt2694@edu.eal.dk", Permission.Student);
+        IUser _teacher = new User("alhe", "alhe@eal.dk", Permission.Teacher);
+        IUser _admin = new User("frje", "frje@eal.dk", Permission.Admin);
 
         Reservation _reservation1;
         Reservation _reservation2;
@@ -65,6 +65,36 @@ namespace Core.UnitTest
         public void CanCreateRoomInstanceMinPermissionLevel()
         {
             Assert.AreEqual(Permission.Student, _room1.MinPermissionLevel);
+        }
+
+        [TestMethod]
+        public void CanCreateUserInstanceUsername()
+        {
+
+        }
+
+        [TestMethod]
+        public void CanCreateUserInstanceEmail()
+        {
+
+        }
+
+        [TestMethod]
+        public void CanCreateUserInstancePermission1()
+        {
+
+        }
+
+        [TestMethod]
+        public void CanCreateUserInstancePermission2()
+        {
+
+        }
+
+        [TestMethod]
+        public void CanCreateUserInstancePermission3()
+        {
+
         }
     }
 }

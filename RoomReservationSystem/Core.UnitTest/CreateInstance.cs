@@ -129,13 +129,25 @@ namespace Core.UnitTest
         [TestMethod]
         public void CanCreateReservationInstanceRoom()
         {
-            Assert.AreEqual(_student, _reservation1.Room);
+            Assert.AreEqual(_room1, _reservation1.Room);
         }
 
         [TestMethod]
         public void CanCreateReservationInstancePeopleNr()
         {
-            Assert.AreEqual(_student, _reservation1.People);
+            Assert.AreEqual(6, _reservation1.PeopleNr);
+        }
+
+        [TestMethod]
+        public void CanCreateReservationInstanceFrom()
+        {
+            Assert.AreEqual(_dateFrom, _reservation1.From);
+        }
+
+        [TestMethod]
+        public void CanCreateReservationInstanceTo()
+        {
+            Assert.AreEqual(_dateTo, _reservation1.To);
         }
     }
 }

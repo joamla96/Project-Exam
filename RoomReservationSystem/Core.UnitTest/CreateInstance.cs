@@ -70,31 +70,31 @@ namespace Core.UnitTest
         [TestMethod]
         public void CanCreateUserInstanceUsername()
         {
-
+            Assert.AreEqual("matt2694", _student.Username);
         }
 
         [TestMethod]
         public void CanCreateUserInstanceEmail()
         {
-
+            Assert.AreEqual("matt2694@edu.eal.dk", _student.Email);
         }
 
         [TestMethod]
         public void CanCreateUserInstancePermission1()
         {
-
+            Assert.AreEqual(Permission.Student, _student.PermissionLevel);
         }
 
         [TestMethod]
         public void CanCreateUserInstancePermission2()
         {
-
+            Assert.AreEqual(Permission.Teacher, _teacher.PermissionLevel);
         }
 
         [TestMethod]
         public void CanCreateUserInstancePermission3()
         {
-
+            Assert.AreEqual(Permission.Admin, _admin.PermissionLevel);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using Core.Interfaces
+using Core.Interfaces;
 using System.Collections.Generic;
 
 namespace Core

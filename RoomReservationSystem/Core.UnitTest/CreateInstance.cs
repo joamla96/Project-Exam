@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Core.Interfaces;
+using Core;
 
 namespace Core.UnitTest
 {

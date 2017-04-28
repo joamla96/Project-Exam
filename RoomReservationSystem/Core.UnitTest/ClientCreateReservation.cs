@@ -17,6 +17,9 @@ namespace Core.UnitTest
 		IUser _teacher;
 		IUser _admin;
 
+		RoomRepository RepoRoom = RoomRepository.Instance; // Singletons
+		ReservationRepository RepoReserv = ReservationRepository.Instance;
+
 		[TestInitialize]
 		public void TestsInitialize() {
 			_room1 = new Room('A', 1, 2, 4, Permission.Student);

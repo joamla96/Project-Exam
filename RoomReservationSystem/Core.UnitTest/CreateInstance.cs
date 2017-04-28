@@ -15,15 +15,19 @@ namespace Core.UnitTest
         IUser _teacher = new User("alhe", "alhe@eal.dk", Permission.Teacher);
         IUser _admin = new User("frje", "frje@eal.dk", Permission.Admin);
 
+        Reservation _reservation1;
+        Reservation _reservation2;
+        Reservation _reservation3;
+
         DateTime _dateFrom = new DateTime(2016, 4, 29, 8, 0, 0);
         DateTime _dateTo = new DateTime(2016, 4, 29, 16, 0, 0);
 
         [TestInitialize]
         public void TestInitialize()
         {
-            Reservation _reservation1 = new Reservation(_student, _room1, 6, _dateFrom, _dateTo);
-            Reservation _reservation2 = new Reservation(_teacher, _room2, 6, _dateFrom, _dateTo);
-            Reservation _reservation3 = new Reservation(_admin, _room3, 6, _dateFrom, _dateTo);
+            _reservation1 = new Reservation(_student, _room1, 6, _dateFrom, _dateTo);
+            _reservation2 = new Reservation(_teacher, _room2, 6, _dateFrom, _dateTo);
+            _reservation3 = new Reservation(_admin, _room3, 6, _dateFrom, _dateTo);
         }
 
         [TestMethod]
@@ -114,6 +118,24 @@ namespace Core.UnitTest
         public void CanCreateUserInstancePermission3()
         {
             Assert.AreEqual(Permission.Admin, _admin.PermissionLevel);
+        }
+
+        [TestMethod]
+        public void CanCreateReservationInstanceUser()
+        {
+            Assert.AreEqual(_student, _reservation1.User);
+        }
+
+        [TestMethod]
+        public void CanCreateReservationInstanceRoom()
+        {
+            Assert.AreEqual(_student, _reservation1.Room);
+        }
+
+        [TestMethod]
+        public void CanCreateReservationInstancePeopleNr()
+        {
+            Assert.AreEqual(_student, _reservation1.People);
         }
     }
 }

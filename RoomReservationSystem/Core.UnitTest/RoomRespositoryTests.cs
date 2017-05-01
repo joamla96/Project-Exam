@@ -61,5 +61,16 @@ namespace Core.UnitTest
             _roomList = _repoRoom.Get();
             Assert.IsTrue(_roomList.Contains(_room1));
         }
+
+        [TestMethod]
+        public void GetAllRooms()
+        {
+            _repoRoom.Add(_room1);
+            _repoRoom.Add(_room2);
+            _repoRoom.Add(_room3);
+
+            _roomList = _repoRoom.Get(); 
+            Assert.AreEqual(3, _roomList.Count); // idk how else to ckeck this
+        }
     }
 }

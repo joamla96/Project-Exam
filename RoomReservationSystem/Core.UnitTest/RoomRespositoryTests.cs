@@ -9,7 +9,7 @@ namespace Core.UnitTest
     [TestClass]
     public class RoomRespositoryTests
     {
-        RoomRepository _repoRoom;
+        RoomRepository _repoRoom = RoomRepository.Instance;
 
         List<IRoom> _roomList;
 
@@ -31,7 +31,7 @@ namespace Core.UnitTest
         [TestInitialize]
         public void TestInitialize()
         {
-            _repoRoom = new RoomRepository();
+			_repoRoom.Clear();
             _roomList = new List<IRoom>();
             _student = new User("matt2694", "matt2694@edu.eal.dk", Permission.Student);
             _teacher = new User("alhe", "alhe@eal.dk", Permission.Teacher);

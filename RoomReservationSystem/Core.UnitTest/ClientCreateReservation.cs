@@ -47,5 +47,10 @@ namespace Core.UnitTest
 			Assert.AreEqual(StackRooms.Pop(), _room2);
 		}
 
+		[TestMethod]
+		public void ReqestReservationTest() {
+
+		}
+
 	}
 }

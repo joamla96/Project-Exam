@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Core.Interfaces
 {
-	public interface IRoom
-	{
-	}
+    public interface IRoom
+    {
+        char Building { get; set; }
+        int Floor { get; set; }
+        string ID { get; }
+        int MaxPeople { get; set; }
+        Permission MinPermissionLevel { get; set; }
+        int Nr { get; set; }
+    }
 }

@@ -15,6 +15,13 @@ namespace Core
         public Permission PermissionLevel { get; set; }
 
         List<Reservation> _reservations = new List<Reservation>();
+        
 
+        public User(string username, string email, Permission premissionLevel)
+        {
+            this.Username = username;
+            this.Email = email;
+            this.PermissionLevel = premissionLevel;
+        }
     }
 }

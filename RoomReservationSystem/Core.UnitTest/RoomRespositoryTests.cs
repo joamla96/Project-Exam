@@ -105,5 +105,17 @@ namespace Core.UnitTest
             _roomList = _repoRoom.Get(_reservation1);
             Assert.IsTrue(_roomList.Contains(_room1));
         }
+
+        [TestMethod]
+        public void DeleteRoom()
+        {
+            _repoRoom.Add(_room1);
+            _repoRoom.Add(_room2);
+            _repoRoom.Add(_room3);
+
+            _repoRoom.Delete(_room1);
+            _roomList = _repoRoom.Get();
+            Assert.IsFalse(_roomList.Contains(_room1));
+        }
     }
 }

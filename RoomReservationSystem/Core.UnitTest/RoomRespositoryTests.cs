@@ -11,6 +11,8 @@ namespace Core.UnitTest
     {
         RoomRepository _repoRoom = RoomRepository.Instance;
 
+        ReservationRepository _repoReservation = ReservationRepository.Instance;
+
         List<IRoom> _roomList;
 
         IUser _student;
@@ -20,6 +22,8 @@ namespace Core.UnitTest
         IRoom _room1;
         IRoom _room2;
         IRoom _room3;
+        IRoom _room4;
+        IRoom _room5;
 
         Reservation _reservation1;
         Reservation _reservation2;
@@ -31,6 +35,7 @@ namespace Core.UnitTest
         [TestInitialize]
         public void TestInitialize()
         {
+            _repoReservation.Clear();
 			_repoRoom.Clear();
             _roomList = new List<IRoom>();
             _student = new User("matt2694", "matt2694@edu.eal.dk", Permission.Student);
@@ -40,6 +45,14 @@ namespace Core.UnitTest
             _room1 = new Room('A', 2, 9, 6, Permission.Student);
             _room2 = new Room('A', 2, 15, 6, Permission.Teacher);
             _room3 = new Room('A', 2, 115, 6, Permission.Admin);
+            _room4 = new Room('A', 7, 5, 2, Permission.Student);
+            _room5 = new Room('B', 7, 5, 10, Permission.Student);
+
+            _repoRoom.Add(_room1);
+            _repoRoom.Add(_room2);
+            _repoRoom.Add(_room3);
+            _repoRoom.Add(_room4);
+            _repoRoom.Add(_room5);
 
             _dateFrom = new DateTime(2016, 4, 29, 8, 0, 0);
             _dateTo = new DateTime(2016, 4, 29, 16, 0, 0);
@@ -52,15 +65,14 @@ namespace Core.UnitTest
         [TestMethod]
         public void AddRoomFromText()
         {
-            _repoRoom.Add('A', 2, 9, 6, Permission.Student);
+            _repoRoom.Add('A', 3, 9, 7, Permission.Student);
             _roomList = _repoRoom.Get();
-            Assert.IsTrue(_roomList.Contains(new Room('A', 2, 9, 6, Permission.Student)));
+            Assert.IsTrue(_roomList.Contains(new Room('A', 3, 9, 7, Permission.Student)));
         }
 
         [TestMethod]
         public void AddRoomFromObject()
         {
-            _repoRoom.Add(_room1);
             _roomList = _repoRoom.Get();
             Assert.IsTrue(_roomList.Contains(_room1));
         }
@@ -68,10 +80,6 @@ namespace Core.UnitTest
         [TestMethod]
         public void GetAllRooms()
         {
-            _repoRoom.Add(_room1);
-            _repoRoom.Add(_room2);
-            _repoRoom.Add(_room3);
-
             _roomList = _repoRoom.Get(); 
             Assert.AreEqual(3, _roomList.Count); // idk how else to ckeck this
         }
@@ -79,10 +87,6 @@ namespace Core.UnitTest
         [TestMethod]
         public void GetRoomsByUser()
         {
-            _repoRoom.Add(_room1);
-            _repoRoom.Add(_room2);
-            _repoRoom.Add(_room3);
-
             _roomList = _repoRoom.Get(_student);
             Assert.IsTrue(_roomList.Contains(_room1));
         }
@@ -90,20 +94,12 @@ namespace Core.UnitTest
         [TestMethod]
         public void GetRoomsByPermissionForStudent()
         {
-            _repoRoom.Add(_room1);
-            _repoRoom.Add(_room2);
-            _repoRoom.Add(_room3);
-
             _roomList = _repoRoom.Get(Permission.Student);
             Assert.IsTrue(_roomList.Contains(_room1));
         }
 
 		[TestMethod]
 		public void GetRoomsByPermisisonsForStudentDoesentReturnOthers() {
-			_repoRoom.Add(_room1);
-			_repoRoom.Add(_room2);
-			_repoRoom.Add(_room3);
-
 			_roomList = _repoRoom.Get(Permission.Student);
 			Assert.IsFalse(_roomList.Contains(_room2));
 			Assert.IsFalse(_roomList.Contains(_room3));
@@ -112,10 +108,6 @@ namespace Core.UnitTest
         [TestMethod]
         public void GetRoomsByReservation()
         {
-            _repoRoom.Add(_room1);
-            _repoRoom.Add(_room2);
-            _repoRoom.Add(_room3);
-
             _roomList = _repoRoom.Get(_reservation1);
             Assert.IsTrue(_roomList.Contains(_room1));
         }
@@ -123,13 +115,16 @@ namespace Core.UnitTest
         [TestMethod]
         public void DeleteRoom()
         {
-            _repoRoom.Add(_room1);
-            _repoRoom.Add(_room2);
-            _repoRoom.Add(_room3);
-
             _repoRoom.Delete(_room1);
             _roomList = _repoRoom.Get();
             Assert.IsFalse(_roomList.Contains(_room1));
+        }
+        [TestMethod]
+        public void CheckEventFiredForReservation()
+        {
+            Reservation reservation = new Reservation(_student, _room5, 7, _dateFrom, _dateTo);
+            _repoReservation.Add(reservation);
+            Assert.IsTrue(eventRaised);
         }
     }
 }

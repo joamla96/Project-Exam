@@ -36,11 +36,14 @@ namespace Core.UnitTest
             _student = new User("matt2694", "matt2694@edu.eal.dk", Permission.Student);
             _teacher = new User("alhe", "alhe@eal.dk", Permission.Teacher);
             _admin = new User("frje", "frje@eal.dk", Permission.Admin);
+
             _room1 = new Room('A', 2, 9, 6, Permission.Student);
             _room2 = new Room('A', 2, 15, 6, Permission.Teacher);
             _room3 = new Room('A', 2, 115, 6, Permission.Admin);
+
             _dateFrom = new DateTime(2016, 4, 29, 8, 0, 0);
             _dateTo = new DateTime(2016, 4, 29, 16, 0, 0);
+
             _reservation1 = new Reservation(_student, _room1, 6, _dateFrom, _dateTo);
             _reservation2 = new Reservation(_teacher, _room2, 6, _dateFrom, _dateTo);
             _reservation3 = new Reservation(_admin, _room3, 6, _dateFrom, _dateTo);
@@ -85,7 +88,7 @@ namespace Core.UnitTest
         }
 
         [TestMethod]
-        public void GetRoomsByPermission()
+        public void GetRoomsByPermissionForStudent()
         {
             _repoRoom.Add(_room1);
             _repoRoom.Add(_room2);
@@ -94,6 +97,17 @@ namespace Core.UnitTest
             _roomList = _repoRoom.Get(Permission.Student);
             Assert.IsTrue(_roomList.Contains(_room1));
         }
+
+		[TestMethod]
+		public void GetRoomsByPermisisonsForStudentDoesentReturnOthers() {
+			_repoRoom.Add(_room1);
+			_repoRoom.Add(_room2);
+			_repoRoom.Add(_room3);
+
+			_roomList = _repoRoom.Get(Permission.Student);
+			Assert.IsFalse(_roomList.Contains(_room2));
+			Assert.IsFalse(_roomList.Contains(_room3));
+		}
 
         [TestMethod]
         public void GetRoomsByReservation()

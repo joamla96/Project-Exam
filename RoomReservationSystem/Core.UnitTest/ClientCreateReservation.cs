@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Core.Interfaces;
 using Core;
+using System.Collections.Generic;
 
 namespace Core.UnitTest
 {
@@ -12,6 +13,7 @@ namespace Core.UnitTest
 		IRoom _room1;
 		IRoom _room2;
 		IRoom _room3;
+		IRoom _room4;
 
 		IUser _student;
 		IUser _teacher;
@@ -26,12 +28,23 @@ namespace Core.UnitTest
 			RepoReserv.Clear();
 
 			_room1 = new Room('A', 1, 2, 4, Permission.Student);
-			_room2 = new Room('A', 1, 2, 99, Permission.Admin);
-			_room3 = new Room('B', 1, 3, 45, Permission.Teacher);
+			_room2 = new Room('A', 1, 99, 8, Permission.Student);
+			_room3 = new Room('B', 1, 45, 2, Permission.Student);
+			_room4 = new Room('A', 1, 861, 15, Permission.Teacher);
+
+			RepoRoom.Add(_room1);
+			RepoRoom.Add(_room2);
+			RepoRoom.Add(_room3);
 
 			_student = new User("roxa0198", "roxa0188@edu.eal.dk", Permission.Student);
-			_teacher = new User("lehe", "lehe@eal.dk", Permission.Teacher);
-			_admin = new User("joro", "fictive@example.com", Permission.Admin);
+		}
+
+		[TestMethod]
+		public void SortRoomsByMaxPeopleIntoFILOStack() {
+			Stack<IRoom> StackRooms = RepoRoom.GetPossible(Permission.Student, 4);
+
+			Assert.AreEqual(StackRooms.Pop(), _room1);
+			Assert.AreEqual(StackRooms.Pop(), _room2);
 		}
 
 	}

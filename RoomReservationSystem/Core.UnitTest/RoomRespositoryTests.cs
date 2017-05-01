@@ -72,5 +72,38 @@ namespace Core.UnitTest
             _roomList = _repoRoom.Get(); 
             Assert.AreEqual(3, _roomList.Count); // idk how else to ckeck this
         }
+
+        [TestMethod]
+        public void GetRoomsByUser()
+        {
+            _repoRoom.Add(_room1);
+            _repoRoom.Add(_room2);
+            _repoRoom.Add(_room3);
+
+            _roomList = _repoRoom.Get(_student);
+            Assert.IsTrue(_roomList.Contains(_room1));
+        }
+
+        [TestMethod]
+        public void GetRoomsByPermission()
+        {
+            _repoRoom.Add(_room1);
+            _repoRoom.Add(_room2);
+            _repoRoom.Add(_room3);
+
+            _roomList = _repoRoom.Get(Permission.Student);
+            Assert.IsTrue(_roomList.Contains(_room1));
+        }
+
+        [TestMethod]
+        public void GetRoomsByReservation()
+        {
+            _repoRoom.Add(_room1);
+            _repoRoom.Add(_room2);
+            _repoRoom.Add(_room3);
+
+            _roomList = _repoRoom.Get(_reservation1);
+            Assert.IsTrue(_roomList.Contains(_room1));
+        }
     }
 }

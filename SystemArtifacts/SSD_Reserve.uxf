@@ -121,32 +121,6 @@ Selects user</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>957</x>
-      <y>462</y>
-      <w>495</w>
-      <h>44</h>
-    </coordinates>
-    <panel_attributes>Select time when to repeat: Every week, every day, every month
-lt=&lt;&lt;&lt;-
-group=1</panel_attributes>
-    <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>803</x>
-      <y>440</y>
-      <w>638</w>
-      <h>77</h>
-    </coordinates>
-    <panel_attributes>OPT
-[If selected: Repeat]
-group=1</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>957</x>
       <y>407</y>
       <w>495</w>
       <h>44</h>
@@ -172,10 +146,10 @@ Selects Room</panel_attributes>
       <x>957</x>
       <y>110</y>
       <w>33</w>
-      <h>473</h>
+      <h>418</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;410.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;360.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -194,10 +168,10 @@ Selects Room</panel_attributes>
       <x>1419</x>
       <y>88</y>
       <w>33</w>
-      <h>495</h>
+      <h>440</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;430.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;380.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>

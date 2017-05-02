@@ -47,33 +47,34 @@ namespace Core.UnitTest
             Assert.AreEqual(StackRooms.Pop(), _room1);
             Assert.AreEqual(StackRooms.Pop(), _room2);
         }
-        [TestMethod][ExpectedException(typeof (System.NoAvailableRoomException))]
-        public void SortRoomsByMaxPeopleIntoFILOStackOutOfRooms()
-        {
-            Stack<IRoom> StackRooms = RepoRoom.GetPossible(Permission.Student, 4);
+        //[TestMethod][ExpectedException(typeof (System.NoAvailableRoomException))]
+        //public void SortRoomsByMaxPeopleIntoFILOStackOutOfRooms()
+        //{
+        //    Stack<IRoom> StackRooms = RepoRoom.GetPossible(Permission.Student, 4);
 
-            StackRooms.Pop();
-            StackRooms.Pop();
-            StackRooms.Pop();
-        }
-        [TestMethod]
-        public void RoomIsAvailable()
-        {
-            DateTime from = new DateTime(2017, 05, 01, 13, 0, 0);
-            DateTime to = new DateTime(2017, 05, 01, 14, 0, 0);
-            bool roomAvailable = _room1.IsAvailable(from,to);
-            Assert.IsTrue(roomAvailable);
-        }
-        [TestMethod]
-        public void RoomIsNotAvailable()
-        {
-            DateTime from = new DateTime(2017, 05, 01, 13, 0, 0);
-            DateTime to = new DateTime(2017, 05, 01, 14, 0, 0);
-            Reservation res = new Reservation(_student, _room1, 3, from, to);
-            RepoReserv.Add(res);
-            bool roomAvailable = _room1.IsAvailable(from, to);
-            Assert.IsFalse(roomAvailable);
-        }
+        //    StackRooms.Pop();
+        //    StackRooms.Pop();
+        //    StackRooms.Pop();
+        //}
+
+        //[TestMethod]
+        //public void RoomIsAvailable()
+        //{
+        //    DateTime from = new DateTime(2017, 05, 01, 13, 0, 0);
+        //    DateTime to = new DateTime(2017, 05, 01, 14, 0, 0);
+        //    bool roomAvailable = _room1.IsAvailable(from,to);
+        //    Assert.IsTrue(roomAvailable);
+        //}
+        //[TestMethod]
+        //public void RoomIsNotAvailable()
+        //{
+        //    DateTime from = new DateTime(2017, 05, 01, 13, 0, 0);
+        //    DateTime to = new DateTime(2017, 05, 01, 14, 0, 0);
+        //    Reservation res = new Reservation(_student, _room1, 3, from, to);
+        //    RepoReserv.Add(res);
+        //    bool roomAvailable = _room1.IsAvailable(from, to);
+        //    Assert.IsFalse(roomAvailable);
+        //}
         
     }
 }

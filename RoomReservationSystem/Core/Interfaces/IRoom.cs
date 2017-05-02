@@ -14,5 +14,7 @@ namespace Core.Interfaces
         int MaxPeople { get; set; }
         Permission MinPermissionLevel { get; set; }
         int Nr { get; set; }
+
+
     }
 }

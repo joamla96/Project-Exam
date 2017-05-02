@@ -42,7 +42,7 @@ namespace Core.UnitTest
         [TestMethod]
         public void CanCreateRoomInstanceID1()
         {
-            Assert.AreEqual("A2.09", _room1.ID);
+            Assert.AreEqual("A2.9", _room1.ID);
         }
 
         [TestMethod]

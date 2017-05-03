@@ -84,32 +84,31 @@ namespace Core.UnitTest
             Assert.AreEqual(5, _roomList.Count); // idk how else to ckeck this
         }
 
-        [TestMethod]
-        public void GetRoomsByUser()
-        {
-            _roomList = _repoRoom.Get(_student);
-            Assert.IsTrue(_roomList.Contains(_room1));
-        }
-
-  //      [TestMethod]
-  //      public void GetRoomsByPermissionForStudent()
-  //      {
-  //          _roomList = _repoRoom.Get(Permission.Student);
-  //          Assert.IsTrue(_roomList.Contains(_room1));
-  //      }
-
-		//[TestMethod]
-		//public void GetRoomsByPermisisonsForStudentDoesentReturnOthers() {
-		//	_roomList = _repoRoom.Get(Permission.Student);
-		//	Assert.IsFalse(_roomList.Contains(_room2));
-		//	Assert.IsFalse(_roomList.Contains(_room3));
+		//[TestMethod] // Discard this test - Jonas
+		//public void GetRoomsByUser()
+		//{
+		//    _roomList = _repoRoom.Get(_student);
+		//    Assert.IsTrue(_roomList.Contains(_room1));
 		//}
 
-        [TestMethod]
+		[TestMethod]
+		public void GetRoomsByPermissionForStudent() {
+			_roomList = _repoRoom.Get(Permission.Student);
+			Assert.IsTrue(_roomList.Contains(_room1));
+		}
+
+		[TestMethod]
+		public void GetRoomsByPermisisonsForStudentDoesentReturnOthers() {
+			_roomList = _repoRoom.Get(Permission.Student);
+			Assert.IsFalse(_roomList.Contains(_room2));
+			Assert.IsFalse(_roomList.Contains(_room3));
+		}
+
+		[TestMethod]
         public void GetRoomsByReservation()
         {
-            _roomList = _repoRoom.Get(_reservation1);
-            Assert.IsTrue(_roomList.Contains(_room1)); //test is wrong, you can ony get one room per reservation
+            IRoom room = _repoRoom.Get(_reservation1);
+            Assert.IsTrue(room.Equals(_room1));
         }
 
         [TestMethod]

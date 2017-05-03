@@ -38,21 +38,11 @@ namespace Core {
             return _roomRepository;
         }
 
-        //public List<IRoom> Get(IUser user)          NEEDS MORE EXPLANATION!!!! USER AND ROOMS ARE NOT CNNECTED
-        //{
-        //    List<Room> userRooms = new List<Room>();
-        //    foreach(Room room in _roomRepository)
-        //    {
-                
-        //    }
-        //}
+		public List<IRoom> Get(Permission PermissionLevel) {
+			throw new NotImplementedException();
+		}
 
-        //public List<IRoom> Get(IUser PermissionLevel)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        public List<IRoom> Get(Reservation reservation)
+		public IRoom Get(Reservation reservation)
         {
             Room result = null;
             foreach(Room room in _roomRepository)

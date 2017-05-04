@@ -23,5 +23,22 @@ namespace UI.GUI
 		public MainWindow() {
 			InitializeComponent();
 		}
-	}
+
+        private void AdminButtonClick(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void StudentButtonClick(object sender, RoutedEventArgs e)
+        {
+            View.User user = new View.User();
+            user.Show();
+            
+        }
+
+        private void TeacherButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
 }

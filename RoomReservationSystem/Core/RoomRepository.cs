@@ -39,7 +39,15 @@ namespace Core {
         }
 
 		public List<IRoom> Get(Permission PermissionLevel) {
-			throw new NotImplementedException();
+			List<IRoom> Result = new List<IRoom>();
+
+			foreach(IRoom room in _roomRepository) {
+				if(room.MinPermissionLevel >= PermissionLevel) {
+					Result.Add(room);
+				}
+			}
+
+			return Result;
 		}
 
 		public IRoom Get(Reservation reservation)
@@ -55,9 +63,25 @@ namespace Core {
             return result;
         }
 
-        public Stack<IRoom> GetPossible(Permission student, int v)
+        public Stack<IRoom> GetPossible(Permission permissionLevel, int people)
         {
-            throw new NotImplementedException();
+			List<IRoom> permission = this.Get(permissionLevel);
+			List<IRoom> possible = new List<IRoom>();
+			Stack<IRoom> stack = new Stack<IRoom>();
+
+			foreach(IRoom room in permission) {
+				if(room.MaxPeople >= people) {
+					possible.Add(room);
+				}
+			}
+
+			possible.Sort();
+
+			foreach(IRoom room in possible) {
+				stack.Push(room);
+			}
+
+			return stack;
         }
 
         public void Delete(IRoom room)

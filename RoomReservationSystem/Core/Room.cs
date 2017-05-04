@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Core
 {
 
-    public class Room : IRoom
+    public class Room : IRoom, IComparable
 	{
         
         public string ID { get { return String.Format("{0}" + "{1}" + "." + "{2}", Building, Floor, Nr);} }
@@ -15,7 +15,6 @@ namespace Core
         public int Nr { get; set; }
         public int MaxPeople { get; set; }
         public Permission MinPermissionLevel { get; set; }
-
 
         List<Reservation> _reservations = new List<Reservation>();
         
@@ -30,7 +29,37 @@ namespace Core
         }
 
 		public bool IsAvailable(DateTime from, DateTime to) {
-			throw new NotImplementedException();
+			throw new NotImplementedException(); 
 		}
-    }
+
+		public override bool Equals(object obj) {
+			bool thesame = false;
+			if(obj is IRoom) {
+				IRoom Other = (IRoom)obj;
+
+				if (this.ID.Equals(Other.ID)) thesame = true;
+			}
+
+			return thesame;
+		}
+
+		public override int GetHashCode() {
+			return this.ID.GetHashCode();
+		}
+
+		public int CompareTo(object obj) {
+			int result;
+			if (obj is IRoom) {
+				IRoom Other = (IRoom)obj;
+
+				if (Other.MaxPeople < this.MaxPeople) {
+					result = -1;
+				} else if (Other.MaxPeople > this.MaxPeople) {
+					result = 1;
+				} else result = 0;
+			} else throw new InvalidCastException();
+
+			return result;
+		}
+	}
 }

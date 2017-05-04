@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Core.Interfaces;
-using Core.Exceptions;
 using Core;
 using System.Collections.Generic;
 
@@ -30,9 +29,7 @@ namespace Core.UnitTest
 
             _room1 = new Room('A', 1, 2, 4, Permission.Student);
             _room2 = new Room('A', 1, 99, 8, Permission.Student);
-            _room3 = new Room('B', 1, 45, 2, Permission.Student);
-
-
+			_room3 = new Room('B', 1, 45, 2, Permission.Student);
 
             _repoRoom.Add(_room1);
             _repoRoom.Add(_room2);
@@ -50,7 +47,7 @@ namespace Core.UnitTest
         }
 
 		[TestMethod]
-		[ExpectedException(typeof(NoRoomsAvailableException))]
+		[ExpectedException(typeof(InvalidOperationException))]
 		public void SortRoomsByMaxPeopleIntoFILOStackOutOfRooms() {
 			Stack<IRoom> StackRooms = _repoRoom.GetPossible(Permission.Student, 4);
 
@@ -75,6 +72,5 @@ namespace Core.UnitTest
 			bool roomAvailable = _room1.IsAvailable(from, to);
 			Assert.IsFalse(roomAvailable);
 		}
-
 	}
 }

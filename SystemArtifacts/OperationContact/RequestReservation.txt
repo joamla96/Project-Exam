@@ -10,4 +10,4 @@ Preconditions:
  - No preconditions
 
 Postconditions:
- - A reservation is associated with a user and room/an exception is thrown
+ - A reservation was created

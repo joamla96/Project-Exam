@@ -163,9 +163,9 @@ m2=1</panel_attributes>
 + Add(Building, Floor, Nr, MaxPeople)
 + Add(IRoom)
 + Get() : List&lt;IRoom&gt;
-+ Get(IUser) : List&lt;IRoom&gt;
 + Get(IUser.PermissionLevel) : List&lt;IRoom&gt;
 + Get(Reservation) : List&lt;Room&gt;
++ Get(IRoom) : IRoom
 + Delete(IRoom)</panel_attributes>
     <additional_attributes/>
   </element>
@@ -186,7 +186,7 @@ m2=1</panel_attributes>
 + Get() : List&lt;Reservation&gt; // Get all
 + Get(IUser) : List&lt;Reservation&gt; // Get all by User
 + Get(IRoom) : List&lt;Reservation&gt; // Get all by Room
-+ Get(Reservation) : List&lt;Reservation&gt; // Get specific
++ Get(Reservation) : Reservation // Get specific
 + Delete(Reservation)
 </panel_attributes>
     <additional_attributes/>
@@ -206,7 +206,7 @@ m2=1</panel_attributes>
 + Add(Username, Email) : Void
 + Add(IUser) : Void
 + Get() : List&lt;IUser&gt;
-+ Get(IUser) : List&lt;IUser&gt;
++ Get(IUser) : IUser
 + Get(IRoom) : List&lt;IUser&gt;
 + Get(Reservation): List&lt;IUser&gt;
 + Delete(IUser)

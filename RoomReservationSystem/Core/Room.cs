@@ -32,5 +32,20 @@ namespace Core
 		public bool IsAvailable(DateTime from, DateTime to) {
 			throw new NotImplementedException();
 		}
-    }
+
+		public override bool Equals(object obj) {
+			bool thesame = false;
+			if(obj is IRoom) {
+				IRoom Other = (IRoom)obj;
+
+				if (this.ID.Equals(Other.ID)) thesame = true;
+			}
+
+			return thesame;
+		}
+
+		public override int GetHashCode() {
+			return this.ID.GetHashCode();
+		}
+	}
 }

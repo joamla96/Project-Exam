@@ -16,7 +16,6 @@ namespace Core
         public int MaxPeople { get; set; }
         public Permission MinPermissionLevel { get; set; }
 
-
         List<Reservation> _reservations = new List<Reservation>();
         
 
@@ -30,7 +29,7 @@ namespace Core
         }
 
 		public bool IsAvailable(DateTime from, DateTime to) {
-			throw new NotImplementedException();
+			throw new NotImplementedException(); 
 		}
 
 		public override bool Equals(object obj) {

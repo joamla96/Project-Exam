@@ -10,4 +10,4 @@ Preconditions:
  - No preconditions
 
 Postconditions:
- - A reservation may have been made
+ - A reservation was created

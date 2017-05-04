@@ -15,6 +15,6 @@ namespace Core.Interfaces
         Permission MinPermissionLevel { get; set; }
         int Nr { get; set; }
 
-
+		bool IsAvailable(DateTime from, DateTime To);
     }
 }

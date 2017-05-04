@@ -28,5 +28,9 @@ namespace Core
             this.MaxPeople = maxPeople;
             this.MinPermissionLevel = minPremissionLevel;
         }
+
+		public bool IsAvailable(DateTime from, DateTime to) {
+			throw new NotImplementedException();
+		}
     }
 }

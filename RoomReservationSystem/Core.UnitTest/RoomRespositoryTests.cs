@@ -112,12 +112,6 @@ namespace Core.UnitTest
             _roomList = _repoRoom.Get();
             Assert.IsFalse(_roomList.Contains(_room1));
         }
-        //[TestMethod]
-        //public void CheckEventFiredForReservation()
-        //{
-        //    Reservation reservation = new Reservation(_student, _room5, 7, _dateFrom, _dateTo);
-        //    _repoReservation.Add(reservation);
-        //    Assert.IsTrue(eventRaised);
-        //}
+
     }
 }

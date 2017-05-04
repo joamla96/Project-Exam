@@ -10,37 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace UI.GUI.View
 {
     /// <summary>
-    /// Interaction logic for User.xaml
+    /// Interaction logic for ReserveRoom.xaml
     /// </summary>
-    public partial class User : Window
+    public partial class ReserveRoom : Page
     {
-        public User()
+        public ReserveRoom()
         {
             InitializeComponent();
-            
         }
-
-        
-        private void ReserveProjectRoomButtonClick(object sender, RoutedEventArgs e)
-        {
-            Frame.Content = new ReserveRoom();
-        }
-
-        private void SeeMyReservationButtonClick(object sender, RoutedEventArgs e)
+        private void ReserveRoomButtonClick(object sender, RoutedEventArgs e)
         {
 
         }
-
-        private void ReserveMeetingRoomButtonClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        
     }
 }

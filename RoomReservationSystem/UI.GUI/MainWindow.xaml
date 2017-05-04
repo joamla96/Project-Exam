@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI.GUI"
         mc:Ignorable="d"
-        Title="RoSys" Height="350" Width="525">
+        Title="RoSys" Height="241.176" Width="390.686">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="370*"/>
+            <ColumnDefinition Width="13*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Admin" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" Margin="28,70,0,0" Height="63" Click="AdminButtonClick"/>
+        <Button Content="Student" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" Margin="221,26,0,0" Height="63" Click="StudentButtonClick"/>
+        <Button Content="Teacher" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" Margin="221,123,0,0" Height="63" Click="TeacherButtonClick"/>
+
     </Grid>
 </Window>

@@ -65,9 +65,10 @@ namespace Core.UnitTest
         [TestMethod]
         public void AddRoomFromText()
         {
+			IRoom TestRoom = new Room('A', 3, 9, 7, Permission.Student);
             _repoRoom.Add('A', 3, 9, 7, Permission.Student);
             _roomList = _repoRoom.Get();
-            Assert.IsTrue(_roomList.Contains(new Room('A', 3, 9, 7, Permission.Student)));
+            Assert.IsTrue(_roomList.Contains(TestRoom));
         }
 
         [TestMethod]

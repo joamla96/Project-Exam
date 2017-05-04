@@ -64,7 +64,7 @@ namespace Core.UnitTest
 
         [TestMethod]
         public void AddRoomFromText()
-        {
+        { // Remember, override Equals method
 			IRoom TestRoom = new Room('A', 3, 9, 7, Permission.Student);
             _repoRoom.Add('A', 3, 9, 7, Permission.Student);
             _roomList = _repoRoom.Get();
@@ -84,13 +84,6 @@ namespace Core.UnitTest
             _roomList = _repoRoom.Get(); 
             Assert.AreEqual(5, _roomList.Count); // idk how else to ckeck this
         }
-
-		//[TestMethod] // Discard this test - Jonas
-		//public void GetRoomsByUser()
-		//{
-		//    _roomList = _repoRoom.Get(_student);
-		//    Assert.IsTrue(_roomList.Contains(_room1));
-		//}
 
 		[TestMethod]
 		public void GetRoomsByPermissionForStudent() {
@@ -119,12 +112,6 @@ namespace Core.UnitTest
             _roomList = _repoRoom.Get();
             Assert.IsFalse(_roomList.Contains(_room1));
         }
-        //[TestMethod]
-        //public void CheckEventFiredForReservation()
-        //{
-        //    Reservation reservation = new Reservation(_student, _room5, 7, _dateFrom, _dateTo);
-        //    _repoReservation.Add(reservation);
-        //    Assert.IsTrue(eventRaised);
-        //}
+
     }
 }

@@ -21,7 +21,8 @@ namespace Core
 
         public void Add(Reservation reservation)
         {
-            throw new NotImplementedException();
+			_reservationRepository.Add(reservation);
+			reservation.Room.AddReservation(reservation);
         }
     }
 }

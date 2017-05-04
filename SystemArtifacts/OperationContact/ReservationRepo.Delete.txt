@@ -9,4 +9,4 @@ Preconditions:
  - Reservation Exists
 
 Postconditions:
- - A reservation was deleted
+ - A Reservation was deleted

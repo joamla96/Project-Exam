@@ -16,5 +16,6 @@ namespace Core.Interfaces
         int Nr { get; set; }
 
 		bool IsAvailable(DateTime from, DateTime To);
+		void AddReservation(Reservation reservation);
     }
 }

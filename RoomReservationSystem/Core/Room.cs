@@ -16,7 +16,7 @@ namespace Core
         public int MaxPeople { get; set; }
         public Permission MinPermissionLevel { get; set; }
 
-        List<Reservation> _reservations = new List<Reservation>();
+        private List<Reservation> _reservations = new List<Reservation>();
         
 
         public Room(char building, int floor, int nr, int maxPeople, Permission minPremissionLevel)
@@ -29,7 +29,25 @@ namespace Core
         }
 
 		public bool IsAvailable(DateTime from, DateTime to) {
-			throw new NotImplementedException(); 
+			bool isAvailable = true;
+			foreach(Reservation res in _reservations) {
+				if(TimeCollides(res.From, from, to) || TimeCollides(res.To, from, to)) {
+					isAvailable = false;
+				}
+			}
+
+			return isAvailable;
+		}
+
+		private bool TimeCollides(DateTime now, DateTime start, DateTime end) {
+			// Solution based on StackOverFlow answer:
+			// https://stackoverflow.com/questions/12998739/how-to-check-if-datetime-now-is-between-two-given-datetimes-for-time-part-only
+
+			// see if start comes before end
+			if (start < end)
+				return start <= now && now <= end;
+			// start is after end, so do the inverse comparison
+			return !(end < now && now < start);
 		}
 
 		public override bool Equals(object obj) {
@@ -60,6 +78,10 @@ namespace Core
 			} else throw new InvalidCastException();
 
 			return result;
+		}
+
+		public void AddReservation(Reservation reserv) {
+			_reservations.Add(reserv);
 		}
 	}
 }

@@ -48,7 +48,7 @@ namespace Core.UnitTest
         }
 
 		[TestMethod]
-		[ExpectedException(typeof(NoRoomsAvailableException))]
+		[ExpectedException(typeof(InvalidOperationException))]
 		public void SortRoomsByMaxPeopleIntoFILOStackOutOfRooms() {
 			Stack<IRoom> StackRooms = _repoRoom.GetPossible(Permission.Student, 4);
 

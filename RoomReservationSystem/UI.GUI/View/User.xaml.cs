@@ -40,9 +40,6 @@ namespace UI.GUI.View
 
         }
 
-        private void ReserveRoomButtonClick(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
     }
 }

@@ -22,12 +22,13 @@ namespace UI.GUI.View
         public User()
         {
             InitializeComponent();
+            
         }
 
-
+        
         private void ReserveProjectRoomButtonClick(object sender, RoutedEventArgs e)
         {
-
+            Frame.Content = new ReserveRoom();
         }
 
         private void SeeMyReservationButtonClick(object sender, RoutedEventArgs e)
@@ -40,6 +41,6 @@ namespace UI.GUI.View
 
         }
 
-       
+        
     }
 }

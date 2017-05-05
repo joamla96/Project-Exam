@@ -26,7 +26,8 @@ namespace UI.GUI.View
         }
         private void ReserveRoomButtonClick(object sender, RoutedEventArgs e)
         {
-
+            ViewModel.ReserveRoomVM reserveRoom = new ViewModel.ReserveRoomVM();
+            reserveRoom.ReserveRoom()
         }
     }
 }

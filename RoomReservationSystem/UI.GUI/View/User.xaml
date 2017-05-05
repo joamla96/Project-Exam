@@ -21,9 +21,6 @@
         <Button Content="Reserve meeting room" HorizontalAlignment="Left" Margin="0,78,0,0" VerticalAlignment="Top" Width="123" Click="ReserveMeetingRoomButtonClick" Height="29"/>
         
         <Frame x:Name="Frame" Margin="5.2,0,-0.2,0" NavigationUIVisibility="Hidden" RenderTransformOrigin="0.469,0.461" Grid.Column="1" />
-        
-        <Label x:Name="NotificationMessageLabel" Content="You have been assigned to room :" Grid.Column="1" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Width="219" Height="36" FontSize="14"/>
-        <Label x:Name="RoomIDLabel" Content="LABEL" Grid.Column="1" HorizontalAlignment="Left" Margin="234,224,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.45,0.789" FontWeight="Bold" FontSize="14"/>
 
 
     </Grid>

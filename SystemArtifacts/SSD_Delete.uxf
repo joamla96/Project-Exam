@@ -4,7 +4,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1184</x>
+      <x>1232</x>
       <y>112</y>
       <w>160</w>
       <h>48</h>
@@ -15,7 +15,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1248</x>
+      <x>1296</x>
       <y>144</y>
       <w>48</w>
       <h>464</h>
@@ -26,7 +26,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
+      <x>528</x>
       <y>144</y>
       <w>48</w>
       <h>448</h>
@@ -37,18 +37,18 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>384</x>
+      <x>432</x>
       <y>0</y>
       <w>224</w>
       <h>176</h>
     </coordinates>
-    <panel_attributes>:Student / Teacher</panel_attributes>
+    <panel_attributes>Student / Teacher</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
+      <x>528</x>
       <y>176</y>
       <w>816</w>
       <h>64</h>
@@ -60,19 +60,19 @@ ReservationRepository.Get(IUser)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
+      <x>528</x>
       <y>240</y>
       <w>816</w>
       <h>64</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
-List&lt;Reservation&gt;</panel_attributes>
+List&lt;Reservation&gt; reservations</panel_attributes>
     <additional_attributes>490.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>144</x>
+      <x>192</x>
       <y>304</y>
       <w>1136</w>
       <h>96</h>
@@ -84,7 +84,7 @@ List&lt;Reservation&gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
+      <x>528</x>
       <y>320</y>
       <w>816</w>
       <h>64</h>
@@ -96,7 +96,7 @@ Delete(Reservation)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
+      <x>528</x>
       <y>416</y>
       <w>816</w>
       <h>64</h>
@@ -108,7 +108,7 @@ A message that reservations have been canceled</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>496</x>
+      <x>544</x>
       <y>752</y>
       <w>48</w>
       <h>448</h>
@@ -119,18 +119,18 @@ A message that reservations have been canceled</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>448</x>
+      <x>496</x>
       <y>608</y>
       <w>112</w>
       <h>176</h>
     </coordinates>
-    <panel_attributes>:Admin</panel_attributes>
+    <panel_attributes>Admin</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1200</x>
+      <x>1248</x>
       <y>720</y>
       <w>160</w>
       <h>48</h>
@@ -141,7 +141,7 @@ A message that reservations have been canceled</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1264</x>
+      <x>1312</x>
       <y>752</y>
       <w>48</w>
       <h>464</h>
@@ -152,31 +152,31 @@ A message that reservations have been canceled</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>496</x>
+      <x>544</x>
       <y>784</y>
       <w>816</w>
       <h>64</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-ReservationRepository.Get(IRoom)</panel_attributes>
+ReservationRepository.Get()</panel_attributes>
     <additional_attributes>10.0;20.0;490.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>496</x>
+      <x>544</x>
       <y>848</y>
       <w>816</w>
       <h>64</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
-List&lt;Reservation&gt;</panel_attributes>
+List&lt;Reservation&gt; reservations</panel_attributes>
     <additional_attributes>490.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>160</x>
+      <x>208</x>
       <y>912</y>
       <w>1136</w>
       <h>112</h>
@@ -188,7 +188,7 @@ List&lt;Reservation&gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>496</x>
+      <x>544</x>
       <y>944</y>
       <w>816</w>
       <h>64</h>
@@ -200,7 +200,7 @@ Delete(Reservation)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>496</x>
+      <x>544</x>
       <y>1040</y>
       <w>816</w>
       <h>64</h>

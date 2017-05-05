@@ -85,5 +85,12 @@ namespace Core.UnitTest
             _reservationList = _repoReservation.Get();
             Assert.IsTrue(_reservationList.Contains(_reservation1));
         }
+
+        [TestMethod]
+        public void GetAllReservations()
+        {
+            _reservationList = _repoReservation.Get();
+            Assert.IsTrue(_reservationList.Contains(_reservation1));
+        }
     }
 }

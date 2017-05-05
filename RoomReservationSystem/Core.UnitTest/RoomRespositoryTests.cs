@@ -82,7 +82,7 @@ namespace Core.UnitTest
         public void GetAllRooms()
         {
             _roomList = _repoRoom.Get(); 
-            Assert.AreEqual(5, _roomList.Count); // idk how else to ckeck this
+            Assert.AreEqual(5, _roomList.Count);
         }
 
 		[TestMethod]

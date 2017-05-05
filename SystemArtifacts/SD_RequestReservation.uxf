@@ -5,7 +5,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>616</x>
-      <y>14</y>
+      <y>0</y>
       <w>294</w>
       <h>70</h>
     </coordinates>
@@ -17,7 +17,7 @@
     <id>Relation</id>
     <coordinates>
       <x>14</x>
-      <y>112</y>
+      <y>98</y>
       <w>756</w>
       <h>56</h>
     </coordinates>
@@ -30,7 +30,7 @@ layer=0</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>742</x>
-      <y>70</y>
+      <y>56</y>
       <w>42</w>
       <h>98</h>
     </coordinates>
@@ -41,7 +41,7 @@ layer=0</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>742</x>
-      <y>140</y>
+      <y>126</y>
       <w>28</w>
       <h>1106</h>
     </coordinates>
@@ -52,7 +52,7 @@ layer=0</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1484</x>
-      <y>14</y>
+      <y>0</y>
       <w>224</w>
       <h>70</h>
     </coordinates>
@@ -65,7 +65,7 @@ group=2</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1596</x>
-      <y>70</y>
+      <y>56</y>
       <w>42</w>
       <h>126</h>
     </coordinates>
@@ -77,7 +77,7 @@ group=2</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1596</x>
-      <y>168</y>
+      <y>154</y>
       <w>28</w>
       <h>42</h>
     </coordinates>
@@ -89,7 +89,7 @@ group=2</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>756</x>
-      <y>140</y>
+      <y>126</y>
       <w>868</w>
       <h>56</h>
     </coordinates>
@@ -101,7 +101,7 @@ GetPossible(user.PermissionLevel, peopleNr)</panel_attributes>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>14</x>
-      <y>126</y>
+      <y>112</y>
       <w>28</w>
       <h>28</h>
     </coordinates>
@@ -112,7 +112,7 @@ GetPossible(user.PermissionLevel, peopleNr)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>756</x>
-      <y>182</y>
+      <y>168</y>
       <w>868</w>
       <h>56</h>
     </coordinates>
@@ -124,7 +124,7 @@ rooms = Stack&lt;IRoom&gt;</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>308</x>
-      <y>518</y>
+      <y>504</y>
       <w>1162</w>
       <h>406</h>
     </coordinates>
@@ -136,7 +136,7 @@ rooms = Stack&lt;IRoom&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>756</x>
-      <y>532</y>
+      <y>518</y>
       <w>532</w>
       <h>56</h>
     </coordinates>
@@ -148,19 +148,19 @@ currentRoom = rooms.Pop()</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>504</x>
-      <y>798</y>
+      <y>784</y>
       <w>504</w>
       <h>112</h>
     </coordinates>
     <panel_attributes>OPT
-[roomAvailable = true]</panel_attributes>
+[roomAvailable == true]</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>756</x>
-      <y>616</y>
+      <y>602</y>
       <w>588</w>
       <h>56</h>
     </coordinates>
@@ -172,7 +172,7 @@ IsAvailable(datetime from, datetime to)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>756</x>
-      <y>798</y>
+      <y>784</y>
       <w>252</w>
       <h>126</h>
     </coordinates>
@@ -185,7 +185,7 @@ currentRoom</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>28</x>
-      <y>1218</y>
+      <y>1204</y>
       <w>742</w>
       <h>56</h>
     </coordinates>
@@ -197,7 +197,7 @@ foundRoom</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>532</x>
-      <y>938</y>
+      <y>924</y>
       <w>308</w>
       <h>98</h>
     </coordinates>
@@ -209,7 +209,7 @@ foundRoom</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>28</x>
-      <y>994</y>
+      <y>980</y>
       <w>742</w>
       <h>56</h>
     </coordinates>
@@ -221,7 +221,7 @@ Exception: NoRoomsAvailable</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>532</x>
-      <y>1036</y>
+      <y>1022</y>
       <w>1022</w>
       <h>266</h>
     </coordinates>
@@ -232,7 +232,7 @@ Exception: NoRoomsAvailable</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1596</x>
-      <y>196</y>
+      <y>182</y>
       <w>42</w>
       <h>1176</h>
     </coordinates>
@@ -244,7 +244,7 @@ group=2</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>756</x>
-      <y>1050</y>
+      <y>1036</y>
       <w>630</w>
       <h>56</h>
     </coordinates>
@@ -256,7 +256,7 @@ new Reservation(user, foundRoom, peopleNr, from, to)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1358</x>
-      <y>1050</y>
+      <y>1036</y>
       <w>140</w>
       <h>42</h>
     </coordinates>
@@ -267,7 +267,7 @@ new Reservation(user, foundRoom, peopleNr, from, to)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>756</x>
-      <y>1120</y>
+      <y>1106</y>
       <w>686</w>
       <h>56</h>
     </coordinates>
@@ -279,7 +279,7 @@ reservation</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>756</x>
-      <y>1162</y>
+      <y>1148</y>
       <w>322</w>
       <h>84</h>
     </coordinates>
@@ -291,7 +291,7 @@ this.Add(reservation)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1414</x>
-      <y>1078</y>
+      <y>1064</y>
       <w>42</w>
       <h>70</h>
     </coordinates>
@@ -302,7 +302,7 @@ this.Add(reservation)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1414</x>
-      <y>1120</y>
+      <y>1106</y>
       <w>28</w>
       <h>28</h>
     </coordinates>
@@ -313,7 +313,7 @@ this.Add(reservation)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1414</x>
-      <y>1134</y>
+      <y>1120</y>
       <w>42</w>
       <h>238</h>
     </coordinates>
@@ -324,7 +324,7 @@ this.Add(reservation)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>742</x>
-      <y>1232</y>
+      <y>1218</y>
       <w>42</w>
       <h>140</h>
     </coordinates>
@@ -335,7 +335,7 @@ this.Add(reservation)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1260</x>
-      <y>546</y>
+      <y>532</y>
       <w>140</w>
       <h>42</h>
     </coordinates>
@@ -346,7 +346,7 @@ this.Add(reservation)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1316</x>
-      <y>574</y>
+      <y>560</y>
       <w>42</w>
       <h>98</h>
     </coordinates>
@@ -357,7 +357,7 @@ this.Add(reservation)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1316</x>
-      <y>644</y>
+      <y>630</y>
       <w>28</w>
       <h>42</h>
     </coordinates>
@@ -368,7 +368,7 @@ this.Add(reservation)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>756</x>
-      <y>658</y>
+      <y>644</y>
       <w>588</w>
       <h>56</h>
     </coordinates>
@@ -380,7 +380,7 @@ roomAvailable</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1316</x>
-      <y>672</y>
+      <y>658</y>
       <w>42</w>
       <h>700</h>
     </coordinates>

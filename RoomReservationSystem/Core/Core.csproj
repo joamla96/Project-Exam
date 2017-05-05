@@ -44,6 +44,7 @@
     <Compile Include="Interfaces\IObserver.cs" />
     <Compile Include="Interfaces\IRoom.cs" />
     <Compile Include="Interfaces\IUser.cs" />
+    <Compile Include="LoggedIn.cs" />
     <Compile Include="Reservation.cs" />
     <Compile Include="ReservationRepository.cs" />
     <Compile Include="Room.cs" />

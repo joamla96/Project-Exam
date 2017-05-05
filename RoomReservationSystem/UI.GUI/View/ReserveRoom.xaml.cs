@@ -26,8 +26,10 @@ namespace UI.GUI.View
         }
         private void ReserveRoomButtonClick(object sender, RoutedEventArgs e)
         {
-            ViewModel.ReserveRoomVM reserveRoom = new ViewModel.ReserveRoomVM();
-            reserveRoom.ReserveRoom()
+            string date = (string)SelectDate.DataContext;
+            string to = (string)ToListBox.DataContext;
+            //ViewModel.ReserveRoomVM reserveRoom = new ViewModel.ReserveRoomVM();
+            //reserveRoom.ReserveRoom();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace UI.GUI.ViewModel
             try
             {
                 IRoom room = reserveRepo.RequestReservation(dateFrom, dateTo, peopleNR);
-                message = "" + room.ID;
+                message = "You have been assigned to room: " + room.ID;
             }
             catch(NoRoomsAvailable)
             {

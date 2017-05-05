@@ -28,8 +28,10 @@ namespace UI.GUI.View
         {
             string date = (string)SelectDate.DataContext;
             string to = (string)ToListBox.DataContext;
-            //ViewModel.ReserveRoomVM reserveRoom = new ViewModel.ReserveRoomVM();
-            //reserveRoom.ReserveRoom();
+            string from = (string)FromListBox.DataContext;
+            string peopleNr = (string)NumberOfPeopleTextBox.DataContext;
+            ViewModel.ReserveRoomVM reserveRoom = new ViewModel.ReserveRoomVM();
+            reserveRoom.ReserveRoom(date,from,to,peopleNr);
         }
     }
 }

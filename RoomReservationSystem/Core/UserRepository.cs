@@ -9,7 +9,13 @@ namespace Core
 {
     public class UserRepository
     {
-        List<IUser> _userRepository = new List<IUser>();
+		private static UserRepository _instance = new UserRepository();
+		public static UserRepository Instance { get { return _instance; } }
 
+		private List<IUser> _userRepository = new List<IUser>();
+
+		public void Clear() {
+			_userRepository.Clear();
+		}
     }
 }

@@ -11,8 +11,6 @@ namespace Core.UnitTest
     {
         RoomRepository _repoRoom = RoomRepository.Instance;
 
-        //ReservationRepository _repoReservation = ReservationRepository.Instance;
-
         List<IRoom> _roomList;
 
         IUser _student;
@@ -35,7 +33,6 @@ namespace Core.UnitTest
         [TestInitialize]
         public void TestInitialize()
         {
-            //_repoReservation.Clear();
             _repoRoom.Clear();
             _roomList = new List<IRoom>();
             _student = new User("matt2694", "matt2694@edu.eal.dk", Permission.Student);

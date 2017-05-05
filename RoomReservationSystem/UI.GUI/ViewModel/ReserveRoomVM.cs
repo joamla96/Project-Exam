@@ -16,7 +16,7 @@ namespace UI.GUI.ViewModel
         {
             string message;
             string dateTimeFrom = date+from;
-            DateTime dateFrom = Convert.ToDateTime(dateTimeFrom);
+            DateTime dateFrom = Convert.ToDateTime(dateTimeFrom);//datetimes dont work
             string dateTimeTo = date + to;
             DateTime dateTo = Convert.ToDateTime(dateTimeTo);
             int peopleNR = int.Parse(peopleNr);

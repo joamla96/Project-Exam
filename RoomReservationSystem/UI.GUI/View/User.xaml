@@ -7,51 +7,20 @@
         mc:Ignorable="d"
         Title="User" Height="310.924" Width="563.025">
 
-    <Grid RenderTransformOrigin="0.503,0.489">
+    <Grid RenderTransformOrigin="0.503,0.489" Margin="0,0,-0.2,-0.4">
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="125"/>
             <ColumnDefinition/>
-
-
-
         </Grid.ColumnDefinitions>
+        
         <DockPanel Background="Gray" Grid.Column="0"></DockPanel>
+        
         <Button Content="Reserve project room" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Click="ReserveProjectRoomButtonClick" Height="29" Margin="0,10,0,0"/>
         <Button Content="See my reservation" HorizontalAlignment="Left" Margin="0,44,0,0" VerticalAlignment="Top" Width="123" Click="SeeMyReservationButtonClick" Height="29"/>
         <Button Content="Reserve meeting room" HorizontalAlignment="Left" Margin="0,78,0,0" VerticalAlignment="Top" Width="123" Click="ReserveMeetingRoomButtonClick" Height="29"/>
-        <Label x:Name="ReserveRoomLabel" Content="Reserve Room" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="118" Height="29" FontSize="16" FontWeight="Bold"/>
-        <DatePicker x:Name="SelectDate" Grid.Column="1" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Height="27" Width="142"/>
-        <TextBox x:Name="NumberOfPeopleTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="111,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62"/>
-        <Label x:Name="NumberOfPeopleLabel" Content="Number of people" Grid.Column="1" HorizontalAlignment="Left" Margin="3,41,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="FromLabel" Content="From" Grid.Column="1" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="ToLabel" Content="To" Grid.Column="1" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top"/>
-        <ListBox Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="52,129,0,0" VerticalAlignment="Top" Width="100">
-            <ListBoxItem x:Name="FromListBox">7:00</ListBoxItem>
-            <ListBoxItem>8:00</ListBoxItem>
-            <ListBoxItem>9:00</ListBoxItem>
-            <ListBoxItem>10:00</ListBoxItem>
-            <ListBoxItem>11:00</ListBoxItem>
-            <ListBoxItem>12:00</ListBoxItem>
-            <ListBoxItem>13:00</ListBoxItem>
-            <ListBoxItem>14:00</ListBoxItem>
-            <ListBoxItem>15:00</ListBoxItem>
-            <ListBoxItem>16:00</ListBoxItem>
-        </ListBox>
-        <ListBox Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="52,164,0,0" VerticalAlignment="Top" Width="100">
-            <ListBoxItem x:Name="ToListBox">8:00</ListBoxItem>
-            <ListBoxItem>9:00</ListBoxItem>
-            <ListBoxItem>10:00</ListBoxItem>
-            <ListBoxItem>11:00</ListBoxItem>
-            <ListBoxItem>12:00</ListBoxItem>
-            <ListBoxItem>13:00</ListBoxItem>
-            <ListBoxItem>14:00</ListBoxItem>
-            <ListBoxItem>15:00</ListBoxItem>
-            <ListBoxItem>16:00</ListBoxItem>
-            <ListBoxItem>17:00</ListBoxItem>
-        </ListBox>
-        <Button x:Name="ReserveRoomButton" Content="Reserve&#xD;&#xA;  Room" Grid.Column="1" HorizontalAlignment="Left" Margin="260,87,0,0" VerticalAlignment="Top" Width="136" Height="85" FontWeight="Bold" FontSize="18" Click="ReserveRoomButtonClick"/>
-        <Label x:Name="NotificationMessageLabel" Content="You have been assigned to room :" Grid.Column="1" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Width="219" Height="36" FontSize="14"/>
-        <Label x:Name="RoomIDLabel" Content="LABEL" Grid.Column="1" HorizontalAlignment="Left" Margin="234,224,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.45,0.789" FontWeight="Bold" FontSize="14"/>
+        
+        <Frame x:Name="Frame" Margin="5.2,0,-0.2,0" NavigationUIVisibility="Hidden" RenderTransformOrigin="0.469,0.461" Grid.Column="1" />
 
 
     </Grid>

@@ -9,7 +9,7 @@ namespace UI.GUI.ViewModel
 {
     class ReserveRoomVM
     {
-        public string ReserveRoom(string date, string from, string to, int peopleNr)
+        public string ReserveRoom(string date, string from, string to, string peopleNr)
         {
             //LoggedIn.User.PermissionLevel;
             return "d";

@@ -52,12 +52,6 @@ namespace Core.UnitTest
             _room4 = new Room('A', 7, 5, 2, Permission.Student);
             _room5 = new Room('B', 7, 5, 10, Permission.Student);
 
-            //_repoRoom.Add(_room1);
-            //_repoRoom.Add(_room2);
-            //_repoRoom.Add(_room3);
-            //_repoRoom.Add(_room4);
-            //_repoRoom.Add(_room5);
-
             _dateFrom = new DateTime(2016, 4, 29, 8, 0, 0);
             _dateTo = new DateTime(2016, 4, 29, 16, 0, 0);
 
@@ -132,7 +126,7 @@ namespace Core.UnitTest
         }
 
         [TestMethod]
-        public void GetReservationByReservation()
+        public void GetReservationByReservationDoesntReturnOthers()
         {
             Reservation testReservation;
             testReservation = _repoReservation.Get(_reservation1);

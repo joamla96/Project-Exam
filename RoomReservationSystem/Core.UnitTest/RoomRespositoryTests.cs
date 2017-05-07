@@ -108,7 +108,8 @@ namespace Core.UnitTest
         public void GetRoomsByReservationDoesntReturnOthers()
         {
             IRoom room = _repoRoom.Get(_reservation1);
-            Assert.IsTrue(room.Equals(_room1));
+            Assert.IsFalse(room.Equals(_room2));
+            Assert.IsFalse(room.Equals(_room3));
         }
 
         [TestMethod]

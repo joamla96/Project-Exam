@@ -10,8 +10,7 @@ namespace Core.UnitTest
     public class ReservationRepositoryTests
     {
         ReservationRepository _repoReservation = ReservationRepository.Instance;
-
-        List<IRoom> _roomList;
+        
         List<Reservation> _reservationList;
 
         IUser _student;

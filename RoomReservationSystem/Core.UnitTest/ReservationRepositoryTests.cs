@@ -101,6 +101,14 @@ namespace Core.UnitTest
         }
 
         [TestMethod]
+        public void GetReservationsByUserDoesntGetOthers()
+        {
+            _reservationList = _repoReservation.Get(_student);
+            Assert.IsFalse(_reservationList.Contains(_reservation2));
+            Assert.IsFalse(_reservationList.Contains(_reservation3));
+        }
+
+        [TestMethod]
         public void GetReservationByRoom()
         {
             _reservationList = _repoReservation.Get(_room1);

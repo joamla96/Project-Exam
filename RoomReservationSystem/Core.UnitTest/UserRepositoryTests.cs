@@ -9,9 +9,7 @@ namespace Core.UnitTest
     [TestClass]
     public class UserRepositoryTests
     {
-        RoomRepository _repoRoom = RoomRepository.Instance;
-
-        ReservationRepository _repoReservation = ReservationRepository.Instance;
+        UserRepository _repoUser = UserRepository.Instance;
 
         List<IRoom> _roomList;
 
@@ -35,8 +33,7 @@ namespace Core.UnitTest
         [TestInitialize]
         public void TestInitialize()
         {
-            _repoReservation.Clear();
-            _repoRoom.Clear();
+            _repoUser.Clear();
             _roomList = new List<IRoom>();
             _student = new User("matt2694", "matt2694@edu.eal.dk", Permission.Student);
             _teacher = new User("alhe", "alhe@eal.dk", Permission.Teacher);
@@ -48,18 +45,19 @@ namespace Core.UnitTest
             _room4 = new Room('A', 7, 5, 2, Permission.Student);
             _room5 = new Room('B', 7, 5, 10, Permission.Student);
 
-            _repoRoom.Add(_room1);
-            _repoRoom.Add(_room2);
-            _repoRoom.Add(_room3);
-            _repoRoom.Add(_room4);
-            _repoRoom.Add(_room5);
-
             _dateFrom = new DateTime(2016, 4, 29, 8, 0, 0);
             _dateTo = new DateTime(2016, 4, 29, 16, 0, 0);
 
             _reservation1 = new Reservation(_student, _room1, 6, _dateFrom, _dateTo);
             _reservation2 = new Reservation(_teacher, _room2, 6, _dateFrom, _dateTo);
             _reservation3 = new Reservation(_admin, _room3, 6, _dateFrom, _dateTo);
+        }
+
+        [TestMethod]
+        public void AddUserFromText()
+        {
+            IUser testUser = new User("matt2695", "matt2695@edu.eal.dk", Permission.Student);
+
         }
     }
 }

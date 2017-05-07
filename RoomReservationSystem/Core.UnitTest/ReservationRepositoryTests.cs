@@ -147,5 +147,14 @@ namespace Core.UnitTest
             _reservationList = _repoReservation.Get();
             Assert.IsFalse(_reservationList.Contains(_reservation1));
         }
+
+        [TestMethod]
+        public void DeleteReservationDoesntDeleteOthers()
+        {
+            _repoReservation.Delete(_reservation1);
+            _reservationList = _repoReservation.Get();
+            Assert.IsTrue(_reservationList.Contains(_reservation2));
+            Assert.IsTrue(_reservationList.Contains(_reservation3));
+        }
     }
 }

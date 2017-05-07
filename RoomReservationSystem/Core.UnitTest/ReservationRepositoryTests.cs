@@ -132,6 +132,15 @@ namespace Core.UnitTest
         }
 
         [TestMethod]
+        public void GetReservationByReservation()
+        {
+            Reservation testReservation;
+            testReservation = _repoReservation.Get(_reservation1);
+            Assert.AreNotEqual(_reservation2, testReservation);
+            Assert.AreNotEqual(_reservation3, testReservation);
+        }
+
+        [TestMethod]
         public void DeleteReservation()
         {
             _repoReservation.Delete(_reservation1);

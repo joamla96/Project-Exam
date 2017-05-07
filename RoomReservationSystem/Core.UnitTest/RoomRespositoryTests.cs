@@ -105,6 +105,13 @@ namespace Core.UnitTest
         }
 
         [TestMethod]
+        public void GetRoomsByReservationDoesntReturnOthers()
+        {
+            IRoom room = _repoRoom.Get(_reservation1);
+            Assert.IsTrue(room.Equals(_room1));
+        }
+
+        [TestMethod]
         public void DeleteRoom()
         {
             _repoRoom.Delete(_room1);

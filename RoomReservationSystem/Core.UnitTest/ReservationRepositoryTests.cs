@@ -92,5 +92,35 @@ namespace Core.UnitTest
             _reservationList = _repoReservation.Get();
             Assert.IsTrue(_reservationList.Contains(_reservation1));
         }
+
+        [TestMethod]
+        public void GetReservationsByUser()
+        {
+            _reservationList = _repoReservation.Get(_student);
+            Assert.IsTrue(_reservationList.Contains(_reservation1));
+        }
+
+        [TestMethod]
+        public void GetReservationByRoom()
+        {
+            _reservationList = _repoReservation.Get(_room1);
+            Assert.IsTrue(_reservationList.Contains(_reservation1));
+        }
+
+        [TestMethod]
+        public void GetReservationBy()
+        {
+            Reservation testReservation;
+            testReservation = _repoReservation.Get(_reservation1);//I don't understand why this is a thing
+            Assert.AreEqual(_reservation1, testReservation);
+        }
+
+        [TestMethod]
+        public void DeleteReservation()
+        {
+            _repoReservation.Delete(_reservation1);
+            _reservationList = _repoReservation.Get();
+            Assert.IsFalse(_reservationList.Contains(_reservation1));
+        }
     }
 }

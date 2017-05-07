@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Core;
 
 namespace UI.GUI
 {
@@ -33,7 +34,8 @@ namespace UI.GUI
         {
             View.User user = new View.User();
             user.Show();
-            
+            Core.LoggedIn.User = new User("username", "email", Permission.Student);
+
         }
 
         private void TeacherButtonClick(object sender, RoutedEventArgs e)

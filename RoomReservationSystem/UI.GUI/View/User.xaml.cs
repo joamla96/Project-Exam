@@ -33,7 +33,7 @@ namespace UI.GUI.View
 
         private void SeeMyReservationButtonClick(object sender, RoutedEventArgs e)
         {
-
+            Frame.Content = new SeeMyReservationsV();
         }
 
         private void ReserveMeetingRoomButtonClick(object sender, RoutedEventArgs e)

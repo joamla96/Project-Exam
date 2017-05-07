@@ -120,5 +120,13 @@ namespace Core.UnitTest
             Assert.IsFalse(_roomList.Contains(_room1));
         }
 
+        [TestMethod]
+        public void DeleteRoomDoesntDeleteOthers()
+        {
+            _repoRoom.Delete(_room1);
+            _roomList = _repoRoom.Get();
+            Assert.IsTrue(_roomList.Contains(_room2));
+            Assert.IsTrue(_roomList.Contains(_room3));
+        }
     }
 }

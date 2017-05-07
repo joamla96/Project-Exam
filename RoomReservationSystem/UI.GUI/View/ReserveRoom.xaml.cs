@@ -26,10 +26,10 @@ namespace UI.GUI.View
         }
         private void ReserveRoomButtonClick(object sender, RoutedEventArgs e)
         {
-            string date = (string)SelectDate.DataContext;
-            string to = (string)ToListBox.DataContext;
-            string from = (string)FromListBox.DataContext;
-            string peopleNr = (string)NumberOfPeopleTextBox.DataContext;
+            string date = SelectDate.Text;
+            string to = (string)ToListBox.Content;
+            string from = (string)FromListBox.Content;
+            string peopleNr = NumberOfPeopleTextBox.Text;
             ViewModel.ReserveRoomVM reserveRoom = new ViewModel.ReserveRoomVM();
             reserveRoom.ReserveRoom(date,from,to,peopleNr);
         }

@@ -15,9 +15,9 @@ namespace UI.GUI.ViewModel
         public string ReserveRoom(string date, string from, string to, string peopleNr)
         {
             string message;
-            string dateTimeFrom = date+from;
+            string dateTimeFrom = date + " " + from;
             DateTime dateFrom = Convert.ToDateTime(dateTimeFrom);//datetimes dont work
-            string dateTimeTo = date + to;
+            string dateTimeTo = date + " " + to;
             DateTime dateTo = Convert.ToDateTime(dateTimeTo);
             int peopleNR = int.Parse(peopleNr);
             try

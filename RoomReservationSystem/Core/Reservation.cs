@@ -9,7 +9,12 @@ namespace Core
 {
     public class Reservation
     {
-       
+
+        public IUser User { get; set; }
+        public IRoom Room { get; set; }
+        public int PeopleNr { get; set; }
+        public DateTime From { get; set; }
+        public DateTime To { get; set; }
 
         public Reservation(IUser user, IRoom room, int peopleNr, DateTime from, DateTime to)
         {
@@ -20,11 +25,7 @@ namespace Core
             this.To = to;
         }
 
-        public IUser User { get; set; }
-        public IRoom Room { get; set; }
-        public int PeopleNr { get; set; }
-        public DateTime From { get; set; }
-        public DateTime To { get; set; }
+        
         
     }
 }

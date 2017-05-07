@@ -116,7 +116,15 @@ namespace Core.UnitTest
         }
 
         [TestMethod]
-        public void GetReservationBy()
+        public void GetReservationByRoomDoesntGetOthers()
+        {
+            _reservationList = _repoReservation.Get(_room1);
+            Assert.IsFalse(_reservationList.Contains(_reservation2));
+            Assert.IsFalse(_reservationList.Contains(_reservation3));
+        }
+
+        [TestMethod]
+        public void GetReservationByReservation()
         {
             Reservation testReservation;
             testReservation = _repoReservation.Get(_reservation1);//I don't understand why this is a thing

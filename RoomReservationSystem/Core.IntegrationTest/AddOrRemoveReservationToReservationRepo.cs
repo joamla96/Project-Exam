@@ -49,6 +49,27 @@ namespace Core.IntegrationTest {
 
 			Assert.IsTrue(Reservations.Contains(testRes));
 		}
+
+		public void WhenRemoveReservationToRepoRemoveFromUserAsWell() {
+			Reservation testRes = new Reservation(_user1, _room1, 4, _from, _to);
+			repoReserv.Add(testRes);
+			repoReserv.Delete(testRes);
+
+			List<Reservation> UsersReservations = _user1.GetReservations();
+
+			Assert.IsFalse(UsersReservations.Contains(testRes));
+		}
+
+		[TestMethod]
+		public void WhenRemovingReservationToRepoRemoveFromRoomAsWell() {
+			Reservation testRes = new Reservation(_user1, _room1, 4, _from, _to);
+			repoReserv.Add(testRes);
+			repoReserv.Delete(testRes);
+
+			List<Reservation> Reservations = _room1.GetReservations();
+
+			Assert.IsFalse(Reservations.Contains(testRes));
+		}
 	}
 
 }

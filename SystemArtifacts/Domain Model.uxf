@@ -13,7 +13,7 @@
 --
 + Username : String
 + Email : String
-+ Reservations : List&lt;Reservation&gt;
++ _reservations : List&lt;Reservation&gt;
 + PermissionLevel : enum.Permission</panel_attributes>
     <additional_attributes/>
   </element>
@@ -32,7 +32,7 @@
 + Floor : Int
 + Nr : Int
 + MaxPeople : Int
-+ Reservations : List&lt;Reservations&gt;
++ _reservations : List&lt;Reservations&gt;
 + MinPermissionLevel: enum.Permission</panel_attributes>
     <additional_attributes/>
   </element>

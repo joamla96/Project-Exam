@@ -34,9 +34,7 @@ namespace UI.GUI
         {
 			LoggedIn.User = new User("username", "email", Permission.Student);
 			View.User user = new View.User();
-            user.Show();
-            
-            
+            user.Show();  
         }
 
         private void TeacherButtonClick(object sender, RoutedEventArgs e)

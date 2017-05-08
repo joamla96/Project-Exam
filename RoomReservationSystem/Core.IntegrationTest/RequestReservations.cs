@@ -6,7 +6,7 @@ using Core.Interfaces;
 namespace Core.IntegrationTest {
 	[TestClass]
 	public class RequestReservations {
-		ReservationRepository _repoReserv = ReservationRepository.Instance;
+		AddOrRemoveReservationToReservationRepo _repoReserv = AddOrRemoveReservationToReservationRepo.Instance;
 		UserRepository _repoUser = UserRepository.Instance;
 		RoomRepository _repoRoom = RoomRepository.Instance;
 

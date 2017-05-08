@@ -1,10 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Core.UnitTest {
-
+namespace Core.IntegrationTest {
 	[TestClass]
-	class ClientCancelReservation {
+	class ReservationRepository {
 
 	}
 }

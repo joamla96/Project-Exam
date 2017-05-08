@@ -22,7 +22,7 @@
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-RequestReservation(datetime from, datetime to, int peopleNr)
+RequestReservation(datetime from, datetime to, int peoplenr)
 layer=0</panel_attributes>
     <additional_attributes>10.0;20.0;520.0;20.0</additional_attributes>
   </element>
@@ -94,7 +94,7 @@ group=2</panel_attributes>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-GetPossible(user.PermissionLevel, peopleNr)</panel_attributes>
+GetPossible(LoggedIn.user.PermissionLevel, peoplenr)</panel_attributes>
     <additional_attributes>10.0;20.0;600.0;20.0</additional_attributes>
   </element>
   <element>
@@ -249,7 +249,7 @@ group=2</panel_attributes>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;.
-new Reservation(user, foundRoom, peopleNr, from, to)</panel_attributes>
+new Reservation(LoggedIn.User, foundRoom, peopleNr, from, to)</panel_attributes>
     <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>

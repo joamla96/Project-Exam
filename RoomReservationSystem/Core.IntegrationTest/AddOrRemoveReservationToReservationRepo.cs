@@ -57,6 +57,7 @@ namespace Core.IntegrationTest {
 			Assert.IsTrue(Reservations.Contains(testRes));
 		}
 
+		[TestMethod]
 		public void WhenRemoveReservationToRepoRemoveFromUserAsWell() {
 			Reservation testRes = new Reservation(_user1, _room1, 4, _from, _to);
 			repoReserv.Add(testRes);

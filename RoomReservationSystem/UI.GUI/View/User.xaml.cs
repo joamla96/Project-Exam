@@ -22,7 +22,7 @@ namespace UI.GUI.View
     {
         public User()
         {
-            Permission permissionLevel = Core.LoggedIn.User.PermissionLevel;
+            Permission permissionLevel = LoggedIn.User.PermissionLevel;
             InitializeComponent();
             
             if(permissionLevel == Permission.Student)

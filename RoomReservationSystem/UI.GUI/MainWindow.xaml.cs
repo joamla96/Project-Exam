@@ -32,9 +32,10 @@ namespace UI.GUI
 
         private void StudentButtonClick(object sender, RoutedEventArgs e)
         {
-            View.User user = new View.User();
+			LoggedIn.User = new User("username", "email", Permission.Student);
+			View.User user = new View.User();
             user.Show();
-            Core.LoggedIn.User = new User("username", "email", Permission.Student);
+            
             
         }
 

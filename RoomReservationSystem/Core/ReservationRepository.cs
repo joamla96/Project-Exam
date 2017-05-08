@@ -11,7 +11,7 @@ namespace Core
     public class ReservationRepository
     {
         List<Reservation> _reservationRepository = new List<Reservation>();
-        RoomRepository roomRepo =  RoomRepository.Instance;
+        RoomRepository _roomRepo =  RoomRepository.Instance;
         private static ReservationRepository _instance = new ReservationRepository();
         public static ReservationRepository Instance { get { return _instance; } }
 
@@ -20,7 +20,7 @@ namespace Core
             
             IRoom currentRoom;
             IRoom foundRoom = null;
-            Stack<IRoom> rooms = roomRepo.GetPossible(LoggedIn.User.PermissionLevel, peopleNr);
+            Stack<IRoom> rooms = _roomRepo.GetPossible(LoggedIn.User.PermissionLevel, peopleNr);
             while (foundRoom == null && rooms.Count > 1)
             {
                 currentRoom = rooms.Pop();

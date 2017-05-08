@@ -29,9 +29,9 @@ namespace Core {
             _roomRepository.Add(room);
         }
 
-        public void Add(char building, int floor, int nr, int maxPeople, Permission minPermissionLevel)
+        public void Add(char building, int floor, int nr, int maxPeople, Permission minpermissionlevel)
         {
-            Room room = new Room(building, floor, nr, maxPeople, minPermissionLevel);
+            Room room = new Room(building, floor, nr, maxPeople, minpermissionlevel);
             _roomRepository.Add(room);
         }
 
@@ -40,16 +40,16 @@ namespace Core {
             return _roomRepository;
         }
 
-		public List<IRoom> Get(Permission PermissionLevel) {
-			List<IRoom> Result = new List<IRoom>();
+		public List<IRoom> Get(Permission permissionlevel) {
+			List<IRoom> result = new List<IRoom>();
 
 			foreach(IRoom room in _roomRepository) {
-				if(room.MinPermissionLevel >= PermissionLevel) {
-					Result.Add(room);
+				if(room.MinPermissionLevel >= permissionlevel) {
+					result.Add(room);
 				}
 			}
 
-			return Result;
+			return result;
 		}
 
 		public IRoom Get(Reservation reservation)
@@ -65,9 +65,9 @@ namespace Core {
             return result;
         }
 
-        public Stack<IRoom> GetPossible(Permission permissionLevel, int people)
+        public Stack<IRoom> GetPossible(Permission permissionlevel, int people)
         {
-			List<IRoom> permission = this.Get(permissionLevel);
+			List<IRoom> permission = this.Get(permissionlevel);
 			List<IRoom> possible = new List<IRoom>();
 			Stack<IRoom> stack = new Stack<IRoom>();
 

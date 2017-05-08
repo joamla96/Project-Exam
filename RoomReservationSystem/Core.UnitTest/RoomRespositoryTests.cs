@@ -55,6 +55,10 @@ namespace Core.UnitTest
 
             _dateFrom = new DateTime(2016, 4, 29, 8, 0, 0);
             _dateTo = new DateTime(2016, 4, 29, 16, 0, 0);
+
+            _reservation1 = new Reservation(_student, _room1, 6, _dateFrom, _dateTo);
+            _reservation2 = new Reservation(_teacher, _room2, 6, _dateFrom, _dateTo);
+            _reservation3 = new Reservation(_admin, _room3, 6, _dateFrom, _dateTo);
         }
 
         [TestMethod]

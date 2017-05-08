@@ -9,6 +9,8 @@ namespace Core.Interfaces
 		string Email { get; }
         Permission PermissionLevel { get; set; }
 
+        void AddReservation(Reservation reservation);
         List<Reservation> GetReservations();
+        void DeleteReservation(Reservation reservation);
     }
 }

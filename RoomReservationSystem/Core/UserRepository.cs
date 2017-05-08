@@ -26,7 +26,7 @@ namespace Core
         public void Add(string username, string email, Permission permissionlevel)
         {
             IUser user = new User(username, email, permissionlevel);
-            _userRepository.Add(user);
+            this.Add(user);
         }
 
         public List<IUser> Get()
@@ -48,7 +48,7 @@ namespace Core
             return result;
         }
 
-        public List<IUser> Get(IRoom checkroom)
+        public List<IUser> Get(IRoom checkroom)   //integration!!!
         {
             //List<IUser> result = new List<IUser>();
 
@@ -59,7 +59,7 @@ namespace Core
             throw new NotImplementedException();
         }
 
-        public List<IUser> Get(Reservation reservation)
+        public List<IUser> Get(Reservation reservation) //integration!!!
         {
             throw new NotImplementedException();
         }

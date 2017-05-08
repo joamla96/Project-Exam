@@ -31,7 +31,7 @@ namespace Core
             {
                 IUser Other = (IUser)obj;
 
-                if (this.Email.Equals(Other.Email)) thesame = true;
+                if (this.Username.Equals(Other.Username)) thesame = true;
             }
 
             return thesame;
@@ -39,7 +39,17 @@ namespace Core
 
         public List<Reservation> GetReservations()
         {
-            throw new NotImplementedException();
+            return _reservations;
+        }
+
+        public void AddReservation(Reservation reservation)
+        {
+            _reservations.Add(reservation);
+        }
+
+        public void DeleteReservation(Reservation reservation)
+        {
+            _reservations.Remove(reservation);
         }
     }
 }

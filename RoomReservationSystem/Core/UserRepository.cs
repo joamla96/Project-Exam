@@ -48,15 +48,16 @@ namespace Core
             return result;
         }
 
-        //public List<IUser> Get(IRoom checkroom)
-        //{
-        //    List<IUser> result = new List<IUser>();
+        public List<IUser> Get(IRoom checkroom)
+        {
+            //List<IUser> result = new List<IUser>();
 
-        //    foreach (IUser user in _userRepository)
-        //    {
-        //        foreach(Reservation reservation in )
-        //    }
-        //}
+            //foreach (IUser user in _userRepository)
+            //{
+            //    foreach (Reservation reservation in )
+            //}
+            throw new NotImplementedException();
+        }
 
         public List<IUser> Get(Reservation reservation)
         {

@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Core.UnitTest
 {
     [TestClass]
-    public class ReservationRepositoryTests
+    public class ReservationRepositoryTests //test to check if reservation gets added to user and room list
     {
         ReservationRepository _repoReservation = ReservationRepository.Instance;
         

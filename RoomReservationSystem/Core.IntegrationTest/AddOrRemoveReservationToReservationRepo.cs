@@ -17,13 +17,6 @@ namespace Core.IntegrationTest {
 		DateTime _from;
 		DateTime _to;
 
-        public static AddOrRemoveReservationToReservationRepo Instance { get; internal set; }
-
-        internal void Clear()
-        {
-            throw new NotImplementedException();
-        }
-
         [TestInitialize]
 		public void Init() {
 			repoReserv.Clear();

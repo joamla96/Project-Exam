@@ -86,7 +86,12 @@ namespace Core
 
         public List<Reservation> GetReservations()
         {
-            throw new NotImplementedException();
+            return _reservations;
+        }
+
+        public void DeleteReservation(Reservation reservation)
+        {
+            _reservations.Remove(reservation);
         }
     }
 }

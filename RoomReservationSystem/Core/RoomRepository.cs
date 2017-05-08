@@ -32,7 +32,7 @@ namespace Core {
         public void Add(char building, int floor, int nr, int maxPeople, Permission minpermissionlevel)
         {
             Room room = new Room(building, floor, nr, maxPeople, minpermissionlevel);
-            _roomRepository.Add(room);
+            this.Add(room);
         }
 
         public List<IRoom> Get()

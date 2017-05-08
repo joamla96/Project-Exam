@@ -6,7 +6,7 @@ using Core.Interfaces;
 namespace Core.IntegrationTest {
 	[TestClass]
 	public class RequestReservations {
-		AddOrRemoveReservationToReservationRepo _repoReserv = AddOrRemoveReservationToReservationRepo.Instance;
+		ReservationRepository _repoReserv = ReservationRepository.Instance;
 		UserRepository _repoUser = UserRepository.Instance;
 		RoomRepository _repoRoom = RoomRepository.Instance;
 
@@ -30,9 +30,9 @@ namespace Core.IntegrationTest {
 			_repoRoom.Add(_room2);
 		}
 
-		[TestMethod]
-		public void StudentCanRequestAReservation() {
-			//_repoReserv.RequestReservation();
-		}
+		//[TestMethod]
+		//public void StudentCanRequestAReservation() {
+		//	//_repoReserv.RequestReservation();
+		//}
 	}
 }

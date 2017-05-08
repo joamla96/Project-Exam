@@ -55,10 +55,6 @@ namespace Core.UnitTest
 
             _dateFrom = new DateTime(2016, 4, 29, 8, 0, 0);
             _dateTo = new DateTime(2016, 4, 29, 16, 0, 0);
-
-            //_reservation1 = new Reservation(_student, _room1, 6, _dateFrom, _dateTo);
-            //_reservation2 = new Reservation(_teacher, _room2, 6, _dateFrom, _dateTo);
-            //_reservation3 = new Reservation(_admin, _room3, 6, _dateFrom, _dateTo);
         }
 
         [TestMethod]
@@ -105,6 +101,14 @@ namespace Core.UnitTest
         }
 
         [TestMethod]
+        public void GetRoomsByReservationDoesntReturnOthers()
+        {
+            IRoom room = _repoRoom.Get(_reservation1);
+            Assert.IsFalse(room.Equals(_room2));
+            Assert.IsFalse(room.Equals(_room3));
+        }
+
+        [TestMethod]
         public void DeleteRoom()
         {
             _repoRoom.Delete(_room1);
@@ -112,5 +116,13 @@ namespace Core.UnitTest
             Assert.IsFalse(_roomList.Contains(_room1));
         }
 
+        [TestMethod]
+        public void DeleteRoomDoesntDeleteOthers()
+        {
+            _repoRoom.Delete(_room1);
+            _roomList = _repoRoom.Get();
+            Assert.IsTrue(_roomList.Contains(_room2));
+            Assert.IsTrue(_roomList.Contains(_room3));
+        }
     }
 }

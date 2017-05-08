@@ -20,7 +20,7 @@ namespace Core
 
         public void Add(IUser student)
         {
-            throw new NotImplementedException();
+            _userRepository.Add(student);
         }
 
         public void Add(string v1, string v2, Permission student)
@@ -30,7 +30,7 @@ namespace Core
 
         public List<IUser> Get()
         {
-            throw new NotImplementedException();
+            return _userRepository;
         }
 
         public IUser Get(IUser student)

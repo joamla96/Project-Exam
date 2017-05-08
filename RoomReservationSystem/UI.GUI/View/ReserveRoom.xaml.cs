@@ -30,8 +30,16 @@ namespace UI.GUI.View
             string to = (string)ToListBox.Content;
             string from = (string)FromListBox.Content;
             string peopleNr = NumberOfPeopleTextBox.Text;
-            ViewModel.ReserveRoomVM reserveRoom = new ViewModel.ReserveRoomVM();
-            reserveRoom.ReserveRoom(date,from,to,peopleNr);
+
+            if (peopleNr == "")
+            {
+                MessageLabel.Content = "Enter number of people! ";
+            }
+            else
+            {
+                ViewModel.ReserveRoomVM reserveRoom = new ViewModel.ReserveRoomVM();
+                MessageLabel.Content = reserveRoom.ReserveRoom(date, from, to, peopleNr);
+            }
         }
     }
 }

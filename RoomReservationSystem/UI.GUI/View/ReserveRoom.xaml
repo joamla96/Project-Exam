@@ -41,5 +41,6 @@
             <ListBoxItem>17:00</ListBoxItem>
         </ListBox>
         <Button x:Name="ReserveRoomButton" Content="Reserve&#xD;&#xA;  Room" HorizontalAlignment="Left" Margin="189,107,-30,0" VerticalAlignment="Top" Width="136" Height="85" FontWeight="Bold" FontSize="18" Click="ReserveRoomButtonClick"/>
+        <Label x:Name="MessageLabel" Content="" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Width="315" Height="66" FontWeight="Bold" FontSize="14"/>
     </Grid>
 </Page>

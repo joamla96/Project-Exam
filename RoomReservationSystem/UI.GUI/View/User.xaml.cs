@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Core;
 
 namespace UI.GUI.View
 {
@@ -21,8 +22,13 @@ namespace UI.GUI.View
     {
         public User()
         {
+            Permission permissionLevel = Core.LoggedIn.User.PermissionLevel;
             InitializeComponent();
             
+            if(permissionLevel == Permission.Student)
+            {
+                ReserveMeetingRoomButton.Visibility = Visibility.Hidden;
+            }
         }
 
         
@@ -33,7 +39,8 @@ namespace UI.GUI.View
 
         private void SeeMyReservationButtonClick(object sender, RoutedEventArgs e)
         {
-
+            Frame.Content = new SeeMyReservationsV();
+            
         }
 
         private void ReserveMeetingRoomButtonClick(object sender, RoutedEventArgs e)

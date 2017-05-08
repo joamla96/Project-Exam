@@ -23,5 +23,18 @@ namespace Core
             this.Email = email;
             this.PermissionLevel = premissionLevel;
         }
+
+        public override bool Equals(object obj)
+        {
+            bool thesame = false;
+            if (obj is IUser)
+            {
+                IUser Other = (IUser)obj;
+
+                if (this.Email.Equals(Other.Email)) thesame = true;
+            }
+
+            return thesame;
+        }
     }
 }

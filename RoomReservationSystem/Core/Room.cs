@@ -19,13 +19,13 @@ namespace Core
         private List<Reservation> _reservations = new List<Reservation>();
         
 
-        public Room(char building, int floor, int nr, int maxPeople, Permission minPremissionLevel)
+        public Room(char building, int floor, int nr, int maxpeople, Permission minpermissionlevel)
         {
             this.Building = building;
             this.Floor = floor;
             this.Nr = nr;
-            this.MaxPeople = maxPeople;
-            this.MinPermissionLevel = minPremissionLevel;
+            this.MaxPeople = maxpeople;
+            this.MinPermissionLevel = minpermissionlevel;
         }
 
 		public bool IsAvailable(DateTime from, DateTime to) {

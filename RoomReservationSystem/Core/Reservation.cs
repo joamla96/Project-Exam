@@ -16,11 +16,11 @@ namespace Core
         public DateTime From { get; set; }
         public DateTime To { get; set; }
 
-        public Reservation(IUser user, IRoom room, int peopleNr, DateTime from, DateTime to)
+        public Reservation(IUser user, IRoom room, int peoplenr, DateTime from, DateTime to)
         {
             this.User = user;
             this.Room = room;
-            this.PeopleNr = peopleNr;
+            this.PeopleNr = peoplenr;
             this.From = from;
             this.To = to;
         }

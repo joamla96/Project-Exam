@@ -18,14 +18,15 @@ namespace Core
 			_userRepository.Clear();
 		}
 
-        public void Add(IUser student)
+        public void Add(IUser user)
         {
-            _userRepository.Add(student);
+            _userRepository.Add(user);
         }
 
-        public void Add(string v1, string v2, Permission student)
+        public void Add(string username, string email, Permission permissionlevel)
         {
-            throw new NotImplementedException();
+            IUser user = new User(username, email, permissionlevel);
+            _userRepository.Add(user);
         }
 
         public List<IUser> Get()
@@ -33,15 +34,29 @@ namespace Core
             return _userRepository;
         }
 
-        public IUser Get(IUser student)
+        public IUser Get(IUser checkuser)
         {
-            throw new NotImplementedException();
+            IUser result=null;
+
+            foreach (IUser user in _userRepository)
+            {
+                if (user.Equals(checkuser))
+                {
+                    result = user;
+                }
+            }
+            return result;
         }
 
-        public List<IUser> Get(IRoom room)
-        {
-            throw new NotImplementedException();
-        }
+        //public List<IUser> Get(IRoom checkroom)
+        //{
+        //    List<IUser> result = new List<IUser>();
+
+        //    foreach (IUser user in _userRepository)
+        //    {
+        //        foreach(Reservation reservation in )
+        //    }
+        //}
 
         public List<IUser> Get(Reservation reservation)
         {

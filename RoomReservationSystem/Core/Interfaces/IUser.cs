@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Core.Interfaces
 {
@@ -7,5 +8,7 @@ namespace Core.Interfaces
 		string Username { get; }
 		string Email { get; }
         Permission PermissionLevel { get; set; }
+
+        List<Reservation> GetReservations();
     }
 }

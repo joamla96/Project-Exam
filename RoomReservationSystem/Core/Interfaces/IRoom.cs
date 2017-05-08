@@ -17,5 +17,6 @@ namespace Core.Interfaces
 
 		bool IsAvailable(DateTime from, DateTime To);
 		void AddReservation(Reservation reservation);
+        List<Reservation> GetReservations();
     }
 }

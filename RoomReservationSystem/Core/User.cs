@@ -36,5 +36,10 @@ namespace Core
 
             return thesame;
         }
+
+        public List<Reservation> GetReservations()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

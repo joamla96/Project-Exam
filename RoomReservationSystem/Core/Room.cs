@@ -83,5 +83,10 @@ namespace Core
 		public void AddReservation(Reservation reserv) {
 			_reservations.Add(reserv);
 		}
-	}
+
+        public List<Reservation> GetReservations()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

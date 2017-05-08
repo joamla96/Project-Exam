@@ -63,9 +63,9 @@ namespace Core
             throw new NotImplementedException();
         }
 
-        public void Delete(IUser student)
+        public void Delete(IUser user)
         {
-            throw new NotImplementedException();
+            _userRepository.Remove(user);
         }
     }
 }

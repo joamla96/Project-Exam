@@ -29,12 +29,12 @@ namespace UI.GUI.View
         {
             InitializeComponent();
 
-            //List<Reservation> reservationList = reserveRepo.Get(Core.LoggedIn.User);
+            List<Reservation> reservationList = reserveRepo.Get(LoggedIn.User);
 
-            //foreach (Reservation reservation in reservationList)
-            //{
-            //    ReservationListListBox.Items.Add(reservation);
-            //}
+            foreach (Reservation reservation in reservationList)
+            {
+                ReservationListListBox.Items.Add(reservation);
+            }
 
 
         }

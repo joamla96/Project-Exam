@@ -36,7 +36,7 @@ namespace Core
 
         public IUser Get(IUser checkuser)
         {
-            IUser result=null;
+            IUser result = null;
 
             foreach (IUser user in _userRepository)
             {
@@ -48,20 +48,41 @@ namespace Core
             return result;
         }
 
-        public List<IUser> Get(IRoom checkroom)   //integration!!!
+        public List<IUser> Get(IRoom checkroom)
         {
-            //List<IUser> result = new List<IUser>();
+            List<IUser> userByRoom = new List<IUser>();
 
-            //foreach (IUser user in _userRepository)
-            //{
-            //    foreach (Reservation reservation in )
-            //}
-            throw new NotImplementedException();
+            foreach (IUser user in _userRepository)
+            {
+                foreach (Reservation reservation in user.GetReservations())
+                {
+                    if(reservation.Room.Equals(checkroom))
+                    {
+                        userByRoom.Add(user);
+                    }
+                }
+            }
+            return userByRoom;
+            
         }
 
-        public List<IUser> Get(Reservation reservation) //integration!!!
+        public List<IUser> Get(Reservation checkreservation)
         {
-            throw new NotImplementedException();
+            List<IUser> userByReservation = new List<IUser>();
+
+            foreach(IUser user in _userRepository)
+            {
+                foreach(Reservation reservation in user.GetReservations())
+                {
+                    if (reservation.Equals(checkreservation))
+                    {
+                        userByReservation.Add(user);
+                    }
+
+                }
+
+            }
+            return userByReservation;
         }
 
         public void Delete(IUser user)

@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\DeleteReservationVM.cs" />
     <Compile Include="ViewModel\ReserveRoomVM.cs" />
     <Compile Include="View\ReserveRoom.xaml.cs">
       <DependentUpon>ReserveRoom.xaml</DependentUpon>

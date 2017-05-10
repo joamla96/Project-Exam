@@ -11,6 +11,7 @@ namespace Core
     public class ReservationRepository
     {
         List<Reservation> _reservationRepository = new List<Reservation>();
+        
         RoomRepository roomRepo =  RoomRepository.Instance;
         private static ReservationRepository _instance = new ReservationRepository();
         public static ReservationRepository Instance { get { return _instance; } }

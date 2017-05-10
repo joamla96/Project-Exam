@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using Core;
-using Core.Interfaces;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Core.Interfaces;
+using Core;
 
-namespace Core.UnitTest
+namespace Core.IntegrationTest
 {
     [TestClass]
-    public class ReservationRepositoryTests 
+    public class RepositoryIntegrationTest
     {
+        UserRepository _repoUser = UserRepository.Instance;
         ReservationRepository _repoReservation = ReservationRepository.Instance;
 
+        List<IUser> _userList;
         List<Reservation> _reservationList;
 
         IUser _student;
@@ -47,6 +52,10 @@ namespace Core.UnitTest
             _room4 = new Room('A', 7, 5, 2, Permission.Student);
             _room5 = new Room('B', 7, 5, 10, Permission.Student);
 
+            _repoUser.Add(_student);
+            _repoUser.Add(_teacher);
+            _repoUser.Add(_admin);
+
             _dateFrom = new DateTime(2016, 4, 29, 8, 0, 0);
             _dateTo = new DateTime(2016, 4, 29, 16, 0, 0);
 
@@ -60,60 +69,63 @@ namespace Core.UnitTest
         }
 
         [TestMethod]
-        public void AddReservationFromText()
+        public void GetReservationsByUser()
         {
-            Reservation testReservation = new Reservation(_student, _room1, 5, _dateFrom, _dateTo);
-            _repoReservation.Add(_student, _room1, 5, _dateFrom, _dateTo);
-            _reservationList = _repoReservation.Get();
-            Assert.IsTrue(_reservationList.Contains(testReservation));
-        }
-
-        [TestMethod]
-        public void AddResevationFromObject()
-        {
-            _reservationList = _repoReservation.Get();
+            _reservationList = _repoReservation.Get(_student);
             Assert.IsTrue(_reservationList.Contains(_reservation1));
         }
 
         [TestMethod]
-        public void GetAllReservations()
+        public void GetReservationsByUserDoesntGetOthers()
         {
-            _reservationList = _repoReservation.Get();
+            _reservationList = _repoReservation.Get(_student);
+            Assert.IsFalse(_reservationList.Contains(_reservation2));
+            Assert.IsFalse(_reservationList.Contains(_reservation3));
+        }
+
+        [TestMethod]
+        public void GetReservationByRoom()
+        {
+            _reservationList = _repoReservation.Get(_room1);
             Assert.IsTrue(_reservationList.Contains(_reservation1));
         }
 
         [TestMethod]
-        public void GetReservationByReservation()
+        public void GetReservationByRoomDoesntGetOthers()
         {
-            Reservation testReservation;
-            testReservation = _repoReservation.Get(_reservation1);//I don't understand why this is a thing
-            Assert.AreEqual(_reservation1, testReservation);
+            _reservationList = _repoReservation.Get(_room1);
+            Assert.IsFalse(_reservationList.Contains(_reservation2));
+            Assert.IsFalse(_reservationList.Contains(_reservation3));
         }
 
         [TestMethod]
-        public void GetReservationByReservationDoesntReturnOthers()
+        public void GetUserByRoom()
         {
-            Reservation testReservation;
-            testReservation = _repoReservation.Get(_reservation1);
-            Assert.AreNotEqual(_reservation2, testReservation);
-            Assert.AreNotEqual(_reservation3, testReservation);
+            _userList = _repoUser.Get(_room1);
+            Assert.IsTrue(_userList.Contains(_student));
         }
 
         [TestMethod]
-        public void DeleteReservation()
+        public void GetUserByRoomDoesntReturnOthers()
         {
-            _repoReservation.Delete(_reservation1);
-            _reservationList = _repoReservation.Get();
-            Assert.IsFalse(_reservationList.Contains(_reservation1));
+            _userList = _repoUser.Get(_room1);
+            Assert.IsFalse(_userList.Contains(_teacher));
+            Assert.IsFalse(_userList.Contains(_admin));
         }
 
         [TestMethod]
-        public void DeleteReservationDoesntDeleteOthers()
+        public void GetUserByReservation()
         {
-            _repoReservation.Delete(_reservation1);
-            _reservationList = _repoReservation.Get();
-            Assert.IsTrue(_reservationList.Contains(_reservation2));
-            Assert.IsTrue(_reservationList.Contains(_reservation3));
+            _userList = _repoUser.Get(_reservation1);
+            Assert.IsTrue(_userList.Contains(_student));
+        }
+
+        [TestMethod]
+        public void GetUserByReservationDoesntGetOthers()
+        {
+            _userList = _repoUser.Get(_reservation1);
+            Assert.IsFalse(_userList.Contains(_teacher));
+            Assert.IsFalse(_userList.Contains(_admin));
         }
     }
 }

@@ -48,7 +48,7 @@ namespace Core
             return result;
         }
 
-        public List<IUser> Get(IRoom checkroom)   //integration!!!
+        public List<IUser> Get(IRoom checkroom)
         {
             //List<IUser> result = new List<IUser>();
 
@@ -59,7 +59,7 @@ namespace Core
             throw new NotImplementedException();
         }
 
-        public List<IUser> Get(Reservation reservation) //integration!!!
+        public List<IUser> Get(Reservation reservation)
         {
             throw new NotImplementedException();
         }

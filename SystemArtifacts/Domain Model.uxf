@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>10</zoom_level>
+  <zoom_level>16</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>190</x>
-      <y>420</y>
-      <w>270</w>
-      <h>100</h>
+      <x>192</x>
+      <y>208</y>
+      <w>432</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>User
 --
 + Username : String
 + Email : String
-+ _reservations : List&lt;Reservation&gt;
 + PermissionLevel : enum.Permission</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>860</x>
-      <y>420</y>
-      <w>280</w>
-      <h>140</h>
+      <x>1264</x>
+      <y>208</y>
+      <w>448</w>
+      <h>224</h>
     </coordinates>
     <panel_attributes>Room
 --
@@ -32,17 +31,16 @@
 + Floor : Int
 + Nr : Int
 + MaxPeople : Int
-+ _reservations : List&lt;Reservations&gt;
 + MinPermissionLevel: enum.Permission</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>550</x>
-      <y>420</y>
-      <w>200</w>
-      <h>110</h>
+      <x>768</x>
+      <y>208</y>
+      <w>320</w>
+      <h>176</h>
     </coordinates>
     <panel_attributes>Reservation
 --
@@ -54,24 +52,12 @@
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1560</x>
-      <y>670</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>/AbstractClass/
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>420</y>
-      <w>120</w>
-      <h>40</h>
+      <x>608</x>
+      <y>208</y>
+      <w>192</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -81,10 +67,10 @@ m2=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>740</x>
-      <y>420</y>
-      <w>140</w>
-      <h>40</h>
+      <x>1072</x>
+      <y>208</y>
+      <w>224</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n

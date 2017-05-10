@@ -11,17 +11,16 @@ namespace Core
     public class ReservationRepository
     {
         List<Reservation> _reservationRepository = new List<Reservation>();
-        
-        RoomRepository roomRepo =  RoomRepository.Instance;
+        RoomRepository _roomRepo =  RoomRepository.Instance;
         private static ReservationRepository _instance = new ReservationRepository();
         public static ReservationRepository Instance { get { return _instance; } }
 
-        public IRoom RequestReservation(DateTime from, DateTime to, int peoplenr)
+        public IRoom RequestReservation(DateTime from, DateTime to, int peopleNr)
         {
             
             IRoom currentRoom;
             IRoom foundRoom = null;
-            Stack<IRoom> rooms = roomRepo.GetPossible(LoggedIn.User.PermissionLevel, peoplenr);
+            Stack<IRoom> rooms = _roomRepo.GetPossible(LoggedIn.User.PermissionLevel, peopleNr);
             while (foundRoom == null && rooms.Count > 1)
             {
                 currentRoom = rooms.Pop();
@@ -37,7 +36,7 @@ namespace Core
             }
             else
             {
-                Reservation reservation = new Reservation(LoggedIn.User, foundRoom, peoplenr, from, to);
+                Reservation reservation = new Reservation(LoggedIn.User, foundRoom, peopleNr, from, to);
                 this.Add(reservation);
                 return foundRoom;
             }

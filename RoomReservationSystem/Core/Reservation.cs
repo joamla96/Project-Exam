@@ -25,7 +25,20 @@ namespace Core
             this.To = to;
         }
 
-        
-        
+        public override bool Equals(object obj)
+        {
+            bool thesame = false;
+            if (obj is Reservation)
+            {
+                Reservation Other = (Reservation)obj;
+
+                if (this.User.Equals(Other.User) && this.From.Equals(Other.From) && this.To.Equals(Other.To)) thesame = true;
+            }
+
+            return thesame;
+        }
+
+
+
     }
 }

@@ -26,7 +26,7 @@ namespace Core
         public void Add(string username, string email, Permission permissionlevel)
         {
             IUser user = new User(username, email, permissionlevel);
-            _userRepository.Add(user);
+            this.Add(user);
         }
 
         public List<IUser> Get()

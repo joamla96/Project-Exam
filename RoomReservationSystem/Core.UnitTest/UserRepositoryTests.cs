@@ -100,36 +100,6 @@ namespace Core.UnitTest
         }
 
         [TestMethod]
-        public void GetUserByRoom()
-        {
-            _userList = _repoUser.Get(_room1);
-            Assert.IsTrue(_userList.Contains(_student));
-        }
-
-        [TestMethod]
-        public void GetUserByRoomDoesntReturnOthers()
-        {
-            _userList = _repoUser.Get(_room1);
-            Assert.IsFalse(_userList.Contains(_teacher));
-            Assert.IsFalse(_userList.Contains(_admin));
-        }
-
-        [TestMethod]
-        public void GetUserByReservation()
-        {
-            _userList = _repoUser.Get(_reservation1);
-            Assert.IsTrue(_userList.Contains(_student));
-        }
-
-        [TestMethod]
-        public void GetUserByReservationDoesntGetOthers()
-        {
-            _userList = _repoUser.Get(_reservation1);
-            Assert.IsFalse(_userList.Contains(_teacher));
-            Assert.IsFalse(_userList.Contains(_admin));
-        }
-
-        [TestMethod]
         public void DeleteUser()
         {
             _repoUser.Delete(_student);

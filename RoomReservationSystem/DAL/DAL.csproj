@@ -51,11 +51,5 @@
     </None>
     <None Include="database_conn_dev.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{1232c66e-1d3b-4edb-8df1-7cd98018cf2a}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,25 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using Core;
 using System.Data;
 
 namespace DAL {
 	public class Users : Database {
-		public List<User> GetAllUsers() {
-			List<Dictionary<string, string>> usersInfo = this.GetAllUsersFromDatabase();
-			List<User> users = new List<User>();
-
-			foreach(Dictionary<string, string> userInfo in usersInfo) {
-				int permissionLevel = int.Parse(userInfo["PermissionLevel"]);
-				User newUser = new User(userInfo["Username"], userInfo["Email"], this.ConvertIntToPermission(permissionLevel));
-				users.Add(newUser);
-			}
-
-			return users;
-		}
-
-		private List<Dictionary<string, string>> GetAllUsersFromDatabase() {
+		public List<Dictionary<string, string>> GetAllUsers() {
 			List<Dictionary<string, string>> result = new List<Dictionary<string, string>>();
 
 			SqlConnection conn = this.OpenConnection();

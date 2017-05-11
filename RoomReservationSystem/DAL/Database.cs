@@ -1,5 +1,4 @@
-﻿using Core;
-using System;
+﻿using System;
 using System.Data.SqlClient;
 
 namespace DAL {

@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using Core.Interfaces;
 using DAL;
 
 namespace Core {
 	class DALFacade {
-		public List<User> GetAllUsers() {
+		public List<IUser> GetAllUsers() {
 			DAL.Users usersData = new DAL.Users();
 
 			List<Dictionary<string, string>> usersInfo = usersData.GetAllUsers();
-			List<User> users = new List<User>();
+			List<IUser> users = new List<IUser>();
 
 			foreach (Dictionary<string, string> userInfo in usersInfo) {
 				int permissionLevel = int.Parse(userInfo["PermissionLevel"]);

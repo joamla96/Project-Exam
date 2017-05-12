@@ -12,9 +12,14 @@ namespace Core {
 
 		public static void StartUp() {
 			List<IUser> Users = _dal.GetAllUsers();
+			List<IRoom> Rooms = _dal.GetAllRooms();
 
 			foreach(IUser user in Users) {
 				_repoUsers.Add(user);
+			}
+
+			foreach(IRoom room in Rooms) {
+				_repoRooms.Add(room);
 			}
 		}
 	}

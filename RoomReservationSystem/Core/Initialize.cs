@@ -21,6 +21,12 @@ namespace Core {
 			foreach(IRoom room in Rooms) {
 				_repoRooms.Add(room);
 			}
+
+            List<Reservation> reservations = _dal.GetAllReservations();
+            foreach(Reservation reservation in reservations)
+            {
+                _repoReserv.Add(reservation);
+            }
 		}
 	}
 }

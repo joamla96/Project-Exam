@@ -62,9 +62,17 @@ namespace Core {
                 int nr = int.Parse(reservationInfo["Nr"]);
                 IRoom dummyRoom = new Room(building, floornr, nr, 0, Permission.Student);
                 IRoom room = repoRooms.Get(dummyRoom);
-               
-            }
 
+                DateTime from = DateTime.Parse(reservationInfo["DateFrom"]);
+                DateTime to = DateTime.Parse(reservationInfo["DateTo"]);
+                int peopleNr = int.Parse(reservationInfo["PeopleNr"]);
+
+                Reservation reservation = new Reservation(user, room, peopleNr, from, to);
+                reservations.Add(reservation);
+
+
+            }
+            return reservations;
         }
     }
 }

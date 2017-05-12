@@ -52,6 +52,22 @@ namespace Core {
 			return roomsByPermissionLevel;
 		}
 
+		public IRoom Get(IRoom checkroom)
+		{
+			IRoom foundroom = null;
+			foreach(IRoom room in _roomRepository) {
+				if(room.Equals(checkroom)) {
+					foundroom = room;
+				}
+			}
+
+			if (foundroom == null) {
+				throw new IndexOutOfRangeException();
+			} else {
+				return foundroom;
+			}
+		}
+
 		public IRoom Get(Reservation reservation)
         {
             Room roomsByReservation = null;

@@ -19,5 +19,52 @@ namespace Core {
 
 			return users;
 		}
-	}
+
+        public List<IRoom> GetAllRooms()
+        {
+            DAL.Rooms roomsData = new DAL.Rooms();
+
+            List<Dictionary<string, string>> roomsInfo = roomsData.GetAllRooms();
+            List<IRoom> rooms = new List<IRoom>();
+
+            foreach (Dictionary<string, string> roomInfo in roomsInfo)
+            {
+                int minPermissionLevel = int.Parse(roomInfo["MinPermissionLevel"]);
+                char building = char.Parse(roomInfo["Building"]);
+                int floornr = int.Parse(roomInfo["FloorNr"]);
+                int nr = int.Parse(roomInfo["Nr"]);
+                int maxpeople = int.Parse(roomInfo["MaxPeople"]);
+
+                Room newRoom = new Room(building, floornr, nr, maxpeople, HelperFunctions.ConvertIntToPermission(minPermissionLevel));
+                rooms.Add(newRoom);
+            }
+
+            return rooms;
+        }
+
+        public List<Reservation> GetAllReservations()
+        {
+            UserRepository repoUsers = UserRepository.Instance;
+            RoomRepository repoRooms = RoomRepository.Instance;
+
+            DAL.Reservations reservationsData = new DAL.Reservations();
+
+            List<Dictionary<string, string>> reservationsInfo = reservationsData.GetAllReservations();
+            List<Reservation> reservations = new List<Reservation>();
+
+            foreach (Dictionary<string, string> reservationInfo in reservationsInfo)
+            {
+                IUser dummyUser = new User(reservationInfo["Username"], "", Permission.Student);
+                IUser user = repoUsers.Get(dummyUser);
+
+                char building = char.Parse(reservationInfo["Building"]);
+                int floornr = int.Parse(reservationInfo["FloorNr"]);
+                int nr = int.Parse(reservationInfo["Nr"]);
+                IRoom dummyRoom = new Room(building, floornr, nr, 0, Permission.Student);
+                IRoom room = repoRooms.Get(dummyRoom);
+               
+            }
+
+        }
+    }
 }

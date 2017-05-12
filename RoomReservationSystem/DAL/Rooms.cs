@@ -5,7 +5,7 @@ using System.Data;
 
 namespace DAL
 {
-    class Rooms: Database
+    public class Rooms: Database
     {
         public List<Dictionary<string, string>> GetAllRooms()
         {

@@ -4,8 +4,10 @@ using System.Data.SqlClient;
 using System.Data;
 
 namespace DAL {
-	public class Users : Database {
-		public List<Dictionary<string, string>> GetAllUsers() {
+	public class Users : Database
+    {
+		public List<Dictionary<string, string>> GetAllUsers()
+        {
 			List<Dictionary<string, string>> result = new List<Dictionary<string, string>>();
 
 			SqlConnection conn = this.OpenConnection();

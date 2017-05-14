@@ -46,3 +46,23 @@ INSERT INTO Reservations (PeopleNr, DateTo, DateFrom, Building, FloorNr, Nr, Use
 				         (@PeopleNr, @DateTo, @DateFrom, (SELECT Building FROM Rooms WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr), (SELECT FloorNr FROM Rooms WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr), (SELECT Nr FROM Rooms WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr), (SELECT Username FROM Users WHERE Username = @Username))
 END
 
+CREATE PROCEDURE SP_DeleteReservation (@ID Int) AS
+BEGIN
+DELETE FROM Reservations
+WHERE ID = @ID
+END
+
+CREATE PROCEDURE SP_DeleteRoom (@Building Char,
+								@FloorNr Int,
+								@Nr Int) AS
+BEGIN
+DELETE FROM Rooms
+WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr
+END
+
+CREATE PROCEDURE SP_DeleteUser (@Username NVarChar(100)) AS
+BEGIN
+DELETE FROM Users
+WHERE Username = @Username
+END
+

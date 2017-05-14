@@ -44,7 +44,7 @@ namespace Core {
 			List<IRoom> roomsByPermissionLevel = new List<IRoom>();
 
 			foreach(IRoom room in _roomRepository) {
-				if(room.MinPermissionLevel >= permissionlevel) {
+				if(room.MinPermissionLevel <= permissionlevel) {
 					roomsByPermissionLevel.Add(room);
 				}
 			}

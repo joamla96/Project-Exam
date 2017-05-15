@@ -18,5 +18,13 @@ namespace DAL {
 		protected void CloseConnection() {
 			Conn.Close();
 		}
+
+		protected void SqlDependencyInit() {
+			SqlDependency.Start(ConnInfo);
+		}
+
+		protected void SqlDependencyTerm() {
+			SqlDependency.Stop(ConnInfo);
+		}
 	}
 }

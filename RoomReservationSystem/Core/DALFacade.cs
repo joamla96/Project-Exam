@@ -4,10 +4,32 @@ using Core.Interfaces;
 using DAL;
 
 namespace Core {
-	class DALFacade {
-		public List<IUser> GetAllUsers() {
-			DAL.Users usersData = new DAL.Users();
+	public class DALFacade {
+        private DAL.Users usersData;
+        private DAL.Rooms roomsData;
+        private DAL.Reservations reservationsData;
+        private UserRepository repoUsers;
+        private RoomRepository repoRooms;
 
+        public DALFacade()
+        {
+            this.usersData = new DAL.Users();
+            this.roomsData = new DAL.Rooms();
+            this.reservationsData = new DAL.Reservations();
+            this.repoUsers = UserRepository.Instance;
+            this.repoRooms = RoomRepository.Instance;
+        }
+
+        public DALFacade(DAL.Users usersdata, DAL.Rooms roomsdata, DAL.Reservations reservationsdata, UserRepository repousers, RoomRepository reporooms)
+        {
+            this.usersData = usersdata;
+            this.roomsData = roomsdata;
+            this.reservationsData = reservationsdata;
+            this.repoUsers = repousers;
+            this.repoRooms = reporooms;
+        }
+
+		public List<IUser> GetAllUsers() {
 			List<Dictionary<string, string>> usersInfo = usersData.GetAllUsers();
 			List<IUser> users = new List<IUser>();
 
@@ -22,8 +44,6 @@ namespace Core {
 
         public List<IRoom> GetAllRooms()
         {
-            DAL.Rooms roomsData = new DAL.Rooms();
-
             List<Dictionary<string, string>> roomsInfo = roomsData.GetAllRooms();
             List<IRoom> rooms = new List<IRoom>();
 
@@ -44,11 +64,6 @@ namespace Core {
 
         public List<Reservation> GetAllReservations()
         {
-            UserRepository repoUsers = UserRepository.Instance;
-            RoomRepository repoRooms = RoomRepository.Instance;
-
-            DAL.Reservations reservationsData = new DAL.Reservations();
-
             List<Dictionary<string, string>> reservationsInfo = reservationsData.GetAllReservations();
             List<Reservation> reservations = new List<Reservation>();
 

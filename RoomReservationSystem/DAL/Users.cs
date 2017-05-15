@@ -16,10 +16,6 @@ namespace DAL {
 				CommandType = CommandType.StoredProcedure
 			};
 
-			SqlDependency dependency = new SqlDependency(command);
-			dependency.OnChange += new OnChangeEventHandler(UsersChanged);
-
-			this.SqlDependencyInit();
 			try {
 				SqlDataReader reader = command.ExecuteReader();
 				if (reader.HasRows) {
@@ -36,11 +32,6 @@ namespace DAL {
 			}
 
 			return result;
-		}
-
-		private void UsersChanged(object sender, SqlNotificationEventArgs e) {
-			Console.WriteLine(sender);
-			Console.WriteLine(e);
 		}
 	}
 }

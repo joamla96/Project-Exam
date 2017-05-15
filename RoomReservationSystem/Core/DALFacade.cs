@@ -5,9 +5,22 @@ using DAL;
 
 namespace Core {
 	class DALFacade {
-		public List<IUser> GetAllUsers() {
-			DAL.Users usersData = new DAL.Users();
+        private DAL.Users usersData;
+        private DAL.Rooms roomsData;
+        private DAL.Reservations reservationsData;
+        private UserRepository repoUsers;
+        private RoomRepository repoRooms;
 
+        public DALFacade()
+        {
+            usersData = new DAL.Users();
+            roomsData = new DAL.Rooms();
+            reservationsData = new DAL.Reservations();
+            repoUsers = UserRepository.Instance;
+            repoRooms = RoomRepository.Instance;
+        }
+
+		public List<IUser> GetAllUsers() {
 			List<Dictionary<string, string>> usersInfo = usersData.GetAllUsers();
 			List<IUser> users = new List<IUser>();
 
@@ -22,8 +35,6 @@ namespace Core {
 
         public List<IRoom> GetAllRooms()
         {
-            DAL.Rooms roomsData = new DAL.Rooms();
-
             List<Dictionary<string, string>> roomsInfo = roomsData.GetAllRooms();
             List<IRoom> rooms = new List<IRoom>();
 
@@ -44,11 +55,6 @@ namespace Core {
 
         public List<Reservation> GetAllReservations()
         {
-            UserRepository repoUsers = UserRepository.Instance;
-            RoomRepository repoRooms = RoomRepository.Instance;
-
-            DAL.Reservations reservationsData = new DAL.Reservations();
-
             List<Dictionary<string, string>> reservationsInfo = reservationsData.GetAllReservations();
             List<Reservation> reservations = new List<Reservation>();
 

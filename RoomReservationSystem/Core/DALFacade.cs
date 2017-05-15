@@ -4,7 +4,7 @@ using Core.Interfaces;
 using DAL;
 
 namespace Core {
-	class DALFacade {
+	public class DALFacade {
         private DAL.Users usersData;
         private DAL.Rooms roomsData;
         private DAL.Reservations reservationsData;
@@ -13,11 +13,20 @@ namespace Core {
 
         public DALFacade()
         {
-            usersData = new DAL.Users();
-            roomsData = new DAL.Rooms();
-            reservationsData = new DAL.Reservations();
-            repoUsers = UserRepository.Instance;
-            repoRooms = RoomRepository.Instance;
+            this.usersData = new DAL.Users();
+            this.roomsData = new DAL.Rooms();
+            this.reservationsData = new DAL.Reservations();
+            this.repoUsers = UserRepository.Instance;
+            this.repoRooms = RoomRepository.Instance;
+        }
+
+        public DALFacade(DAL.Users usersdata, DAL.Rooms roomsdata, DAL.Reservations reservationsdata, UserRepository repousers, RoomRepository reporooms)
+        {
+            this.usersData = usersdata;
+            this.roomsData = roomsdata;
+            this.reservationsData = reservationsdata;
+            this.repoUsers = repousers;
+            this.repoRooms = reporooms;
         }
 
 		public List<IUser> GetAllUsers() {

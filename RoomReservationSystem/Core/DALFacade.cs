@@ -78,7 +78,6 @@ namespace Core {
 
         public List<Reservation> ConvertFromStringsToReservationObjects(List<Dictionary<string,string>> reservationsinfo)
         {
-            List<Dictionary<string, string>> reservationsinfo = reservationsData.GetAllReservationsFromDatabase();
             List<Reservation> reservations = new List<Reservation>();
 
             foreach (Dictionary<string, string> reservationInfo in reservationsinfo)
@@ -100,6 +99,7 @@ namespace Core {
                 reservations.Add(reservation);
 
 
+                //we broke githob ;( tottaly
             }
             return reservations;
         }

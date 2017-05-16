@@ -5,7 +5,11 @@ using System.Data;
 
 namespace DAL
 {
-    public class Reservations: Database
+    public interface IReservationsForMocking
+    {
+        List<Dictionary<string, string>> GetAllReservationsFromDatabase();
+    }
+    public class Reservations: Database, IReservationsForMocking
     {
         public List<Dictionary<string, string>> GetAllReservationsFromDatabase()
         {

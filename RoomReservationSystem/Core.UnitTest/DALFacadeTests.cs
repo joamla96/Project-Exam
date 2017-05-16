@@ -31,7 +31,7 @@ namespace Core.UnitTest
             IUser expectedUser = new User(username, email, Permission.Student);
 
 
-            var mock = new Mock<DAL.Users>();
+            var mock = new Mock<DAL.IUsersForMocking>();
             mock.Setup(usersMock => usersMock.GetAllUsersFromDatabase()).Returns(() => resultUsersInfo);
 
             List<IUser> returnedUsers = testDALFacade.ConvertFromStringsToUserObjects(mock.Object.GetAllUsersFromDatabase());
@@ -73,6 +73,12 @@ namespace Core.UnitTest
         [TestMethod]
         public void GetAllReservationsTest()
         {
+            UserRepository repoUser = UserRepository.Instance;
+            RoomRepository repoRooms = RoomRepository.Instance;
+
+            repoUser.Clear();
+            repoRooms.Clear();
+
             DALFacade testDALFacade = new DALFacade();
 
             string username = "matt2694";
@@ -83,18 +89,18 @@ namespace Core.UnitTest
             string dateTo = "2017-05-05 19:00:00.00";
             string peopleNr = "1";
 
-            List<Dictionary<string, string>> resultUsersInfo = new List<Dictionary<string, string>>();
-            Dictionary<string, string> oneUser = new Dictionary<string, string>();
+            List<Dictionary<string, string>> resultdReservationsInfo = new List<Dictionary<string, string>>();
+            Dictionary<string, string> oneReservation = new Dictionary<string, string>();
 
-            oneUser.Add("Username", username);
-            oneUser.Add("Building", building);
-            oneUser.Add("FloorNr", floorNr);
-            oneUser.Add("Nr", nr);
-            oneUser.Add("DateFrom", dateFrom);
-            oneUser.Add("DateTo", dateTo);
-            oneUser.Add("PoplrNr", peopleNr);
+            oneReservation.Add("Username", username);
+            oneReservation.Add("Building", building);
+            oneReservation.Add("FloorNr", floorNr);
+            oneReservation.Add("Nr", nr);
+            oneReservation.Add("DateFrom", dateFrom);
+            oneReservation.Add("DateTo", dateTo);
+            oneReservation.Add("PeopleNr", peopleNr);
 
-            resultUsersInfo.Add(oneUser);
+            resultdReservationsInfo.Add(oneReservation);
 
             DateTime testDateFrom = new DateTime( 2017, 05, 05, 18, 00, 00, 00);
             DateTime testDateTo = new DateTime(2017, 05, 05, 19, 00, 00, 00);
@@ -102,12 +108,14 @@ namespace Core.UnitTest
             IUser testUser = new User(username , "matt2694@edu.eal.dk", Permission.Student);
             IRoom testRoom = new Room('C', 4, 1000, 20, Permission.Student);
 
+            repoUser.Add(testUser);
+            repoRooms.Add(testRoom);
 
             Reservation expectedReservation = new Reservation(testUser, testRoom, 1, testDateFrom, testDateTo);
 
 
-            var mock = new Mock<DAL.Reservations>();
-            mock.Setup(usersMock => usersMock.GetAllReservationsFromDatabase()).Returns(() => resultUsersInfo);
+            var mock = new Mock<DAL.IReservationsForMocking>();
+            mock.Setup(reservationsMock => reservationsMock.GetAllReservationsFromDatabase()).Returns(() => resultdReservationsInfo);
 
             List<Reservation> returnedReservation = testDALFacade.ConvertFromStringsToReservationObjects(mock.Object.GetAllReservationsFromDatabase());
 

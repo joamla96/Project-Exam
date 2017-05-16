@@ -97,9 +97,6 @@ namespace Core {
 
                 Reservation reservation = new Reservation(user, room, peopleNr, from, to);
                 reservations.Add(reservation);
-
-
-                //we broke githob ;( tottaly
             }
             return reservations;
         }

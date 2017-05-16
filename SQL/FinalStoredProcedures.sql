@@ -43,7 +43,8 @@ CREATE PROCEDURE SP_InsertReservation (@PeopleNr Int,
 									   @Username NVarChar(100)) AS
 BEGIN
 INSERT INTO Reservations (PeopleNr, DateTo, DateFrom, Building, FloorNr, Nr, Username) VALUES
-				         (@PeopleNr, @DateTo, @DateFrom, (SELECT Building FROM Rooms WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr), (SELECT FloorNr FROM Rooms WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr), (SELECT Nr FROM Rooms WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr), (SELECT Username FROM Users WHERE Username = @Username))
+--(@PeopleNr, @DateTo, @DateFrom, (SELECT Building FROM Rooms WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr), (SELECT FloorNr FROM Rooms WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr), (SELECT Nr FROM Rooms WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr), (SELECT Username FROM Users WHERE Username = @Username))
+(@PeopleNr, @DateTo, @DateFrom, @Building, @FloorNr, @Nr, @Username)
 END
 
 CREATE PROCEDURE SP_DeleteReservation (@ID Int) AS

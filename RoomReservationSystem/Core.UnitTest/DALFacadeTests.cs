@@ -27,9 +27,9 @@ namespace Core.UnitTest
 
 
             var mock = new Mock<DAL.Users>();
-            mock.Setup(m => m.GetAllUsersFromDatabase()).Returns(() => resultUsersInfo);
+            mock.Setup(usersMock => usersMock.GetAllUsersFromDatabase()).Returns(() => resultUsersInfo);
 
-            List<IUser> returnedUsers = testDALFacade.GetAllUsers(mock.Object.GetAllUsersFromDatabase());
+            List<IUser> returnedUsers = testDALFacade.ConvertFromStringsToUserObjects(mock.Object.GetAllUsersFromDatabase());
 
             Assert.AreEqual(expectedUser, returnedUsers[0]);
 

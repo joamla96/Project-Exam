@@ -4,7 +4,8 @@ using Core.Interfaces;
 using DAL;
 
 namespace Core {
-	public class DALFacade {
+
+    public class DALFacade {
         private DAL.Users usersData;
         private DAL.Rooms roomsData;
         private DAL.Reservations reservationsData;

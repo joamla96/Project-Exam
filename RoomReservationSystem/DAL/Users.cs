@@ -4,6 +4,10 @@ using System.Data.SqlClient;
 using System.Data;
 
 namespace DAL {
+    public interface IUsers
+    {
+        List<Dictionary<string, string>> GetAllUsers();
+    }
 	public class Users : Database
     {
 		public List<Dictionary<string, string>> GetAllUsers()

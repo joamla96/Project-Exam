@@ -11,7 +11,7 @@ namespace Core {
 		private static UserRepository _repoUsers = UserRepository.Instance;
 
 		public static void StartUp() {
-			List<IUser> Users = _dal.GetAllUsers();
+			List<IUser> Users = _dal.GetAllAllUsers();
 			List<IRoom> Rooms = _dal.GetAllRooms();
 
 			foreach(IUser user in Users) {

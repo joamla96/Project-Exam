@@ -6,22 +6,22 @@ using DAL;
 namespace Core {
 
     public class DALFacade {
-        private DAL.IUsers usersData;
-        private DAL.IRooms roomsData;
-        private DAL.IReservations reservationsData;
+        private IUsers usersData;
+        private IRooms roomsData;
+        private IReservations reservationsData;
         private UserRepository repoUsers;
         private RoomRepository repoRooms;
 
         public DALFacade()
         {
-            this.usersData = new DAL.Users();
-            this.roomsData = new DAL.Rooms();
-            this.reservationsData = new DAL.Reservations();
+            this.usersData = new Users();
+            this.roomsData = new Rooms();
+            this.reservationsData = new Reservations();
             this.repoUsers = UserRepository.Instance;
             this.repoRooms = RoomRepository.Instance;
         }
 
-        public DALFacade(DAL.IUsers usersdata, DAL.IRooms roomsdata, DAL.IReservations reservationsdata, UserRepository repousers, RoomRepository reporooms)
+        public DALFacade(IUsers usersdata, IRooms roomsdata, IReservations reservationsdata, UserRepository repousers, RoomRepository reporooms)
         {
             this.usersData = usersdata;
             this.roomsData = roomsdata;
@@ -30,11 +30,18 @@ namespace Core {
             this.repoRooms = reporooms;
         }
 
-		public List<IUser> GetAllUsers() {
-			List<Dictionary<string, string>> usersInfo = usersData.GetAllUsers();
+        public List<IUser> GetAllAllUsers()
+        {
+            List<Dictionary<string, string>> usersInfo = usersData.GetAllUsers();
+            List<IUser> users = this.GetAllUsers(usersInfo);
+            return users;
+        }
+
+		public List<IUser> GetAllUsers(List<Dictionary<string, string>> usersinfo) {
+			
 			List<IUser> users = new List<IUser>();
 
-			foreach (Dictionary<string, string> userInfo in usersInfo) {
+			foreach (Dictionary<string, string> userInfo in usersinfo) {
 				int permissionLevel = int.Parse(userInfo["PermissionLevel"]);
 				User newUser = new User(userInfo["Username"], userInfo["Email"], HelperFunctions.ConvertIntToPermission(permissionLevel));
 				users.Add(newUser);

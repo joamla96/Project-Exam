@@ -10,7 +10,7 @@ namespace DAL
         List<Dictionary<string, string>> GetAllRooms();
 
     }
-    public class Rooms: Database
+    public class Rooms: Database, IRooms 
     {
         public List<Dictionary<string, string>> GetAllRooms()
         {

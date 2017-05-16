@@ -8,7 +8,7 @@ namespace DAL {
     {
         List<Dictionary<string, string>> GetAllUsers();
     }
-	public class Users : Database
+	public class Users : Database, IUsers
     {
 		public List<Dictionary<string, string>> GetAllUsers()
         {

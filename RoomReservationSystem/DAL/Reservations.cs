@@ -9,7 +9,7 @@ namespace DAL
     {
         List<Dictionary<string, string>> GetAllReservations();
     }
-    public class Reservations: Database
+    public class Reservations: Database, IReservations 
     {
         public List<Dictionary<string, string>> GetAllReservations()
         {

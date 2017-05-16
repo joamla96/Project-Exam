@@ -86,9 +86,9 @@ namespace Core {
                 IUser user = repoUsers.Get(dummyUser);
 
                 char building = char.Parse(reservationInfo["Building"]);
-                int floornr = int.Parse(reservationInfo["FloorNr"]);
+                int floorNr = int.Parse(reservationInfo["FloorNr"]);
                 int nr = int.Parse(reservationInfo["Nr"]);
-                IRoom dummyRoom = new Room(building, floornr, nr, 0, Permission.Student);
+                IRoom dummyRoom = new Room(building, floorNr, nr, 0, Permission.Student);
                 IRoom room = repoRooms.Get(dummyRoom);
 
                 DateTime from = DateTime.Parse(reservationInfo["DateFrom"]);

@@ -14,15 +14,20 @@ namespace Core.UnitTest
         public void GetAllUsersTest()
         {
             DALFacade testDALFacade = new DALFacade();
+
             string username = "hedv0149";
             string email = "hedv0149@edu.eal.dk";
             string permissionLevel = "0";
+
             List<Dictionary<string, string>> resultUsersInfo = new List<Dictionary<string, string>>();
             Dictionary<string, string> oneUser = new Dictionary<string, string>();
+
             oneUser.Add("Username", username);
             oneUser.Add("Email", email);
             oneUser.Add("PermissionLevel", permissionLevel);
+
             resultUsersInfo.Add(oneUser);
+
             IUser expectedUser = new User(username, email, Permission.Student);
 
 
@@ -35,33 +40,78 @@ namespace Core.UnitTest
 
         }
 
+        //[TestMethod]
+        //public void GetAllRoomsTest()
+        //{
+        //    DALFacade testDALFacade = new DALFacade();
+        //    string building = "A";
+        //    string floor = "2";
+        //    string nr = "6";
+        //    string maxPeople = "4";
+        //    string minPermissionLevel = "0";
+        //    List<Dictionary<string, string>> resultRoomsInfo = new List<Dictionary<string, string>>();
+        //    Dictionary<string,string> oneRoom = new Dictionary<string,string>();
+        //    oneRoom.Add("Building", building);
+        //    oneRoom.Add("FloorNr", floor);
+        //    oneRoom.Add("Nr", nr);
+        //    oneRoom.Add("MaxPeople", maxPeople);
+        //    oneRoom.Add("MinPermissionLevel", minPermissionLevel);
+        //    resultRoomsInfo.Add(oneRoom);
+
+        //    IRoom expectedRoom = new Room('A', 2, 6, 4, 0);
+
+        //    var mock = new Mock<DAL.Rooms>();
+        //    mock.Setup(roomsMock => roomsMock.GetAllRoomsFromDatabase()).Returns(() => resultRoomsInfo);
+
+        //    List<IRoom> returnedRooms = testDALFacade.ConvertFromStringsToRoomObjects(mock.Object.GetAllRoomsFromDatabase());
+
+        //    Assert.AreEqual(expectedRoom, returnedRooms[0]);
+
+
+        //}
+
         [TestMethod]
-        public void GetAllRoomsTest()
+        public void GetAllReservationsTest()
         {
             DALFacade testDALFacade = new DALFacade();
-            string building = "A";
-            string floor = "2";
-            string nr = "6";
-            string maxPeople = "4";
-            string minPermissionLevel = "0";
-            List<Dictionary<string, string>> resultRoomsInfo = new List<Dictionary<string, string>>();
-            Dictionary<string,string> oneRoom = new Dictionary<string,string>();
-            oneRoom.Add("Building", building);
-            oneRoom.Add("FloorNr", floor);
-            oneRoom.Add("Nr", nr);
-            oneRoom.Add("MaxPeople", maxPeople);
-            oneRoom.Add("MinPermissionLevel", minPermissionLevel);
-            resultRoomsInfo.Add(oneRoom);
 
-            IRoom expectedRoom = new Room('A', 2, 6, 4, 0);
+            string username = "matt2694";
+            string building = "C";
+            string floorNr = "4";
+            string nr = "1000";
+            string dateFrom = "2017-05-05 18:00:00.00";
+            string dateTo = "2017-05-05 19:00:00.00";
+            string peopleNr = "1";
 
-            var mock = new Mock<DAL.Rooms>();
-            mock.Setup(roomsMock => roomsMock.GetAllRoomsFromDatabase()).Returns(() => resultRoomsInfo);
+            List<Dictionary<string, string>> resultUsersInfo = new List<Dictionary<string, string>>();
+            Dictionary<string, string> oneUser = new Dictionary<string, string>();
 
-            List<IRoom> returnedRooms = testDALFacade.ConvertFromStringsToRoomObjects(mock.Object.GetAllRoomsFromDatabase());
+            oneUser.Add("Username", username);
+            oneUser.Add("Building", building);
+            oneUser.Add("FloorNr", floorNr);
+            oneUser.Add("Nr", nr);
+            oneUser.Add("DateFrom", dateFrom);
+            oneUser.Add("DateTo", dateTo);
+            oneUser.Add("PoplrNr", peopleNr);
 
-            Assert.AreEqual(expectedRoom, returnedRooms[0]);
+            resultUsersInfo.Add(oneUser);
 
+            DateTime testDateFrom = new DateTime( 2017, 05, 05, 18, 00, 00, 00);
+            DateTime testDateTo = new DateTime(2017, 05, 05, 19, 00, 00, 00);
+
+            IUser testUser = new User(username , "matt2694@edu.eal.dk", Permission.Student);
+            IRoom testRoom = new Room('C', 4, 1000, 20, Permission.Student);
+
+
+            Reservation expectedReservation = new Reservation(testUser, testRoom, 1, testDateFrom, testDateTo);
+
+
+            var mock = new Mock<DAL.Reservations>();
+            mock.Setup(usersMock => usersMock.GetAllReservationsFromDatabase()).Returns(() => resultUsersInfo);
+
+            List<Reservation> returnedReservation = testDALFacade.ConvertFromStringsToReservationObjects(mock.Object.GetAllReservationsFromDatabase());
+
+            Assert.AreEqual(expectedReservation, returnedReservation[0]);
 
         }
     }

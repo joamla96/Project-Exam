@@ -6,9 +6,9 @@ using DAL;
 namespace Core {
 
     public class DALFacade {
-        private IUsers usersData;
-        private IRooms roomsData;
-        private IReservations reservationsData;
+        private Users usersData;
+        private Rooms roomsData;
+        private Reservations reservationsData;
         private UserRepository repoUsers;
         private RoomRepository repoRooms;
 
@@ -21,7 +21,7 @@ namespace Core {
             this.repoRooms = RoomRepository.Instance;
         }
 
-        public DALFacade(IUsers usersdata, IRooms roomsdata, IReservations reservationsdata, UserRepository repousers, RoomRepository reporooms)
+        public DALFacade(Users usersdata, Rooms roomsdata, Reservations reservationsdata, UserRepository repousers, RoomRepository reporooms)
         {
             this.usersData = usersdata;
             this.roomsData = roomsdata;

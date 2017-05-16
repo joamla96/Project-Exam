@@ -7,7 +7,7 @@ namespace DAL
 {
     public class Reservations: Database
     {
-        public List<Dictionary<string, string>> GetAllReservations()
+        public List<Dictionary<string, string>> GetAllReservationsFromDatabase()
         {
             List<Dictionary<string, string>> result = new List<Dictionary<string, string>>();
 

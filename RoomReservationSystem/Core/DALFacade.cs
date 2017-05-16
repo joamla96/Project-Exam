@@ -37,6 +37,12 @@ namespace Core {
             return users;
         }
 
+        public List<Reservation> GetAllReservations()
+        {
+            List<Dictionary<string, string>> reservationsInfo = reservationsData.GetAllReservationsFromDatabase();
+            List<Reservation> reservations = this.ConvertFromStringsToReservationObjects(reservationsInfo);
+            return reservations;
+        }
 		public List<IUser> ConvertFromStringsToUserObjects(List<Dictionary<string, string>> usersinfo) {
 			
 			List<IUser> users = new List<IUser>();
@@ -70,12 +76,12 @@ namespace Core {
             return rooms;
         }
 
-        public List<Reservation> GetAllReservations()
+        public List<Reservation> ConvertFromStringsToReservationObjects(List<Dictionary<string,string>> reservationsinfo)
         {
-            List<Dictionary<string, string>> reservationsInfo = reservationsData.GetAllReservations();
+            List<Dictionary<string, string>> reservationsinfo = reservationsData.GetAllReservationsFromDatabase();
             List<Reservation> reservations = new List<Reservation>();
 
-            foreach (Dictionary<string, string> reservationInfo in reservationsInfo)
+            foreach (Dictionary<string, string> reservationInfo in reservationsinfo)
             {
                 IUser dummyUser = new User(reservationInfo["Username"], "", Permission.Student);
                 IUser user = repoUsers.Get(dummyUser);

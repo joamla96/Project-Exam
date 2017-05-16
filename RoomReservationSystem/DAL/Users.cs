@@ -35,8 +35,6 @@ namespace DAL {
 		}
 
 		public void Insert(string username, string email, int permission) {
-			Dictionary<string, string> user = new Dictionary<string, string>();
-
 			SqlConnection conn = this.OpenConnection();
 
 			SqlCommand command = new SqlCommand("SP_InsertUser", conn) {

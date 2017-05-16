@@ -34,5 +34,35 @@ namespace Core.UnitTest
             Assert.AreEqual(expectedUser, returnedUsers[0]);
 
         }
+
+        [TestMethod]
+        public void GetAllRoomsTest()
+        {
+            DALFacade testDALFacade = new DALFacade();
+            string building = "A";
+            string floor = "2";
+            string nr = "6";
+            string maxPeople = "4";
+            string minPermissionLevel = "0";
+            List<Dictionary<string, string>> resultRoomsInfo = new List<Dictionary<string, string>>();
+            Dictionary<string,string> oneRoom = new Dictionary<string,string>();
+            oneRoom.Add("Building", building);
+            oneRoom.Add("FloorNr", floor);
+            oneRoom.Add("Nr", nr);
+            oneRoom.Add("MaxPeople", maxPeople);
+            oneRoom.Add("MinPermissionLevel", minPermissionLevel);
+            resultRoomsInfo.Add(oneRoom);
+
+            IRoom expectedRoom = new Room('A', 2, 6, 4, 0);
+
+            var mock = new Mock<DAL.Rooms>();
+            mock.Setup(roomsMock => roomsMock.GetAllRoomsFromDatabase()).Returns(() => resultRoomsInfo);
+
+            List<IRoom> returnedRooms = testDALFacade.ConvertFromStringsToRoomObjects(mock.Object.GetAllRoomsFromDatabase());
+
+            Assert.AreEqual(expectedRoom, returnedRooms[0]);
+
+
+        }
     }
 }

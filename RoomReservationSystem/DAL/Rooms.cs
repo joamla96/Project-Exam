@@ -5,12 +5,7 @@ using System.Data;
 
 namespace DAL
 {
-    public interface IRooms
-    {
-        List<Dictionary<string, string>> GetAllRooms();
-
-    }
-    public class Rooms: Database, IRooms 
+    public class Rooms: Database
     {
         public List<Dictionary<string, string>> GetAllRooms()
         {

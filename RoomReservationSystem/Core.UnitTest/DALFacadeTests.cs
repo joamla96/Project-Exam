@@ -26,19 +26,13 @@ namespace Core.UnitTest
             IUser expectedUser = new User(username, email, Permission.Student);
 
 
-            var mock = new Mock<DAL.IUsers>();
-            mock.Setup(m => m.GetAllUsers()).Returns(() => resultUsersInfo);
+            var mock = new Mock<DAL.Users>();
+            mock.Setup(m => m.GetAllUsersFromDatabase()).Returns(() => resultUsersInfo);
 
-            List<IUser> returnedUsers = testDALFacade.GetAllUsers(mock.Object.GetAllUsers());
+            List<IUser> returnedUsers = testDALFacade.GetAllUsers(mock.Object.GetAllUsersFromDatabase());
 
             Assert.AreEqual(expectedUser, returnedUsers[0]);
 
-            //var mockUsers = new Mock<DAL.IUsers>();
-            //var mockRooms = new Mock<DAL.IRooms>();
-            //var mockReservations = new Mock<DAL.IReservations>();
-            //UserRepository repoUsers = UserRepository.Instance;
-            //RoomRepository repoRooms = RoomRepository.Instance;
-            //DALFacade testDALFacade = new DALFacade(mockUsers, mockRooms, mockReservations, repoUsers, repoRooms);
         }
     }
 }

@@ -5,11 +5,7 @@ using System.Data;
 
 namespace DAL
 {
-    public interface IReservations
-    {
-        List<Dictionary<string, string>> GetAllReservations();
-    }
-    public class Reservations: Database, IReservations 
+    public class Reservations: Database
     {
         public List<Dictionary<string, string>> GetAllReservations()
         {

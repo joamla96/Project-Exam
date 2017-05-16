@@ -4,13 +4,9 @@ using System.Data.SqlClient;
 using System.Data;
 
 namespace DAL {
-    public interface IUsers
+	public class Users : Database
     {
-        List<Dictionary<string, string>> GetAllUsers();
-    }
-	public class Users : Database, IUsers
-    {
-		public List<Dictionary<string, string>> GetAllUsers()
+		public List<Dictionary<string, string>> GetAllUsersFromDatabase()
         {
 			List<Dictionary<string, string>> result = new List<Dictionary<string, string>>();
 

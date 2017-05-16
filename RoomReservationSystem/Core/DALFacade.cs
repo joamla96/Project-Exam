@@ -30,9 +30,9 @@ namespace Core {
             this.repoRooms = reporooms;
         }
 
-        public List<IUser> GetAllAllUsers()
+        public List<IUser> GetAllUsersInformationStrings()
         {
-            List<Dictionary<string, string>> usersInfo = usersData.GetAllUsers();
+            List<Dictionary<string, string>> usersInfo = usersData.GetAllUsersFromDatabase();
             List<IUser> users = this.GetAllUsers(usersInfo);
             return users;
         }

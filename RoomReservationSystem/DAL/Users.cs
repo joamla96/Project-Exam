@@ -37,5 +37,23 @@ namespace DAL {
 
 			return result;
 		}
+
+		public void Insert(string username, string email, int permission) {
+			SqlConnection conn = this.OpenConnection();
+
+			SqlCommand command = new SqlCommand("SP_InsertUser", conn) {
+				CommandType = CommandType.StoredProcedure
+			};
+
+			command.Parameters.AddWithValue("Username", username);
+			command.Parameters.AddWithValue("Email", email);
+			command.Parameters.AddWithValue("PermissionLevel", permission);
+
+			try {
+				command.ExecuteNonQuery();
+			} finally {
+				this.CloseConnection();
+			}
+		}
 	}
 }

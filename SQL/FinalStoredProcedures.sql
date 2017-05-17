@@ -25,12 +25,6 @@ INSERT INTO Users (Username, Email, PermissionLevel) VALUES
 UPDATE Change set Identifier = 1 WHERE PrimaryKey = @Username
 END
 
-CREATE PROCEDURE SP_ChangeIdentifier AS
-BEGIN
-INSERT INTO Change(Identifier) VALUES
-				  (1)
-END
-
 CREATE PROCEDURE SP_InsertRoom (@Building Char,
 								@FloorNr Int,
 								@Nr Int,
@@ -72,5 +66,6 @@ CREATE PROCEDURE SP_DeleteUser (@Username NVarChar(100)) AS
 BEGIN
 DELETE FROM Users
 WHERE Username = @Username
+UPDATE Change set Identifier = 1 WHERE PrimaryKey = @Username
 END
 

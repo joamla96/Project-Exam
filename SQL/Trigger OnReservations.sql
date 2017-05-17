@@ -38,7 +38,7 @@ FOR DELETE AS
 
 	set @command =  2;
 	set @table = 'Reservations';
-	select @PK = i.ID from inserted i;
+	select @PK = i.ID from deleted i;
 	
 	INSERT INTO Change(Command, TableName, PrimaryKey) VALUES
 	(@command, @table, @PK);

@@ -38,7 +38,7 @@ FOR DELETE AS
 
 	set @command =  2;
 	set @table = 'Users';
-	select @PK = Username from deleted;
+	select @PK = i.Username from deleted i;
 	
 	INSERT INTO Change(Command, TableName, PrimaryKey) VALUES
 	(@command, @table, @PK);

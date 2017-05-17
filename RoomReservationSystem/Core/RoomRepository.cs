@@ -41,28 +41,44 @@ namespace Core {
         }
 
 		public List<IRoom> Get(Permission permissionlevel) {
-			List<IRoom> result = new List<IRoom>();
+			List<IRoom> roomsByPermissionLevel = new List<IRoom>();
 
 			foreach(IRoom room in _roomRepository) {
-				if(room.MinPermissionLevel >= permissionlevel) {
-					result.Add(room);
+				if(room.MinPermissionLevel <= permissionlevel) {
+					roomsByPermissionLevel.Add(room);
 				}
 			}
 
-			return result;
+			return roomsByPermissionLevel;
+		}
+
+		public IRoom Get(IRoom checkroom)
+		{
+			IRoom foundroom = null;
+			foreach(IRoom room in _roomRepository) {
+				if(room.Equals(checkroom)) {
+					foundroom = room;
+				}
+			}
+
+			if (foundroom == null) {
+				throw new IndexOutOfRangeException();
+			} else {
+				return foundroom;
+			}
 		}
 
 		public IRoom Get(Reservation reservation)
         {
-            Room result = null;
+            Room roomsByReservation = null;
             foreach(Room room in _roomRepository)
             {
                 if(room == reservation.Room)
                 {
-                    result = room;
+                    roomsByReservation = room;
                 }
             }
-            return result;
+            return roomsByReservation;
         }
 
         public Stack<IRoom> GetPossible(Permission permissionlevel, int people)

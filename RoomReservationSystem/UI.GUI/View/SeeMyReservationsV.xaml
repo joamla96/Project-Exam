@@ -9,10 +9,11 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="SeeMyReservationsV">
 
-    <Grid Margin="0,0,-72,0" HorizontalAlignment="Left" Width="372">
+    <Grid Margin="0,0,-116,0" HorizontalAlignment="Left" Width="416">
         <Label Content="Reservation List" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="150" FontSize="16" FontWeight="Bold"/>
-        
+
         <ListBox x:Name="ReservationListListBox" Height="137" Margin="128,56,10,0" VerticalAlignment="Top">
+
         </ListBox>
         <Button Content="Delete Reservation" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="104" Height="37"/>
 

@@ -8,7 +8,7 @@ namespace Core
     public class Room : IRoom, IComparable
 	{
         
-        public string ID { get { return String.Format("{0}" + "{1}" + "." + "{2}", Building, Floor, Nr);} }
+        public string ID { get { return String.Format("{0}" + "{1}" + "." + "{2:00}", Building, Floor, Nr);} }
 
         public char Building { get; set; }
         public int Floor { get; set; }

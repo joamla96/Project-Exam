@@ -72,23 +72,41 @@ namespace Core
             return _reservationRepository;
         }
 
-        //public List<Reservation> Get(IUser user)    INTEGRATION!!!
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public List<Reservation> Get(IUser user)    
+        {
+            List<Reservation> reservationsByUser = new List<Reservation>();
 
-        //public List<Reservation> Get(IRoom room)
-        //{
-        //    throw new NotImplementedException();
-        //}
+            foreach(Reservation reservation in _reservationRepository)
+            {
+                if(reservation.User.Equals(user))
+                {
+                    reservationsByUser.Add(reservation);
+                }
+            }
+            return reservationsByUser;
+        }
+
+        public List<Reservation> Get(IRoom room)
+        {
+            List<Reservation> reservationsByRoom = new List<Reservation>();
+
+            foreach(Reservation reservation in _reservationRepository)
+            {
+                if(reservation.Room.Equals(room))
+                {
+                    reservationsByRoom.Add(reservation);
+                }
+            }
+            return reservationsByRoom;
+        }
 
         public Reservation Get(Reservation checkreservation)
         {
             Reservation result = null;
 
-            foreach(Reservation reservation in _reservationRepository)
+            foreach (Reservation reservation in _reservationRepository)
             {
-                if(reservation.Equals(checkreservation))
+                if (reservation.Equals(checkreservation))
                 {
                     result = reservation;
                 }

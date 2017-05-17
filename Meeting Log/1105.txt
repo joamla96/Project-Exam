@@ -1,0 +1,3 @@
+We decided to have the DAL reference the Core, to assure easy seperation of the Core in the future.
+
+Since the DAL, like the GUI, solely exists for us to have a prototype-able project, that works by itself (as well), we decided it would be best to have the core depend on nothing external, since it will very likely be integrated somewhere else.

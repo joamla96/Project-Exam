@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace UI.GUI.ViewModel
 {
-    public class Class1
+    class DeleteReservationVM
     {
     }
 }

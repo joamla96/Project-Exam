@@ -6,7 +6,7 @@ namespace Core
 {
 	public enum Permission
 	{
-		Admin, Teacher, Student
+		Student, Teacher, Admin
 	}
     public class User : IUser
     {

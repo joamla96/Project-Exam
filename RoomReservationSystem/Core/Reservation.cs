@@ -46,16 +46,13 @@ namespace Core
 
             output.Write(Room.ID + " ");
 
-            string date = From.Day +"."+ From.Month +"."+ From.Year;
-            output.Write(date+ " ");
+            string date = From.Day + "." + From.Month + "." + From.Year;
+            output.Write(date + " ");
 
-            string hour = From.Hour +":"+ From.Minute + " - " + To.Hour + ":" + To.Minute;
-            output.Write(hour);
+            string hourFormat = "{0:00}:{1:00} - {2:00}:{3:00}";
+            output.Write(hourFormat, From.Hour, From.Minute, To.Hour, To.Minute);
 
             return output.ToString();
-            //return Room.ID + " " + From + " " + To + "";
-
-            //return String.Format("{0}" + "{1}" + "." + "{2:00}", Building, Floor, Nr);
         }
     }
 }

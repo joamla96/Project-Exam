@@ -27,8 +27,8 @@ namespace UI.GUI.View
         private void ReserveRoomButtonClick(object sender, RoutedEventArgs e)
         {
             string date = SelectDate.Text;
-            string to = (string)ToListBox.Content;
-            string from = (string)FromListBox.Content;
+            string to = Convert.ToString(ToListBox.SelectedItem);
+            string from = Convert.ToString(FromListBox.SelectedItem);
             string peopleNr = NumberOfPeopleTextBox.Text;
 
             if (peopleNr == "")

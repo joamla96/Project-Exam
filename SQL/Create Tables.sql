@@ -27,8 +27,11 @@ CREATE TABLE Reservations(
 	FloorNr		Int				NOT NULL,
 	Nr			Int				NOT NULL,
 	Username	NVarChar(100)	NOT NULL,
+	CONSTRAINT	Reservations_PK	PRIMARY KEY (ID),
 	CONSTRAINT	Reservations_Users_FK	FOREIGN KEY (Username)
-		REFERENCES	Users(Username),
+		REFERENCES	Users(Username)
+		ON DELETE CASCADE,
 	CONSTRAINT	Reservations_Rooms_FK	FOREIGN KEY (Building, FloorNr, Nr)
-		REFERENCES	Rooms(Building, FloorNr, Nr),
+		REFERENCES	Rooms(Building, FloorNr, Nr)
+		ON DELETE CASCADE
 );

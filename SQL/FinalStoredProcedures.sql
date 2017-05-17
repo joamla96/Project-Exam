@@ -22,6 +22,13 @@ CREATE PROCEDURE SP_InsertUser (@Username NVarChar(100),
 BEGIN
 INSERT INTO Users (Username, Email, PermissionLevel) VALUES
 				  (@Username, @Email, @PermissionLevel)
+UPDATE Change set Identifier = 1 WHERE PrimaryKey = @Username
+END
+
+CREATE PROCEDURE SP_ChangeIdentifier AS
+BEGIN
+INSERT INTO Change(Identifier) VALUES
+				  (1)
 END
 
 CREATE PROCEDURE SP_InsertRoom (@Building Char,

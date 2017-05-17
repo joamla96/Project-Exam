@@ -11,14 +11,14 @@ namespace Core {
 		private static UserRepository _repoUsers = UserRepository.Instance;
 
 		public static void StartUp() {
-			List<IUser> Users = _dal.GetAllUsers();
-			List<IRoom> Rooms = _dal.GetAllRooms();
+			List<IUser> users = _dal.GetAllUsers();
+			List<IRoom> rooms = _dal.GetAllRooms();
 
-			foreach(IUser user in Users) {
+			foreach(IUser user in users) {
 				_repoUsers.Add(user);
 			}
 
-			foreach(IRoom room in Rooms) {
+			foreach(IRoom room in rooms) {
 				_repoRooms.Add(room);
 			}
 

@@ -4,9 +4,13 @@ using System.Data.SqlClient;
 using System.Data;
 
 namespace DAL {
-	public class Users : Database
+    public interface IUsersForMocking
     {
-		public List<Dictionary<string, string>> GetAllUsers()
+        List<Dictionary<string, string>> GetAllUsersFromDatabase();
+    }
+	public class Users : Database, IUsersForMocking
+    {
+		public List<Dictionary<string, string>> GetAllUsersFromDatabase()
         {
 			List<Dictionary<string, string>> result = new List<Dictionary<string, string>>();
 

@@ -7,7 +7,8 @@ namespace UI.GUI.ViewModel
 {
     class ReserveRoomVM
     {
-        ReservationRepository reserveRepo = ReservationRepository.Instance; 
+        ReservationRepository _reserveRepo = ReservationRepository.Instance; 
+
         public string ReserveRoom(string date, string from, string to, string peoplenr)
         {
             string message;
@@ -18,7 +19,7 @@ namespace UI.GUI.ViewModel
             int peopleNR = int.Parse(peoplenr);
             try
             {
-                IRoom room = reserveRepo.RequestReservation(dateFrom, dateTo, peopleNR);
+                IRoom room = _reserveRepo.RequestReservation(dateFrom, dateTo, peopleNR);
                 message = "You have been assigned to room: " + room.ID;
             }
             catch(NoRoomsAvailable)

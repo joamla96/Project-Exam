@@ -37,7 +37,6 @@ namespace Core.UnitTest
             List<IUser> returnedUsers = testDALFacade.ConvertFromStringsToUserObjects(mock.Object.GetAllUsersFromDatabase());
 
             Assert.AreEqual(expectedUser, returnedUsers[0]);
-
         }
 
         [TestMethod]
@@ -66,8 +65,6 @@ namespace Core.UnitTest
             List<IRoom> returnedRooms = testDALFacade.ConvertFromStringsToRoomObjects(mock.Object.GetAllRoomsFromDatabase());
 
             Assert.AreEqual(expectedRoom, returnedRooms[0]);
-
-
         }
 
         [TestMethod]
@@ -120,7 +117,6 @@ namespace Core.UnitTest
             List<Reservation> returnedReservation = testDALFacade.ConvertFromStringsToReservationObjects(mock.Object.GetAllReservationsFromDatabase());
 
             Assert.AreEqual(expectedReservation, returnedReservation[0]);
-
         }
 
         [TestMethod]
@@ -266,6 +262,12 @@ namespace Core.UnitTest
             List<Reservation> returnedReservation = testDALFacade.ConvertFromStringsToReservationObjects(mock.Object.GetAllReservationsFromDatabase());
 
             Assert.IsTrue(expectedReservation1.Equals(returnedReservation[0]) && expectedReservation2.Equals(returnedReservation[1]) && expectedReservation3.Equals(returnedReservation[2]));
+        }
+
+        [TestMethod]
+        public void DeleteAllUsers()
+        {
+
         }
     }
 }

@@ -59,9 +59,15 @@ namespace Core {
         public List<IRoom> GetAllRooms()
         {
             List<Dictionary<string, string>> roomsInfo = roomsData.GetAllRoomsFromDatabase();
+            List<IRoom> rooms = ConvertFromStringsToRoomObjects(roomsInfo);
+            return rooms;
+        }
+
+        public List<IRoom> ConvertFromStringsToRoomObjects(List<Dictionary<string, string>> list)
+        {
             List<IRoom> rooms = new List<IRoom>();
 
-            foreach (Dictionary<string, string> roomInfo in roomsInfo)
+            foreach (Dictionary<string, string> roomInfo in list)
             {
                 int minPermissionLevel = int.Parse(roomInfo["MinPermissionLevel"]);
                 char building = char.Parse(roomInfo["Building"]);

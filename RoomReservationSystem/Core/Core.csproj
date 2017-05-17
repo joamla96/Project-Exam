@@ -40,7 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DALFacade.cs" />
     <Compile Include="Exceptions\NoRoomsAvailable.cs" />
+    <Compile Include="HelperFunctions.cs" />
+    <Compile Include="Initialize.cs" />
     <Compile Include="Interfaces\IObservable.cs" />
     <Compile Include="Interfaces\IObserver.cs" />
     <Compile Include="Interfaces\IRoom.cs" />
@@ -54,6 +57,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{9ec729d8-efd6-4f4b-a4b8-d90b920c1a23}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

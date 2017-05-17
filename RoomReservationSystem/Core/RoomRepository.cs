@@ -44,12 +44,28 @@ namespace Core {
 			List<IRoom> roomsByPermissionLevel = new List<IRoom>();
 
 			foreach(IRoom room in _roomRepository) {
-				if(room.MinPermissionLevel >= permissionlevel) {
+				if(room.MinPermissionLevel <= permissionlevel) {
 					roomsByPermissionLevel.Add(room);
 				}
 			}
 
 			return roomsByPermissionLevel;
+		}
+
+		public IRoom Get(IRoom checkroom)
+		{
+			IRoom foundroom = null;
+			foreach(IRoom room in _roomRepository) {
+				if(room.Equals(checkroom)) {
+					foundroom = room;
+				}
+			}
+
+			if (foundroom == null) {
+				throw new IndexOutOfRangeException();
+			} else {
+				return foundroom;
+			}
 		}
 
 		public IRoom Get(Reservation reservation)

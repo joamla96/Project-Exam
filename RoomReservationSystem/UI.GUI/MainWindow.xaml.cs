@@ -23,6 +23,7 @@ namespace UI.GUI
 	{
 		public MainWindow() {
 			InitializeComponent();
+			Initialize.StartUp();
 		}
 
         private void AdminButtonClick(object sender, RoutedEventArgs e)

@@ -9,3 +9,6 @@ Jonas	Late	+5kr	10
 Roxana	Late	+5kr	0
 Hedviga Naming	+5kr	5
 Roxana	Naming	+5kr	5
+
+16/05/2017
+Jonas	Naming	+5kr	5

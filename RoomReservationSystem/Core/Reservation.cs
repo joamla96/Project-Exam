@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+
 
 namespace Core
 {
@@ -38,7 +40,24 @@ namespace Core
             return thesame;
         }
 
+        public override string ToString()
+        {
+            StringWriter output = new StringWriter();
 
+            output.Write(Room.ID + " ");
 
+            string date = From.Day +"."+ From.Month +"."+ From.Year;
+            output.Write(date+ " ");
+
+            string hour = From.Hour +":"+ From.Minute + " - " + To.Hour + ":" + To.Minute;
+            output.Write(hour);
+
+            return output.ToString();
+            //return Room.ID + " " + From + " " + To + "";
+
+            //return String.Format("{0}" + "{1}" + "." + "{2:00}", Building, Floor, Nr);
+        }
     }
 }
+
+  

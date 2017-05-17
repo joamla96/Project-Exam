@@ -45,6 +45,11 @@ namespace Core
                     result = user;
                 }
             }
+
+			if(result == null) {
+				throw new IndexOutOfRangeException();
+			}
+
             return result;
         }
 

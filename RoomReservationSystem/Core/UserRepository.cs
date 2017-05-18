@@ -11,11 +11,16 @@ namespace Core
     {
 		private static UserRepository _instance = new UserRepository();
 		public static UserRepository Instance { get { return _instance; } }
+        private DALFacade _dalFacade = new DALFacade();
 
 		private List<IUser> _userRepository = new List<IUser>();
 
-		public void Clear() {
+		public void Clear()
+        {
+            ReservationRepository.Instance.Clear();
 			_userRepository.Clear();
+            _dalFacade.DeleteAllUsers();
+            
 		}
 
         public void Add(IUser user)

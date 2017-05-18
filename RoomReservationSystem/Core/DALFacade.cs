@@ -106,5 +106,20 @@ namespace Core {
             }
             return reservations;
         }
+
+        public void DeleteAllUsers()
+        {
+            usersData.DeleteAllUsersInDatabase();
+        }
+
+        public void DeleteAllRooms()
+        {
+            roomsData.DeleteAllRoomsInDatabase();
+        }
+
+        public void DeleteAllReservatios()
+        {
+            reservationsData.DeleteAllReservationsInDatabase();
+        }
     }
 }

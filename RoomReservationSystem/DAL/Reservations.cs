@@ -45,5 +45,24 @@ namespace DAL
 
             return result;
         }
+
+        public void DeleteAllReservationsInDatabase()
+        {
+            SqlConnection conn = this.OpenConnection();
+
+            SqlCommand command = new SqlCommand("SP_DeleteAllReservations", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
     }
 }

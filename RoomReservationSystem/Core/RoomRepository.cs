@@ -12,16 +12,13 @@ namespace Core {
 
         private static RoomRepository _instance = new RoomRepository();
         public static RoomRepository Instance { get { return _instance; } }
-
-        //public bool IsAvailable(DateTime from, DateTime to)
-        //{
-        //    throw new NotImplementedException();
-        //}
-        
+        private DALFacade _dalFacade = new DALFacade(); 
 
         public void Clear()
         {
+            ReservationRepository.Instance.Clear();
             _roomRepository.Clear();
+            _dalFacade.DeleteAllRooms();
         }
 
         public void Add(IRoom room)

@@ -55,5 +55,24 @@ namespace DAL {
 				this.CloseConnection();
 			}
 		}
+
+        public void DeleteAllUsersInDatabase()
+        {
+            SqlConnection conn = this.OpenConnection();
+
+            SqlCommand command = new SqlCommand("SP_DeleteAllUsers", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
 	}
 }

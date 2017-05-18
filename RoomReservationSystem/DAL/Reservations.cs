@@ -45,5 +45,31 @@ namespace DAL
 
             return result;
         }
+
+        public void StoreReservationIntoDatabase(Dictionary<string, string> reservationinfo)
+        {
+            SqlConnection conn = this.OpenConnection();
+
+            SqlCommand command = new SqlCommand("SP_InsertReservation", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            command.Parameters.Add(new SqlParameter("@PeopleNr", reservationinfo["PeopleNr"]));
+            command.Parameters.Add(new SqlParameter("@DateTo", reservationinfo["DateTo"]));
+            command.Parameters.Add(new SqlParameter("@DateFrom", reservationinfo["DateFrom"]));
+            command.Parameters.Add(new SqlParameter("@Building", reservationinfo["Building"]));
+            command.Parameters.Add(new SqlParameter("@FloorNr", reservationinfo["FloorNr"]));
+            command.Parameters.Add(new SqlParameter("@Nr", reservationinfo["Nr"]));
+            command.Parameters.Add(new SqlParameter("@Username", reservationinfo["Username"]));
+
+            try
+            {
+                SqlDataReader reader = command.ExecuteReader();
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
     }
 }

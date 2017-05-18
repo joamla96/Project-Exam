@@ -90,18 +90,21 @@ BEGIN
 	UPDATE Change set Identifier = 1 WHERE PrimaryKey = @Username
 END
 
-CREATE PROCEDURE SP_DeleteAllUser AS
+GO
+ALTER PROCEDURE SP_DeleteAllUser AS
 BEGIN
-	TRUNCATE TABLE Users
+	DELETE FROM Users
 END
 
-CREATE PROCEDURE SP_DeleteAllRooms AS
+GO
+ALTER PROCEDURE SP_DeleteAllRooms AS
 BEGIN
-	TRUNCATE TABLE Rooms
+	DELETE FROM Rooms
 END
 
-CREATE PROCEDURE SP_DeleteAllReservation AS
+GO
+ALTER PROCEDURE SP_DeleteAllReservation AS
 BEGIN
-	TRUNCATE TABLE Reservations
+	DELETE FROM Reservations
 END
 

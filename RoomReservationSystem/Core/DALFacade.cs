@@ -109,11 +109,13 @@ namespace Core {
 
         public void DeleteAllUsers()
         {
+            
             usersData.DeleteAllUsersInDatabase();
         }
 
         public void DeleteAllRooms()
         {
+            
             roomsData.DeleteAllRoomsInDatabase();
         }
 

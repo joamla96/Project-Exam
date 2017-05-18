@@ -285,13 +285,6 @@ namespace Core.UnitTest
             mock.Verify(iDALFacadeMock => iDALFacadeMock.PassReservationToDAL(), Times.Once());
         }
 
-        //[TestMethod]
-        //public void StoreReservationInDatabase()
-        //{
-        //    Reservation testReservation = new Reservation(testUser, testRoom, 4, testDateFrom, testDateTo);
-        //    repoReservations.Add(testReservation);
-        //}
-
         [TestMethod]
         public void DeleteAllUsers()
         {

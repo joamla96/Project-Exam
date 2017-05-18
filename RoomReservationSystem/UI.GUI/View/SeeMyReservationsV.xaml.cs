@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Core;
+using UI.GUI.ViewModel;
 
 namespace UI.GUI.View
 {
@@ -20,25 +21,33 @@ namespace UI.GUI.View
     /// Interaction logic for SeeMyReservationsV.xaml
     /// </summary>
     public partial class SeeMyReservationsV : Page
-    {
-
-        ReservationRepository reserveRepo = ReservationRepository.Instance;
-
+    { 
+        DeleteReservationVM VM = new DeleteReservationVM();
 
         public SeeMyReservationsV()
         {
             InitializeComponent();
 
-            List<Reservation> reservationList = reserveRepo.Get(LoggedIn.User);
+            UpdateMyReservationListBox();
+        }
+
+        private void UpdateMyReservationListBox()
+        {
+            ReservationListListBox.Items.Clear();
+            List<Reservation> reservationList = VM.GetReservationList();
 
             foreach (Reservation reservation in reservationList)
             {
                 ReservationListListBox.Items.Add(reservation);
             }
-
-
         }
 
-
+        private void DeleteReservationButtonClick(object sender, RoutedEventArgs e)
+        {
+            DeleteReservationVM VM = new DeleteReservationVM();
+            Reservation reservation = (Reservation)ReservationListListBox.SelectedItem;
+            VM.DeleteReservation(reservation);
+            UpdateMyReservationListBox();
+        }
     }
 }

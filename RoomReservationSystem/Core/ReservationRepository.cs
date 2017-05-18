@@ -10,6 +10,7 @@ namespace Core
 {
     public class ReservationRepository
     {
+        DALFacade _dalFacade = new DALFacade();
         List<Reservation> _reservationRepository = new List<Reservation>();
         RoomRepository _roomRepo =  RoomRepository.Instance;
         private static ReservationRepository _instance = new ReservationRepository();
@@ -52,6 +53,7 @@ namespace Core
 			_reservationRepository.Add(reservation);
 			reservation.Room.AddReservation(reservation);
             reservation.User.AddReservation(reservation);
+            _dalFacade.
         }
 
         public void Delete(Reservation reservation)

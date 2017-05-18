@@ -27,8 +27,10 @@ namespace UI.GUI.View
         private void ReserveRoomButtonClick(object sender, RoutedEventArgs e)
         {
             string date = SelectDate.Text;
-            string to = Convert.ToString(ToListBox.SelectedItem);
-            string from = Convert.ToString(FromListBox.SelectedItem);
+            ComboBoxItem toSelected = (ComboBoxItem)ToComboBox.SelectedItem;
+            string to = toSelected.Content.ToString();
+            ComboBoxItem fromSelected = (ComboBoxItem)FromComboBox.SelectedItem;
+            string from = fromSelected.Content.ToString();
             string peopleNr = NumberOfPeopleTextBox.Text;
 
             if (peopleNr == "")
@@ -41,5 +43,7 @@ namespace UI.GUI.View
                 MessageLabel.Content = reserveRoom.ReserveRoom(date, from, to, peopleNr);
             }
         }
+
+       
     }
 }

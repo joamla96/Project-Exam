@@ -59,7 +59,7 @@ namespace Core.UnitTest
 
             IRoom expectedRoom = new Room('A', 2, 6, 4, 0);
 
-            var mock = new Mock<DAL.Rooms>();
+            var mock = new Mock<DAL.IRoomsForMocking>();
             mock.Setup(roomsMock => roomsMock.GetAllRoomsFromDatabase()).Returns(() => resultRoomsInfo);
 
             List<IRoom> returnedRooms = testDALFacade.ConvertFromStringsToRoomObjects(mock.Object.GetAllRoomsFromDatabase());

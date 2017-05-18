@@ -18,6 +18,10 @@ namespace Core
 		public void Clear()
         {
             ReservationRepository.Instance.Clear();
+            foreach(IUser user in _userRepository)
+            {
+                _dalFacade.DeleteUser(user);
+            }
             _userRepository.Clear();            
 		}
 

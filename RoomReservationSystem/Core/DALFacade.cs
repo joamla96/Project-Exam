@@ -107,21 +107,19 @@ namespace Core {
             return reservations;
         }
 
-        public void DeleteAllUsers()
+        public void DeleteReservation(Reservation reservation)
         {
-            
-            usersData.DeleteAllUsersInDatabase();
+            reservationsData.DeleteReservationFromDatabase(reservation.User.Username, reservation.From, reservation.To);
         }
 
-        public void DeleteAllRooms()
+        public void DeleteRoom(IRoom room)
         {
-            
-            roomsData.DeleteAllRoomsInDatabase();
+            roomsData.DeleteRoomFromDatabase(room.Building.ToString(), room.Floor.ToString(), room.Nr.ToString());
         }
 
-        public void DeleteAllReservatios()
+        public void DeleteUser(IUser user)
         {
-            reservationsData.DeleteAllReservationsInDatabase();
+            usersData.DeleteUserFromDatabase(user.Username);
         }
     }
 }

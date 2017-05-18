@@ -5,7 +5,11 @@ using System.Data;
 
 namespace DAL
 {
-    public class Rooms: Database
+    public interface IRoomsForMocking
+    {
+        List<Dictionary<string, string>> GetAllRoomsFromDatabase();
+    }
+    public class Rooms: Database, IRoomsForMocking
     {
         public List<Dictionary<string, string>> GetAllRoomsFromDatabase()
         {
@@ -42,6 +46,28 @@ namespace DAL
             return result;
         }
 
-        
+        public void DeleteRoomFromDatabase(string building, string floor, string nr)
+        {
+            SqlConnection conn = this.OpenConnection();
+
+            SqlCommand command = new SqlCommand("SP_DeleteRoom", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            command.Parameters.AddWithValue("Building", building);
+            command.Parameters.AddWithValue("FloorNr", floor);
+            command.Parameters.AddWithValue("Nr", nr);
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+
+        }
     }
 }

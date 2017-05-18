@@ -46,7 +46,7 @@ namespace DAL
             return result;
         }
 
-        public void DeleteReservation(string username, string from, string to)
+        public void DeleteReservationFromDatabase(string username, DateTime from, DateTime to)
         {
             SqlConnection conn = this.OpenConnection();
 
@@ -67,7 +67,6 @@ namespace DAL
             {
                 this.CloseConnection();
             }
-
 
         }
     }

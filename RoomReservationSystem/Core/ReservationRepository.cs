@@ -45,6 +45,10 @@ namespace Core
         }
         public void Clear()
         {
+            foreach(Reservation reservation in _reservationRepository)
+            {
+                _dalFacade.DeleteReservation(reservation);
+            }
             _reservationRepository.Clear();
         }
 
@@ -60,6 +64,7 @@ namespace Core
             _reservationRepository.Remove(reservation);
             reservation.Room.DeleteReservation(reservation);
             reservation.User.DeleteReservation(reservation);
+            _dalFacade.DeleteReservation(reservation);
         }
 
         public void Add(IUser user, IRoom room, int peoplenr, DateTime datefrom, DateTime dateto)

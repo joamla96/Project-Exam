@@ -56,6 +56,26 @@ namespace DAL {
 			}
 		}
 
-        
-	}
+        public void DeleteUserFromDatabase(string username)
+        {
+            SqlConnection conn = this.OpenConnection();
+
+            SqlCommand command = new SqlCommand("SP_DeleteUser", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            command.Parameters.AddWithValue("Username", username);
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+
+        }
+    }
 }

@@ -17,6 +17,10 @@ namespace Core {
         public void Clear()
         {
             ReservationRepository.Instance.Clear();
+            foreach(IRoom room in _roomRepository)
+            {
+                _dalFacade.DeleteRoom(room);
+            }
             _roomRepository.Clear();
         }
 

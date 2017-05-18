@@ -57,7 +57,7 @@ namespace Core
         public void Delete(Reservation reservation)
         {
             _reservationRepository.Remove(reservation);
-            reservation.Room.DeleteReservation(reservation);
+            reservation.Room.DeleteReservation(reservation); //database?
             reservation.User.DeleteReservation(reservation);
         }
 

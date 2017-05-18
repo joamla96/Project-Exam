@@ -10,6 +10,26 @@ namespace Core.UnitTest
     [TestClass]
     public class DALFacadeTests
     {
+        IUser testUser;
+        IRoom testRoom;
+        DateTime testDateFrom;
+        DateTime testDateTo;
+        UserRepository repoUser;
+        RoomRepository repoRooms;
+        ReservationRepository repoReservations;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            testUser = new User("matt2694", "matt2694@edu.eal.dk", Permission.Student);
+            testRoom = new Room('C', 4, 1000, 20, Permission.Student);
+            testDateFrom = new DateTime(2017, 05, 05, 18, 00, 00, 00);
+            testDateTo = new DateTime(2017, 05, 05, 19, 00, 00, 00);
+            repoUser = UserRepository.Instance;
+            repoRooms = RoomRepository.Instance;
+            repoReservations = ReservationRepository.Instance;
+        }
+
         [TestMethod]
         public void GetAllUsersTest()
         {
@@ -99,12 +119,6 @@ namespace Core.UnitTest
 
             resultdReservationsInfo.Add(oneReservation);
 
-            DateTime testDateFrom = new DateTime( 2017, 05, 05, 18, 00, 00, 00);
-            DateTime testDateTo = new DateTime(2017, 05, 05, 19, 00, 00, 00);
-
-            IUser testUser = new User(username , "matt2694@edu.eal.dk", Permission.Student);
-            IRoom testRoom = new Room('C', 4, 1000, 20, Permission.Student);
-
             repoUser.Add(testUser);
             repoRooms.Add(testRoom);
 
@@ -172,9 +186,6 @@ namespace Core.UnitTest
         [TestMethod]
         public void GetAllReservationsTestForMultipleReservations()
         {
-            UserRepository repoUser = UserRepository.Instance;
-            RoomRepository repoRooms = RoomRepository.Instance;
-
             repoUser.Clear();
             repoRooms.Clear();
 
@@ -263,6 +274,23 @@ namespace Core.UnitTest
 
             Assert.IsTrue(expectedReservation1.Equals(returnedReservation[0]) && expectedReservation2.Equals(returnedReservation[1]) && expectedReservation3.Equals(returnedReservation[2]));
         }
+
+        [TestMethod]
+        public void StoreReservationInDatabase()
+        {
+            Reservation testReservation = new Reservation(testUser, testRoom, 4, testDateFrom, testDateTo);
+
+            var mock = new Mock<IDALFacade>();
+
+            mock.Verify(iDALFacadeMock => iDALFacadeMock.PassReservationToDAL(), Times.Once());
+        }
+
+        //[TestMethod]
+        //public void StoreReservationInDatabase()
+        //{
+        //    Reservation testReservation = new Reservation(testUser, testRoom, 4, testDateFrom, testDateTo);
+        //    repoReservations.Add(testReservation);
+        //}
 
         [TestMethod]
         public void DeleteAllUsers()

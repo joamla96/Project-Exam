@@ -4,8 +4,17 @@ using Core.Interfaces;
 using DAL;
 
 namespace Core {
-
-    public class DALFacade {
+    public interface IDALFacade
+        {
+        List<IUser> GetAllUsers();
+        List<Reservation> GetAllReservations();
+        List<IUser> ConvertFromStringsToUserObjects(List<Dictionary<string, string>> usersinfo);
+        List<IRoom> GetAllRooms();
+        List<IRoom> ConvertFromStringsToRoomObjects(List<Dictionary<string, string>> list);
+        void PassReservationToDAL();
+    }
+    public class DALFacade:IDALFacade
+    {
         private Users usersData;
         private Rooms roomsData;
         private Reservations reservationsData;
@@ -105,6 +114,11 @@ namespace Core {
                 reservations.Add(reservation);
             }
             return reservations;
+        }
+
+        public void PassReservationToDAL()
+        {
+            throw new NotImplementedException();
         }
     }
 }

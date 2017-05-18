@@ -15,7 +15,7 @@
         <ListBox x:Name="ReservationListListBox" Height="137" Margin="128,56,10,0" VerticalAlignment="Top">
 
         </ListBox>
-        <Button Content="Delete Reservation" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="104" Height="37"/>
+        <Button Content="Delete Reservation" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="104" Height="37" Click="DeleteReservationButtonClick"/>
 
     </Grid>
 </Page>

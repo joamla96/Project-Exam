@@ -1,3 +1,20 @@
-Does our Scrum-board seems properly organized?
+1. Does our Scrum-board seems properly organized?
 
-Are our SDs & SSDs follow-able?
+2. Are our SDs/SSDs follow-able?
+
+3. Does our "RequestReservation" method seem to follow the SOLID principles?
+
+----
+Write your feedback below please :)
+---
+
+1. yes, of course / yes, maybe specify which tests are in progress / yes / Maybe be more descriptive and write the use cases on title
+
+2.yes / yes  / yes / yes
+
+3.You need more tests. maybe not return inside an if else statement.
+atmar i dont get your sd i will ask later about it. 
+|Yes it seem to follow the SOLID principles|
+
+
+

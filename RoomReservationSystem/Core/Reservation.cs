@@ -40,6 +40,11 @@ namespace Core
             return thesame;
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public override string ToString()
         {
             StringWriter output = new StringWriter();
@@ -54,6 +59,7 @@ namespace Core
 
             return output.ToString();
         }
+
     }
 }
 

@@ -50,7 +50,7 @@ namespace DAL
         {
             SqlConnection conn = this.OpenConnection();
 
-            SqlCommand command = new SqlCommand("SP_DeleteAllReservations", conn)
+            SqlCommand command = new SqlCommand("SP_DeleteAllReservation", conn)
             {
                 CommandType = CommandType.StoredProcedure
             };

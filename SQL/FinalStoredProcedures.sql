@@ -64,11 +64,15 @@ END
 
 -- Delete Specific
 GO
-CREATE PROCEDURE SP_DeleteReservation (@ID Int) AS
+ALTER PROCEDURE SP_DeleteReservation (
+	@Username NVarChar(100),
+	@DateFrom DateTime2,
+	@DateTo DateTime 
+) AS
 BEGIN
 	DELETE FROM Reservations
-	WHERE ID = @ID
-	UPDATE Change set Identifier = 1 WHERE PrimaryKey = CAST (@ID AS NVarChar(100))
+	WHERE Username = @Username AND DateFrom = @DateFrom AND DateTo = @DateTo
+	UPDATE Change set Identifier = 1 WHERE PrimaryKey = (SELECT i.ID FROM deleted i)
 END
 
 GO

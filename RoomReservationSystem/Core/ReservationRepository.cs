@@ -74,7 +74,7 @@ namespace Core
             _reservationRepository.Add(reservation);
             reservation.Room.AddReservation(reservation);
             reservation.User.AddReservation(reservation);
-            _dalFacade.PassReservationToDAL(reservation);
+            //_dalFacade.PassReservationToDAL(reservation);
         }
 
         public void Delete(Reservation reservation)

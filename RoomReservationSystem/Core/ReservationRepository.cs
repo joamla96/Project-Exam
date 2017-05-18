@@ -46,7 +46,6 @@ namespace Core
         public void Clear()
         {
             _reservationRepository.Clear();
-            _dalFacade.DeleteAllReservatios();
         }
 
         public void Add(Reservation reservation)

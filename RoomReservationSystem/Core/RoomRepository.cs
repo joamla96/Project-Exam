@@ -18,7 +18,6 @@ namespace Core {
         {
             ReservationRepository.Instance.Clear();
             _roomRepository.Clear();
-            _dalFacade.DeleteAllRooms();
         }
 
         public void Add(IRoom room)

@@ -46,14 +46,18 @@ namespace DAL
             return result;
         }
 
-        public void DeleteAllReservationsInDatabase()
+        public void DeleteReservation(string username, string from, string to)
         {
             SqlConnection conn = this.OpenConnection();
 
-            SqlCommand command = new SqlCommand("SP_DeleteAllReservation", conn)
+            SqlCommand command = new SqlCommand("SP_DeleteReservation", conn)
             {
                 CommandType = CommandType.StoredProcedure
             };
+
+            command.Parameters.AddWithValue("Username", username);
+            command.Parameters.AddWithValue("DateFrom", from);
+            command.Parameters.AddWithValue("DateTo", to);
 
             try
             {
@@ -63,6 +67,8 @@ namespace DAL
             {
                 this.CloseConnection();
             }
+
+
         }
     }
 }

@@ -282,6 +282,8 @@ namespace Core.UnitTest
 
             var mock = new Mock<IDALFacade>();
 
+            mock.Object.PassReservationToDAL(testReservation);
+
             mock.Verify(iDALFacadeMock => iDALFacadeMock.PassReservationToDAL(testReservation), Times.Once());
         }
 

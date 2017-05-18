@@ -54,6 +54,7 @@ namespace DAL
             {
                 CommandType = CommandType.StoredProcedure
             };
+
             command.Parameters.Add(new SqlParameter("@PeopleNr", reservationinfo["PeopleNr"]));
             command.Parameters.Add(new SqlParameter("@DateTo", reservationinfo["DateTo"]));
             command.Parameters.Add(new SqlParameter("@DateFrom", reservationinfo["DateFrom"]));

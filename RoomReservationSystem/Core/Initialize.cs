@@ -28,7 +28,7 @@ namespace Core {
                 _repoReserv.Add(reservation);
             }
 
-            DebugNoDatabase(); // Remove in Prod.
+            //DebugNoDatabase(); // Remove in Prod.
 		}
 
         public static void DebugNoDatabase()

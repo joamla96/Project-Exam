@@ -54,7 +54,6 @@ namespace Core
 			_reservationRepository.Add(reservation);
 			reservation.Room.AddReservation(reservation);
             reservation.User.AddReservation(reservation);
-            _dalFacade.
         }
 
         public void Delete(Reservation reservation)

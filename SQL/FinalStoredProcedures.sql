@@ -4,18 +4,22 @@ BEGIN
 	FROM Users
 END
 
+GO
 CREATE PROCEDURE SP_GetAllRooms AS
 BEGIN
 	SELECT Building, FloorNr, Nr, MaxPeople, MinPermissionLevel
 	FROM Rooms
 END
 
+GO
 CREATE PROCEDURE SP_GetAllReservations AS
 BEGIN
 	SELECT ID, PeopleNr, DateTo, DateFrom, Building, FloorNr, Nr, Username
 	FROM Reservations
 END
 
+-- Insert 
+GO
 CREATE PROCEDURE SP_InsertUser (
 	@Username NVarChar(100),
 	@Email NVarChar(MAX),
@@ -27,6 +31,7 @@ INSERT INTO Users (Username, Email, PermissionLevel) VALUES
 	UPDATE Change set Identifier = 1 WHERE PrimaryKey = @Username
 END
 
+GO
 CREATE PROCEDURE SP_InsertRoom (
 	@Building Char,
 	@FloorNr NVarChar(max),
@@ -40,6 +45,7 @@ INSERT INTO Rooms (Building, FloorNr, Nr, MaxPeople, MinPermissionLevel) VALUES
 	UPDATE Change set Identifier = 1 WHERE PrimaryKey = @Building +';' + @FloorNr + ';' + @Nr
 END
 
+GO
 CREATE PROCEDURE SP_InsertReservation (
 	@PeopleNr Int,
 	@DateTo DateTime2,
@@ -55,6 +61,9 @@ BEGIN
 	UPDATE Change set Identifier = 1 WHERE PrimaryKey = CAST(SCOPE_IDENTITY() AS NVarChar(100))
 END
 
+
+-- Delete Specific
+GO
 CREATE PROCEDURE SP_DeleteReservation (@ID Int) AS
 BEGIN
 	DELETE FROM Reservations
@@ -62,6 +71,7 @@ BEGIN
 	UPDATE Change set Identifier = 1 WHERE PrimaryKey = CAST (@ID AS NVarChar(100))
 END
 
+GO
 CREATE PROCEDURE SP_DeleteRoom (
 	@Building Char,
 	@FloorNr NVarChar(max),
@@ -72,6 +82,7 @@ BEGIN
 	UPDATE Change set Identifier = 1 WHERE PrimaryKey = @Building + ';' + @FloorNr + ';' + @Nr
 END
 
+GO
 CREATE PROCEDURE SP_DeleteUser (@Username NVarChar(100)) AS
 BEGIN
 	DELETE FROM Users

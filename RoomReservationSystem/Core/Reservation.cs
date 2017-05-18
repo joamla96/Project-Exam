@@ -34,7 +34,11 @@ namespace Core
             {
                 Reservation Other = (Reservation)obj;
 
-                if (this.User.Equals(Other.User) && this.From.Equals(Other.From) && this.To.Equals(Other.To)) thesame = true;
+                if (
+					this.User.Equals(Other.User) 
+				&& this.From.Equals(Other.From)
+				&& this.To.Equals(Other.To)
+				) thesame = true;
             }
 
             return thesame;

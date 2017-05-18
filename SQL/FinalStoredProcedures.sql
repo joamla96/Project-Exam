@@ -57,25 +57,25 @@ END
 
 CREATE PROCEDURE SP_DeleteReservation (@ID Int) AS
 BEGIN
-DELETE FROM Reservations
-WHERE ID = @ID
-UPDATE Change set Identifier = 1 WHERE PrimaryKey = CAST (@ID AS NVarChar(100))
+	DELETE FROM Reservations
+	WHERE ID = @ID
+	UPDATE Change set Identifier = 1 WHERE PrimaryKey = CAST (@ID AS NVarChar(100))
 END
 
-CREATE PROCEDURE SP_DeleteRoom (@Building Char,
-								@FloorNr NVarChar(max),
-								@Nr NVarChar(max)) AS
+CREATE PROCEDURE SP_DeleteRoom (
+	@Building Char,
+	@FloorNr NVarChar(max),
+	@Nr NVarChar(max)) AS
 BEGIN
-DELETE FROM Rooms
-WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr
-UPDATE Change set Identifier = 1 WHERE PrimaryKey = @Building + ';' + @FloorNr + ';' + @Nr
+	DELETE FROM Rooms
+	WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr
+	UPDATE Change set Identifier = 1 WHERE PrimaryKey = @Building + ';' + @FloorNr + ';' + @Nr
 END
 
 CREATE PROCEDURE SP_DeleteUser (@Username NVarChar(100)) AS
 BEGIN
---UPDATE Change set PrimaryKey = @Username
-DELETE FROM Users
-WHERE Username = @Username
-UPDATE Change set Identifier = 1 WHERE PrimaryKey = @Username
+	DELETE FROM Users
+	WHERE Username = @Username
+	UPDATE Change set Identifier = 1 WHERE PrimaryKey = @Username
 END
 

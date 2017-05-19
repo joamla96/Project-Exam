@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Interfaces {
-	interface IObserver {
-		void EventFire();
-	}
+namespace Core.Interfaces
+{
+    public interface IObserver
+    {
+        void Update();
+    }
 }

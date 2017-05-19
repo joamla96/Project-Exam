@@ -77,7 +77,7 @@ namespace Core.UnitTest
             oneRoom.Add("MinPermissionLevel", minPermissionLevel);
             resultRoomsInfo.Add(oneRoom);
 
-            IRoom expectedRoom = new Room('A', 2, 6, 4, 0);
+            IRoom expectedRoom = new Room('A', 2, 6, 4, Permission.Student);
 
             var mock = new Mock<DAL.IRoomsForMocking>();
             mock.Setup(roomsMock => roomsMock.GetAllRoomsFromDatabase()).Returns(() => resultRoomsInfo);
@@ -181,6 +181,68 @@ namespace Core.UnitTest
             List<IUser> returnedUsers = testDALFacade.ConvertFromStringsToUserObjects(mock.Object.GetAllUsersFromDatabase());
             
             Assert.IsTrue(expectedUser1.Equals(returnedUsers[0]) && expectedUser2.Equals(returnedUsers[1]) && expectedUser3.Equals(returnedUsers[2]));
+        }
+
+        [TestMethod]
+        public void GetAllRoomsTestForMultipleUsers()
+        {
+            DALFacade testDALFacade = new DALFacade();
+
+            string building1 = "A";
+            string floor1 = "2";
+            string nr1 = "6";
+            string maxPeople1 = "4";
+            string minPermissionLevel1 = "0";
+
+            string building2 = "A";
+            string floor2 = "1";
+            string nr2 = "15";
+            string maxPeople2 = "4";
+            string minPermissionLevel2 = "2";
+
+            string building3 = "B";
+            string floor3 = "7";
+            string nr3 = "5";
+            string maxPeople3 = "10";
+            string minPermissionLevel3 = "0";
+
+            List<Dictionary<string, string>> resultRoomsInfo = new List<Dictionary<string, string>>();
+            Dictionary<string, string> oneRoom1 = new Dictionary<string, string>();
+            Dictionary<string, string> oneRoom2 = new Dictionary<string, string>();
+            Dictionary<string, string> oneRoom3 = new Dictionary<string, string>();
+
+            oneRoom1.Add("Building", building1);
+            oneRoom1.Add("FloorNr", floor1);
+            oneRoom1.Add("Nr", nr1);
+            oneRoom1.Add("MaxPeople", maxPeople1);
+            oneRoom1.Add("MinPermissionLevel", minPermissionLevel1);
+
+            oneRoom2.Add("Building", building2);
+            oneRoom2.Add("FloorNr", floor2);
+            oneRoom2.Add("Nr", nr2);
+            oneRoom2.Add("MaxPeople", maxPeople2);
+            oneRoom2.Add("MinPermissionLevel", minPermissionLevel2);
+
+            oneRoom3.Add("Building", building3);
+            oneRoom3.Add("FloorNr", floor3);
+            oneRoom3.Add("Nr", nr3);
+            oneRoom3.Add("MaxPeople", maxPeople3);
+            oneRoom3.Add("MinPermissionLevel", minPermissionLevel3);
+
+            resultRoomsInfo.Add(oneRoom1);
+            resultRoomsInfo.Add(oneRoom2);
+            resultRoomsInfo.Add(oneRoom3);
+
+            IRoom expectedRoom1 = new Room('A', 2, 6, 4, Permission.Student);
+            IRoom expectedRoom2 = new Room('A', 1, 15, 4, Permission.Admin);
+            IRoom expectedRoom3 = new Room('B', 7, 5, 10, Permission.Student);
+
+            var mock = new Mock<DAL.IRoomsForMocking>();
+            mock.Setup(usersMock => usersMock.GetAllRoomsFromDatabase()).Returns(() => resultRoomsInfo);
+
+            List<IRoom> returnedRooms = testDALFacade.ConvertFromStringsToRoomObjects(mock.Object.GetAllRoomsFromDatabase());
+
+            Assert.IsTrue(expectedRoom1.Equals(returnedRooms[0]) && expectedRoom2.Equals(returnedRooms[1]) && expectedRoom3.Equals(returnedRooms[2]));
         }
 
         [TestMethod]

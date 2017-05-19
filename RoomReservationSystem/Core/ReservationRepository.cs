@@ -8,17 +8,18 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-    public class ReservationRepository
+    public class ReservationRepository : IObservable
     {
         DALFacade _dalFacade = new DALFacade();
         List<Reservation> _reservationRepository = new List<Reservation>();
-        RoomRepository _roomRepo =  RoomRepository.Instance;
+        private List<IObserver> _observers = new List<IObserver>();
+        RoomRepository _roomRepo = RoomRepository.Instance;
         private static ReservationRepository _instance = new ReservationRepository();
         public static ReservationRepository Instance { get { return _instance; } }
 
         public IRoom RequestReservation(DateTime from, DateTime to, int peopleNr)
         {
-            
+
             IRoom currentRoom;
             IRoom foundRoom = null;
             Stack<IRoom> rooms = _roomRepo.GetPossible(LoggedIn.User.PermissionLevel, peopleNr);
@@ -41,7 +42,7 @@ namespace Core
                 this.Add(reservation);
                 return foundRoom;
             }
-            
+
         }
 
         internal void LoadFromDatabase(Reservation reservation)
@@ -53,7 +54,7 @@ namespace Core
 
         public void Clear()
         {
-            foreach(Reservation reservation in _reservationRepository)
+            foreach (Reservation reservation in _reservationRepository)
             {
                 _dalFacade.DeleteReservation(reservation);
             }
@@ -87,13 +88,13 @@ namespace Core
             return _reservationRepository;
         }
 
-        public List<Reservation> Get(IUser user)    
+        public List<Reservation> Get(IUser user)
         {
             List<Reservation> reservationsByUser = new List<Reservation>();
 
-            foreach(Reservation reservation in _reservationRepository)
+            foreach (Reservation reservation in _reservationRepository)
             {
-                if(reservation.User.Equals(user))
+                if (reservation.User.Equals(user))
                 {
                     reservationsByUser.Add(reservation);
                 }
@@ -105,9 +106,9 @@ namespace Core
         {
             List<Reservation> reservationsByRoom = new List<Reservation>();
 
-            foreach(Reservation reservation in _reservationRepository)
+            foreach (Reservation reservation in _reservationRepository)
             {
-                if(reservation.Room.Equals(room))
+                if (reservation.Room.Equals(room))
                 {
                     reservationsByRoom.Add(reservation);
                 }
@@ -127,6 +128,21 @@ namespace Core
                 }
             }
             return result;
+        }
+
+        public void Subscribe(IObserver observer)
+        {
+            _observers.Add(observer);
+        }
+
+        public void Unsubscribe(IObserver observer)
+        {
+            _observers.Remove(observer);
+        }
+
+        public void Notify()
+        {
+            _observers.ForEach(observer => observer.Update());
         }
     }
 }

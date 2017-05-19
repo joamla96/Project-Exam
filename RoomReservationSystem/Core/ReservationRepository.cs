@@ -43,6 +43,14 @@ namespace Core
             }
             
         }
+
+        internal void LoadFromDatabase(Reservation reservation)
+        {
+            _reservationRepository.Add(reservation);
+            reservation.Room.AddReservation(reservation);
+            reservation.User.AddReservation(reservation);
+        }
+
         public void Clear()
         {
             foreach(Reservation reservation in _reservationRepository)
@@ -54,9 +62,10 @@ namespace Core
 
         public void Add(Reservation reservation)
         {
-			_reservationRepository.Add(reservation);
-			reservation.Room.AddReservation(reservation);
+            _reservationRepository.Add(reservation);
+            reservation.Room.AddReservation(reservation);
             reservation.User.AddReservation(reservation);
+            _dalFacade.PassReservationToDAL(reservation);
         }
 
         public void Delete(Reservation reservation)

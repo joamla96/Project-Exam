@@ -25,10 +25,10 @@ namespace Core {
             List<Reservation> reservations = _dal.GetAllReservations();
             foreach(Reservation reservation in reservations)
             {
-                _repoReserv.Add(reservation);
+                _repoReserv.LoadFromDatabase(reservation);
             }
 
-            DebugNoDatabase(); // Remove in Prod.
+            //DebugNoDatabase(); // Remove in Prod.
 		}
 
         public static void DebugNoDatabase()

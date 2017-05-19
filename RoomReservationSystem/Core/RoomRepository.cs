@@ -54,17 +54,17 @@ namespace Core {
 
 		public IRoom Get(IRoom checkroom)
 		{
-			IRoom foundroom = null;
+			IRoom foundRoom = null;
 			foreach(IRoom room in _roomRepository) {
 				if(room.Equals(checkroom)) {
-					foundroom = room;
+					foundRoom = room;
 				}
 			}
 
-			if (foundroom == null) {
+			if (foundRoom == null) {
 				throw new IndexOutOfRangeException();
 			} else {
-				return foundroom;
+				return foundRoom;
 			}
 		}
 

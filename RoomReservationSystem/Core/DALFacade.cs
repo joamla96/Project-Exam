@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Core.Interfaces;
 using DAL;
+using System.IO;
 
 namespace Core {
     public interface IDALFacade
@@ -11,7 +12,7 @@ namespace Core {
         List<IUser> ConvertFromStringsToUserObjects(List<Dictionary<string, string>> usersinfo);
         List<IRoom> GetAllRooms();
         List<IRoom> ConvertFromStringsToRoomObjects(List<Dictionary<string, string>> list);
-        void PassReservationToDAL();
+        void PassReservationToDAL(Reservation reservation);
     }
     public class DALFacade:IDALFacade
     {
@@ -133,7 +134,34 @@ namespace Core {
 
         public void PassReservationToDAL()
         {
-            throw new NotImplementedException();
+            reservationsData.StoreReservationIntoDatabase(this.ConvertFromReservationObjectToStrings(reservation));
+        }
+
+        private Dictionary<string, string> ConvertFromReservationObjectToStrings(Reservation reservation)
+        {
+            Dictionary<string, string> reservationInfo = new Dictionary<string, string>();
+
+            StringWriter DateToString = new StringWriter();
+            StringWriter DateFromString = new StringWriter();
+
+            string dateTo = reservation.To.Year + "-" + reservation.To.Month + "-" + reservation.To.Day;
+            DateToString.Write(dateTo + " ");
+            string dateFrom = reservation.From.Year + "-" + reservation.From.Month + "-" + reservation.From.Day;
+            DateFromString.Write(dateFrom + " ");
+
+            string hourFormat = "{0:00}:{1:00}:{2:00}";
+            DateToString.Write(hourFormat, reservation.To.Hour, reservation.To.Minute, reservation.To.Second);
+            DateFromString.Write(hourFormat, reservation.From.Hour, reservation.From.Minute, reservation.From.Second);
+
+            reservationInfo.Add("PeopleNr", Convert.ToString(reservation.PeopleNr));
+            reservationInfo.Add("DateTo", DateToString.ToString());
+            reservationInfo.Add("DateFrom", DateFromString.ToString());
+            reservationInfo.Add("Building", Convert.ToString(reservation.Room.Building));
+            reservationInfo.Add("FloorNr", Convert.ToString(reservation.Room.Floor));
+            reservationInfo.Add("Nr", Convert.ToString(reservation.Room.Nr));
+            reservationInfo.Add("Username", Convert.ToString(reservation.User.Username));
+
+            return reservationInfo;
         }
     }
 }

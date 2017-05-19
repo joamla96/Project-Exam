@@ -14,6 +14,7 @@ namespace Core.IntegrationTest
     {
         UserRepository _repoUser = UserRepository.Instance;
         ReservationRepository _repoReservation = ReservationRepository.Instance;
+        RoomRepository _repoRoom = RoomRepository.Instance;
 
         List<IUser> _userList;
         List<Reservation> _reservationList;
@@ -38,7 +39,10 @@ namespace Core.IntegrationTest
         [TestInitialize]
         public void TestInitialize()
         {
+            _repoRoom.Clear();
+            _repoUser.Clear();
             _repoReservation.Clear();
+            
 
             _reservationList = new List<Reservation>();
 
@@ -55,6 +59,12 @@ namespace Core.IntegrationTest
             _repoUser.Add(_student);
             _repoUser.Add(_teacher);
             _repoUser.Add(_admin);
+
+            _repoRoom.Add(_room1);
+            _repoRoom.Add(_room2);
+            _repoRoom.Add(_room3);
+            _repoRoom.Add(_room4);
+            _repoRoom.Add(_room5);
 
             _dateFrom = new DateTime(2016, 4, 29, 8, 0, 0);
             _dateTo = new DateTime(2016, 4, 29, 16, 0, 0);

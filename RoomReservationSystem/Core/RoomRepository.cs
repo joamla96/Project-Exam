@@ -18,16 +18,15 @@ namespace Core
         public void Clear()
         {
             ReservationRepository.Instance.Clear();
-            foreach (IRoom room in _roomRepository)
-            {
-                _dalFacade.DeleteRoom(room);
-            }
+
+            _dalFacade.DeleteAllRooms();
             _roomRepository.Clear();
         }
 
         public void Add(IRoom room)
         {
             _roomRepository.Add(room);
+            _dalFacade.InsertRoom(room);
         }
 
         public void Add(char building, int floor, int nr, int maxPeople, Permission minpermissionlevel)
@@ -41,43 +40,35 @@ namespace Core
             return _roomRepository;
         }
 
-        public List<IRoom> Get(Permission permissionlevel)
-        {
-            List<IRoom> roomsByPermissionLevel = new List<IRoom>();
+		public List<IRoom> Get(Permission permissionlevel) {
+			List<IRoom> roomsByPermissionLevel = new List<IRoom>();
 
-            foreach (IRoom room in _roomRepository)
-            {
-                if (room.MinPermissionLevel <= permissionlevel)
-                {
-                    roomsByPermissionLevel.Add(room);
-                }
-            }
+			foreach(IRoom room in _roomRepository) {
+				if(room.MinPermissionLevel <= permissionlevel) {
+					roomsByPermissionLevel.Add(room);
+				}
+			}
 
-            return roomsByPermissionLevel;
-        }
+			return roomsByPermissionLevel;
+		}
 
-        public IRoom Get(IRoom checkroom)
-        {
-            IRoom foundroom = null;
-            foreach (IRoom room in _roomRepository)
-            {
-                if (room.Equals(checkroom))
-                {
-                    foundroom = room;
-                }
-            }
+		public IRoom Get(IRoom checkroom)
+		{
+			IRoom foundRoom = null;
+			foreach(IRoom room in _roomRepository) {
+				if(room.Equals(checkroom)) {
+					foundRoom = room;
+				}
+			}
 
-            if (foundroom == null)
-            {
-                throw new IndexOutOfRangeException();
-            }
-            else
-            {
-                return foundroom;
-            }
-        }
+			if (foundRoom == null) {
+				throw new IndexOutOfRangeException();
+			} else {
+				return foundRoom;
+			}
+		}
 
-        public IRoom Get(Reservation reservation)
+		public IRoom Get(Reservation reservation)
         {
             Room roomsByReservation = null;
             foreach (Room room in _roomRepository)
@@ -117,6 +108,7 @@ namespace Core
         public void Delete(IRoom room)
         {
             _roomRepository.Remove(room);
+            _dalFacade.DeleteRoom(room);
         }
     }
 }

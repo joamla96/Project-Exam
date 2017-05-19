@@ -38,7 +38,7 @@ namespace DAL {
 			return result;
 		}
 
-		public void Insert(string username, string email, int permission) {
+		public void InsertUserToDatabase(string username, string email, int permission) {
 			SqlConnection conn = this.OpenConnection();
 
 			SqlCommand command = new SqlCommand("SP_InsertUser", conn) {
@@ -66,6 +66,27 @@ namespace DAL {
             };
 
             command.Parameters.AddWithValue("Username", username);
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+
+        }
+
+        public void DeleteAllUserFromDatabase()
+        {
+            SqlConnection conn = this.OpenConnection();
+
+            SqlCommand command = new SqlCommand("SP_DeleteAllUser", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
 
             try
             {

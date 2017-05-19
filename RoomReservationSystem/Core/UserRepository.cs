@@ -38,6 +38,10 @@ namespace Core
             this.Add(user);
         }
 
+		public void LoadFromDatabase(IUser user) {
+			_userRepository.Add(user);
+		}
+
         public List<IUser> Get()
         {
             return _userRepository;

@@ -15,11 +15,11 @@ namespace Core {
 			List<IRoom> rooms = _dal.GetAllRooms();
 
 			foreach(IUser user in users) {
-				_repoUsers.Add(user);
+				_repoUsers.LoadFromDatabase(user);
 			}
 
 			foreach(IRoom room in rooms) {
-				_repoRooms.Add(room);
+				_repoRooms.LoadFromDatabase(room);
 			}
 
             List<Reservation> reservations = _dal.GetAllReservations();

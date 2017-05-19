@@ -29,6 +29,10 @@ namespace Core
             _dalFacade.InsertRoom(room);
         }
 
+		public void LoadFromDatabase(IRoom room) {
+			_roomRepository.Add(room);
+		}
+
         public void Add(char building, int floor, int nr, int maxPeople, Permission minpermissionlevel)
         {
             Room room = new Room(building, floor, nr, maxPeople, minpermissionlevel);

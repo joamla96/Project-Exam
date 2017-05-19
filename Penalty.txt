@@ -1,18 +1,21 @@
 30/30/2017
-Jonas	Late	+5kr	5
-Roxana	Late	+5kr	5
-Heviga	Naming	+5kr	5
-Matt	Late	+5kr	20 - 15
+Jonas	Late	+5kr
+Roxana	Late	+5kr
+Heviga	Naming	+5kr
+Matt	Late	+5kr
 
 08/05/2017
-Jonas	Late	+5kr	10
-Roxana	Late	+5kr	0
-Hedviga Naming	+5kr	5
-Roxana	Naming	+5kr	5
+Jonas	Late	+5kr
+Roxana	Late	+5kr
+Hedviga Naming	+5kr
+Roxana	Naming	+5kr
 
 16/05/2017
-Jonas	Naming	+5kr	5
+Jonas	Naming	+5kr
 
 17/05/2017
-Hedviga	Naming	+5kr	5
-Roxana	Naming 	+5kr	5
+Hedviga	Naming	+5kr
+Roxana	Naming 	+5kr
+
+19/05/2017
+Jonas	Naming	+5kr

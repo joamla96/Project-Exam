@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.GUI", "UI.GUI\UI.GUI.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.IntegrationTest", "Core.IntegrationTest\Core.IntegrationTest.csproj", "{751F61DD-406A-47C1-8E32-194F2D004EC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationSystem", "NotificationSystem\NotificationSystem.csproj", "{35EC30C8-6763-4113-832E-6E9F27F982BF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,10 +41,6 @@ Global
 		{751F61DD-406A-47C1-8E32-194F2D004EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{751F61DD-406A-47C1-8E32-194F2D004EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{751F61DD-406A-47C1-8E32-194F2D004EC6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{35EC30C8-6763-4113-832E-6E9F27F982BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35EC30C8-6763-4113-832E-6E9F27F982BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35EC30C8-6763-4113-832E-6E9F27F982BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35EC30C8-6763-4113-832E-6E9F27F982BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

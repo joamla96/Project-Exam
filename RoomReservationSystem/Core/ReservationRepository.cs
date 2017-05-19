@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-    public class ReservationRepository
+    public class ReservationRepository:IObservable<Reservation>
     {
         DALFacade _dalFacade = new DALFacade();
         List<Reservation> _reservationRepository = new List<Reservation>();
+        private List<IObserver<Reservation>> _observers = new List<IObserver<Reservation>>();
         RoomRepository _roomRepo =  RoomRepository.Instance;
         private static ReservationRepository _instance = new ReservationRepository();
         public static ReservationRepository Instance { get { return _instance; } }
@@ -118,6 +119,34 @@ namespace Core
                 }
             }
             return result;
+        }
+
+        public IDisposable Subscribe(IObserver<Reservation> observer)
+        {
+            if (!_observers.Contains(observer))
+            {
+                _observers.Add(observer);
+                foreach (Reservation reservation in _reservationRepository)
+                    observer.OnNext(reservation);
+            }
+            return new Unsubscriber<Reservation>(_observers, observer);
+        }
+    }
+    internal class Unsubscriber<Reservation>:IDisposable
+    {
+        private List<IObserver<Reservation>> _observers;
+        private IObserver<Reservation> _observer;
+        internal Unsubscriber(List<IObserver<Reservation>> observers, IObserver<Reservation> observer)
+        {
+            this._observers = observers;
+            this._observer = observer;
+        }
+        public void Dispose()
+        {
+            if (_observers.Contains(_observer))
+            {
+                _observers.Remove(_observer);
+            }
         }
     }
 }

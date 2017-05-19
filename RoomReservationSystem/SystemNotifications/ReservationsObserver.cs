@@ -8,10 +8,10 @@ using Core.Interfaces;
 
 namespace SystemNotifications
 {
-    public class ReservationsMonitor : IObserver
+    public class ReservationsObserver : IObserver
     {
         public string ObserverName { get; private set; }
-        public ReservationsMonitor(string name)
+        public ReservationsObserver(string name)
         {
             this.ObserverName = name;
         }

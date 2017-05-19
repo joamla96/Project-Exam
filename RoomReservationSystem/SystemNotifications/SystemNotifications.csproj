@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ReservationsMonitor.cs" />
+    <Compile Include="ReservationsObserver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomsMonitor.cs" />
   </ItemGroup>

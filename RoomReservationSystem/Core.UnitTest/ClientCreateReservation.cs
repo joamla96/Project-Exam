@@ -21,11 +21,13 @@ namespace Core.UnitTest
 
         RoomRepository _repoRoom = RoomRepository.Instance; // Singletons
         ReservationRepository _repoReserv = ReservationRepository.Instance;
+        UserRepository _repoUser = UserRepository.Instance;
 
         [TestInitialize]
         public void TestsInitialize() {
             _repoRoom.Clear();
             _repoReserv.Clear();
+            _repoUser.Clear();
 
             _room1 = new Room('A', 1, 2, 4, Permission.Student);
             _room2 = new Room('A', 1, 99, 8, Permission.Student);
@@ -36,6 +38,8 @@ namespace Core.UnitTest
             _repoRoom.Add(_room3);
 
             _student = new User("roxa0198", "roxa0188@edu.eal.dk", Permission.Student);
+
+            _repoUser.Add(_student);
         }
 
         [TestMethod]

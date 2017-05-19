@@ -55,5 +55,19 @@ namespace Core
         {
             _reservations.Remove(reservation);
         }
+
+        public bool HasReservation(DateTime from, DateTime to)
+        {
+            bool hasReservation = false;
+            foreach (Reservation reservation in _reservations)
+            {
+                if (HelperFunctions.TimeCollides(reservation.From, from, to) || HelperFunctions.TimeCollides(reservation.To, from, to))
+                {
+                    hasReservation = true;
+                }
+            }
+
+            return hasReservation;
+        }
     }
 }

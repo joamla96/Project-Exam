@@ -7,24 +7,27 @@ using System.Collections.Generic;
 namespace Core.IntegrationTest {
 	[TestClass]
 	public class AddOrRemoveReservationToReservationRepo {
-		ReservationRepository repoReserv = ReservationRepository.Instance;
-		UserRepository repoUser = UserRepository.Instance;
-		RoomRepository repoRoom = RoomRepository.Instance;
+		ReservationRepository _repoReserv = ReservationRepository.Instance;
+		UserRepository _repoUser = UserRepository.Instance;
+		RoomRepository _repoRoom = RoomRepository.Instance;
 
 		IRoom _room1;
-		IUser _user1;
+		IUser _student;
 
 		DateTime _from;
 		DateTime _to;
 
         [TestInitialize]
 		public void Init() {
-			repoReserv.Clear();
-			repoRoom.Clear();
-			repoUser.Clear();
+			_repoReserv.Clear();
+			_repoRoom.Clear();
+			_repoUser.Clear();
 
 			_room1 = new Room('A', 4,49,4,Permission.Student);
-			_user1 = new User("hedv", "hedv@edu.eal.dk", Permission.Student);
+			_student = new User("hedv", "hedv@edu.eal.dk", Permission.Student);
+
+            _repoUser.Add(_student);
+            _repoRoom.Add(_room1);
 
 			_from = new DateTime(2017, 5, 8, 12, 0, 0);
 			_to = new DateTime(2017, 5, 8, 13, 0, 0);
@@ -32,18 +35,18 @@ namespace Core.IntegrationTest {
 
 		[TestMethod]
 		public void WhenAddingReservationToRepoAddToUserAsWell() {
-			Reservation testRes = new Reservation(_user1, _room1,4,_from,_to);
-			repoReserv.Add(testRes);
+			Reservation testRes = new Reservation(_student, _room1,4,_from,_to);
+			_repoReserv.Add(testRes);
 
-			List<Reservation> UsersReservations = _user1.GetReservations();
+			List<Reservation> UsersReservations = _student.GetReservations();
 
 			Assert.IsTrue(UsersReservations.Contains(testRes));
 		}
 
 		[TestMethod]
 		public void WhenAddingReservationToRepoAddToRoomAsWell() {
-			Reservation testRes = new Reservation(_user1, _room1, 4, _from, _to);
-			repoReserv.Add(testRes);
+			Reservation testRes = new Reservation(_student, _room1, 4, _from, _to);
+			_repoReserv.Add(testRes);
 
 			List<Reservation> Reservations = _room1.GetReservations();
 
@@ -52,20 +55,20 @@ namespace Core.IntegrationTest {
 
 		[TestMethod]
 		public void WhenRemoveReservationToRepoRemoveFromUserAsWell() {
-			Reservation testRes = new Reservation(_user1, _room1, 4, _from, _to);
-			repoReserv.Add(testRes);
-			repoReserv.Delete(testRes);
+			Reservation testRes = new Reservation(_student, _room1, 4, _from, _to);
+			_repoReserv.Add(testRes);
+			_repoReserv.Delete(testRes);
 
-			List<Reservation> UsersReservations = _user1.GetReservations();
+			List<Reservation> UsersReservations = _student.GetReservations();
 
 			Assert.IsFalse(UsersReservations.Contains(testRes));
 		}
 
 		[TestMethod]
 		public void WhenRemovingReservationToRepoRemoveFromRoomAsWell() {
-			Reservation testRes = new Reservation(_user1, _room1, 4, _from, _to);
-			repoReserv.Add(testRes);
-			repoReserv.Delete(testRes);
+			Reservation testRes = new Reservation(_student, _room1, 4, _from, _to);
+			_repoReserv.Add(testRes);
+			_repoReserv.Delete(testRes);
 
 			List<Reservation> Reservations = _room1.GetReservations();
 

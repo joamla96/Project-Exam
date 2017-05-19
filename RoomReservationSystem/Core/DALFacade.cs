@@ -132,7 +132,7 @@ namespace Core {
             usersData.DeleteUserFromDatabase(user.Username);
         }
 
-        public void PassReservationToDAL()
+        public void PassReservationToDAL(Reservation reservation)
         {
             reservationsData.StoreReservationIntoDatabase(this.ConvertFromReservationObjectToStrings(reservation));
         }

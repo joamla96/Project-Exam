@@ -70,9 +70,11 @@ ALTER PROCEDURE SP_DeleteReservation (
 	@DateTo DateTime 
 ) AS
 BEGIN
+	declare @DeletedID int
+	select @DeletedID = ID FROM Reservations WHERE Username = @Username AND DateFrom = @DateFrom AND DateTo = @DateTo;
 	DELETE FROM Reservations
-	WHERE Username = @Username AND DateFrom = @DateFrom AND DateTo = @DateTo
-	UPDATE Change set Identifier = 1 WHERE PrimaryKey = (SELECT i.ID FROM deleted i)
+	WHERE ID = @DeletedID
+	UPDATE Change set Identifier = 1 WHERE PrimaryKey = @DeletedID
 END
 
 GO

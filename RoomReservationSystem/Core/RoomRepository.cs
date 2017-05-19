@@ -6,18 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core {
-	public class RoomRepository
+namespace Core
+{
+    public class RoomRepository
     {
-		List<IRoom> _roomRepository = new List<IRoom>();
+        List<IRoom> _roomRepository = new List<IRoom>();
         private static RoomRepository _instance = new RoomRepository();
         public static RoomRepository Instance { get { return _instance; } }
-        private DALFacade _dalFacade = new DALFacade(); 
+        private DALFacade _dalFacade = new DALFacade();
 
         public void Clear()
         {
             ReservationRepository.Instance.Clear();
-            foreach(IRoom room in _roomRepository)
+            foreach (IRoom room in _roomRepository)
             {
                 _dalFacade.DeleteRoom(room);
             }
@@ -40,40 +41,48 @@ namespace Core {
             return _roomRepository;
         }
 
-		public List<IRoom> Get(Permission permissionlevel) {
-			List<IRoom> roomsByPermissionLevel = new List<IRoom>();
+        public List<IRoom> Get(Permission permissionlevel)
+        {
+            List<IRoom> roomsByPermissionLevel = new List<IRoom>();
 
-			foreach(IRoom room in _roomRepository) {
-				if(room.MinPermissionLevel <= permissionlevel) {
-					roomsByPermissionLevel.Add(room);
-				}
-			}
+            foreach (IRoom room in _roomRepository)
+            {
+                if (room.MinPermissionLevel <= permissionlevel)
+                {
+                    roomsByPermissionLevel.Add(room);
+                }
+            }
 
-			return roomsByPermissionLevel;
-		}
+            return roomsByPermissionLevel;
+        }
 
-		public IRoom Get(IRoom checkroom)
-		{
-			IRoom foundroom = null;
-			foreach(IRoom room in _roomRepository) {
-				if(room.Equals(checkroom)) {
-					foundroom = room;
-				}
-			}
+        public IRoom Get(IRoom checkroom)
+        {
+            IRoom foundroom = null;
+            foreach (IRoom room in _roomRepository)
+            {
+                if (room.Equals(checkroom))
+                {
+                    foundroom = room;
+                }
+            }
 
-			if (foundroom == null) {
-				throw new IndexOutOfRangeException();
-			} else {
-				return foundroom;
-			}
-		}
+            if (foundroom == null)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            else
+            {
+                return foundroom;
+            }
+        }
 
-		public IRoom Get(Reservation reservation)
+        public IRoom Get(Reservation reservation)
         {
             Room roomsByReservation = null;
-            foreach(Room room in _roomRepository)
+            foreach (Room room in _roomRepository)
             {
-                if(room == reservation.Room)
+                if (room == reservation.Room)
                 {
                     roomsByReservation = room;
                 }
@@ -83,27 +92,31 @@ namespace Core {
 
         public Stack<IRoom> GetPossible(Permission permissionlevel, int people)
         {
-			List<IRoom> permission = this.Get(permissionlevel);
-			List<IRoom> possible = new List<IRoom>();
-			Stack<IRoom> stack = new Stack<IRoom>();
+            List<IRoom> permission = this.Get(permissionlevel);
+            List<IRoom> possible = new List<IRoom>();
+            Stack<IRoom> stack = new Stack<IRoom>();
 
-			foreach(IRoom room in permission) {
-				if(room.MaxPeople >= people) {
-					possible.Add(room);
-				}
-			}
+            foreach (IRoom room in permission)
+            {
+                if (room.MaxPeople >= people)
+                {
+                    possible.Add(room);
+                }
+            }
 
-			possible.Sort();
+            possible.Sort();
 
-			foreach(IRoom room in possible) {
-				stack.Push(room);
-			}
+            foreach (IRoom room in possible)
+            {
+                stack.Push(room);
+            }
 
-			return stack;
+            return stack;
         }
 
         public void Delete(IRoom room)
         {
             _roomRepository.Remove(room);
         }
+    }
 }

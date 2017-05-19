@@ -69,5 +69,22 @@ namespace DAL
             }
 
         }
+
+        public void DeleteAllRoomsFromDatabase()
+        {
+            SqlConnection conn = this.OpenConnection();
+
+            SqlCommand command = new SqlCommand("SP_DeleteAllRooms", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            try {
+                command.ExecuteNonQuery();
+            }
+            finally {
+                this.CloseConnection();
+            }
+        }
     }
 }

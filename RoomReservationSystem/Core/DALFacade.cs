@@ -19,6 +19,17 @@ namespace Core {
         private Users usersData;
         private Rooms roomsData;
         private Reservations reservationsData;
+
+        internal void DeleteAllUsers()
+        {
+            usersData.DeleteAllUserFromDatabase();
+        }
+
+        internal void DeleteAllRooms()
+        {
+            roomsData.DeleteAllRoomsFromDatabase();
+        }
+
         private UserRepository repoUsers;
         private RoomRepository repoRooms;
 

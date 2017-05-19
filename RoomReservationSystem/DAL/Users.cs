@@ -77,5 +77,26 @@ namespace DAL {
             }
 
         }
+
+        public void DeleteAllUserFromDatabase()
+        {
+            SqlConnection conn = this.OpenConnection();
+
+            SqlCommand command = new SqlCommand("SP_DeleteAllUser", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+
+        }
     }
 }

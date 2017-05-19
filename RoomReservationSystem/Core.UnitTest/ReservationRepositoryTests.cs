@@ -51,13 +51,6 @@ namespace Core.UnitTest
             _room4 = new Room('A', 7, 5, 2, Permission.Student);
             _room5 = new Room('B', 7, 5, 10, Permission.Student);
 
-            _dateFrom = new DateTime(2016, 4, 29, 8, 0, 0);
-            _dateTo = new DateTime(2016, 4, 29, 16, 0, 0);
-
-            _reservation1 = new Reservation(_student, _room1, 6, _dateFrom, _dateTo);
-            _reservation2 = new Reservation(_teacher, _room2, 6, _dateFrom, _dateTo);
-            _reservation3 = new Reservation(_admin, _room3, 6, _dateFrom, _dateTo);
-
             _repoUser.Add(_student);
             _repoUser.Add(_teacher);
             _repoUser.Add(_admin);
@@ -67,6 +60,13 @@ namespace Core.UnitTest
             _repoRoom.Add(_room3);
             _repoRoom.Add(_room4);
             _repoRoom.Add(_room5);
+
+            _dateFrom = new DateTime(2016, 4, 29, 8, 0, 0);
+            _dateTo = new DateTime(2016, 4, 29, 16, 0, 0);
+
+            _reservation1 = new Reservation(_student, _room1, 6, _dateFrom, _dateTo);
+            _reservation2 = new Reservation(_teacher, _room2, 6, _dateFrom, _dateTo);
+            _reservation3 = new Reservation(_admin, _room3, 6, _dateFrom, _dateTo);
 
             _repoReservation.Add(_reservation1);
             _repoReservation.Add(_reservation2);

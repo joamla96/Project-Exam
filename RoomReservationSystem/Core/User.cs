@@ -37,7 +37,11 @@ namespace Core
             return thesame;
         }
 
-        public List<Reservation> GetReservations()
+		public override int GetHashCode() {
+			return Username.GetHashCode();
+		}
+
+		public List<Reservation> GetReservations()
         {
             return _reservations;
         }

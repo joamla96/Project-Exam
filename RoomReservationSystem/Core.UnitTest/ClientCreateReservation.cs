@@ -13,11 +13,11 @@ namespace Core.UnitTest
         IRoom _room1;
         IRoom _room2;
         IRoom _room3;
-        IRoom _room4;
+        //IRoom _room4;
 
         IUser _student;
-        IUser _teacher;
-        IUser _admin;
+        //IUser _teacher;
+        //IUser _admin;
 
         RoomRepository _repoRoom = RoomRepository.Instance; // Singletons
         ReservationRepository _repoReserv = ReservationRepository.Instance;

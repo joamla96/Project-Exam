@@ -86,5 +86,30 @@ namespace DAL
                 this.CloseConnection();
             }
         }
+
+        public void InsertRoomToDatabase(string building, int floor, int nr, int maxpeople, int minpermissionlevel)
+        {
+            SqlConnection conn = this.OpenConnection();
+
+            SqlCommand command = new SqlCommand("SP_InsertRoom", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            command.Parameters.AddWithValue("Building", building);
+            command.Parameters.AddWithValue("FloorNr", floor);
+            command.Parameters.AddWithValue("Nr", nr);
+            command.Parameters.AddWithValue("MaxPeople", maxpeople);
+            command.Parameters.AddWithValue("MinPermissionLevel", minpermissionlevel);
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
     }
 }

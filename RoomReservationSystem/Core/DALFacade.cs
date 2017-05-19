@@ -30,6 +30,11 @@ namespace Core {
             roomsData.DeleteAllRoomsFromDatabase();
         }
 
+        internal void InsertRoom(IRoom room)
+        {
+            roomsData.InsertRoomToDatabase(room.Building.ToString(), room.Floor, room.Nr, room.MaxPeople,(int) room.MinPermissionLevel);
+        }
+
         private UserRepository repoUsers;
         private RoomRepository repoRooms;
 

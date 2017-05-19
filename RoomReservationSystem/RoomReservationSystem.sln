@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{1232C66E-1D3B-4EDB-8DF1-7CD98018CF2A}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.GUI", "UI.GUI\UI.GUI.csproj", "{452EE9EB-D5D1-4B4F-B79F-CB580506B0AC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.IntegrationTest", "Core.IntegrationTest\Core.IntegrationTest.csproj", "{751F61DD-406A-47C1-8E32-194F2D004EC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationSystem", "NotificationSystem\NotificationSystem.csproj", "{35EC30C8-6763-4113-832E-6E9F27F982BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{751F61DD-406A-47C1-8E32-194F2D004EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{751F61DD-406A-47C1-8E32-194F2D004EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{751F61DD-406A-47C1-8E32-194F2D004EC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35EC30C8-6763-4113-832E-6E9F27F982BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35EC30C8-6763-4113-832E-6E9F27F982BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35EC30C8-6763-4113-832E-6E9F27F982BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35EC30C8-6763-4113-832E-6E9F27F982BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

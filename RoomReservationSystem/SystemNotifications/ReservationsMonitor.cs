@@ -4,22 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core;
+using Core.Interfaces;
 
 namespace SystemNotifications
 {
-    public class ReservationsMonitor : IObserver<Reservation>
+    public class ReservationsMonitor : IObserver
     {
-        public void OnCompleted()
+        public string ObserverName { get; private set; }
+        public ReservationsMonitor(string name)
         {
-            throw new NotImplementedException();
+            this.ObserverName = name;
         }
-
-        public void OnError(Exception error)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnNext(Reservation value)
+        public void Update()
         {
             throw new NotImplementedException();
         }

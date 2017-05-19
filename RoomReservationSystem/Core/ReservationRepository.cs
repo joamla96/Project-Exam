@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-    public class ReservationRepository:IObservable<Reservation>
+    public class ReservationRepository : IObservable
     {
         DALFacade _dalFacade = new DALFacade();
         List<Reservation> _reservationRepository = new List<Reservation>();
-        private List<IObserver<Reservation>> _observers = new List<IObserver<Reservation>>();
-        RoomRepository _roomRepo =  RoomRepository.Instance;
+        private List<IObserver> _observers = new List<IObserver>();
+        RoomRepository _roomRepo = RoomRepository.Instance;
         private static ReservationRepository _instance = new ReservationRepository();
         public static ReservationRepository Instance { get { return _instance; } }
 
         public IRoom RequestReservation(DateTime from, DateTime to, int peopleNr)
         {
-            
+
             IRoom currentRoom;
             IRoom foundRoom = null;
             Stack<IRoom> rooms = _roomRepo.GetPossible(LoggedIn.User.PermissionLevel, peopleNr);
@@ -42,11 +42,11 @@ namespace Core
                 this.Add(reservation);
                 return foundRoom;
             }
-            
+
         }
         public void Clear()
         {
-            foreach(Reservation reservation in _reservationRepository)
+            foreach (Reservation reservation in _reservationRepository)
             {
                 _dalFacade.DeleteReservation(reservation);
             }
@@ -55,8 +55,8 @@ namespace Core
 
         public void Add(Reservation reservation)
         {
-			_reservationRepository.Add(reservation);
-			reservation.Room.AddReservation(reservation);
+            _reservationRepository.Add(reservation);
+            reservation.Room.AddReservation(reservation);
             reservation.User.AddReservation(reservation);
         }
 
@@ -79,13 +79,13 @@ namespace Core
             return _reservationRepository;
         }
 
-        public List<Reservation> Get(IUser user)    
+        public List<Reservation> Get(IUser user)
         {
             List<Reservation> reservationsByUser = new List<Reservation>();
 
-            foreach(Reservation reservation in _reservationRepository)
+            foreach (Reservation reservation in _reservationRepository)
             {
-                if(reservation.User.Equals(user))
+                if (reservation.User.Equals(user))
                 {
                     reservationsByUser.Add(reservation);
                 }
@@ -97,9 +97,9 @@ namespace Core
         {
             List<Reservation> reservationsByRoom = new List<Reservation>();
 
-            foreach(Reservation reservation in _reservationRepository)
+            foreach (Reservation reservation in _reservationRepository)
             {
-                if(reservation.Room.Equals(room))
+                if (reservation.Room.Equals(room))
                 {
                     reservationsByRoom.Add(reservation);
                 }
@@ -121,32 +121,19 @@ namespace Core
             return result;
         }
 
-        public IDisposable Subscribe(IObserver<Reservation> observer)
+        public void Subscribe(IObserver observer)
         {
-            if (!_observers.Contains(observer))
-            {
-                _observers.Add(observer);
-                foreach (Reservation reservation in _reservationRepository)
-                    observer.OnNext(reservation);
-            }
-            return new Unsubscriber<Reservation>(_observers, observer);
+            _observers.Add(observer);
         }
-    }
-    internal class Unsubscriber<Reservation>:IDisposable
-    {
-        private List<IObserver<Reservation>> _observers;
-        private IObserver<Reservation> _observer;
-        internal Unsubscriber(List<IObserver<Reservation>> observers, IObserver<Reservation> observer)
+
+        public void Unsubscribe(IObserver observer)
         {
-            this._observers = observers;
-            this._observer = observer;
+            _observers.Remove(observer);
         }
-        public void Dispose()
+
+        public void Notify()
         {
-            if (_observers.Contains(_observer))
-            {
-                _observers.Remove(_observer);
-            }
+            _observers.ForEach(observer => observer.Update());
         }
     }
 }

@@ -163,5 +163,10 @@ namespace Core {
 
             return reservationInfo;
         }
+
+        public void InsertUser(IUser user)
+        {
+            usersData.InsertUserToDatabase(user.Username, user.Email,(int) user.PermissionLevel);
+        }
     }
 }

@@ -105,6 +105,7 @@ namespace Core {
         public void Delete(IRoom room)
         {
             _roomRepository.Remove(room);
+            _dalFacade.DeleteRoom(room);
         }
 
 

@@ -38,7 +38,7 @@ namespace DAL {
 			return result;
 		}
 
-		public void Insert(string username, string email, int permission) {
+		public void InsertUserToDatabase(string username, string email, int permission) {
 			SqlConnection conn = this.OpenConnection();
 
 			SqlCommand command = new SqlCommand("SP_InsertUser", conn) {

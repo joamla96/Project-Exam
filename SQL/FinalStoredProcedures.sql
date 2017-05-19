@@ -1,18 +1,18 @@
-CREATE PROCEDURE SP_GetAllUsers AS
+ALTER PROCEDURE SP_GetAllUsers AS
 BEGIN
 	SELECT Username, Email, PermissionLevel
 	FROM Users
 END
 
 GO
-CREATE PROCEDURE SP_GetAllRooms AS
+ALTER PROCEDURE SP_GetAllRooms AS
 BEGIN
 	SELECT Building, FloorNr, Nr, MaxPeople, MinPermissionLevel
 	FROM Rooms
 END
 
 GO
-CREATE PROCEDURE SP_GetAllReservations AS
+ALTER PROCEDURE SP_GetAllReservations AS
 BEGIN
 	SELECT ID, PeopleNr, DateTo, DateFrom, Building, FloorNr, Nr, Username
 	FROM Reservations
@@ -20,19 +20,20 @@ END
 
 -- Insert 
 GO
-CREATE PROCEDURE SP_InsertUser (
+ALTER PROCEDURE SP_InsertUser (
 	@Username NVarChar(100),
 	@Email NVarChar(MAX),
 	@PermissionLevel Int
 ) AS
 BEGIN
-INSERT INTO Users (Username, Email, PermissionLevel) VALUES
+	ALTER TABLE Users DISABLE TRIGGER trgInsertUser
+	INSERT INTO Users (Username, Email, PermissionLevel) VALUES
 	(@Username, @Email, @PermissionLevel)
-	UPDATE Change set Identifier = 1 WHERE PrimaryKey = @Username
+	ALTER TABLE Users ENABLE TRIGGER trgInsertUser
 END
 
 GO
-CREATE PROCEDURE SP_InsertRoom (
+ALTER PROCEDURE SP_InsertRoom (
 	@Building Char,
 	@FloorNr NVarChar(max),
 	@Nr NVarChar(max),
@@ -40,13 +41,15 @@ CREATE PROCEDURE SP_InsertRoom (
 	@MinPermissionLevel Int
 ) AS
 BEGIN
-INSERT INTO Rooms (Building, FloorNr, Nr, MaxPeople, MinPermissionLevel) VALUES
+	ALTER TABLE Rooms DISABLE TRIGGER trgInsertRooms
+	INSERT INTO Rooms (Building, FloorNr, Nr, MaxPeople, MinPermissionLevel) VALUES
 	(@Building, @FloorNr, @Nr, @MaxPeople, @MinPermissionLevel)
-	UPDATE Change set Identifier = 1 WHERE PrimaryKey = @Building +';' + @FloorNr + ';' + @Nr
+	ALTER TABLE Rooms ENABLE TRIGGER trgInsertRooms
+	
 END
 
 GO
-CREATE PROCEDURE SP_InsertReservation (
+ALTER PROCEDURE SP_InsertReservation (
 	@PeopleNr Int,
 	@DateTo DateTime2,
 	@DateFrom DateTime2,
@@ -56,9 +59,10 @@ CREATE PROCEDURE SP_InsertReservation (
 	@Username NVarChar(100)
 ) AS
 BEGIN
+	ALTER TABLE Reservations DISABLE TRIGGER trgInsertReservations
 	INSERT INTO Reservations (PeopleNr, DateTo, DateFrom, Building, FloorNr, Nr, Username) VALUES
 	(@PeopleNr, @DateTo, @DateFrom, @Building, @FloorNr, @Nr, @Username)
-	UPDATE Change set Identifier = 1 WHERE PrimaryKey = CAST(SCOPE_IDENTITY() AS NVarChar(100))
+	ALTER TABLE Reservations ENABLE TRIGGER trgInsertReservations
 END
 
 
@@ -70,47 +74,70 @@ ALTER PROCEDURE SP_DeleteReservation (
 	@DateTo DateTime 
 ) AS
 BEGIN
-	declare @DeletedID int
-	select @DeletedID = ID FROM Reservations WHERE Username = @Username AND DateFrom = @DateFrom AND DateTo = @DateTo;
-	DELETE FROM Reservations
-	WHERE ID = @DeletedID
-	UPDATE Change set Identifier = 1 WHERE PrimaryKey = @DeletedID
+	ALTER TABLE Reservations DISABLE TRIGGER trgDeleteReservations
+
+	DELETE FROM Reservations WHERE Username = @Username AND DateFrom = @DateFrom AND DateTo = @DateTo;
+
+	ALTER TABLE Reservations ENABLE TRIGGER trgDeleteReservations
 END
 
 GO
-CREATE PROCEDURE SP_DeleteRoom (
+ALTER PROCEDURE SP_DeleteRoom (
 	@Building Char,
 	@FloorNr NVarChar(max),
-	@Nr NVarChar(max)) AS
+	@Nr NVarChar(max)
+) AS
 BEGIN
-	DELETE FROM Rooms
-	WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr
-	UPDATE Change set Identifier = 1 WHERE PrimaryKey = @Building + ';' + @FloorNr + ';' + @Nr
+	ALTER TABLE Reservations DISABLE TRIGGER trgDeleteReservations
+	ALTER TABLE Rooms DISABLE TRIGGER trgDeleteRooms
+
+	DELETE FROM Rooms WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr
+
+	ALTER TABLE Rooms ENABLE TRIGGER trgDeleteRooms
+	ALTER TABLE Reservations ENABLE TRIGGER trgDeleteReservations
 END
 
 GO
-CREATE PROCEDURE SP_DeleteUser (@Username NVarChar(100)) AS
+ALTER PROCEDURE SP_DeleteUser (@Username NVarChar(100)) AS
 BEGIN
-	DELETE FROM Users
-	WHERE Username = @Username
-	UPDATE Change set Identifier = 1 WHERE PrimaryKey = @Username
+	ALTER TABLE Reservations DISABLE TRIGGER trgDeleteReservations
+	ALTER TABLE Users DISABLE TRIGGER trgDeleteUser
+
+	DELETE FROM Users WHERE Username = @Username
+
+	ALTER TABLE Users ENABLE TRIGGER trgDeleteUser
+	ALTER TABLE Reservations ENABLE TRIGGER trgDeleteReservations
 END
 
 GO
 ALTER PROCEDURE SP_DeleteAllUser AS
 BEGIN
+	ALTER TABLE Reservations DISABLE TRIGGER trgDeleteReservations
+	ALTER TABLE Users DISABLE TRIGGER trgDeleteUser
+
 	DELETE FROM Users
+
+	ALTER TABLE Users ENABLE TRIGGER trgDeleteUser
+	ALTER TABLE Reservations ENABLE TRIGGER trgDeleteReservations
 END
 
 GO
 ALTER PROCEDURE SP_DeleteAllRooms AS
 BEGIN
+	ALTER TABLE Reservations DISABLE TRIGGER trgDeleteReservations
+	ALTER TABLE Rooms DISABLE TRIGGER trgDeleteRooms
+
 	DELETE FROM Rooms
+
+	ALTER TABLE Rooms DISABLE TRIGGER trgDeleteRooms
+	ALTER TABLE Reservations ENABLE TRIGGER trgDeleteReservations
 END
 
 GO
 ALTER PROCEDURE SP_DeleteAllReservation AS
 BEGIN
+	ALTER TABLE Reservations DISABLE TRIGGER trgDeleteReservations
 	DELETE FROM Reservations
+	ALTER TABLE Reservations ENABLE TRIGGER trgDeleteReservations
 END
 

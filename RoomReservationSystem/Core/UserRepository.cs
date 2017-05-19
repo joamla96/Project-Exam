@@ -28,6 +28,7 @@ namespace Core
         public void Add(IUser user)
         {
             _userRepository.Add(user);
+            _dalFacade.InsertUser(user);
         }
 
         public void Add(string username, string email, Permission permissionlevel)
@@ -100,6 +101,7 @@ namespace Core
         public void Delete(IUser user)
         {
             _userRepository.Remove(user);
+            _dalFacade.DeleteUser(user);
         }
     }
 }

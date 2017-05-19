@@ -10,6 +10,8 @@ namespace Core.UnitTest
     public class ReservationRepositoryTests 
     {
         ReservationRepository _repoReservation = ReservationRepository.Instance;
+        RoomRepository _repoRoom = RoomRepository.Instance;
+        UserRepository _repoUser = UserRepository.Instance;
 
         List<Reservation> _reservationList;
 
@@ -33,7 +35,9 @@ namespace Core.UnitTest
         [TestInitialize]
         public void TestInitialize()
         {
-            _repoReservation.Clear();
+            _repoRoom.Clear();
+            _repoUser.Clear();
+            _repoReservation.Clear();         
 
             _reservationList = new List<Reservation>();
 
@@ -53,6 +57,16 @@ namespace Core.UnitTest
             _reservation1 = new Reservation(_student, _room1, 6, _dateFrom, _dateTo);
             _reservation2 = new Reservation(_teacher, _room2, 6, _dateFrom, _dateTo);
             _reservation3 = new Reservation(_admin, _room3, 6, _dateFrom, _dateTo);
+
+            _repoUser.Add(_student);
+            _repoUser.Add(_teacher);
+            _repoUser.Add(_admin);
+
+            _repoRoom.Add(_room1);
+            _repoRoom.Add(_room2);
+            _repoRoom.Add(_room3);
+            _repoRoom.Add(_room4);
+            _repoRoom.Add(_room5);
 
             _repoReservation.Add(_reservation1);
             _repoReservation.Add(_reservation2);

@@ -43,6 +43,14 @@ namespace Core
             }
             
         }
+
+        internal void LoadFromDatabase(Reservation reservation)
+        {
+            _reservationRepository.Add(reservation);
+            reservation.Room.AddReservation(reservation);
+            reservation.User.AddReservation(reservation);
+        }
+
         public void Clear()
         {
             _reservationRepository.Clear();
@@ -50,31 +58,10 @@ namespace Core
 
         public void Add(Reservation reservation)
         {
-            //if(_reservationRepository.Count == 0)
-            //{
-            //    _dalFacade.PassReservationToDAL(reservation);
-            //    _reservationRepository.Add(reservation);
-            //    reservation.Room.AddReservation(reservation);
-            //    reservation.User.AddReservation(reservation);
-            //}
-            //else
-            //{
-            //    foreach (Reservation reserv in _reservationRepository)
-            //    {
-            //        if (!reserv.Equals(reservation))
-            //        {
-            //            _dalFacade.PassReservationToDAL(reservation);
-            //            _reservationRepository.Add(reservation);
-            //            reservation.Room.AddReservation(reservation);
-            //            reservation.User.AddReservation(reservation);
-            //        }
-            //    }
-            //}
-
             _reservationRepository.Add(reservation);
             reservation.Room.AddReservation(reservation);
             reservation.User.AddReservation(reservation);
-            //_dalFacade.PassReservationToDAL(reservation);
+            _dalFacade.PassReservationToDAL(reservation);
         }
 
         public void Delete(Reservation reservation)

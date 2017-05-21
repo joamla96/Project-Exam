@@ -3,7 +3,9 @@ EXECUTE SP_InsertUser @Username = 'alhe', @Email = 'alhe@eal.dk', @PermissionLev
 EXECUTE SP_InsertUser @Username = 'frje', @Email = 'frje@eal.dk', @PermissionLevel = 2
 EXECUTE SP_InsertUser @Username = 'hedv', @Email = 'hedv@edu.eal.dk', @PermissionLevel = 0
 EXECUTE SP_InsertUser @Username = 'roxa0198', @Email = 'roxa0198@edu.eal.dk', @PermissionLevel = 0
-EXECUTE SP_InsertUser @Username = 'username', @Email = 'email', @PermissionLevel = 0
+EXECUTE SP_InsertUser @Username = 'student', @Email = '@edu.eal.dk', @PermissionLevel = 0
+EXECUTE SP_InsertUser @Username = 'teacher', @Email = '@eal.dk', @PermissionLevel = 1
+EXECUTE SP_InsertUser @Username = 'admin', @Email = '@eal.dk', @PermissionLevel = 2
 
 EXECUTE SP_InsertRoom @Building = 'A', @FloorNr = 1, @Nr = 15, @MaxPeople = 4, @MinPermissionLevel = 2
 EXECUTE SP_InsertRoom @Building = 'A', @FloorNr = 2, @Nr = 9, @MaxPeople = 6, @MinPermissionLevel = 0

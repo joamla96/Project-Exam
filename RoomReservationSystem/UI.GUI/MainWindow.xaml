@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI.GUI"
         mc:Ignorable="d"
-        Title="RoSys" Height="241.176" Width="390.686">
-    <Grid>
+        Title="RoSys" Height="241.176" Width="389.755">
+    <Grid RenderTransformOrigin="0.506,0.487">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="370*"/>
-            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="373*"/>
+            <ColumnDefinition Width="11*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Admin" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" Margin="28,70,0,0" Height="63" Click="AdminButtonClick"/>
-        <Button Content="Student" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" Margin="221,26,0,0" Height="63" Click="StudentButtonClick"/>
-        <Button Content="Teacher" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" Margin="221,123,0,0" Height="63" Click="TeacherButtonClick"/>
+        <Button Content="Admin" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="10,70,0,0" Height="63" Click="AdminButtonClick"/>
+        <Button Content="Student" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="132,70,0,0" Height="63" Click="StudentButtonClick"/>
+        <Button Content="Teacher" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="254,70,0,0" Height="63" Click="TeacherButtonClick"/>
 
     </Grid>
 </Window>

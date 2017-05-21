@@ -25,10 +25,7 @@ namespace UI.GUI.View
             Permission permissionLevel = LoggedIn.User.PermissionLevel;
             InitializeComponent();
             
-            if(permissionLevel == Permission.Student)
-            {
-                ReserveMeetingRoomButton.Visibility = Visibility.Hidden;
-            }
+           
         }
 
         

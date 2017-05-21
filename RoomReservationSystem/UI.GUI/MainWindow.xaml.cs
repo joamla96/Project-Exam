@@ -28,19 +28,23 @@ namespace UI.GUI
 
         private void AdminButtonClick(object sender, RoutedEventArgs e)
         {
-            
-        }
+			LoggedIn.User = new User("admin", "@eal.dk", Permission.Admin);
+			View.User user = new View.User();
+			user.Show();
+		}
 
         private void StudentButtonClick(object sender, RoutedEventArgs e)
         {
-			LoggedIn.User = new User("username", "email", Permission.Student);
+			LoggedIn.User = new User("student", "@edu.eal.dk", Permission.Student);
 			View.User user = new View.User();
             user.Show();  
         }
 
         private void TeacherButtonClick(object sender, RoutedEventArgs e)
         {
-
-        }
+			LoggedIn.User = new User("teacher", "@eal.dk", Permission.Teacher);
+			View.User user = new View.User();
+			user.Show();
+		}
     }
 }

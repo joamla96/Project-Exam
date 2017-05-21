@@ -29,7 +29,7 @@ namespace UI.GUI.View
         }
 
         
-        private void ReserveProjectRoomButtonClick(object sender, RoutedEventArgs e)
+        private void ReserveRoomButtonClick(object sender, RoutedEventArgs e)
         {
             Frame.Content = new ReserveRoom();
         }
@@ -40,10 +40,7 @@ namespace UI.GUI.View
             
         }
 
-        private void ReserveMeetingRoomButtonClick(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         
     }

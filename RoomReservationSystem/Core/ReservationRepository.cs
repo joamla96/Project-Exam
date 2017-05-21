@@ -23,7 +23,7 @@ namespace Core
             IRoom currentRoom;
             IRoom foundRoom = null;
             Stack<IRoom> rooms = _roomRepo.GetPossible(LoggedIn.User.PermissionLevel, peopleNr);
-            while (foundRoom == null && rooms.Count > 1)
+            while (foundRoom == null && rooms.Count >= 1)
             {
                 currentRoom = rooms.Pop();
                 bool roomAvailable = currentRoom.IsAvailable(from, to);

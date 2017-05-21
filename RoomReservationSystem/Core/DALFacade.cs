@@ -20,6 +20,9 @@ namespace Core {
         private Rooms roomsData;
         private Reservations reservationsData;
 
+        private UserRepository repoUsers;
+        private RoomRepository repoRooms;
+
         internal void DeleteAllUsers()
         {
             usersData.DeleteAllUserFromDatabase();
@@ -34,9 +37,6 @@ namespace Core {
         {
             roomsData.InsertRoomToDatabase(room.Building.ToString(), room.Floor, room.Nr, room.MaxPeople,(int) room.MinPermissionLevel);
         }
-
-        private UserRepository repoUsers;
-        private RoomRepository repoRooms;
 
         public DALFacade()
         {

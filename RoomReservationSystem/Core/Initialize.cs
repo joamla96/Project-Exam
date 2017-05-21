@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using Core.Interfaces;
 
 namespace Core {
-	public class Initialize {
+	public class Initialize
+    {
 		private static DALFacade _dal = new DALFacade();
 
 		private static ReservationRepository _repoReserv = ReservationRepository.Instance;
@@ -27,19 +28,6 @@ namespace Core {
             {
                 _repoReserv.LoadFromDatabase(reservation);
             }
-
-            //DebugNoDatabase(); // Remove in Prod.
-		}
-
-        public static void DebugNoDatabase()
-        {
-            IRoom room1 = new Room('A', 2, 2, 2, Permission.Student);
-            IRoom room2 = new Room('B', 2, 2, 4, Permission.Student);
-            IRoom room3 = new Room('B', 2, 2, 6, Permission.Student);
-
-            _repoRooms.Add(room1);
-            _repoRooms.Add(room2);
-            _repoRooms.Add(room3);
         }
 	}
 }

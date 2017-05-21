@@ -72,7 +72,7 @@ namespace Core
         public void Delete(Reservation reservation)
         {
             _reservationRepository.Remove(reservation);
-            reservation.Room.DeleteReservation(reservation); //database?
+            reservation.Room.DeleteReservation(reservation);
             reservation.User.DeleteReservation(reservation);
             _dalFacade.DeleteReservation(reservation);
         }

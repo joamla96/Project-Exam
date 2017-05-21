@@ -13,35 +13,47 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Core;
 
-namespace UI.GUI.View
-{
-    /// <summary>
-    /// Interaction logic for User.xaml
-    /// </summary>
-    public partial class User : Window
-    {
-        public User()
-        {
-            Permission permissionLevel = LoggedIn.User.PermissionLevel;
-            InitializeComponent();
-            
-           
-        }
+namespace UI.GUI.View {
+	/// <summary>
+	/// Interaction logic for User.xaml
+	/// </summary>
+	public partial class User : Window {
+		public User() {
+			Permission permissionLevel = LoggedIn.User.PermissionLevel;
+			InitializeComponent();
 
-        
-        private void ReserveRoomButtonClick(object sender, RoutedEventArgs e)
-        {
-            Frame.Content = new ReserveRoom();
-        }
+			if (permissionLevel == Permission.Student) {
+				ManageRoomsButton.Visibility = Visibility.Hidden;
+				ManageReservationsButton.Visibility = Visibility.Hidden;
+			}
 
-        private void SeeMyReservationButtonClick(object sender, RoutedEventArgs e)
-        {
-            Frame.Content = new SeeMyReservationsV();
-            
-        }
+			if (permissionLevel == Permission.Teacher) {
+				ManageRoomsButton.Visibility = Visibility.Hidden;
+				ManageReservationsButton.Visibility = Visibility.Hidden;
+			}
 
-        
+			if (permissionLevel == Permission.Admin) {
+				ReserveRoomButton.Visibility = Visibility.Hidden;
+				SeeMyReservationButton.Visibility = Visibility.Hidden;
+			}
+		}
 
-        
-    }
+
+		private void ReserveRoomButtonClick(object sender, RoutedEventArgs e) {
+			Frame.Content = new ReserveRoom();
+		}
+
+		private void SeeMyReservationButtonClick(object sender, RoutedEventArgs e) {
+			Frame.Content = new SeeMyReservationsV();
+
+		}
+
+		private void ManageRoomsButtonClick(object sender, RoutedEventArgs e) {
+			Frame.Content = new ManageRoomsV();
+		}
+
+		private void ManageReservationsButtonClick(object sender, RoutedEventArgs e) {
+			Frame.Content = new ManageReservationsV();
+		}
+	}
 }

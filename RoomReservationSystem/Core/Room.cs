@@ -60,7 +60,11 @@ namespace Core
             return this.ID.GetHashCode();
         }
 
-        public int CompareTo(object obj)
+		public override string ToString() {
+			return ID;
+		}
+
+		public int CompareTo(object obj)
         {
             int result;
             if (obj is IRoom)

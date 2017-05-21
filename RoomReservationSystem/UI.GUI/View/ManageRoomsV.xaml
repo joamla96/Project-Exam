@@ -1,0 +1,16 @@
+﻿<Page x:Class="UI.GUI.View.ManageRoomsV"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UI.GUI.View"
+      mc:Ignorable="d"
+      Title="ManageRoomsV" Width="372" Height="249.6">
+
+    <Grid Margin="5,0,-42,0" HorizontalAlignment="Left" Width="337">
+        <Button x:Name="ShowRoomListButton" Content="Show Room List" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="104" Height="34" Click="ShowRoomListButtonClick"/>
+        <ListBox x:Name="ManageRoomsListBox" HorizontalAlignment="Left" Height="193" Margin="128,10,0,0" VerticalAlignment="Top" Width="199"/>
+        <Button x:Name="DeleteRoomButton" Content="Delete Room" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="104" Height="33" Click="DeleteRoomButtonClick"/>
+        <Button x:Name="ReserveRoomButton" Content="Reserve Room" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" Width="104" Height="33" Click="ReserveRoomButtonClick"/>
+    </Grid>
+</Page>

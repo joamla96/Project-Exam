@@ -48,6 +48,8 @@ namespace UI.GUI.View
             Reservation reservation = (Reservation)ReservationListListBox.SelectedItem;
             VM.DeleteReservation(reservation);
             UpdateMyReservationListBox();
+			string deleteMessage = "Reservation deleted";
+			MessageBox.Show(deleteMessage);
         }
     }
 }

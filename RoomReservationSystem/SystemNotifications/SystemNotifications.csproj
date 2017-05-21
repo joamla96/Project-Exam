@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="ReservationsObserver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoomsMonitor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">

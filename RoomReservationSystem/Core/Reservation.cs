@@ -46,7 +46,11 @@ namespace Core
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return int.Parse(
+                this.User.GetHashCode().ToString() +
+                this.From.GetHashCode().ToString() +
+                this.To.GetHashCode().ToString()
+                );
         }
 
         public override string ToString()

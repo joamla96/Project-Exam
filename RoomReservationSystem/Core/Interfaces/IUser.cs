@@ -12,5 +12,6 @@ namespace Core.Interfaces
         void AddReservation(Reservation reservation);
         List<Reservation> GetReservations();
         void DeleteReservation(Reservation reservation);
+        bool HasReservation(DateTime from, DateTime to);
     }
 }

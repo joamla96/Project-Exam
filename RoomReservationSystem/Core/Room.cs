@@ -14,7 +14,7 @@ namespace Core
 
 		private char building;
 
-        public char Building { get { return this.building;  } set { this.building = Char.ToUpper(value); }
+        public char Building { get { return this.building; } set { this.building = Char.ToUpper(value); } }
         public int Floor { get; set; }
         public int Nr { get; set; }
         public int MaxPeople { get; set; }

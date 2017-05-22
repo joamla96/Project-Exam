@@ -9,6 +9,7 @@ namespace DAL
     {
         List<Dictionary<string, string>> GetAllReservationsFromDatabase();
     }
+
     public class Reservations : Database, IReservationsForMocking
     {
         public List<Dictionary<string, string>> GetAllReservationsFromDatabase()

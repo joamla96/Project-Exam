@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-    public class ReservationRepository : IObservable
+    public class ReservationRepository/* : IObservable*/
     {
         DALFacade _dalFacade = new DALFacade();
         List<Reservation> _reservationRepository = new List<Reservation>();
-        private List<IObserver> _observers = new List<IObserver>();
+        //private List<IObserver> _observers = new List<IObserver>();
         RoomRepository _roomRepo = RoomRepository.Instance;
         private static ReservationRepository _instance = new ReservationRepository();
         public static ReservationRepository Instance { get { return _instance; } }
@@ -130,19 +130,19 @@ namespace Core
             return result;
         }
 
-        public void Subscribe(IObserver observer)
-        {
-            _observers.Add(observer);
-        }
+        //public void Subscribe(IObserver observer)
+        //{
+        //    _observers.Add(observer);
+        //}
 
-        public void Unsubscribe(IObserver observer)
-        {
-            _observers.Remove(observer);
-        }
+        //public void Unsubscribe(IObserver observer)
+        //{
+        //    _observers.Remove(observer);
+        //}
 
-        public void Notify()
-        {
-            _observers.ForEach(observer => observer.Update());
-        }
+        //public void Notify()
+        //{
+        //    _observers.ForEach(observer => observer.Update());
+        //}
     }
 }

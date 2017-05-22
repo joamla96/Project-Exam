@@ -23,6 +23,24 @@ namespace Core {
         private UserRepository repoUsers;
         private RoomRepository repoRooms;
 
+        public DALFacade()
+        {
+            this.usersData = new Users();
+            this.roomsData = new Rooms();
+            this.reservationsData = new Reservations();
+            this.repoUsers = UserRepository.Instance;
+            this.repoRooms = RoomRepository.Instance;
+        }   
+
+        public DALFacade(Users usersdata, Rooms roomsdata, Reservations reservationsdata, UserRepository repousers, RoomRepository reporooms)
+        {
+            this.usersData = usersdata;
+            this.roomsData = roomsdata;
+            this.reservationsData = reservationsdata;
+            this.repoUsers = repousers;
+            this.repoRooms = reporooms;
+        }
+
         internal void DeleteAllUsers()
         {
             usersData.DeleteAllUserFromDatabase();
@@ -36,24 +54,6 @@ namespace Core {
         internal void InsertRoom(IRoom room)
         {
             roomsData.InsertRoomToDatabase(room.Building.ToString(), room.Floor, room.Nr, room.MaxPeople,(int) room.MinPermissionLevel);
-        }
-
-        public DALFacade()
-        {
-            this.usersData = new Users();
-            this.roomsData = new Rooms();
-            this.reservationsData = new Reservations();
-            this.repoUsers = UserRepository.Instance;
-            this.repoRooms = RoomRepository.Instance;
-        }
-
-        public DALFacade(Users usersdata, Rooms roomsdata, Reservations reservationsdata, UserRepository repousers, RoomRepository reporooms)
-        {
-            this.usersData = usersdata;
-            this.roomsData = roomsdata;
-            this.reservationsData = reservationsdata;
-            this.repoUsers = repousers;
-            this.repoRooms = reporooms;
         }
 
         public List<IUser> GetAllUsers()

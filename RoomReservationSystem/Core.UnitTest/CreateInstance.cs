@@ -23,7 +23,19 @@ namespace Core.UnitTest
         DateTime _dateFrom;
         DateTime _dateTo;
 
-        [TestInitialize]
+		[ClassInitialize]
+		public void ClassInit()
+		{
+			SystemSettings.Enviroment = Enviroment.Test;
+		}
+
+		[ClassCleanup]
+		public void ClassClean()
+		{
+			SystemSettings.Enviroment = Enviroment.Prod;
+		}
+
+		[TestInitialize]
         public void TestInitialize()
         {
             _room1 = new Room('A', 2, 9, 6, Permission.Student);
@@ -38,7 +50,7 @@ namespace Core.UnitTest
             _reservation2 = new Reservation(_teacher, _room2, 6, _dateFrom, _dateTo);
             _reservation3 = new Reservation(_admin, _room3, 6, _dateFrom, _dateTo);
         }
-
+		
         [TestMethod]
         public void CanCreateRoomInstanceID1()
         {

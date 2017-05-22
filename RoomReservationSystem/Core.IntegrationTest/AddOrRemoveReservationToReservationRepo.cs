@@ -17,7 +17,19 @@ namespace Core.IntegrationTest {
 		DateTime _from;
 		DateTime _to;
 
-        [TestInitialize]
+		[ClassInitialize]
+		public void ClassInit()
+		{
+			SystemSettings.Enviroment = Enviroment.Test;
+		}
+
+		[ClassCleanup]
+		public void ClassClean()
+		{
+			SystemSettings.Enviroment = Enviroment.Prod;
+		}
+
+		[TestInitialize]
 		public void Init() {
 			_repoReserv.Clear();
 			_repoRoom.Clear();

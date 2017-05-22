@@ -32,7 +32,19 @@ namespace Core.UnitTest
         DateTime _dateFrom;
         DateTime _dateTo;
 
-        [TestInitialize]
+		[ClassInitialize]
+		public void ClassInit()
+		{
+			SystemSettings.Enviroment = Enviroment.Test;
+		}
+
+		[ClassCleanup]
+		public void ClassClean()
+		{
+			SystemSettings.Enviroment = Enviroment.Prod;
+		}
+
+		[TestInitialize]
         public void TestInitialize()
         {
             _repoRoom.Clear();

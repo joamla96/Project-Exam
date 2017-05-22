@@ -4,12 +4,12 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UI.GUI.View"
-      mc:Ignorable="d" d:DesignWidth="300"
-      Title="RegisterRoom" Height="237.2">
+      mc:Ignorable="d"
+      Title="RegisterRoom" Height="237.2" Width="334">
 
     <Grid Height="244" VerticalAlignment="Top" Margin="0,0,0,-7.2">
-        <Label Content="Register a new room" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Building" HorizontalAlignment="Left" Margin="70,46,0,0" VerticalAlignment="Top">
+        <Label Content="Register a new room" HorizontalAlignment="Left" Margin="10,-5,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Building" HorizontalAlignment="Left" Margin="70,42,0,0" VerticalAlignment="Top" FontSize="14">
             <Label.ToolTip>
                 <ToolTip>
                     <StackPanel>
@@ -19,7 +19,7 @@
             </Label.ToolTip>
         </Label>
 
-        <Label Content="Floor" HorizontalAlignment="Left" Margin="70,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.413,1.457">
+        <Label Content="Floor" HorizontalAlignment="Left" Margin="70,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.413,1.457" FontSize="14">
             <Label.ToolTip>
                 <ToolTip>
                     <StackPanel>
@@ -29,7 +29,7 @@
             </Label.ToolTip>
         </Label>
 
-        <Label Content="Room Number" HorizontalAlignment="Left" Margin="70,106,0,0" VerticalAlignment="Top">
+        <Label Content="Room Number" HorizontalAlignment="Left" Margin="70,129,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.508,0.99">
             <Label.ToolTip>
                 <ToolTip>
                     <StackPanel>
@@ -39,7 +39,7 @@
             </Label.ToolTip>
         </Label>
 
-        <Label Content="Max People Number" HorizontalAlignment="Left" Margin="70,137,0,0" VerticalAlignment="Top">
+        <Label Content="Max People Number" HorizontalAlignment="Left" Margin="70,173,0,0" VerticalAlignment="Top" FontSize="14">
             <Label.ToolTip>
                 <ToolTip>
                     <StackPanel>
@@ -49,7 +49,7 @@
             </Label.ToolTip>
         </Label>
 
-        <Label Content="Minimum Permission Level" HorizontalAlignment="Left" Margin="70,165,0,0" VerticalAlignment="Top">
+        <Label Content="Minimum Permission Level" HorizontalAlignment="Left" Margin="70,215,0,0" VerticalAlignment="Top" FontSize="14">
             <Label.ToolTip>
                 <ToolTip>
                     <StackPanel>
@@ -59,11 +59,15 @@
             </Label.ToolTip>
         </Label>
 
-        <TextBox x:Name="MaxPeopleNrTextBox" HorizontalAlignment="Left" Height="18" Margin="15,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
-        <TextBox x:Name="MinPermissionLevelTextBox" HorizontalAlignment="Left" Height="18" Margin="15,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
-        <TextBox x:Name="BuildingTextBox" HorizontalAlignment="Left" Height="18" Margin="15,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
-        <TextBox x:Name="FloorTextBox" HorizontalAlignment="Left" Height="18" Margin="15,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
-        <TextBox x:Name="RoomNrTextBox" HorizontalAlignment="Left" Height="18" Margin="15,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
-        <Button x:Name="RegisterRoomPageButton" Content="Register Room" HorizontalAlignment="Left" Height="37" Margin="15,199,0,-14" VerticalAlignment="Top" Width="92"/>
+        <TextBox x:Name="MaxPeopleNrTextBox" HorizontalAlignment="Left" Height="29" Margin="15,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
+        <TextBox x:Name="BuildingTextBox" HorizontalAlignment="Left" Height="29" Margin="15,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
+        <TextBox x:Name="FloorTextBox" HorizontalAlignment="Left" Height="29" Margin="15,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
+        <TextBox x:Name="RoomNrTextBox" HorizontalAlignment="Left" Height="29" Margin="15,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
+        <Button x:Name="RegisterRoomPageButton" Content="Register&#xD;&#xA;  Room" HorizontalAlignment="Left" Height="71" Margin="227,42,0,0" VerticalAlignment="Top" Width="107" Click="RegisterRoomPageButtonClick" FontWeight="Bold" FontSize="16"/>
+        <ComboBox x:Name="MinPermissionLevelComboBox" HorizontalAlignment="Left" Margin="15,215,0,0" VerticalAlignment="Top" Width="55" Height="29">
+            <ComboBoxItem Tag="0">Student</ComboBoxItem>
+            <ComboBoxItem Tag="1">Teacher</ComboBoxItem>
+            <ComboBoxItem Tag="2">Admin</ComboBoxItem>
+        </ComboBox>
     </Grid>
 </Page>

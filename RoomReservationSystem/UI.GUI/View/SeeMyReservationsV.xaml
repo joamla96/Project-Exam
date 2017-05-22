@@ -10,12 +10,15 @@
       Title="SeeMyReservationsV" Width="419.2">
 
     <Grid Margin="0,0,-116,0" HorizontalAlignment="Left" Width="416">
-        <Label Content="Reservation List" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="150" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Reservation List" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="150" FontSize="16" FontWeight="Bold"/>
 
-        <ListBox x:Name="ReservationListListBox" Height="191" Margin="128,56,73,0" VerticalAlignment="Top">
+        <ListBox x:Name="ReservationListListBox" Height="169" Margin="128,78,73,0" VerticalAlignment="Top">
 
         </ListBox>
-        <Button Content="Delete Reservation" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="104" Height="37" Click="DeleteReservationButtonClick"/>
+        <Button Content="Delete Reservation" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="104" Height="37" Click="DeleteReservationButtonClick"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="128,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.403,0.401" Width="21" Height="25"/>
+        <Label Content="Date" HorizontalAlignment="Left" Margin="170,53,0,0" VerticalAlignment="Top"/>
+        <Label Content="Hour" HorizontalAlignment="Left" Margin="233,53,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

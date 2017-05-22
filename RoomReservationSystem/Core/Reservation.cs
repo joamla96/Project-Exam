@@ -59,9 +59,9 @@ namespace Core
         {
             StringWriter output = new StringWriter();
 
-            output.Write(Room.ID + " ");
+            output.Write(Room.ID + " " + "|" + " ");
 
-            string date = From.Day + "." + From.Month + "." + From.Year;
+            string date = From.Day + "." + From.Month + "." + From.Year + " " + "|" + " ";
             output.Write(date + " ");
 
             string hourFormat = "{0:00}:{1:00} - {2:00}:{3:00}";

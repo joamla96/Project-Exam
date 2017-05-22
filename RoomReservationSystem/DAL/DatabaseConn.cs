@@ -24,13 +24,13 @@
 
 	internal class ConnProd : ConnInfo
 	{
-		private const string connString = @"Server=ealdb1.eal.local; Database=ejl73_db; User Id=ejl73_usr; Password=Baz1nga73";
-		public string ConnString { get { return connString; } }
+		private const string CONNSTRING = @"Server=ealdb1.eal.local; Database=ejl73_db; User Id=ejl73_usr; Password=Baz1nga73";
+		public string ConnString { get { return CONNSTRING; } }
 	}
 
 	internal class ConnTest : ConnInfo
 	{
-		private const string connString = @"Server=ealdb1.eal.local; Database=ejl73_db; User Id=ejl73_usr; Password=Baz1nga73";
-		public string ConnString { get { return connString;  } }
+		private const string CONNSTRING = @"Server=ealdb1.eal.local; Database=ejl73_db; User Id=ejl73_usr; Password=Baz1nga73";
+		public string ConnString { get { return CONNSTRING;  } }
 	}
 }

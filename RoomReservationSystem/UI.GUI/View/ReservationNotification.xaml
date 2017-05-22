@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ReservationNotification" Height="300" Width="300">
     <Grid>
-        <Label x:Name="ReservationNotificationMessage" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="NotificationLabel" Content="" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
     </Grid>
 </Window>

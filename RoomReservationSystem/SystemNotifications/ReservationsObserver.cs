@@ -16,7 +16,7 @@ namespace RosysNotifications
         }
         public void Update()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

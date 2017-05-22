@@ -26,6 +26,10 @@ namespace UI.GUI.ViewModel
             {
                 message = "No rooms available";
             }
+            catch (UserAlreadyHasRoomException)
+            {
+                message = "You already have a room booked, for this time-slot";
+            }
            
             return message;
         }

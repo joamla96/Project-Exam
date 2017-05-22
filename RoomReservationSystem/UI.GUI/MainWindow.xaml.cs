@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using Core;
+using Core.Interfaces;
+using System;
 
 namespace UI.GUI
 {
@@ -21,30 +10,51 @@ namespace UI.GUI
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		public MainWindow() {
+		UserRepository _repoUser = UserRepository.Instance;
+
+		public MainWindow()
+		{
 			InitializeComponent();
 			Initialize.StartUp();
 		}
 
-        private void AdminButtonClick(object sender, RoutedEventArgs e)
-        {
-			LoggedIn.User = new User("admin", "@eal.dk", Permission.Admin);
+		private void AdminButtonClick(object sender, RoutedEventArgs e)
+		{
+			IUser User = new User("admin", "admin@eal.dk", Permission.Admin);
+			IUser AUser;
+
+			try { AUser = _repoUser.Get(User); }
+			catch (IndexOutOfRangeException) { _repoUser.Add(User); AUser = User; }
+			LoggedIn.User = AUser;
+
 			View.User user = new View.User();
 			user.Show();
 		}
 
-        private void StudentButtonClick(object sender, RoutedEventArgs e)
-        {
-			LoggedIn.User = new User("student", "@edu.eal.dk", Permission.Student);
-			View.User user = new View.User();
-            user.Show();  
-        }
+		private void StudentButtonClick(object sender, RoutedEventArgs e)
+		{
+			IUser User = new User("student", "student@edu.eal.dk", Permission.Student);
+			IUser AUser;
 
-        private void TeacherButtonClick(object sender, RoutedEventArgs e)
-        {
-			LoggedIn.User = new User("teacher", "@eal.dk", Permission.Teacher);
+			try { AUser = _repoUser.Get(User); }
+			catch (IndexOutOfRangeException) { _repoUser.Add(User); AUser = User; }
+			LoggedIn.User = AUser;
+
 			View.User user = new View.User();
 			user.Show();
 		}
-    }
+
+		private void TeacherButtonClick(object sender, RoutedEventArgs e)
+		{
+			IUser User = new User("teacher", "teacher@eal.dk", Permission.Teacher);
+			IUser AUser;
+
+			try { AUser = _repoUser.Get(User); }
+			catch (IndexOutOfRangeException) { _repoUser.Add(User); AUser = User; }
+			LoggedIn.User = AUser;
+
+			View.User user = new View.User();
+			user.Show();
+		}
+	}
 }

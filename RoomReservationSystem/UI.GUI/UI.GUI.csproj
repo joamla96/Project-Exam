@@ -63,12 +63,16 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\DeleteReservationVM.cs" />
     <Compile Include="ViewModel\ManageRoomsVM.cs" />
+    <Compile Include="ViewModel\RegisterRoomVM.cs" />
     <Compile Include="ViewModel\ReserveRoomVM.cs" />
     <Compile Include="View\ManageReservationsV.xaml.cs">
       <DependentUpon>ManageReservationsV.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManageRoomsV.xaml.cs">
       <DependentUpon>ManageRoomsV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegisterRoom.xaml.cs">
+      <DependentUpon>RegisterRoom.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ReserveRoom.xaml.cs">
       <DependentUpon>ReserveRoom.xaml</DependentUpon>
@@ -96,6 +100,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManageRoomsV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RegisterRoom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

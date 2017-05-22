@@ -6,14 +6,22 @@ using System.Threading.Tasks;
 using Core;
 using Core.Interfaces;
 
-namespace UI.GUI.ViewModel {
+namespace UI.GUI.ViewModel
+{
 
-	class ManageRoomsVM {
+	class ManageRoomsVM
+	{
 		RoomRepository _repoRoom = RoomRepository.Instance;
 
-		public List<IRoom> GetRoomList() {
+		public List<IRoom> GetRoomList()
+		{
 			List<IRoom> roomList = _repoRoom.Get();
 			return roomList;
+		}
+
+		public void DeleteRoom(IRoom room)
+		{
+			_repoRoom.Delete(room);
 		}
 	}
 }

@@ -1,9 +1,8 @@
-﻿namespace DAL
+﻿using System;
+
+namespace DAL
 {
-	internal interface ConnInfo
-	{
-		string ConnString { get; }
-	}
+	internal interface ConnInfo	{ string ConnString { get; } }
 
 	public static class DatabaseConn
 	{
@@ -13,6 +12,7 @@
 			{
 				switch(SystemEnviroment)
 				{
+					default: throw new IndexOutOfRangeException();
 					case 0:	Conn = new ConnProd(); break;
 					case 1: Conn = new ConnTest(); break;
 				}

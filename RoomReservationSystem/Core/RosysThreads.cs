@@ -13,22 +13,27 @@ namespace Core
     {
         private ReservationRepository _reservRepo = ReservationRepository.Instance;
         private List<IObserver> _observers = new List<IObserver>();
+        private const int NOTIFICATIONSLEEPTIME = 60000;
 
         public void NotificationThread()
         {
             List<Reservation> reservations = new List<Reservation>();
 
             reservations = _reservRepo.Get();
-        
-            foreach (Reservation reserv in reservations)
+
+            while (SystemSettings._threadRunning)
             {
-                DateTime timeCheck = reserv.From.AddMinutes(-15);
-                if (timeCheck.Date.Equals(DateTime.Now.Date) && timeCheck.Hour.Equals(DateTime.Now.Hour) && timeCheck.Minute.Equals(DateTime.Now.Minute))
+
+                foreach (Reservation reserv in reservations)
                 {
-                    this.Notify();
+                    DateTime timeCheck = reserv.From.AddMinutes(-15);
+                    if (timeCheck.Date.Equals(DateTime.Now.Date) && timeCheck.Hour.Equals(DateTime.Now.Hour) && timeCheck.Minute.Equals(DateTime.Now.Minute))
+                    {
+                        this.Notify();
+                    }
                 }
+                Thread.Sleep(NOTIFICATIONSLEEPTIME);
             }
-            Thread.Sleep(60000);
         }
 
         public void Subscribe(IObserver observer)

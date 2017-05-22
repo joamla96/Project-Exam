@@ -63,6 +63,7 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\DeleteReservationVM.cs" />
     <Compile Include="ViewModel\ManageRoomsVM.cs" />
+    <Compile Include="ViewModel\RegisterRoomVM.cs" />
     <Compile Include="ViewModel\ReserveRoomVM.cs" />
     <Compile Include="View\ManageReservationsV.xaml.cs">
       <DependentUpon>ManageReservationsV.xaml</DependentUpon>
@@ -70,11 +71,11 @@
     <Compile Include="View\ManageRoomsV.xaml.cs">
       <DependentUpon>ManageRoomsV.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\RegisterRoom.xaml.cs">
+      <DependentUpon>RegisterRoom.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ReserveRoom.xaml.cs">
       <DependentUpon>ReserveRoom.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ReserveRoomAdminV.xaml.cs">
-      <DependentUpon>ReserveRoomAdminV.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SeeMyReservationsV.xaml.cs">
       <DependentUpon>SeeMyReservationsV.xaml</DependentUpon>
@@ -102,11 +103,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ReserveRoom.xaml">
+    <Page Include="View\RegisterRoom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ReserveRoomAdminV.xaml">
+    <Page Include="View\ReserveRoom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

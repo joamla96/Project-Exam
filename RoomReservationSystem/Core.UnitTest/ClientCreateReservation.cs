@@ -23,9 +23,21 @@ namespace Core.UnitTest
         ReservationRepository _repoReserv = ReservationRepository.Instance;
         UserRepository _repoUser = UserRepository.Instance;
 
-        [TestInitialize]
+		[ClassInitialize]
+		public void ClassInit()
+		{
+			SystemSettings.Enviroment = Enviroment.Test;
+		}
+
+		[ClassCleanup]
+		public void ClassClean()
+		{
+			SystemSettings.Enviroment = Enviroment.Prod;
+		}
+
+		[TestInitialize]
         public void TestsInitialize() {
-            _repoRoom.Clear();
+		    _repoRoom.Clear();
             _repoReserv.Clear();
             _repoUser.Clear();
 

@@ -15,6 +15,18 @@ namespace Core.IntegrationTest {
 
 		IUser _student;
 
+		[ClassInitialize]
+		public void ClassInit()
+		{
+			SystemSettings.Enviroment = Enviroment.Test;
+		}
+
+		[ClassCleanup]
+		public void ClassClean()
+		{
+			SystemSettings.Enviroment = Enviroment.Prod;
+		}
+
 		[TestInitialize]
 		public void Init() {
 			_repoReserv.Clear();

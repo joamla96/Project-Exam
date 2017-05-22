@@ -18,7 +18,19 @@ namespace Core.UnitTest
         RoomRepository repoRooms;
         ReservationRepository repoReservations;
 
-        [TestInitialize]
+		[ClassInitialize]
+		public void ClassInit()
+		{
+			SystemSettings.Enviroment = Enviroment.Test;
+		}
+
+		[ClassCleanup]
+		public void ClassClean()
+		{
+			SystemSettings.Enviroment = Enviroment.Prod;
+		}
+
+		[TestInitialize]
         public void TestInitialize()
         {
             testUser = new User("matt2694", "matt2694@edu.eal.dk", Permission.Student);

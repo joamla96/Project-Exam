@@ -29,12 +29,14 @@ namespace UI.GUI.View
 			{
 				ManageRoomsButton.Visibility = Visibility.Hidden;
 				ManageReservationsButton.Visibility = Visibility.Hidden;
+				RegisterRoomButton.Visibility = Visibility.Hidden;
 			}
 
 			if (permissionLevel == Permission.Teacher)
 			{
 				ManageRoomsButton.Visibility = Visibility.Hidden;
 				ManageReservationsButton.Visibility = Visibility.Hidden;
+				RegisterRoomButton.Visibility = Visibility.Hidden;
 			}
 
 			if (permissionLevel == Permission.Admin)
@@ -42,6 +44,8 @@ namespace UI.GUI.View
 				ReserveRoomButton.Visibility = Visibility.Hidden;
 				SeeMyReservationButton.Visibility = Visibility.Hidden;
 			}
+
+			
 		}
 
 

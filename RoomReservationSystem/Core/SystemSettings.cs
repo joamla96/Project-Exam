@@ -16,7 +16,6 @@ namespace Core
 		Prod, Dev, Test
 	}
 
-
 	public static class SystemSettings
 	{
 		private static Enviroment Env = Enviroment.Prod;

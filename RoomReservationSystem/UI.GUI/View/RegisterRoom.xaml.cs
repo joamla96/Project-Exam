@@ -13,15 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UI.GUI.View {
+namespace UI.GUI.View
+{
 	/// <summary>
 	/// Interaction logic for RegisterRoom.xaml
 	/// </summary>
-	public partial class RegisterRoom : Page {
-		public RegisterRoom() {
+	public partial class RegisterRoom : Page
+	{
+		public RegisterRoom()
+		{
 			InitializeComponent();
 		}
 
-		
+
 	}
 }

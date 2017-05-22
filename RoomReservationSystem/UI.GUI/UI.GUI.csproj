@@ -63,6 +63,7 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\DeleteReservationVM.cs" />
     <Compile Include="ViewModel\ManageRoomsVM.cs" />
+    <Compile Include="ViewModel\RegisterRoomVM.cs" />
     <Compile Include="ViewModel\ReserveRoomVM.cs" />
     <Compile Include="View\ManageReservationsV.xaml.cs">
       <DependentUpon>ManageReservationsV.xaml</DependentUpon>

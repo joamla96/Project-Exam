@@ -16,37 +16,45 @@ using UI.GUI.ViewModel;
 using Core;
 using Core.Interfaces;
 
-namespace UI.GUI.View {
+namespace UI.GUI.View
+{
 	/// <summary>
 	/// Interaction logic for ManageRoomsV.xaml
 	/// </summary>
-	public partial class ManageRoomsV : Page {
+	public partial class ManageRoomsV : Page
+	{
 
 		ManageRoomsVM VM = new ManageRoomsVM();
 
-		public ManageRoomsV() {
+		public ManageRoomsV()
+		{
 			InitializeComponent();
 		}
 
-		private void UpdateMyRoomListBox() {
+		private void UpdateMyRoomListBox()
+		{
 			ManageRoomsListBox.Items.Clear();
 			List<IRoom> roomList = VM.GetRoomList();
 
-			foreach (IRoom room in roomList) {
+			foreach (IRoom room in roomList)
+			{
 				ManageRoomsListBox.Items.Add(room);
 			}
 		}
 
-		private void DeleteSelectedRoom() {
+		private void DeleteSelectedRoom()
+		{
 			VM.DeleteRoom((IRoom)ManageRoomsListBox.SelectedItem);
-			
+
 		}
 
-		private void ShowRoomListButtonClick(object sender, RoutedEventArgs e) {
+		private void ShowRoomListButtonClick(object sender, RoutedEventArgs e)
+		{
 			UpdateMyRoomListBox();
 		}
 
-		private void DeleteRoomButtonClick(object sender, RoutedEventArgs e) {
+		private void DeleteRoomButtonClick(object sender, RoutedEventArgs e)
+		{
 			DeleteSelectedRoom();
 			UpdateMyRoomListBox();
 		}

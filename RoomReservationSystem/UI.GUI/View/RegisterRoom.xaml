@@ -7,7 +7,7 @@
       mc:Ignorable="d" d:DesignWidth="300"
       Title="RegisterRoom" Height="237.2">
 
-    <Grid Height="222" VerticalAlignment="Top">
+    <Grid Height="244" VerticalAlignment="Top" Margin="0,0,0,-7.2">
         <Label Content="Register a new room" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <Label Content="Building" HorizontalAlignment="Left" Margin="70,46,0,0" VerticalAlignment="Top">
             <Label.ToolTip>
@@ -59,11 +59,11 @@
             </Label.ToolTip>
         </Label>
 
-        <TextBox HorizontalAlignment="Left" Height="18" Margin="15,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
-        <TextBox HorizontalAlignment="Left" Height="18" Margin="15,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
-        <TextBox HorizontalAlignment="Left" Height="18" Margin="15,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
-        <TextBox HorizontalAlignment="Left" Height="18" Margin="15,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
-        <TextBox HorizontalAlignment="Left" Height="18" Margin="15,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="MaxPeopleNrTextBox" HorizontalAlignment="Left" Height="18" Margin="15,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="MinPermissionLevelTextBox" HorizontalAlignment="Left" Height="18" Margin="15,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="BuildingTextBox" HorizontalAlignment="Left" Height="18" Margin="15,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="FloorTextBox" HorizontalAlignment="Left" Height="18" Margin="15,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="RoomNrTextBox" HorizontalAlignment="Left" Height="18" Margin="15,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
         <Button x:Name="RegisterRoomPageButton" Content="Register Room" HorizontalAlignment="Left" Height="37" Margin="15,199,0,-14" VerticalAlignment="Top" Width="92"/>
     </Grid>
 </Page>

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="DALFacade.cs" />
     <Compile Include="Exceptions\NoRoomsAvailable.cs" />
+    <Compile Include="Exceptions\UserAlreadyHasRoomException.cs" />
     <Compile Include="HelperFunctions.cs" />
     <Compile Include="Initialize.cs" />
     <Compile Include="Interfaces\IObservable.cs" />

@@ -20,6 +20,11 @@ namespace Core
         public IRoom RequestReservation(DateTime from, DateTime to, int peopleNr)
         {
 
+            if(LoggedIn.User.HasReservation(from.AddSeconds(1), to))
+            {
+                throw new UserAlreadyHasRoomException();
+            }
+
             IRoom currentRoom;
             IRoom foundRoom = null;
             Stack<IRoom> rooms = _roomRepo.GetPossible(LoggedIn.User.PermissionLevel, peopleNr);

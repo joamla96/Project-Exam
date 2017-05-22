@@ -11,6 +11,5 @@
         <Button x:Name="ShowRoomListButton" Content="Show Room List" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="104" Height="34" Click="ShowRoomListButtonClick"/>
         <ListBox x:Name="ManageRoomsListBox" HorizontalAlignment="Left" Height="193" Margin="128,10,0,0" VerticalAlignment="Top" Width="199"/>
         <Button x:Name="DeleteRoomButton" Content="Delete Room" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="104" Height="33" Click="DeleteRoomButtonClick"/>
-        <Button x:Name="ReserveRoomButton" Content="Reserve Room" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" Width="104" Height="33" Click="ReserveRoomButtonClick"/>
     </Grid>
 </Page>

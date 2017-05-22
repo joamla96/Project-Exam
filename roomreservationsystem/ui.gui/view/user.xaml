@@ -1,0 +1,31 @@
+﻿<Window x:Class="UI.GUI.View.User"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI.GUI.View"
+        mc:Ignorable="d"
+        Title="User" Height="310.924" Width="563.025">
+
+    <Grid RenderTransformOrigin="0.503,0.489" Margin="0,0,-0.2,-0.4">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="125"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Background="Gray" Grid.Column="0"></DockPanel>
+
+        <Button x:Name="ReserveRoomButton" Content="Reserve room" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Click="ReserveRoomButtonClick" Height="29" Margin="0,10,0,0"/>
+        <Button x:Name="SeeMyReservationButton" Content="See my reservation" HorizontalAlignment="Left" Margin="0,44,0,0" VerticalAlignment="Top" Width="123" Click="SeeMyReservationButtonClick" Height="29"/>
+
+        <Frame x:Name="Frame" Margin="5.2,0,-0.2,0" NavigationUIVisibility="Hidden" RenderTransformOrigin="0.469,0.461" Grid.Column="1" />
+        <Button x:Name="ManageRoomsButton" Content="Manage Rooms" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="123" Height="29" Click="ManageRoomsButtonClick"/>
+        <Button x:Name="ManageReservationsButton" Content="Manage Reservations" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Margin="0,44,0,0" Height="29" Click="ManageReservationsButtonClick"/>
+        <Button x:Name="ReserveRoomAdminButton" Content="Reserve Room" HorizontalAlignment="Left" Margin="0,78,0,0" VerticalAlignment="Top" Width="123" Height="29" Click="ReserveRoomAdminButton_Click"/>
+
+
+
+    </Grid>
+
+</Window>

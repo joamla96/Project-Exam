@@ -37,16 +37,19 @@ namespace UI.GUI.View {
 			}
 		}
 
+		private void DeleteSelectedRoom() {
+			VM.DeleteRoom((IRoom)ManageRoomsListBox.SelectedItem);
+			
+		}
+
 		private void ShowRoomListButtonClick(object sender, RoutedEventArgs e) {
 			UpdateMyRoomListBox();
 		}
 
 		private void DeleteRoomButtonClick(object sender, RoutedEventArgs e) {
-
+			DeleteSelectedRoom();
+			UpdateMyRoomListBox();
 		}
 
-		private void ReserveRoomButtonClick(object sender, RoutedEventArgs e) {
-
-		}
 	}
 }

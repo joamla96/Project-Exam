@@ -15,5 +15,9 @@ namespace UI.GUI.ViewModel {
 			List<IRoom> roomList = _repoRoom.Get();
 			return roomList;
 		}
+
+		public void DeleteRoom(IRoom room) {
+			_repoRoom.Delete(room);
+		}
 	}
 }

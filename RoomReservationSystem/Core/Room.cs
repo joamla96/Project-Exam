@@ -12,7 +12,9 @@ namespace Core
             get { return String.Format("{0}" + "{1}" + "." + "{2:00}", Building, Floor, Nr); }
         }
 
-        public char Building { get; set; }
+		private char building;
+
+        public char Building { get { return this.building;  } set { this.building = Char.ToUpper(value); }
         public int Floor { get; set; }
         public int Nr { get; set; }
         public int MaxPeople { get; set; }

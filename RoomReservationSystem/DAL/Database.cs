@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace DAL {
 	public abstract class Database {
-		private static string _connInfo = @"Server=ealdb1.eal.local; Database=ejl73_db; User Id=ejl73_usr; Password=Baz1nga73";
+		private static string _connInfo = DatabaseConn.ConnString;
 		private static SqlConnection _conn;
 
 		protected SqlConnection OpenConnection() {

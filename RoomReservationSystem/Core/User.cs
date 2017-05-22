@@ -4,10 +4,6 @@ using System.Collections.Generic;
 
 namespace Core
 {
-	public enum Permission
-	{
-		Student, Teacher, Admin
-	}
     public class User : IUser
     {
         public string Username { get; set; }

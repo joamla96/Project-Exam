@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.Interfaces;
+using System.Threading;
+using RosysNotifications;
 
 namespace Core {
 	public class Initialize
@@ -12,7 +14,10 @@ namespace Core {
 		private static UserRepository _repoUsers = UserRepository.Instance;
 
 		public static void StartUp() {
-			List<IUser> users = _dal.GetAllUsers();
+            RosysThreads threads = new RosysThreads();
+            threads.Subscribe(new ReservationsObserver("Notifications"));
+
+            List<IUser> users = _dal.GetAllUsers();
 			List<IRoom> rooms = _dal.GetAllRooms();
 
 			foreach(IUser user in users) {
@@ -28,6 +33,15 @@ namespace Core {
             {
                 _repoReserv.LoadFromDatabase(reservation);
             }
+
+			// Tell the DAL what enviroment we're in
+			if (SystemSettings.Enviroment == Enviroment.Dev || SystemSettings.Enviroment == Enviroment.Test)
+			{ DAL.DatabaseConn.SystemEnviroment = 1; }
+			else { DAL.DatabaseConn.SystemEnviroment = 0; }
+
+			Thread notificationThread = new Thread(new ThreadStart(threads.NotificationThread));
+			notificationThread.IsBackground = true;
+			notificationThread.Start();
         }
 	}
 }

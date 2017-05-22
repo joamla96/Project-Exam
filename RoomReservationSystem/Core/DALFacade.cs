@@ -14,7 +14,7 @@ namespace Core {
         List<IRoom> ConvertFromStringsToRoomObjects(List<Dictionary<string, string>> list);
         void PassReservationToDAL(Reservation reservation);
     }
-    public class DALFacade:IDALFacade
+    public class DALFacade : IDALFacade
     {
         private Users usersData;
         private Rooms roomsData;

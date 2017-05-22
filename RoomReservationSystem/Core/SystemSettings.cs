@@ -11,6 +11,12 @@ namespace Core
 		Student, Teacher, Admin
 	}
 
+	public enum Enviroment
+	{
+		Prod, Dev, Test
+	}
+
+
 	public static class SystemSettings
 	{
 

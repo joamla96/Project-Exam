@@ -27,10 +27,10 @@ namespace Core
                 foreach (Reservation reserv in reservations)
                 {
                     DateTime timeCheck = reserv.From.AddMinutes(-15);
-                    if (timeCheck.Date.Equals(DateTime.Now.Date) && timeCheck.Hour.Equals(DateTime.Now.Hour) && timeCheck.Minute.Equals(DateTime.Now.Minute))
-                    {
+                    //if (timeCheck.Date.Equals(DateTime.Now.Date) && timeCheck.Hour.Equals(DateTime.Now.Hour) && timeCheck.Minute.Equals(DateTime.Now.Minute))
+                    //{
                         this.Notify();
-                    }
+                    //}
                 }
                 Thread.Sleep(NOTIFICATIONSLEEPTIME);
             }

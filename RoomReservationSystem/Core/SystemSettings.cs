@@ -19,6 +19,7 @@ namespace Core
 
 	public static class SystemSettings
 	{
+        public static bool _threadRunning = true;
 		public static Enviroment Enviroment = Enviroment.Prod;
 	}
 }

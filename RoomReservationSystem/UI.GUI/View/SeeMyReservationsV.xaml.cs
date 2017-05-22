@@ -49,7 +49,7 @@ namespace UI.GUI.View
 			VM.DeleteReservation(reservation);
 			UpdateMyReservationListBox();
 
-			string deleteMessage = "Your reservation has been succesfully deleted !";
+			string deleteMessage = "Your reservation has been successfully deleted !";
 			MessageBox.Show(deleteMessage);
 		}
 	}

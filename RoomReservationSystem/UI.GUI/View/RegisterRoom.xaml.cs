@@ -25,6 +25,29 @@ namespace UI.GUI.View
 			InitializeComponent();
 		}
 
+		private void RegisterRoomPageButtonClick(object sender, RoutedEventArgs e)
+		{
+			string building = BuildingTextBox.Text;
+			string floor = FloorTextBox.Text;
+			string nr = RoomNrTextBox.Text;
+			string maxPeople = MaxPeopleNrTextBox.Text;
+			ComboBoxItem minPermissionLevelSelected = (ComboBoxItem)MinPermissionLevelComboBox.SelectedItem;
+			string minPermissionLevel = minPermissionLevelSelected.Tag.ToString();
 
+			if (building == "" || floor == "" || nr == "" || maxPeople == "" || minPermissionLevel == "")
+			{
+				string fillInFieldsMessage = "Please fill in all the fields !";
+				MessageBox.Show(fillInFieldsMessage);
+			}
+			else
+			{
+				ViewModel.RegisterRoomVM registerRoom = new ViewModel.RegisterRoomVM();
+
+				registerRoom.RegisterRoom(building,floor,nr,maxPeople,minPermissionLevel);
+
+				string registerRoomMessage = "Your room has been successfully registered !";
+				MessageBox.Show(registerRoomMessage);
+			}
+		}
 	}
 }

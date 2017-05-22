@@ -18,6 +18,7 @@ namespace Core
 
 	public static class SystemSettings
 	{
+    public static bool _threadRunning = true;
 		private static Enviroment Env = Enviroment.Prod;
 		public static Enviroment Enviroment {
 			get { return Env; }

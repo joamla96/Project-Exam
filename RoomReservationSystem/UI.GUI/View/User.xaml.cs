@@ -75,5 +75,10 @@ namespace UI.GUI.View
 			Frame.Content = new RegisterRoom();
 
 		}
-	}
+
+        private void ReserveRoomAdminButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
 }

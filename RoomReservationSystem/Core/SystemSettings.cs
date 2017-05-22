@@ -19,6 +19,6 @@ namespace Core
 
 	public static class SystemSettings
 	{
-
+		public static Enviroment Enviroment = Enviroment.Prod;
 	}
 }

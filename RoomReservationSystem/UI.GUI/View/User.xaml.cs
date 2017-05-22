@@ -56,8 +56,9 @@ namespace UI.GUI.View {
 			Frame.Content = new ManageReservationsV();
 		}
 
-		private void ReserveRoomAdminButton_Click(object sender, RoutedEventArgs e) {
-
+		private void RegisterRoomButtonClick(object sender, RoutedEventArgs e) {
+			Frame.Content = new RegisterRoom();
+			
 		}
 	}
 }

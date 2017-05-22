@@ -8,8 +8,9 @@
       Title="ManageRoomsV" Width="372" Height="249.6">
 
     <Grid Margin="5,0,-42,0" HorizontalAlignment="Left" Width="337">
-        <Button x:Name="ShowRoomListButton" Content="Show Room List" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="104" Height="34" Click="ShowRoomListButtonClick"/>
-        <ListBox x:Name="ManageRoomsListBox" HorizontalAlignment="Left" Height="193" Margin="128,10,0,0" VerticalAlignment="Top" Width="199"/>
-        <Button x:Name="DeleteRoomButton" Content="Delete Room" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="104" Height="33" Click="DeleteRoomButtonClick"/>
+        <Button x:Name="ShowRoomListButton" Content="Show Room List" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Width="104" Height="34" Click="ShowRoomListButtonClick"/>
+        <ListBox x:Name="ManageRoomsListBox" HorizontalAlignment="Left" Height="175" Margin="128,65,0,0" VerticalAlignment="Top" Width="199"/>
+        <Button x:Name="DeleteRoomButton" Content="Delete Room" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Width="104" Height="33" Click="DeleteRoomButtonClick"/>
+        <Label Content="Manage Rooms" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
     </Grid>
 </Page>

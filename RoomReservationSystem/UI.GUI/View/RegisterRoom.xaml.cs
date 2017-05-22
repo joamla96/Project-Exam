@@ -15,11 +15,13 @@ using System.Windows.Shapes;
 
 namespace UI.GUI.View {
 	/// <summary>
-	/// Interaction logic for ReserveRoomAdminV.xaml
+	/// Interaction logic for RegisterRoom.xaml
 	/// </summary>
-	public partial class ReserveRoomAdminV : Page {
-		public ReserveRoomAdminV() {
+	public partial class RegisterRoom : Page {
+		public RegisterRoom() {
 			InitializeComponent();
 		}
+
+		
 	}
 }

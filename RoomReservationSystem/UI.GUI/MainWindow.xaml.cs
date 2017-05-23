@@ -16,6 +16,7 @@ namespace UI.GUI
 		{
 			InitializeComponent();
 			Initialize.StartUp();
+			this.ResizeMode = ResizeMode.CanMinimize;
 		}
 
 		private void AdminButtonClick(object sender, RoutedEventArgs e)
@@ -28,6 +29,8 @@ namespace UI.GUI
 			LoggedIn.User = AUser;
 
 			View.User user = new View.User();
+			user.Title = "RoSys: Admin";
+			user.ResizeMode = ResizeMode.CanMinimize;
 			user.Show();
 		}
 
@@ -41,6 +44,8 @@ namespace UI.GUI
 			LoggedIn.User = AUser;
 
 			View.User user = new View.User();
+			user.Title = "RoSys: Student";
+			user.ResizeMode = ResizeMode.CanMinimize;
 			user.Show();
 		}
 
@@ -54,6 +59,8 @@ namespace UI.GUI
 			LoggedIn.User = AUser;
 
 			View.User user = new View.User();
+			user.Title = "RoSys: Teacher";
+			user.ResizeMode = ResizeMode.CanMinimize;
 			user.Show();
 		}
 	}

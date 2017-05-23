@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LoggedIn.cs" />
     <Compile Include="ViewModel\DeleteReservationVM.cs" />
     <Compile Include="ViewModel\ManageRoomsVM.cs" />
     <Compile Include="ViewModel\NotificationsVM.cs" />

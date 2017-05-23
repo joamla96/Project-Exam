@@ -46,9 +46,11 @@
     <Compile Include="HelperFunctions.cs" />
     <Compile Include="Initialize.cs" />
     <Compile Include="Interfaces\IObservable.cs" />
+    <Compile Include="Interfaces\IObserver.cs" />
     <Compile Include="Interfaces\IRoom.cs" />
     <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="LoggedIn.cs" />
+    <Compile Include="ReservationsObserver.cs" />
     <Compile Include="RosysThreads.cs" />
     <Compile Include="Reservation.cs" />
     <Compile Include="ReservationRepository.cs" />
@@ -63,10 +65,6 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{9ec729d8-efd6-4f4b-a4b8-d90b920c1a23}</Project>
       <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SystemNotifications\RosysNotifications.csproj">
-      <Project>{89e0ea12-1b54-4f03-92c5-09c4eb77c740}</Project>
-      <Name>RosysNotifications</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

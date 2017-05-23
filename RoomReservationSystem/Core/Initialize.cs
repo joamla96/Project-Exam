@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Core.Interfaces;
 using System.Threading;
-using RosysNotifications;
 
 namespace Core {
 	public class Initialize

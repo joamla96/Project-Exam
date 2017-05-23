@@ -77,11 +77,11 @@ namespace Core
 
                 if (Other.MaxPeople < this.MaxPeople)
                 {
-                    result = -1;
+                    result = 1;
                 }
                 else if (Other.MaxPeople > this.MaxPeople)
                 {
-                    result = 1;
+                    result = -1;
                 }
                 else result = 0;
             }

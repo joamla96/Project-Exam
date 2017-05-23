@@ -78,9 +78,6 @@
     <Compile Include="View\RegisterRoom.xaml.cs">
       <DependentUpon>RegisterRoom.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ReservationNotification.xaml.cs">
-      <DependentUpon>ReservationNotification.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\ReserveRoom.xaml.cs">
       <DependentUpon>ReserveRoom.xaml</DependentUpon>
     </Compile>
@@ -111,10 +108,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RegisterRoom.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\ReservationNotification.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

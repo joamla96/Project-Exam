@@ -14,7 +14,7 @@ namespace Core {
 
 		public static void StartUp() {
             RosysThreads threads = new RosysThreads();
-            threads.Subscribe(new ReservationsObserver("Notifications"));
+            threads.Subscribe(ReservationsObserver.Instance);
 
             List<IUser> users = _dal.GetAllUsers();
 			List<IRoom> rooms = _dal.GetAllRooms();

@@ -16,6 +16,7 @@ namespace UI.GUI
 		{
 			InitializeComponent();
 			Initialize.StartUp();
+            ViewModel.NotificationsVM notificationsVM = new ViewModel.NotificationsVM();
 		}
 
 		private void AdminButtonClick(object sender, RoutedEventArgs e)

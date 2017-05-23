@@ -29,6 +29,7 @@ namespace UI.GUI.View
 		public ManageRoomsV()
 		{
 			InitializeComponent();
+			UpdateMyRoomListBox();
 		}
 
 		private void UpdateMyRoomListBox()

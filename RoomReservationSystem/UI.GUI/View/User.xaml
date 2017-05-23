@@ -20,8 +20,8 @@
         <Button x:Name="SeeMyReservationButton" Content="See my reservation" HorizontalAlignment="Left" Margin="0,44,0,0" VerticalAlignment="Top" Width="123" Click="SeeMyReservationButtonClick" Height="29"/>
 
         <Frame x:Name="Frame" Margin="5.2,0,-0.2,0" NavigationUIVisibility="Hidden" RenderTransformOrigin="0.469,0.461" Grid.Column="1" />
-        <Button x:Name="ManageRoomsButton" Content="Manage Rooms" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="123" Height="29" Click="ManageRoomsButtonClick"/>
-        <Button x:Name="ManageReservationsButton" Content="Manage Reservations" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Margin="0,44,0,0" Height="29" Click="ManageReservationsButtonClick"/>
+        <Button x:Name="ManageRoomsButton" Content="Delete Rooms" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="123" Height="29" Click="ManageRoomsButtonClick"/>
+        <Button x:Name="ManageReservationsButton" Content="Delete Reservations" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Margin="0,44,0,0" Height="29" Click="ManageReservationsButtonClick"/>
         <Button x:Name="RegisterRoomButton" Content="Register Room" HorizontalAlignment="Left" Margin="0,78,0,0" VerticalAlignment="Top" Width="123" Height="29" Click="RegisterRoomButtonClick" />
         <Button x:Name="ReserveRoomAdminButton" Content="Reserve Room" HorizontalAlignment="Left" Margin="0,112,0,0" VerticalAlignment="Top" Width="123" Height="29" Click="ReserveRoomAdminButtonClick" />
 

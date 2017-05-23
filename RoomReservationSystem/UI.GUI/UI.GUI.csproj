@@ -66,6 +66,7 @@
     </ApplicationDefinition>
     <Compile Include="LoggedIn.cs" />
     <Compile Include="ViewModel\DeleteReservationVM.cs" />
+    <Compile Include="ViewModel\ManageReservationsVM.cs" />
     <Compile Include="ViewModel\ManageRoomsVM.cs" />
     <Compile Include="ViewModel\NotificationsVM.cs" />
     <Compile Include="ViewModel\RegisterRoomVM.cs" />

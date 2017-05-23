@@ -26,9 +26,10 @@
             <ComboBoxItem>11:30</ComboBoxItem>
             <ComboBoxItem>12:00</ComboBoxItem>
         </ComboBox>
-        <DatePicker x:Name="DateAdminDatePicker" SelectedDate="{x:Static sys:DateTime.Now}" HorizontalAlignment="Left" Margin="224,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,0.505" FontSize="14" SelectedDateChanged="DateChanged"/>
+        <DatePicker x:Name="DateAdminDatePicker" SelectedDate="{x:Static sys:DateTime.Now}" HorizontalAlignment="Left" Margin="213,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,0.505" SelectedDateChanged="DateChanged" FontStyle="Italic" Height="26" FontSize="14"/>
         <ListBox x:Name="RoomListAdminListBox" HorizontalAlignment="Left" Height="126" Margin="17,121,0,0" VerticalAlignment="Top" Width="206"/>
         <Button x:Name="ReserveRoomAdminPageButton" Content="Reserve&#xD;&#xA; Room" HorizontalAlignment="Left" Margin="237,155,0,0" VerticalAlignment="Top" Width="101" Height="61" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Select a date" HorizontalAlignment="Left" Margin="237,36,0,0" VerticalAlignment="Top" FontSize="14"/>
 
     </Grid>
 </Page>

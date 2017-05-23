@@ -17,8 +17,12 @@ namespace Core
             return permission;
         }
 
-        public static bool TimeCollides(DateTime now, DateTime start, DateTime end)
+        public static bool TimeCollides(DateTime? now, DateTime start, DateTime end)
         {
+			if(now == null)
+			{
+				return false;
+			}
             // Solution based on StackOverFlow answer:
             // https://stackoverflow.com/questions/12998739/how-to-check-if-datetime-now-is-between-two-given-datetimes-for-time-part-only
 

@@ -24,13 +24,13 @@ namespace Core.UnitTest
         UserRepository _repoUser = UserRepository.Instance;
 
 		[ClassInitialize]
-		public void ClassInit()
+		public static void ClassInit(TestContext testContext)
 		{
 			SystemSettings.Enviroment = Enviroment.Test;
 		}
 
 		[ClassCleanup]
-		public void ClassClean()
+		public static void ClassClean()
 		{
 			SystemSettings.Enviroment = Enviroment.Prod;
 		}
@@ -63,7 +63,7 @@ namespace Core.UnitTest
         }
 
 		[TestMethod]
-		[ExpectedException(typeof(InvalidOperationException))]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		public void SortRoomsByMaxPeopleIntoFILOStackOutOfRooms() {
 			List<IRoom> Rooms = _repoRoom.GetPossible(Permission.Student, 4);
 

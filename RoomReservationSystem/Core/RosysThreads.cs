@@ -1,11 +1,8 @@
 ﻿using Core.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
-using RosysNotifications;
+using Core.Interfaces;
 
 namespace Core
 {
@@ -13,7 +10,7 @@ namespace Core
     {
         private ReservationRepository _reservRepo = ReservationRepository.Instance;
         private List<IObserver> _observers = new List<IObserver>();
-        private const int NOTIFICATIONSLEEPTIME = 60000;
+        private const int NOTIFICATIONSLEEPTIME = 6000;
 
         public void NotificationThread()
         {
@@ -29,7 +26,7 @@ namespace Core
                     DateTime timeCheck = reserv.From.AddMinutes(-15);
                     if (timeCheck.Date.Equals(DateTime.Now.Date) && timeCheck.Hour.Equals(DateTime.Now.Hour) && timeCheck.Minute.Equals(DateTime.Now.Minute))
                     {
-                        this.Notify();
+                        this.Notify(reserv);
                     }
                 }
                 Thread.Sleep(NOTIFICATIONSLEEPTIME);
@@ -46,9 +43,10 @@ namespace Core
             _observers.Remove(observer);
         }
 
-        public void Notify()
+        public void Notify(Reservation reserv)
         {
-            _observers.ForEach(observer => observer.Update());
+            string message = "You have a reservation in room " + reserv.Room + " in 15 minutes.";
+            _observers.ForEach(observer => observer.Update(message));
         }
     }
 }

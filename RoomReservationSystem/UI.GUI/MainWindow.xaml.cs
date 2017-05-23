@@ -16,7 +16,9 @@ namespace UI.GUI
 		{
 			InitializeComponent();
 			Initialize.StartUp();
+      ViewModel.NotificationsVM notificationsVM = new ViewModel.NotificationsVM();
 			this.ResizeMode = ResizeMode.CanMinimize;
+
 		}
 
 		private void AdminButtonClick(object sender, RoutedEventArgs e)

@@ -13,7 +13,7 @@
         <Label Content="To" HorizontalAlignment="Left" Margin="28,65,0,0" VerticalAlignment="Top" FontSize="14"/>
         <ComboBox HorizontalAlignment="Left" Margin="57,38,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox HorizontalAlignment="Left" Margin="57,71,0,0" VerticalAlignment="Top" Width="120"/>
-        <DatePicker HorizontalAlignment="Left" Margin="224,54,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,0.505" FontSize="14"/>
+        <DatePicker HorizontalAlignment="Left" Margin="224,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,0.505" FontSize="16"/>
         <ListBox HorizontalAlignment="Left" Height="126" Margin="17,121,0,0" VerticalAlignment="Top" Width="206"/>
         <Button Content="Reserve&#xD;&#xA; Room" HorizontalAlignment="Left" Margin="237,155,0,0" VerticalAlignment="Top" Width="101" Height="61" FontSize="16" FontWeight="Bold"/>
 

@@ -18,6 +18,13 @@ BEGIN
 	FROM Reservations
 END
 
+GO
+ALTER PROCEDURE SP_GetInformationFromChangeTable AS
+BEGIN
+	SELECT ID, Command, TableName, PrimaryKey, Identifier
+	FROM Change
+END
+
 -- Insert 
 GO
 ALTER PROCEDURE SP_InsertUser (
@@ -110,6 +117,12 @@ BEGIN
 END
 
 GO
+ALTER PROCEDURE SP_DeleteChange (@ID int) AS
+BEGIN
+	DELETE FROM Change WHERE ID = @ID
+END
+
+GO
 ALTER PROCEDURE SP_DeleteAllUser AS
 BEGIN
 	ALTER TABLE Reservations DISABLE TRIGGER trgDeleteReservations
@@ -141,3 +154,8 @@ BEGIN
 	ALTER TABLE Reservations ENABLE TRIGGER trgDeleteReservations
 END
 
+GO
+ALTER PROCEDURE SP_DeleteAllChanges AS
+BEGIN
+	DELETE FROM Change
+END

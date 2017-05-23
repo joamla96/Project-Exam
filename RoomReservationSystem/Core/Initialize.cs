@@ -5,7 +5,7 @@ using System.Threading;
 using RosysNotifications;
 
 namespace Core {
-	public class Initialize
+	public static class Initialize
     {
 		private static DALFacade _dal = new DALFacade();
 
@@ -35,9 +35,7 @@ namespace Core {
             }
 
 			// Tell the DAL what enviroment we're in
-			if (SystemSettings.Enviroment == Enviroment.Dev || SystemSettings.Enviroment == Enviroment.Test)
-			{ DAL.DatabaseConn.SystemEnviroment = 1; }
-			else { DAL.DatabaseConn.SystemEnviroment = 0; }
+			SystemSettings.UpdateSystemEnvironment();
 
 			Thread notificationThread = new Thread(new ThreadStart(threads.NotificationThread));
 			notificationThread.IsBackground = true;

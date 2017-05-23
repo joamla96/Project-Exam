@@ -11,9 +11,9 @@
             <ColumnDefinition Width="373*"/>
             <ColumnDefinition Width="11*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Admin" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="10,70,0,0" Height="63" Click="AdminButtonClick"/>
-        <Button Content="Student" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="132,70,0,0" Height="63" Click="StudentButtonClick"/>
-        <Button Content="Teacher" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="254,70,0,0" Height="63" Click="TeacherButtonClick"/>
+        <Button Content="Admin" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="10,70,0,0" Height="63" Click="AdminButtonClick" FontSize="20" FontFamily="Corbel"/>
+        <Button Content="Student" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="132,70,0,0" Height="63" Click="StudentButtonClick" FontFamily="Corbel" FontSize="20"/>
+        <Button Content="Teacher" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="254,70,0,0" Height="63" Click="TeacherButtonClick" FontFamily="Corbel" FontSize="20"/>
 
     </Grid>
 </Window>

@@ -6,15 +6,8 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-	public enum Permission
-	{
-		Student, Teacher, Admin
-	}
-
-	public enum Enviroment
-	{
-		Prod, Dev, Test
-	}
+	public enum Permission { Student, Teacher, Admin }
+	public enum Enviroment { Prod, Dev, Test }
 
 	public static class SystemSettings
 	{
@@ -29,14 +22,15 @@ namespace Core
 			set
 			{
 				// When we change enviroment, change the database as well...
-				if (value == Enviroment.Dev || value == Enviroment.Test)
-				{
-					DAL.DatabaseConn.SystemEnviroment = 1;
-				}
-				else { DAL.DatabaseConn.SystemEnviroment = 0; }
-
+				UpdateSystemEnvironment();
 				Env = value;
 			}
+		}
+
+		public static void UpdateSystemEnvironment()
+		{
+			if (Env	 == Enviroment.Test) { DAL.DatabaseConn.SystemEnviroment = 1; }
+			else { DAL.DatabaseConn.SystemEnviroment = 0; }
 		}
 	}
 }

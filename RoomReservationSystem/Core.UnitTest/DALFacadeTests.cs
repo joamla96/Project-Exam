@@ -19,13 +19,13 @@ namespace Core.UnitTest
         ReservationRepository repoReservations;
 
 		[ClassInitialize]
-		public void ClassInit()
+		public static void ClassInit(TestContext testContext)
 		{
 			SystemSettings.Enviroment = Enviroment.Test;
 		}
 
 		[ClassCleanup]
-		public void ClassClean()
+		public static void ClassClean()
 		{
 			SystemSettings.Enviroment = Enviroment.Prod;
 		}

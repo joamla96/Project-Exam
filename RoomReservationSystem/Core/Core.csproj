@@ -49,7 +49,6 @@
     <Compile Include="Interfaces\IObserver.cs" />
     <Compile Include="Interfaces\IRoom.cs" />
     <Compile Include="Interfaces\IUser.cs" />
-    <Compile Include="LoggedIn.cs" />
     <Compile Include="ReservationsObserver.cs" />
     <Compile Include="RosysThreads.cs" />
     <Compile Include="Reservation.cs" />

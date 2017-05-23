@@ -19,7 +19,7 @@ namespace UI.GUI.ViewModel
 			int peopleNR = int.Parse(peoplenr);
 			try
 			{
-				IRoom room = _reserveRepo.RequestReservation(dateFrom, dateTo, peopleNR);
+				IRoom room = _reserveRepo.RequestReservation(dateFrom, dateTo, peopleNR, LoggedIn.User);
 				message = "You have been assigned to room: " + room.ID;
 			}
 			catch (NoRoomsAvailable)
@@ -29,5 +29,7 @@ namespace UI.GUI.ViewModel
 
 			return message;
 		}
+
+
 	}
 }

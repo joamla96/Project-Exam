@@ -17,38 +17,52 @@ namespace Core
         private static ReservationRepository _instance = new ReservationRepository();
         public static ReservationRepository Instance { get { return _instance; } }
 
-        public IRoom RequestReservation(DateTime from, DateTime to, int peopleNr)
+        public IRoom RequestReservation(DateTime from, DateTime to, int peopleNr, IUser user)
         {
 
-            if(LoggedIn.User.HasReservation(from.AddSeconds(1), to))
+            if(user.HasReservation(from.AddSeconds(1), to))
             {
                 throw new UserAlreadyHasRoomException();
             }
 
-            IRoom currentRoom;
-            IRoom foundRoom = null;
-            Stack<IRoom> rooms = _roomRepo.GetPossible(LoggedIn.User.PermissionLevel, peopleNr);
-            while (foundRoom == null && rooms.Count >= 1)
-            {
-                currentRoom = rooms.Pop();
-                bool roomAvailable = currentRoom.IsAvailable(from, to);
-                if (roomAvailable == true)
-                {
-                    foundRoom = currentRoom;
-                }
-            }
-            if (foundRoom == null)
+            List<IRoom> rooms = _roomRepo.GetPossible(user.PermissionLevel, peopleNr);
+
+			List<IRoom> availableRooms = RemoveUnavailableRooms(rooms, from, to);
+
+            if (availableRooms.Count == 0)
             {
                 throw new NoRoomsAvailable();
             }
             else
             {
-                Reservation reservation = new Reservation(LoggedIn.User, foundRoom, peopleNr, from, to);
+                Reservation reservation = new Reservation(user, availableRooms[0], peopleNr, from, to);
                 this.Add(reservation);
-                return foundRoom;
+                return availableRooms[0];
             }
 
         }
+
+		public List<IRoom> GetAvailableRooms(DateTime from, DateTime to, IUser user)
+		{
+			List<IRoom> rooms = _roomRepo.GetPossible(user.PermissionLevel);
+			List<IRoom> availableRooms = RemoveUnavailableRooms(rooms, from, to);
+			return availableRooms;
+		}
+
+		private List<IRoom> RemoveUnavailableRooms(List<IRoom> rooms, DateTime from, DateTime to)
+		{
+			List<IRoom> availableRooms = new List<IRoom>();
+
+			foreach (IRoom room in rooms)
+			{
+				bool roomAvailable = room.IsAvailable(from, to);
+				if (roomAvailable == true)
+				{
+					availableRooms.Add(room);
+				}
+			}
+			return availableRooms;
+		}
 
         internal void LoadFromDatabase(Reservation reservation)
         {

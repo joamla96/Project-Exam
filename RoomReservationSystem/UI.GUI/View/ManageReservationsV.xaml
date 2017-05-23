@@ -12,11 +12,12 @@
         <Label Content="Manage Reservations" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label Content="From" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.48,0.459"/>
         <Label Content="To" HorizontalAlignment="Left" Margin="28,78,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.178,-0.096" FontSize="14"/>
-        <DatePicker HorizontalAlignment="Left" Margin="63,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.523,0.165"/>
-        <DatePicker HorizontalAlignment="Left" Margin="63,78,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.532,0.862"/>
+        <DatePicker x:Name="ManageResFromDatePicker" HorizontalAlignment="Left" Margin="63,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.523,0.165"/>
+        <DatePicker x:Name="ManageresToDatePicker" HorizontalAlignment="Left" Margin="63,78,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.532,0.862"/>
         <Label Content="Search" HorizontalAlignment="Left" Margin="183,58,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.033,-0.522" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Height="29" Margin="234,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="113"/>
-        <ListBox HorizontalAlignment="Left" Height="125" Margin="10,132,0,0" VerticalAlignment="Top" Width="337"/>
+        <TextBox x:Name="ManageResSearchTextBox" HorizontalAlignment="Left" Height="29" Margin="234,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="113"/>
+        <ListBox x:Name="ManageResListBox" HorizontalAlignment="Left" Height="125" Margin="10,132,0,0" VerticalAlignment="Top" Width="337"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="726,274,-371.6,0" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </Page>

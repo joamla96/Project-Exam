@@ -19,7 +19,7 @@ BEGIN
 END
 
 GO
-ALTER PROCEDURE SP_GetInformationFromChangeTable AS
+ALTER PROCEDURE SP_GetAllChanges AS
 BEGIN
 	SELECT ID, Command, TableName, PrimaryKey, Identifier
 	FROM Change

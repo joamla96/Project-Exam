@@ -37,8 +37,11 @@ namespace Core {
 			SystemSettings.UpdateSystemEnvironment();
 
 			Thread notificationThread = new Thread(new ThreadStart(threads.NotificationThread));
+            Thread changeTableThread = new Thread(new ThreadStart(threads.CheckChangeTable));
 			notificationThread.IsBackground = true;
+            changeTableThread.IsBackground = true;
 			notificationThread.Start();
+            changeTableThread.Start();
         }
 	}
 }

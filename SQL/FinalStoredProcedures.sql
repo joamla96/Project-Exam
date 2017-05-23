@@ -25,6 +25,34 @@ BEGIN
 	FROM Change
 END
 
+GO
+CREATE PROCEDURE SP_GetUser (@Username NVarChar(MAX)) AS
+BEGIN
+	SELECT Username, Email, PermissionLevel
+	FROM Users
+	WHERE Username = @Username
+END
+
+GO
+CREATE PROCEDURE SP_GetRoom (
+	@Building Char,
+	@FloorNr int,
+	@Nr int
+) AS
+BEGIN
+	SELECT Building, FloorNr, Nr, MaxPeople, MinPermissionLevel
+	FROM Rooms
+	WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr
+END
+
+GO
+CREATE PROCEDURE SP_GetReservation (@ID int) AS
+BEGIN
+	SELECT PeopleNr, DateTo, DateFrom, Building, FloorNr, Nr, Username
+	FROM Reservations
+	WHERE ID = @ID
+END
+
 -- Insert 
 GO
 ALTER PROCEDURE SP_InsertUser (

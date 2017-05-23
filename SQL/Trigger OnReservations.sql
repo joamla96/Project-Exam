@@ -5,7 +5,7 @@ FOR INSERT AS
 	declare	@PK			NVarChar(max);
 
 	set @command =  0;
-	set @table = 'Reservation';
+	set @table = 'Reservations';
 	select @PK = i.ID from inserted i;
 
 	INSERT INTO Change(Command, TableName, PrimaryKey) VALUES

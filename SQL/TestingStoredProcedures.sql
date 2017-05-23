@@ -25,3 +25,9 @@ EXECUTE SP_DeleteReservation @ID = 12
 EXECUTE SP_DeleteUser @Username = 'matt2694'
 
 EXECUTE SP_DeleteRoom @Building = 'A', @FloorNr = 1, @Nr = 15
+
+EXECUTE SP_GetUser @Username = 'alhe'
+
+EXECUTE SP_GetRoom @Building = 'A', @FloorNr = 2, @Nr = 15
+
+EXECUTE SP_GetReservation @ID = 656

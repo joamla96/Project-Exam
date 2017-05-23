@@ -86,11 +86,10 @@ namespace Core
             return roomsByReservation;
         }
 
-        public Stack<IRoom> GetPossible(Permission permissionlevel, int people)
+        public List<IRoom> GetPossible(Permission permissionlevel, int people)
         {
             List<IRoom> permission = this.Get(permissionlevel);
             List<IRoom> possible = new List<IRoom>();
-            Stack<IRoom> stack = new Stack<IRoom>();
 
             foreach (IRoom room in permission)
             {
@@ -102,12 +101,7 @@ namespace Core
 
             possible.Sort();
 
-            foreach (IRoom room in possible)
-            {
-                stack.Push(room);
-            }
-
-            return stack;
+			return possible;
         }
 
 		public Stack<IRoom> GetPossible(Permission permissionlevel)

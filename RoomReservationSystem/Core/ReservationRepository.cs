@@ -25,30 +25,37 @@ namespace Core
                 throw new UserAlreadyHasRoomException();
             }
 
-            IRoom currentRoom;
-            IRoom foundRoom = null;
-            Stack<IRoom> rooms = _roomRepo.GetPossible(user.PermissionLevel, peopleNr);
-            while (foundRoom == null && rooms.Count >= 1)
-            {
-                currentRoom = rooms.Pop();
-                bool roomAvailable = currentRoom.IsAvailable(from, to);
-                if (roomAvailable == true)
-                {
-                    foundRoom = currentRoom;
-                }
-            }
-            if (foundRoom == null)
+            List<IRoom> rooms = _roomRepo.GetPossible(user.PermissionLevel, peopleNr);
+
+			List<IRoom> availableRooms = RemoveUnavailableRooms(rooms, from, to);
+
+            if (availableRooms.Count == 0)
             {
                 throw new NoRoomsAvailable();
             }
             else
             {
-                Reservation reservation = new Reservation(user, foundRoom, peopleNr, from, to);
+                Reservation reservation = new Reservation(user, availableRooms[0], peopleNr, from, to);
                 this.Add(reservation);
-                return foundRoom;
+                return availableRooms[0];
             }
 
         }
+
+		private List<IRoom> RemoveUnavailableRooms(List<IRoom> rooms, DateTime from, DateTime to)
+		{
+			List<IRoom> availableRooms = new List<IRoom>();
+
+			foreach (IRoom room in rooms)
+			{
+				bool roomAvailable = room.IsAvailable(from, to);
+				if (roomAvailable == true)
+				{
+					availableRooms.Add(room);
+				}
+			}
+			return availableRooms;
+		}
 
         internal void LoadFromDatabase(Reservation reservation)
         {

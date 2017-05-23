@@ -1,0 +1,21 @@
+﻿<Page x:Class="UI.GUI.View.ReserveRoomAdminV"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UI.GUI.View"
+      mc:Ignorable="d"
+      Title="ReserveRoomAdminV" Width="385.207" Height="266.272">
+
+    <Grid>
+        <Label Content="Reserve Room" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="From" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="To" HorizontalAlignment="Left" Margin="28,65,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <ComboBox HorizontalAlignment="Left" Margin="57,38,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="57,71,0,0" VerticalAlignment="Top" Width="120"/>
+        <DatePicker HorizontalAlignment="Left" Margin="224,54,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,0.505" FontSize="14"/>
+        <ListBox HorizontalAlignment="Left" Height="126" Margin="17,121,0,0" VerticalAlignment="Top" Width="206"/>
+        <Button Content="Reserve&#xD;&#xA; Room" HorizontalAlignment="Left" Margin="237,155,0,0" VerticalAlignment="Top" Width="101" Height="61" FontSize="16" FontWeight="Bold"/>
+
+    </Grid>
+</Page>

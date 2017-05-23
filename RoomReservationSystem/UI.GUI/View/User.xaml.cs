@@ -30,6 +30,7 @@ namespace UI.GUI.View
 				ManageRoomsButton.Visibility = Visibility.Hidden;
 				ManageReservationsButton.Visibility = Visibility.Hidden;
 				RegisterRoomButton.Visibility = Visibility.Hidden;
+				ReserveRoomAdminButton.Visibility = Visibility.Hidden;
 			}
 
 			if (permissionLevel == Permission.Teacher)
@@ -37,6 +38,7 @@ namespace UI.GUI.View
 				ManageRoomsButton.Visibility = Visibility.Hidden;
 				ManageReservationsButton.Visibility = Visibility.Hidden;
 				RegisterRoomButton.Visibility = Visibility.Hidden;
+				ReserveRoomAdminButton.Visibility = Visibility.Hidden;
 			}
 
 			if (permissionLevel == Permission.Admin)
@@ -76,9 +78,9 @@ namespace UI.GUI.View
 
 		}
 
-        private void ReserveRoomAdminButton_Click(object sender, RoutedEventArgs e)
+        private void ReserveRoomAdminButtonClick(object sender, RoutedEventArgs e)
         {
-
+			Frame.Content = new ReserveRoomAdminV();
         }
     }
 }

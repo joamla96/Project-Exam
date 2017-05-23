@@ -110,7 +110,22 @@ namespace Core
             return stack;
         }
 
-        public void Delete(IRoom room)
+		public Stack<IRoom> GetPossible(Permission permissionlevel)
+		{
+			List<IRoom> possible = this.Get(permissionlevel);
+			Stack<IRoom> stack = new Stack<IRoom>();
+
+			possible.Sort();
+
+			foreach (IRoom room in possible)
+			{
+				stack.Push(room);
+			}
+
+			return stack;
+		}
+
+		public void Delete(IRoom room)
         {
             _roomRepository.Remove(room);
             _dalFacade.DeleteRoom(room);

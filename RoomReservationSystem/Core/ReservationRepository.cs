@@ -42,6 +42,13 @@ namespace Core
 
         }
 
+		public List<IRoom> GetAvailableRooms(DateTime from, DateTime to, IUser user)
+		{
+			List<IRoom> rooms = _roomRepo.GetPossible(user.PermissionLevel);
+			List<IRoom> availableRooms = RemoveUnavailableRooms(rooms, from, to);
+			return availableRooms;
+		}
+
 		private List<IRoom> RemoveUnavailableRooms(List<IRoom> rooms, DateTime from, DateTime to)
 		{
 			List<IRoom> availableRooms = new List<IRoom>();

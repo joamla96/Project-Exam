@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>416</x>
-      <y>248</y>
+      <x>1032</x>
+      <y>296</y>
       <w>216</w>
       <h>160</h>
     </coordinates>
@@ -27,14 +27,15 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1040</x>
-      <y>248</y>
+      <x>1656</x>
+      <y>296</y>
       <w>224</w>
-      <h>216</h>
+      <h>240</h>
     </coordinates>
     <panel_attributes>Room
 --
 + ID : String
+- building :Char
 + Building : Char
 + Floor : Int
 + Nr : Int
@@ -45,6 +46,7 @@
 + IsAvailable(from, to)
 + Equals(obj)
 + GetHashCode()
++ ToString()
 + CompareTo(obj)
 + AddReservation(reserv)
 + GetReservations()
@@ -54,8 +56,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>704</x>
-      <y>248</y>
+      <x>1320</x>
+      <y>296</y>
       <w>224</w>
       <h>136</h>
     </coordinates>
@@ -75,10 +77,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1088</x>
-      <y>72</y>
+      <x>1704</x>
+      <y>48</y>
       <w>152</w>
-      <h>104</h>
+      <h>176</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 IRoom
@@ -87,30 +89,41 @@ ID
 Building
 Floor
 Nr
-MaxPeople</panel_attributes>
+MaxPeople
+MinPermissionLevel
+--
+IsAvailable(from, to);
+AddReservation(reservation);
+GetReservations();
+DeleteReservation(reservation);</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>448</x>
-      <y>72</y>
-      <w>144</w>
-      <h>104</h>
+      <x>1056</x>
+      <y>88</y>
+      <w>168</w>
+      <h>136</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 IUser
 --
 Username
 Email
-PermissionLevel</panel_attributes>
+PermissionLevel
+--
+AddReservation(reservation);
+GetReservations();
+DeleteReservation(reservation);
+HasReservation(from, to);</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>624</x>
-      <y>264</y>
+      <x>1240</x>
+      <y>312</y>
       <w>96</w>
       <h>32</h>
     </coordinates>
@@ -122,8 +135,8 @@ m2=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>920</x>
-      <y>264</y>
+      <x>1536</x>
+      <y>312</y>
       <w>136</w>
       <h>32</h>
     </coordinates>
@@ -135,8 +148,8 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1160</x>
-      <y>168</y>
+      <x>1776</x>
+      <y>216</y>
       <w>24</w>
       <h>96</h>
     </coordinates>
@@ -146,8 +159,8 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>512</x>
-      <y>168</y>
+      <x>1128</x>
+      <y>216</y>
       <w>24</w>
       <h>96</h>
     </coordinates>
@@ -157,10 +170,10 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1008</x>
-      <y>520</y>
+      <x>1624</x>
+      <y>664</y>
       <w>288</w>
-      <h>216</h>
+      <h>240</h>
     </coordinates>
     <panel_attributes>                                                                                      1
 RoomRepository
@@ -175,7 +188,9 @@ _+ Instance : RoomRepository_
 + Add(room)
 + LoadFromDatabase(room)
 + Get() : List&lt;IRoom&gt;
-+ GetPossible(permissionlevel, people) : List&lt;IRoom&gt;
++ Get(permissionlevel)
++ GetPossible(permissionlevel) : List&lt;IRoom&gt;
++ GetPossible(permissionlevel, people)
 + Get(reservation) : List&lt;Room&gt;
 + Get(checkroom) : IRoom
 + Delete(room)</panel_attributes>
@@ -184,26 +199,28 @@ _+ Instance : RoomRepository_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>680</x>
-      <y>520</y>
+      <x>1288</x>
+      <y>624</y>
       <w>280</w>
-      <h>232</h>
+      <h>264</h>
     </coordinates>
     <panel_attributes>                                                                                   1
 ReservationRepository
 --
 - _reservationRepository : List&lt;Reservation&gt;
 _dalFacade : DALFacade
-- _observers : List&lt;IObserver&gt;
 _roomRepo : RoomRepository
 _- _instance : ReservationRepository_
 _+ Instance : ReservationRepository_
 --
 + RequestReservation(from, to, peopleNr, user)
++ GetAvailableRooms(from, to, user)
+- RemoveUnavailableRooms(rooms, from, to)
 # LoadFromDatabase(reservation)
 + Clear()
 + Add(user, room, peopleNr, datefrom, dateto) : Void
 + Add(reservation)
++ Delete(reservation)
 + Get() : List&lt;Reservation&gt; // Get all
 + Get(user) : List&lt;Reservation&gt; // Get all by User
 + Get(room) : List&lt;Reservation&gt; // Get all by Room
@@ -214,8 +231,8 @@ _+ Instance : ReservationRepository_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>312</x>
-      <y>520</y>
+      <x>928</x>
+      <y>568</y>
       <w>248</w>
       <h>232</h>
     </coordinates>
@@ -242,34 +259,34 @@ _+ Instance : UserRepository_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>808</x>
-      <y>376</y>
+      <x>1424</x>
+      <y>424</y>
       <w>40</w>
-      <h>160</h>
+      <h>216</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n</panel_attributes>
-    <additional_attributes>10.0;180.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;250.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1144</x>
-      <y>456</y>
+      <x>1760</x>
+      <y>528</y>
       <w>40</w>
-      <h>80</h>
+      <h>152</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
 m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
-      <y>400</y>
+      <x>1096</x>
+      <y>448</y>
       <w>40</w>
       <h>136</h>
     </coordinates>
@@ -281,8 +298,8 @@ m2=0..n</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>336</x>
-      <y>8</y>
+      <x>952</x>
+      <y>56</y>
       <w>80</w>
       <h>80</h>
     </coordinates>
@@ -297,8 +314,8 @@ Student</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>640</x>
-      <y>1088</y>
+      <x>1256</x>
+      <y>1320</y>
       <w>328</w>
       <h>296</h>
     </coordinates>
@@ -324,28 +341,30 @@ Student</panel_attributes>
 + DeleteUser(user)
 + PassReservationToDAL(reservation)
 - ConvertFromReservationObjectToStrings(reservation)
-+ InsertUser(user)</panel_attributes>
++ InsertUser(user)
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
-      <y>1568</y>
+      <x>904</x>
+      <y>1800</y>
       <w>192</w>
       <h>64</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 IReservationsForMocking
 --
-GetAllReservationsFromDatabase()</panel_attributes>
+GetAllReservationsFromDatabase()
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>744</x>
-      <y>112</y>
+      <x>1360</x>
+      <y>160</y>
       <w>232</w>
       <h>56</h>
     </coordinates>
@@ -359,8 +378,8 @@ _+ TimeCollides(now, start, end)_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>736</x>
-      <y>880</y>
+      <x>1352</x>
+      <y>928</y>
       <w>240</w>
       <h>112</h>
     </coordinates>
@@ -378,8 +397,8 @@ _+ StartUp()_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>528</x>
-      <y>1656</y>
+      <x>1144</x>
+      <y>1888</y>
       <w>240</w>
       <h>112</h>
     </coordinates>
@@ -392,14 +411,15 @@ _- _conn : SqlConnection_
 # OpenConnection() 
 # CloseConnection()
 
-</panel_attributes>
+
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>240</x>
-      <y>1432</y>
+      <x>856</x>
+      <y>1664</y>
       <w>288</w>
       <h>72</h>
     </coordinates>
@@ -408,15 +428,16 @@ _- _conn : SqlConnection_
 + GetAllReservationsFromDatabase()
 + DeleteReservationFromDatabase(username, from, to)
 + StoreReservationIntoDatabase(reservationinfo)
-</panel_attributes>
+
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>216</x>
-      <y>1176</y>
-      <w>392</w>
+      <x>952</x>
+      <y>1408</y>
+      <w>272</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
@@ -424,17 +445,18 @@ IDALFacade
 --
 GetAllUsers()
 GetAllReservations()
-ConvertFromStringsToUserObjects(List&lt;Dictionary&lt;string, string&gt;&gt; usersinfo)
+ConvertFromStringsToUserObjects(usersinfo)
 GetAllRooms()
-ConvertFromStringsToRoomObjects(List&lt;Dictionary&lt;string, string&gt;&gt; list)
-PassReservationToDAL(Reservation reservation)</panel_attributes>
+ConvertFromStringsToRoomObjects(list)
+PassReservationToDAL(Reservation reservation)
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>984</x>
-      <y>1432</y>
+      <x>1600</x>
+      <y>1664</y>
       <w>280</w>
       <h>80</h>
     </coordinates>
@@ -446,14 +468,14 @@ PassReservationToDAL(Reservation reservation)</panel_attributes>
 + DeleteAllUserFromDatabase()
 
 
-group=3</panel_attributes>
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>656</x>
-      <y>1568</y>
+      <x>1272</x>
+      <y>1800</y>
       <w>192</w>
       <h>56</h>
     </coordinates>
@@ -461,14 +483,15 @@ group=3</panel_attributes>
 IRoomsForMocking
 --
 GetAllRoomsFromDatabase()
-</panel_attributes>
+
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1040</x>
-      <y>1560</y>
+      <x>1656</x>
+      <y>1792</y>
       <w>192</w>
       <h>64</h>
     </coordinates>
@@ -476,14 +499,14 @@ GetAllRoomsFromDatabase()
 IUsersForMocking
 --
 GetAllUsersFromDatabase()
-group=3</panel_attributes>
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>568</x>
-      <y>1432</y>
+      <x>1184</x>
+      <y>1664</y>
       <w>400</w>
       <h>88</h>
     </coordinates>
@@ -494,26 +517,26 @@ group=3</panel_attributes>
 + DeleteAllRoomsFromDatabase()
 + InsertRoomToDatabase(building, floor, nr, maxpeople, minpermissionlevel)
 
-group=1</panel_attributes>
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>752</x>
-      <y>1512</y>
+      <x>1368</x>
+      <y>1744</y>
       <w>24</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
-group=1</panel_attributes>
+group=4</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>376</x>
-      <y>1496</y>
+      <x>992</x>
+      <y>1728</y>
       <w>24</w>
       <h>88</h>
     </coordinates>
@@ -523,20 +546,20 @@ group=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1120</x>
-      <y>1504</y>
+      <x>1736</x>
+      <y>1736</y>
       <w>24</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
-group=3</panel_attributes>
+group=4</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>600</x>
-      <y>1240</y>
+      <x>1216</x>
+      <y>1472</y>
       <w>56</w>
       <h>24</h>
     </coordinates>
@@ -546,8 +569,8 @@ group=3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>600</x>
-      <y>1512</y>
+      <x>1216</x>
+      <y>1744</y>
       <w>24</w>
       <h>160</h>
     </coordinates>
@@ -558,8 +581,8 @@ group=3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>488</x>
-      <y>1496</y>
+      <x>1104</x>
+      <y>1728</y>
       <w>56</w>
       <h>184</h>
     </coordinates>
@@ -570,8 +593,8 @@ group=3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
-      <y>1504</y>
+      <x>1376</x>
+      <y>1736</y>
       <w>280</w>
       <h>184</h>
     </coordinates>
@@ -582,19 +605,19 @@ group=3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>728</y>
+      <x>1576</x>
+      <y>896</y>
       <w>184</w>
-      <h>440</h>
+      <h>504</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;530.0;210.0;530.0;210.0;10.0</additional_attributes>
+    <additional_attributes>10.0;610.0;210.0;610.0;210.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>1344</y>
+      <x>1576</x>
+      <y>1576</y>
       <w>176</w>
       <h>104</h>
     </coordinates>
@@ -605,8 +628,8 @@ group=3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>504</x>
-      <y>1344</y>
+      <x>1120</x>
+      <y>1576</y>
       <w>152</w>
       <h>104</h>
     </coordinates>
@@ -617,8 +640,8 @@ group=3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>784</x>
-      <y>1376</y>
+      <x>1400</x>
+      <y>1608</y>
       <w>24</w>
       <h>72</h>
     </coordinates>
@@ -629,31 +652,31 @@ group=3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>408</x>
-      <y>744</y>
-      <w>264</w>
-      <h>360</h>
+      <x>704</x>
+      <y>680</y>
+      <w>560</w>
+      <h>720</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>310.0;430.0;310.0;300.0;10.0;300.0;10.0;10.0</additional_attributes>
+    <additional_attributes>680.0;880.0;10.0;880.0;10.0;10.0;280.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>600</x>
-      <y>128</y>
-      <w>160</w>
+      <x>1232</x>
+      <y>176</y>
+      <w>144</w>
       <h>136</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>10.0;150.0;10.0;10.0;180.0;10.0</additional_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0;160.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>968</x>
-      <y>128</y>
+      <x>1584</x>
+      <y>176</y>
       <w>104</w>
       <h>136</h>
     </coordinates>
@@ -663,19 +686,19 @@ group=3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>912</x>
+      <x>1528</x>
       <y>0</y>
-      <w>408</w>
-      <h>1232</h>
+      <w>416</w>
+      <h>1464</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>70.0;1520.0;490.0;1520.0;490.0;10.0;10.0;10.0;10.0;140.0</additional_attributes>
+    <additional_attributes>70.0;1810.0;500.0;1810.0;490.0;10.0;10.0;10.0;10.0;200.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>504</x>
-      <y>744</y>
+      <x>1120</x>
+      <y>792</y>
       <w>248</w>
       <h>192</h>
     </coordinates>
@@ -685,44 +708,44 @@ group=3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>848</x>
-      <y>744</y>
+      <x>1464</x>
+      <y>880</y>
       <w>24</w>
-      <h>152</h>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>968</x>
-      <y>728</y>
+      <x>1584</x>
+      <y>896</y>
       <w>144</w>
-      <h>216</h>
+      <h>96</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>160.0;10.0;160.0;250.0;10.0;250.0</additional_attributes>
+    <additional_attributes>160.0;10.0;160.0;100.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>856</x>
-      <y>984</y>
+      <x>1472</x>
+      <y>1032</y>
       <w>24</w>
-      <h>120</h>
+      <h>304</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;360.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>80</y>
+      <x>976</x>
+      <y>128</y>
       <w>72</w>
       <h>224</h>
     </coordinates>
@@ -732,23 +755,392 @@ group=3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>408</x>
-      <y>24</y>
-      <w>864</w>
-      <h>240</h>
+      <x>984</x>
+      <y>32</y>
+      <w>904</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
-    <additional_attributes>1060.0;280.0;1060.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>1110.0;330.0;1110.0;10.0;10.0;10.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>408</x>
-      <y>40</y>
+      <x>1024</x>
+      <y>64</y>
       <w>568</w>
-      <h>88</h>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
-    <additional_attributes>690.0;90.0;690.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>690.0;120.0;690.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1152</x>
+      <y>896</y>
+      <w>176</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;exeptions&gt;&gt;
+UserAlreadyHasRoomException
+--
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1168</x>
+      <y>480</y>
+      <w>128</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;exeptions&gt;&gt;
+NoRoomsAvailable
+--
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1232</x>
+      <y>624</y>
+      <w>72</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>70.0;20.0;10.0;20.0;10.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1232</x>
+      <y>528</y>
+      <w>128</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>140.0;120.0;140.0;50.0;10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>824</x>
+      <y>824</y>
+      <w>144</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IObserver
+--
+Update(message);</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1032</x>
+      <y>1240</y>
+      <w>152</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IObservable
+--
+Subscribe(observer);
+Unsubscribe(observer);
+Notify(reserv);</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>880</x>
+      <y>960</y>
+      <w>240</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>                                                                        1
+ReservationsObserver
+--
+_- _instance : ReservationsObserver_
+_+ Instance : ReservationsObserver_
+_+ Message : String_
+_+ ObserverName : String_
+--
++ Update(message)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>768</x>
+      <y>1096</y>
+      <w>240</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>RosysThreads
+--
+- _reservRepo : ReservationRepository
+- _observers : List&lt;IObserver&gt;
+- NOTIFICATIONSLEEPTIME : Int = 60000
+--
++ NotificationThread()
++ CheckChangeTable()
++ Subscribe(observer)
++ Unsubscribe(observer)
++ Notify(reserv)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1216</x>
+      <y>1112</y>
+      <w>240</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>SystemSettings
+--
+_- Env : Enviroment_
+_+ _threadRunning : Bool_
+--
+HOW TO PUT FACTORY IN HERE?!
+_+ UpdateSystemEnvironment()_
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1368</x>
+      <y>1232</y>
+      <w>80</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+Enviroment
+--
+Prod
+Dev
+Test</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>1560</y>
+      <w>600</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>~ ConnTest
+--
+- CONNSTRING : String = @"Server=ealdb1.eal.local; Database=ejl73_db; User Id=ejl73_usr; Password=Baz1nga73"
++ ConnString : String
+group=5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>624</x>
+      <y>1704</y>
+      <w>152</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ConnInfo
+--
+Subscribe(observer);
+Unsubscribe(observer);
+Notify(reserv);</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>624</x>
+      <y>1512</y>
+      <w>240</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>_DatabaseConn_
+--
+_+ systemEnviroment : Int_
+_- conn : ConnInfo_
+_+ ConnString : String_
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>1472</y>
+      <w>600</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>~ ConnProd
+--
+- CONNSTRING : String = @"Server=ealdb1.eal.local; Database=ejl73_db; User Id=ejl73_usr; Password=Baz1nga73"
++ ConnString : String
+group=5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1432</x>
+      <y>1200</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1416</x>
+      <y>1032</y>
+      <w>24</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1000</x>
+      <y>1184</y>
+      <w>232</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>270.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1000</x>
+      <y>1016</y>
+      <w>368</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>440.0;10.0;240.0;10.0;240.0;170.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>592</x>
+      <y>1512</y>
+      <w>48</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>592</x>
+      <y>1568</y>
+      <w>48</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>800</x>
+      <y>1576</y>
+      <w>360</w>
+      <h>392</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;470.0;430.0;470.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>800</x>
+      <y>1200</y>
+      <w>456</w>
+      <h>328</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>550.0;10.0;550.0;190.0;10.0;190.0;10.0;390.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>1576</y>
+      <w>24</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1112</x>
+      <y>984</y>
+      <w>256</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>300.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>904</x>
+      <y>1240</y>
+      <w>144</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;160.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>768</x>
+      <y>856</y>
+      <w>72</w>
+      <h>256</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;300.0;10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>952</x>
+      <y>872</y>
+      <w>24</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

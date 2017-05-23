@@ -34,7 +34,7 @@ namespace UI.GUI.View
 
 		public void UpdateRoomsList()
 		{
-			if (DateAdminDatePicker != null && ToAdminComboBox != null && FromAdminComboBox != null)
+			if (DateAdminDatePicker != null && ToAdminComboBox != null && FromAdminComboBox != null && RoomListAdminListBox != null)
 			{
 				string date = DateAdminDatePicker.Text;
 				ComboBoxItem toSelected = (ComboBoxItem)ToAdminComboBox.SelectedItem;
@@ -58,6 +58,11 @@ namespace UI.GUI.View
 		}
 
 		private void FromSelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			UpdateRoomsList();
+		}
+
+		private void DateChanged(object sender, SelectionChangedEventArgs e)
 		{
 			UpdateRoomsList();
 		}

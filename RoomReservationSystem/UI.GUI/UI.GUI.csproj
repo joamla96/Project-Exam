@@ -69,6 +69,7 @@
     <Compile Include="ViewModel\ManageRoomsVM.cs" />
     <Compile Include="ViewModel\NotificationsVM.cs" />
     <Compile Include="ViewModel\RegisterRoomVM.cs" />
+    <Compile Include="ViewModel\ReserveRoomAdminVM.cs" />
     <Compile Include="ViewModel\ReserveRoomVM.cs" />
     <Compile Include="View\ManageReservationsV.xaml.cs">
       <DependentUpon>ManageReservationsV.xaml</DependentUpon>

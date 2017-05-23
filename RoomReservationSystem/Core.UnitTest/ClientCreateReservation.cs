@@ -56,20 +56,18 @@ namespace Core.UnitTest
 
         [TestMethod]
         public void SortRoomsByMaxPeopleIntoFILOStack() {
-            Stack<IRoom> StackRooms = _repoRoom.GetPossible(Permission.Student, 4);
+            List<IRoom> StackRooms = _repoRoom.GetPossible(Permission.Student, 4);
 
-            Assert.AreEqual(StackRooms.Pop(), _room1);
-            Assert.AreEqual(StackRooms.Pop(), _room2);
+            Assert.AreEqual(StackRooms[0], _room1);
+            Assert.AreEqual(StackRooms[1], _room2);
         }
 
 		[TestMethod]
 		[ExpectedException(typeof(InvalidOperationException))]
 		public void SortRoomsByMaxPeopleIntoFILOStackOutOfRooms() {
-			Stack<IRoom> StackRooms = _repoRoom.GetPossible(Permission.Student, 4);
+			List<IRoom> Rooms = _repoRoom.GetPossible(Permission.Student, 4);
 
-			StackRooms.Pop();
-			StackRooms.Pop();
-			StackRooms.Pop();
+			IRoom test = Rooms[2];
 		}
 
 		[TestMethod]

@@ -200,6 +200,7 @@ _- _instance : ReservationRepository_
 _+ Instance : ReservationRepository_
 --
 + RequestReservation(from, to, peopleNr, user)
+- RemoveUnavailableRooms(rooms, from, to)
 # LoadFromDatabase(reservation)
 + Clear()
 + Add(user, room, peopleNr, datefrom, dateto) : Void

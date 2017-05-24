@@ -64,8 +64,11 @@ namespace Core
             string date = From.Day + "." + From.Month + "." + From.Year + " " + "|" + " ";
             output.Write(date + " ");
 
-            string hourFormat = "{0:00}:{1:00} - {2:00}:{3:00}";
+            string hourFormat = "{0:00}:{1:00} - {2:00}:{3:00}" + " " + "|" + " ";
             output.Write(hourFormat, From.Hour, From.Minute, To.Hour, To.Minute);
+
+			string username = this.User.Username;
+			output.Write(username);
 
             return output.ToString();
         }

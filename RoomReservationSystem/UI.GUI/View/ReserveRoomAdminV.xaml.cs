@@ -66,5 +66,31 @@ namespace UI.GUI.View
 		{
 			UpdateRoomsList();
 		}
+
+		private void ReserveRoomAdminPageButtonClick(object sender, RoutedEventArgs e)
+		{
+			string date = DateAdminDatePicker.Text;
+			ComboBoxItem toSelected = (ComboBoxItem)ToAdminComboBox.SelectedItem;
+			string to = toSelected.Content.ToString();
+			ComboBoxItem fromSelected = (ComboBoxItem)FromAdminComboBox.SelectedItem;
+			string from = fromSelected.Content.ToString();
+			string username = UsernameAdminTextBox.Text;
+			IRoom room = (IRoom)RoomListAdminListBox.SelectedItem;
+
+			string message;
+			try
+			{
+				VM.ReserveRoom(date, from, to, room, username);
+				UpdateRoomsList();
+
+				message = "Reservation successful!";
+				
+			}
+			catch (IndexOutOfRangeException)
+			{
+				message = "Invalid username!";
+			}
+			MessageBox.Show(message);
+		}
 	}
 }

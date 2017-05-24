@@ -29,8 +29,8 @@ namespace Core
 
 		public static void UpdateSystemEnvironment()
 		{
-			if (Env	 == Enviroment.Test) { DAL.DatabaseConn.SystemEnviroment = 1; }
-			else { DAL.DatabaseConn.SystemEnviroment = 0; }
+			if (Env	 == Enviroment.Test) { DAL.DatabaseConn.systemEnviroment = 1; }
+			else { DAL.DatabaseConn.systemEnviroment = 0; }
 		}
 	}
 }

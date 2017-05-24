@@ -149,19 +149,65 @@ namespace Core
             return result;
         }
 
-        //public void Subscribe(IObserver observer)
-        //{
-        //    _observers.Add(observer);
-        //}
+		public List<Reservation> Get(DateTime? from, DateTime? to, IUser user)
+		{
+			List<Reservation> reservations = new List<Reservation>();
+			List<Reservation> allReservations = this.Get();
 
-        //public void Unsubscribe(IObserver observer)
-        //{
-        //    _observers.Remove(observer);
-        //}
+			if (from != null)
+			{
+				foreach (Reservation reservation in allReservations)
+				{
+					if (HelperFunctions.TimeCollides(from, reservation.From, reservation.To))
+					{
+						reservations.Add(reservation);
+					}
+				}
+				allReservations = reservations;
+				reservations = new List<Reservation>();
+			}
 
-        //public void Notify()
-        //{
-        //    _observers.ForEach(observer => observer.Update());
-        //}
-    }
+			if (to != null)
+			{
+				foreach (Reservation reservation in allReservations)
+				{
+					if (HelperFunctions.TimeCollides(to, reservation.From, reservation.To))
+					{
+						reservations.Add(reservation);
+					}
+				}
+				allReservations = reservations;
+				reservations = new List<Reservation>();
+			}
+
+			if (user != null)
+			{
+				foreach (Reservation reservation in allReservations)
+				{
+					if (user.Equals(reservation.User))
+					{
+						reservations.Add(reservation);
+					}
+				}
+				allReservations = reservations;
+				reservations = new List<Reservation>();
+			}
+			return allReservations;
+		}
+
+			//public void Subscribe(IObserver observer)
+			//{
+			//    _observers.Add(observer);
+			//}
+
+			//public void Unsubscribe(IObserver observer)
+			//{
+			//    _observers.Remove(observer);
+			//}
+
+			//public void Notify()
+			//{
+			//    _observers.ForEach(observer => observer.Update());
+			//}
+		}
 }

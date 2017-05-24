@@ -6,18 +6,18 @@ namespace DAL
 
 	public static class DatabaseConn
 	{
-		public static int SystemEnviroment = 0;
-		private static ConnInfo Conn;
+		public static int systemEnviroment = 0;
+		private static ConnInfo conn;
 		public static string ConnString { get
 			{
-				switch(SystemEnviroment)
+				switch(systemEnviroment)
 				{
 					default: throw new IndexOutOfRangeException();
-					case 0:	Conn = new ConnProd(); break;
-					case 1: Conn = new ConnTest(); break;
+					case 0:	conn = new ConnProd(); break;
+					case 1: conn = new ConnTest(); break;
 				}
 
-				return Conn.ConnString;
+				return conn.ConnString;
 			}
 		}
 	}

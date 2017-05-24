@@ -12,9 +12,9 @@
     <Grid Margin="5,0,-50,0">
 
         <Label x:Name="ReserveRoomLabel" Content="Reserve Room" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="118" Height="29" FontSize="16" FontWeight="Bold"/>
-        <DatePicker x:Name="SelectDate" SelectedDate="{x:Static sys:DateTime.Now}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Height="27" Width="142"/>
-        <TextBox x:Name="NumberOfPeopleTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="111,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62"/>
-        <Label x:Name="NumberOfPeopleLabel" Content="Number of people" Grid.Column="1" HorizontalAlignment="Left" Margin="3,41,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="SelectDate" SelectedDate="{x:Static sys:DateTime.Now}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Height="27" Width="142" FontStyle="Italic"/>
+        <TextBox x:Name="NumberOfPeopleTextBox" HorizontalAlignment="Left" Height="23" Margin="111,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62"/>
+        <Label x:Name="NumberOfPeopleLabel" Content="Number of people" HorizontalAlignment="Left" Margin="4,36,0,0" VerticalAlignment="Top" Height="28"/>
         <Label x:Name="FromLabel" Content="From" Grid.Column="1" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top"/>
         <Label x:Name="ToLabel" Content="To" Grid.Column="1" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="FromComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="52,129,0,0" VerticalAlignment="Top" Width="100">
@@ -24,7 +24,7 @@
             <ComboBoxItem>10:30</ComboBoxItem>
             <ComboBoxItem>11:00</ComboBoxItem>
         </ComboBox>
-        
+
         <ComboBox x:Name="ToComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="52,164,0,0" VerticalAlignment="Top" Width="100">
             <ComboBoxItem>10:00</ComboBoxItem>
             <ComboBoxItem>10:30</ComboBoxItem>
@@ -35,5 +35,6 @@
 
         <Button x:Name="ReserveRoomButton" Content="Reserve&#xD;&#xA;  Room" HorizontalAlignment="Left" Margin="189,107,-30,0" VerticalAlignment="Top" Width="136" Height="85" FontWeight="Bold" FontSize="18" Click="ReserveRoomButtonClick"/>
         <Label x:Name="MessageLabel" Content="" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Width="315" Height="66" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Select a date" HorizontalAlignment="Left" Margin="4,64,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>

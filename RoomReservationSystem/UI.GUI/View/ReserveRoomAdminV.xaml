@@ -26,10 +26,10 @@
             <ComboBoxItem>11:30</ComboBoxItem>
             <ComboBoxItem>12:00</ComboBoxItem>
         </ComboBox>
-        <DatePicker x:Name="DateAdminDatePicker" SelectedDate="{x:Static sys:DateTime.Now}" HorizontalAlignment="Left" Margin="213,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,0.505" SelectedDateChanged="DateChanged" FontStyle="Italic" Height="26" FontSize="14"/>
+        <DatePicker x:Name="DateAdminDatePicker" SelectedDate="{x:Static sys:DateTime.Now}" HorizontalAlignment="Left" Margin="209,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,0.505" SelectedDateChanged="DateChanged" FontStyle="Italic" Height="26"/>
         <ListBox x:Name="RoomListAdminListBox" HorizontalAlignment="Left" Height="126" Margin="17,121,0,0" VerticalAlignment="Top" Width="206"/>
-        <Button x:Name="ReserveRoomAdminPageButton" Content="Reserve&#xD;&#xA; Room" HorizontalAlignment="Left" Margin="237,155,0,0" VerticalAlignment="Top" Width="101" Height="61" FontSize="16" FontWeight="Bold"/>
-        <Label Content="Select a date" HorizontalAlignment="Left" Margin="237,36,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Button x:Name="ReserveRoomAdminPageButton" Content="Reserve&#xD;&#xA; Room" HorizontalAlignment="Left" Margin="233,121,0,0" VerticalAlignment="Top" Width="101" Height="61" FontSize="16" FontWeight="Bold" Click="ReserveRoomAdminPageButtonClick"/>
+        <TextBox x:Name="UsernameAdminTextBox" HorizontalAlignment="Left" Height="23" Margin="209,70,0,0" TextWrapping="Wrap" Text="Enter a username" VerticalAlignment="Top" Width="125"/>
 
     </Grid>
 </Page>

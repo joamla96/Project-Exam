@@ -9,9 +9,9 @@ namespace Core
 {
     class RosysThreads : IObservable 
     {
-        private ReservationRepository _reservRepo = ReservationRepository.Instance;
-        private RoomRepository _roomRepo = RoomRepository.Instance;
-        private UserRepository _userRepo = UserRepository.Instance;
+        private ReservationRepository _repoReservations = ReservationRepository.Instance;
+        private RoomRepository _repoRooms = RoomRepository.Instance;
+        private UserRepository _repoUsers = UserRepository.Instance;
         private Change _changesData = new Change();
         IDALFacade _dalFacade = new DALFacade();
         private List<IObserver> _observers = new List<IObserver>();
@@ -21,7 +21,7 @@ namespace Core
         {
             List<Reservation> reservations = new List<Reservation>();
 
-            reservations = _reservRepo.Get();
+            reservations = _repoReservations.Get();
 
             while (SystemSettings._threadRunning)
             {
@@ -45,7 +45,7 @@ namespace Core
                 List<Dictionary<string, string>> changesInfo = _changesData.GetAllChangesFromDatabase();
                 foreach(Dictionary<string, string> change in changesInfo)
                 {
-                    switch (Int32.Parse(change["Command"]))
+                    switch (int.Parse(change["Command"]))
                     {
                         case 0: InsertInformation(change); break;
                         case 1: UpdateInformation(change); break;
@@ -68,19 +68,19 @@ namespace Core
 
         private void AddUserToRepository(Dictionary<string, string> change)
         {
-            _userRepo.Add(_dalFacade.GetUser(change["PrimaryKey"]));
+            _repoUsers.LoadFromDatabase(_dalFacade.GetUser(change["PrimaryKey"]));
         }
 
         private void AddRoomToRepository(Dictionary<string, string> change)
         {
             char splitter = ';';
             string[] roomPK = change["PrimaryKey"].Split(splitter);
-            _roomRepo.Add(_dalFacade.GetRoom(roomPK[0], roomPK[1], roomPK[2]));
+            _repoRooms.LoadFromDatabase(_dalFacade.GetRoom(roomPK[0], roomPK[1], roomPK[2]));
         }
 
         private void AddReservationToRepository(Dictionary<string, string> change)
         {
-            _reservRepo.Add(_dalFacade.GetReservation(change["PrimaryKey"]));
+            _repoReservations.LoadFromDatabase(_dalFacade.GetReservation(change["PrimaryKey"]));
         }
 
         private void UpdateInformation(Dictionary<string, string> change)
@@ -94,23 +94,37 @@ namespace Core
             {
                 case "Users": DeleteUserFromRepository(change); break;
                 case "Rooms": DeleteRoomFromRepository(change); break;
-                case "Reservations": DeleteReservationFromRepositroy(change); break;
+                case "Reservations": DeleteReservationFromRepository(change); break;
             }
         }
 
         private void DeleteUserFromRepository(Dictionary<string, string> change)
         {
-            throw new NotImplementedException();
+            IUser dummyUser = new User(change["PrimaryKey"], "", Permission.Student);
+            IUser user = _repoUsers.Get(dummyUser);
+            _repoUsers.Delete(user);
         }
 
         private void DeleteRoomFromRepository(Dictionary<string, string> change)
         {
-            throw new NotImplementedException();
+            char splitter = ';';
+            string[] roomPK = change["PrimaryKey"].Split(splitter);
+            char building = char.Parse(roomPK[0]);
+            int floorNr = int.Parse(roomPK[1]);
+            int nr = int.Parse(roomPK[2]);
+            IRoom dummyRoom = new Room(building, floorNr, nr, 0, Permission.Student);
+            IRoom room = _repoRooms.Get(dummyRoom);
+            _repoRooms.Delete(room);
         }
 
-        private void DeleteReservationFromRepositroy(Dictionary<string, string> change)
+        private void DeleteReservationFromRepository(Dictionary<string, string> change)
         {
-            throw new NotImplementedException();
+            char splitter = ';';
+            string[] reservationPK = change["PrimaryKey"].Split(splitter);
+            string id = reservationPK[0];
+            string dateTo = reservationPK[1];
+            string dateFrom = reservationPK[2];
+            string username = reservationPK[3];
         }
 
         public void Subscribe(IObserver observer)

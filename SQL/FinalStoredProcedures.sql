@@ -21,7 +21,7 @@ END
 GO
 ALTER PROCEDURE SP_GetAllChanges AS
 BEGIN
-	SELECT ID, Command, TableName, PrimaryKey, Identifier
+	SELECT ID, Command, TableName, PrimaryKey
 	FROM Change
 END
 
@@ -106,7 +106,7 @@ GO
 ALTER PROCEDURE SP_DeleteReservation (
 	@Username NVarChar(100),
 	@DateFrom DateTime2,
-	@DateTo DateTime 
+	@DateTo DateTime2
 ) AS
 BEGIN
 	ALTER TABLE Reservations DISABLE TRIGGER trgDeleteReservations

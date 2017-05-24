@@ -5,6 +5,5 @@ CREATE TABLE Change (
 	Command		int				NOT NULL,
 	TableName	NVarChar(MAX)	NOT NULL,
 	PrimaryKey	NVarChar(MAX)	NOT NULL,
-	Identifier	int,
 	CONSTRAINT	Change_PK		Primary Key(ID)
 );

@@ -10,6 +10,7 @@ namespace UI.GUI.ViewModel
 {
 	class ManageReservationsVM
 	{
+		ReservationRepository _repoReservation = ReservationRepository.Instance;
 		public List<Reservation> GetReservations(string from, string to, string username)
 		{
 			DateTime? dateFrom;
@@ -43,6 +44,11 @@ namespace UI.GUI.ViewModel
 			}
 
 			return ReservationRepository.Instance.Get(dateFrom, dateTo, dummyUser);
+		}
+
+		internal void DeleteReservation(Reservation reservation)
+		{
+			_repoReservation.Delete(reservation);
 		}
 	}
 }

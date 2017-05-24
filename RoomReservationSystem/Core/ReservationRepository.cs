@@ -158,7 +158,7 @@ namespace Core
 			{
 				foreach (Reservation reservation in allReservations)
 				{
-					if (HelperFunctions.TimeCollides(from, reservation.From, reservation.To))
+					if (from < reservation.From)
 					{
 						reservations.Add(reservation);
 					}
@@ -171,7 +171,7 @@ namespace Core
 			{
 				foreach (Reservation reservation in allReservations)
 				{
-					if (HelperFunctions.TimeCollides(to, reservation.From, reservation.To))
+					if (to > reservation.To)
 					{
 						reservations.Add(reservation);
 					}

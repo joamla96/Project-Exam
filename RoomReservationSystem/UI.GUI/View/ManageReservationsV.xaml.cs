@@ -44,7 +44,29 @@ namespace UI.GUI.View {
 
 		private void DeleteReservationAdminButtonClick(object sender, RoutedEventArgs e)
 		{
+			Reservation reservation = (Reservation)ManageResListBox.SelectedItem;
+			VM.DeleteReservation(reservation);
+			UpdateReservationList();
 
+			string message = "Reservation deleted successfully!";
+			MessageBox.Show(message);
 		}
+
+		private void FromChangedDatePicker(object sender, RoutedEventArgs e)
+		{
+			UpdateReservationList();
+		}
+
+		private void ToChangedDatePicker(object sender, RoutedEventArgs e)
+		{
+			UpdateReservationList();
+		}
+
+		private void UsernameChangedTextBox(object sender, RoutedEventArgs e)
+		{
+			UpdateReservationList();
+		}
+
+
 	}
 }

@@ -21,6 +21,8 @@ namespace UI.GUI.ViewModel
 
 			return _repoReservation.GetAvailableRooms(dateFrom, dateTo, LoggedIn.User);
 		}
+
+
 		
 	}
 }

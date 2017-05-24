@@ -40,6 +40,11 @@ namespace Core
             _roomRepository.Add(room);
         }
 
+        public void DeleteFromRepository(IRoom room)
+        {
+            _roomRepository.Remove(room);
+        }
+
         public List<IRoom> Get()
         {
             return _roomRepository;

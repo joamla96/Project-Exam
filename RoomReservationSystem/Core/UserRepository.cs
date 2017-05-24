@@ -42,6 +42,11 @@ namespace Core
 			_userRepository.Add(user);
 		}
 
+        public void DeleteFromRepository(IUser user)
+        {
+            _userRepository.Remove(user);
+        }
+
         public List<IUser> Get()
         {
             return _userRepository;

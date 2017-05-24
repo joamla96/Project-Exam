@@ -55,8 +55,8 @@ FOR DELETE AS
 	declare	@PK			NVarChar(max);
 
 	declare @ID			NVarChar(max);
-	declare @DateFrom	NVarChar(max);
 	declare @DateTo		NVarChar(max);
+	declare @DateFrom	NVarChar(max);
 	declare @Username	NVarChar(max);
 
 	set @command =  2;

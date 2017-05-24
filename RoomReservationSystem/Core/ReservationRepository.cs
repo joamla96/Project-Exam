@@ -71,6 +71,13 @@ namespace Core
             reservation.User.AddReservation(reservation);
         }
 
+        internal void DeleteFromRepository(Reservation reservation)
+        {
+            _reservationRepository.Remove(reservation);
+            reservation.Room.DeleteReservation(reservation);
+            reservation.User.DeleteReservation(reservation);
+        }
+
         public void Clear()
         {
             foreach (Reservation reservation in _reservationRepository)

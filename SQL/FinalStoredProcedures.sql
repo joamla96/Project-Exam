@@ -18,6 +18,41 @@ BEGIN
 	FROM Reservations
 END
 
+GO
+ALTER PROCEDURE SP_GetAllChanges AS
+BEGIN
+	SELECT ID, Command, TableName, PrimaryKey
+	FROM Change
+END
+
+GO
+CREATE PROCEDURE SP_GetUser (@Username NVarChar(MAX)) AS
+BEGIN
+	SELECT Username, Email, PermissionLevel
+	FROM Users
+	WHERE Username = @Username
+END
+
+GO
+CREATE PROCEDURE SP_GetRoom (
+	@Building Char,
+	@FloorNr int,
+	@Nr int
+) AS
+BEGIN
+	SELECT Building, FloorNr, Nr, MaxPeople, MinPermissionLevel
+	FROM Rooms
+	WHERE Building = @Building AND FloorNr = @FloorNr AND Nr = @Nr
+END
+
+GO
+CREATE PROCEDURE SP_GetReservation (@ID int) AS
+BEGIN
+	SELECT PeopleNr, DateTo, DateFrom, Building, FloorNr, Nr, Username
+	FROM Reservations
+	WHERE ID = @ID
+END
+
 -- Insert 
 GO
 ALTER PROCEDURE SP_InsertUser (
@@ -71,7 +106,7 @@ GO
 ALTER PROCEDURE SP_DeleteReservation (
 	@Username NVarChar(100),
 	@DateFrom DateTime2,
-	@DateTo DateTime 
+	@DateTo DateTime2
 ) AS
 BEGIN
 	ALTER TABLE Reservations DISABLE TRIGGER trgDeleteReservations
@@ -110,6 +145,12 @@ BEGIN
 END
 
 GO
+ALTER PROCEDURE SP_DeleteChange (@ID int) AS
+BEGIN
+	DELETE FROM Change WHERE ID = @ID
+END
+
+GO
 ALTER PROCEDURE SP_DeleteAllUser AS
 BEGIN
 	ALTER TABLE Reservations DISABLE TRIGGER trgDeleteReservations
@@ -141,3 +182,8 @@ BEGIN
 	ALTER TABLE Reservations ENABLE TRIGGER trgDeleteReservations
 END
 
+GO
+ALTER PROCEDURE SP_DeleteAllChanges AS
+BEGIN
+	DELETE FROM Change
+END

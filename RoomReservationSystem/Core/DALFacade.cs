@@ -14,59 +14,83 @@ namespace Core
 		List<IRoom> GetAllRooms();
 		List<IRoom> ConvertFromStringsToRoomObjects(List<Dictionary<string, string>> list);
 		void PassReservationToDAL(Reservation reservation);
-	}
+        IUser GetUser(string username);
+        IRoom GetRoom(string building, string floornr, string nr);
+        Reservation GetReservation(string id);
+    }
 	public class DALFacade : IDALFacade
 	{
-		private Users usersData;
-		private Rooms roomsData;
-		private Reservations reservationsData;
+		private Users _usersData;
+		private Rooms _roomsData;
+		private Reservations _reservationsData;
 
-		private UserRepository repoUsers;
-		private RoomRepository repoRooms;
+		private UserRepository _repoUsers;
+		private RoomRepository _repoRooms;
 
 		public DALFacade()
 		{
-			this.usersData = new Users();
-			this.roomsData = new Rooms();
-			this.reservationsData = new Reservations();
-			this.repoUsers = UserRepository.Instance;
-			this.repoRooms = RoomRepository.Instance;
+			this._usersData = new Users();
+			this._roomsData = new Rooms();
+			this._reservationsData = new Reservations();
+			this._repoUsers = UserRepository.Instance;
+			this._repoRooms = RoomRepository.Instance;
 		}
 
 		public DALFacade(Users usersdata, Rooms roomsdata, Reservations reservationsdata, UserRepository repousers, RoomRepository reporooms)
 		{
-			this.usersData = usersdata;
-			this.roomsData = roomsdata;
-			this.reservationsData = reservationsdata;
-			this.repoUsers = repousers;
-			this.repoRooms = reporooms;
+			this._usersData = usersdata;
+			this._roomsData = roomsdata;
+			this._reservationsData = reservationsdata;
+			this._repoUsers = repousers;
+			this._repoRooms = reporooms;
 		}
 
 		internal void DeleteAllUsers()
 		{
-			usersData.DeleteAllUserFromDatabase();
+			_usersData.DeleteAllUserFromDatabase();
 		}
 
 		internal void DeleteAllRooms()
 		{
-			roomsData.DeleteAllRoomsFromDatabase();
+			_roomsData.DeleteAllRoomsFromDatabase();
 		}
 
 		internal void InsertRoom(IRoom room)
 		{
-			roomsData.InsertRoomToDatabase(room.Building.ToString(), room.Floor, room.Nr, room.MaxPeople, (int)room.MinPermissionLevel);
+			_roomsData.InsertRoomToDatabase(room.Building.ToString(), room.Floor, room.Nr, room.MaxPeople, (int)room.MinPermissionLevel);
 		}
 
-		public List<IUser> GetAllUsers()
+        public IUser GetUser(string username)
+        {
+            List<Dictionary<string, string>> userInfo = _usersData.GetUserFromDatabase(username);
+            List<IUser> user = this.ConvertFromStringsToUserObjects(userInfo);
+            return user[0];
+        }
+
+        public IRoom GetRoom(string building, string floornr, string nr)
+        {
+            List<Dictionary<string, string>> roomInfo = _roomsData.GetRoomFromDatabase(building, floornr, nr);
+            List<IRoom> room = this.ConvertFromStringsToRoomObjects(roomInfo);
+            return room[0];
+        }
+
+        public Reservation GetReservation(string id)
+        {
+            List<Dictionary<string, string>> reservationInfo = _reservationsData.GetReservationFromDatabase(id);
+            List<Reservation> reservation = this.ConvertFromStringsToReservationObjects(reservationInfo);
+            return reservation[0];
+        }
+
+        public List<IUser> GetAllUsers()
 		{
-			List<Dictionary<string, string>> usersInfo = usersData.GetAllUsersFromDatabase();
+			List<Dictionary<string, string>> usersInfo = _usersData.GetAllUsersFromDatabase();
 			List<IUser> users = this.ConvertFromStringsToUserObjects(usersInfo);
 			return users;
 		}
 
 		public List<Reservation> GetAllReservations()
 		{
-			List<Dictionary<string, string>> reservationsInfo = reservationsData.GetAllReservationsFromDatabase();
+			List<Dictionary<string, string>> reservationsInfo = _reservationsData.GetAllReservationsFromDatabase();
 			List<Reservation> reservations = this.ConvertFromStringsToReservationObjects(reservationsInfo);
 			return reservations;
 		}
@@ -87,7 +111,7 @@ namespace Core
 
 		public List<IRoom> GetAllRooms()
 		{
-			List<Dictionary<string, string>> roomsInfo = roomsData.GetAllRoomsFromDatabase();
+			List<Dictionary<string, string>> roomsInfo = _roomsData.GetAllRoomsFromDatabase();
 			List<IRoom> rooms = ConvertFromStringsToRoomObjects(roomsInfo);
 			return rooms;
 		}
@@ -118,13 +142,13 @@ namespace Core
 			foreach (Dictionary<string, string> reservationInfo in reservationsinfo)
 			{
 				IUser dummyUser = new User(reservationInfo["Username"], "", Permission.Student);
-				IUser user = repoUsers.Get(dummyUser);
+				IUser user = _repoUsers.Get(dummyUser);
 
 				char building = char.Parse(reservationInfo["Building"]);
 				int floorNr = int.Parse(reservationInfo["FloorNr"]);
 				int nr = int.Parse(reservationInfo["Nr"]);
 				IRoom dummyRoom = new Room(building, floorNr, nr, 0, Permission.Student);
-				IRoom room = repoRooms.Get(dummyRoom);
+				IRoom room = _repoRooms.Get(dummyRoom);
 
 				DateTime from = DateTime.Parse(reservationInfo["DateFrom"]);
 				DateTime to = DateTime.Parse(reservationInfo["DateTo"]);
@@ -138,22 +162,22 @@ namespace Core
 
 		public void DeleteReservation(Reservation reservation)
 		{
-			reservationsData.DeleteReservationFromDatabase(reservation.User.Username, reservation.From, reservation.To);
+			_reservationsData.DeleteReservationFromDatabase(reservation.User.Username, reservation.From, reservation.To);
 		}
 
 		public void DeleteRoom(IRoom room)
 		{
-			roomsData.DeleteRoomFromDatabase(room.Building.ToString(), room.Floor.ToString(), room.Nr.ToString());
+			_roomsData.DeleteRoomFromDatabase(room.Building.ToString(), room.Floor.ToString(), room.Nr.ToString());
 		}
 
 		public void DeleteUser(IUser user)
 		{
-			usersData.DeleteUserFromDatabase(user.Username);
+			_usersData.DeleteUserFromDatabase(user.Username);
 		}
 
 		public void PassReservationToDAL(Reservation reservation)
 		{
-			reservationsData.StoreReservationIntoDatabase(this.ConvertFromReservationObjectToStrings(reservation));
+			_reservationsData.StoreReservationIntoDatabase(this.ConvertFromReservationObjectToStrings(reservation));
 		}
 
 		private Dictionary<string, string> ConvertFromReservationObjectToStrings(Reservation reservation)
@@ -185,7 +209,7 @@ namespace Core
 
 		public void InsertUser(IUser user)
 		{
-			usersData.InsertUserToDatabase(user.Username, user.Email, (int)user.PermissionLevel);
+			_usersData.InsertUserToDatabase(user.Username, user.Email, (int)user.PermissionLevel);
 		}
-	}
+    }
 }

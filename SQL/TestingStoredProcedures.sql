@@ -18,10 +18,16 @@ EXECUTE SP_InsertRoom @Building = 'A', @FloorNr = 1, @Nr = 2, @MaxPeople = 4, @M
 EXECUTE SP_InsertRoom @Building = 'A', @FloorNr = 1, @Nr = 99, @MaxPeople = 8, @MinPermissionLevel = 0
 EXECUTE SP_InsertRoom @Building = 'A', @FloorNr = 1, @Nr = 45, @MaxPeople = 2, @MinPermissionLevel = 0
 
-EXECUTE SP_InsertReservation @PeopleNr = 8, @DateTo = '2017-05-15 18:00:00.00', @DateFrom = '2017-05-15 19:00:00.00', @Building = 'A', @FloorNr = 1, @Nr = 15, @Username = 'matt2694'
+EXECUTE SP_InsertReservation @PeopleNr = 8, @DateTo = '2017-05-15 19:00:00.00', @DateFrom = '2017-05-15 18:00:00.00', @Building = 'A', @FloorNr = 1, @Nr = 15, @Username = 'matt2694'
 
-EXECUTE SP_DeleteReservation @ID = 12
+EXECUTE SP_DeleteReservation @Username = 'matt2694', @DateFrom = '2017-05-15 18:00:00.00', @DateTo = '2017-05-15 19:00:00.00'
 
 EXECUTE SP_DeleteUser @Username = 'matt2694'
 
 EXECUTE SP_DeleteRoom @Building = 'A', @FloorNr = 1, @Nr = 15
+
+EXECUTE SP_GetUser @Username = 'alhe'
+
+EXECUTE SP_GetRoom @Building = 'A', @FloorNr = 2, @Nr = 15
+
+EXECUTE SP_GetReservation @ID = 656

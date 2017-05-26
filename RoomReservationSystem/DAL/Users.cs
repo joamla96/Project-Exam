@@ -38,7 +38,44 @@ namespace DAL {
 			return result;
 		}
 
-		public void InsertUserToDatabase(string username, string email, int permission) {
+        public List<Dictionary<string, string>> GetUserFromDatabase(string username)
+        {
+            List<Dictionary<string, string>> result = new List<Dictionary<string, string>>();
+
+            SqlConnection conn = this.OpenConnection();
+
+            SqlCommand command = new SqlCommand("SP_GetUser", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            command.Parameters.AddWithValue("Username", username);
+
+            try
+            {
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Dictionary<string, string> row = new Dictionary<string, string>();
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            row.Add(reader.GetName(i), reader[i].ToString());
+                        }
+                        result.Add(row);
+                    }
+                }
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+
+            return result;
+        }
+
+        public void InsertUserToDatabase(string username, string email, int permission) {
 			SqlConnection conn = this.OpenConnection();
 
 			SqlCommand command = new SqlCommand("SP_InsertUser", conn) {

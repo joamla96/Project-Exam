@@ -2,67 +2,17 @@
 <diagram program="umlet" version="14.2">
   <zoom_level>16</zoom_level>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>192</x>
-      <y>208</y>
-      <w>432</w>
-      <h>160</h>
-    </coordinates>
-    <panel_attributes>User
---
-+ Username : String
-+ Email : String
-+ PermissionLevel : enum.Permission</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1264</x>
-      <y>208</y>
-      <w>448</w>
-      <h>224</h>
-    </coordinates>
-    <panel_attributes>Room
---
-+ ID : String
-+ Building : Char
-+ Floor : Int
-+ Nr : Int
-+ MaxPeople : Int
-+ MinPermissionLevel: enum.Permission</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>768</x>
-      <y>208</y>
-      <w>320</w>
-      <h>176</h>
-    </coordinates>
-    <panel_attributes>Reservation
---
-+ User : IUser
-+ Room : IRoom
-+ PeopleNr: Int
-+ From : DateTime
-+ To : DateTime</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>608</x>
+      <x>448</x>
       <y>208</y>
-      <w>192</w>
+      <w>224</w>
       <h>64</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -76,5 +26,74 @@ m2=0..n</panel_attributes>
 m1=0..n
 m2=1</panel_attributes>
     <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>32</x>
+      <y>208</y>
+      <w>432</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>User
+--
++ Username : String
++ Email : String
++ PermissionLevel : enum.Permission
+--
++ Equals(obj)
++ GetHashCode()
++ GetReservations()
++ AddReservation(reservation)
++ DeleteReservation(reservation)
++ HasReservation(from, to)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>208</y>
+      <w>448</w>
+      <h>272</h>
+    </coordinates>
+    <panel_attributes>Reservation
+--
++ PeopleNr: Int
++ From : DateTime
++ To : DateTime
+--
++ Equals(obj)
++ GetHashCode()
++ ToString()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1264</x>
+      <y>208</y>
+      <w>448</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>Room
+--
++ ID : String
+- building : Char
++ Building : Char
++ Floor : Int
++ Nr : Int
++ MaxPeople : Int
++ MinPermissionLevel: enum.Permission
+--
++ IsAvailable(from, to)
++ Equals(obj)
++ GetHashCode()
++ ToString()
++ CompareTo(obj)
++ AddReservation(reserv)
++ GetReservations()
++ DeleteReservation(reservation)</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>

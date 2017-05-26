@@ -58,7 +58,7 @@ namespace Core
 
 			// Check and remove old reservations from the Que
 			resRemove = new List<Reservation>();
-			foreach (Reservation res in ReservationRepository.Instance.GetQue())
+			foreach (Reservation res in ReservationRepository.Instance.GetQueue())
 			{
 				if (res.To < DateTime.Now)
 				{

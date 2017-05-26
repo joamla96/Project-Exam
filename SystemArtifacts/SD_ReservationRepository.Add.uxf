@@ -22,7 +22,7 @@ Add(reservation)</panel_attributes>
       <h>60</h>
     </coordinates>
     <panel_attributes>                                                1
-_:ReservationRepo_
+_:ReservationRepository_
 group=1</panel_attributes>
     <additional_attributes/>
   </element>
@@ -65,12 +65,12 @@ group=1</panel_attributes>
     <coordinates>
       <x>456</x>
       <y>252</y>
-      <w>324</w>
+      <w>420</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;&gt;&gt;
-_repository.add(reservation)</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;10.0;80.0;80.0;10.0;80.0</additional_attributes>
+    <panel_attributes>lt=.&gt;
+_reservationRepository.add(reservation)</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0;80.0;80.0;20.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -209,5 +209,16 @@ group=2</panel_attributes>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>456</x>
+      <y>348</y>
+      <w>24</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
   </element>
 </diagram>

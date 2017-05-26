@@ -21,7 +21,6 @@ namespace DAL {
 		protected void CloseConnection() {
 			_conn.Close();
 			Monitor.Exit(locked);
-			Monitor.PulseAll(locked);
 		}
 	}
 }

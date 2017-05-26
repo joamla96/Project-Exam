@@ -31,6 +31,7 @@ namespace Core
 
             if (availableRooms.Count == 0)
             {
+				// Add to reservationq queue, then throw exception.
                 throw new NoRoomsAvailable();
             }
             else
@@ -101,6 +102,8 @@ namespace Core
             reservation.Room.DeleteReservation(reservation);
             reservation.User.DeleteReservation(reservation);
             _dalFacade.DeleteReservation(reservation);
+
+			// Check the queue, see if anyone fits the criterias...
         }
 
         public void Add(IUser user, IRoom room, int peoplenr, DateTime datefrom, DateTime dateto)

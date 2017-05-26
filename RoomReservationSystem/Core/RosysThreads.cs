@@ -15,7 +15,8 @@ namespace Core
         IDALFacade _dalFacade = new DALFacade();
         private List<IObserver> _observers = new List<IObserver>();
         private const int NOTIFICATIONSLEEPTIME = 60000;
-
+		private const int MAINTSLEEPTIME = 60 * 60 * 24; // Run daily
+		 
         public void NotificationThread()
         {
             List<Reservation> reservations = new List<Reservation>();
@@ -37,6 +38,41 @@ namespace Core
                 Thread.Sleep(NOTIFICATIONSLEEPTIME);
             }
         }
+
+		public void MaintenanceThread()
+		{
+			// Check and remove old/outdated reservations
+			List<Reservation> resRemove = new List<Reservation>();
+			foreach(Reservation res in ReservationRepository.Instance.Get())
+			{
+				if(res.To < DateTime.Now)
+				{
+					resRemove.Add(res);
+				}
+			}
+
+			foreach(Reservation res in resRemove)
+			{
+				ReservationRepository.Instance.Delete(res);
+			}
+
+			// Check and remove old reservations from the Que
+			resRemove = new List<Reservation>();
+			foreach (Reservation res in ReservationRepository.Instance.GetQue())
+			{
+				if (res.To < DateTime.Now)
+				{
+					resRemove.Add(res);
+				}
+			}
+
+			foreach (Reservation res in resRemove)
+			{
+				ReservationRepository.Instance.Delete(res);
+			}
+
+			Thread.Sleep(MAINTSLEEPTIME);
+		}
 
         public void CheckChangeTable()
         {

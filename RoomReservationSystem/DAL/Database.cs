@@ -9,7 +9,7 @@ namespace DAL {
 		protected static object locked = new object();
 
 		protected SqlConnection OpenConnection() {
-			Monitor.Enter(locked);	
+			Monitor.Enter(locked);
 			if (_conn == null) {
 				_conn = new SqlConnection(_connInfo);
 			}

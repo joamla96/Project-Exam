@@ -41,7 +41,36 @@ namespace Core
 
 		public void MaintenanceThread()
 		{
-			// Remove outdated reservations
+			// Check and remove old/outdated reservations
+			List<Reservation> resRemove = new List<Reservation>();
+			foreach(Reservation res in ReservationRepository.Instance.Get())
+			{
+				if(res.To < DateTime.Now)
+				{
+					resRemove.Add(res);
+				}
+			}
+
+			foreach(Reservation res in resRemove)
+			{
+				ReservationRepository.Instance.Delete(res);
+			}
+
+			// Check and remove old reservations from the Que
+			resRemove = new List<Reservation>();
+			foreach (Reservation res in ReservationRepository.Instance.GetQue())
+			{
+				if (res.To < DateTime.Now)
+				{
+					resRemove.Add(res);
+				}
+			}
+
+			foreach (Reservation res in resRemove)
+			{
+				ReservationRepository.Instance.Delete(res);
+			}
+
 			Thread.Sleep(MAINTSLEEPTIME);
 		}
 

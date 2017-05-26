@@ -64,7 +64,17 @@ namespace Core
             return availableRooms;
         }
 
-        internal void LoadFromDatabase(Reservation reservation)
+		internal void DeleteFromQue(Reservation res)
+		{
+			_queue.Remove(res);
+		}
+
+		internal List<Reservation> GetQue()
+		{
+			return _queue;
+		}
+
+		internal void LoadFromDatabase(Reservation reservation)
         {
             _reservationRepository.Add(reservation);
             reservation.Room.AddReservation(reservation);

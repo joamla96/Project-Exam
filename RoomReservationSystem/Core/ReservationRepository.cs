@@ -61,12 +61,12 @@ namespace Core
             return availableRooms;
         }
 
-		internal void DeleteFromQue(Reservation res)
+		internal void DeleteFromQueue(Reservation res)
 		{
 			_queue.Remove(res);
 		}
 
-		internal List<Reservation> GetQue()
+		internal List<Reservation> GetQueue()
 		{
 			return _queue;
 		}

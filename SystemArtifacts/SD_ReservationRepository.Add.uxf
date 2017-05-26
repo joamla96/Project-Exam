@@ -206,7 +206,7 @@ AddReservation(reservation)</panel_attributes>
       <h>119</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
-_reservationRepository.add(reservation)</panel_attributes>
+_reservationRepository.Add(reservation)</panel_attributes>
     <additional_attributes>10.0;10.0;50.0;10.0;50.0;50.0;20.0;50.0</additional_attributes>
   </element>
   <element>

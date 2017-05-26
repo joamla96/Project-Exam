@@ -48,6 +48,13 @@ namespace UI.GUI.View
 				string registerRoomMessage = "Your room has been successfully registered !";
 				MessageBox.Show(registerRoomMessage);
 			}
+
+			BuildingTextBox.Clear();
+			FloorTextBox.Clear();
+			RoomNrTextBox.Clear();
+			MaxPeopleNrTextBox.Clear();
+			
+
 		}
 	}
 }

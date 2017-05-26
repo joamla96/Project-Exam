@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-    public class ReservationRepository/* : IObservable*/
+    public class ReservationRepository
     {
         DALFacade _dalFacade = new DALFacade();
         List<Reservation> _reservationRepository = new List<Reservation>();
-        //private List<IObserver> _observers = new List<IObserver>();
         RoomRepository _roomRepo = RoomRepository.Instance;
         private static ReservationRepository _instance = new ReservationRepository();
         public static ReservationRepository Instance { get { return _instance; } }
@@ -20,14 +19,14 @@ namespace Core
         public IRoom RequestReservation(DateTime from, DateTime to, int peopleNr, IUser user)
         {
 
-            if(user.HasReservation(from.AddSeconds(1), to))
+            if (user.HasReservation(from.AddSeconds(1), to))
             {
                 throw new UserAlreadyHasRoomException();
             }
 
             List<IRoom> rooms = _roomRepo.GetPossible(user.PermissionLevel, peopleNr);
 
-			List<IRoom> availableRooms = RemoveUnavailableRooms(rooms, from, to);
+            List<IRoom> availableRooms = RemoveUnavailableRooms(rooms, from, to);
 
             if (availableRooms.Count == 0)
             {
@@ -42,27 +41,27 @@ namespace Core
 
         }
 
-		public List<IRoom> GetAvailableRooms(DateTime from, DateTime to, IUser user)
-		{
-			List<IRoom> rooms = _roomRepo.GetPossible(user.PermissionLevel);
-			List<IRoom> availableRooms = RemoveUnavailableRooms(rooms, from, to);
-			return availableRooms;
-		}
+        public List<IRoom> GetAvailableRooms(DateTime from, DateTime to, IUser user)
+        {
+            List<IRoom> rooms = _roomRepo.GetPossible(user.PermissionLevel);
+            List<IRoom> availableRooms = RemoveUnavailableRooms(rooms, from, to);
+            return availableRooms;
+        }
 
-		private List<IRoom> RemoveUnavailableRooms(List<IRoom> rooms, DateTime from, DateTime to)
-		{
-			List<IRoom> availableRooms = new List<IRoom>();
+        private List<IRoom> RemoveUnavailableRooms(List<IRoom> rooms, DateTime from, DateTime to)
+        {
+            List<IRoom> availableRooms = new List<IRoom>();
 
-			foreach (IRoom room in rooms)
-			{
-				bool roomAvailable = room.IsAvailable(from, to);
-				if (roomAvailable == true)
-				{
-					availableRooms.Add(room);
-				}
-			}
-			return availableRooms;
-		}
+            foreach (IRoom room in rooms)
+            {
+                bool roomAvailable = room.IsAvailable(from, to);
+                if (roomAvailable == true)
+                {
+                    availableRooms.Add(room);
+                }
+            }
+            return availableRooms;
+        }
 
         internal void LoadFromDatabase(Reservation reservation)
         {
@@ -156,65 +155,50 @@ namespace Core
             return result;
         }
 
-		public List<Reservation> Get(DateTime? from, DateTime? to, IUser user)
-		{
-			List<Reservation> reservations = new List<Reservation>();
-			List<Reservation> allReservations = this.Get();
+        public List<Reservation> Get(DateTime? from, DateTime? to, IUser user)
+        {
+            List<Reservation> reservations = new List<Reservation>();
+            List<Reservation> allReservations = this.Get();
 
-			if (from != null)
-			{
-				foreach (Reservation reservation in allReservations)
-				{
-					if (from < reservation.From)
-					{
-						reservations.Add(reservation);
-					}
-				}
-				allReservations = reservations;
-				reservations = new List<Reservation>();
-			}
+            if (from != null)
+            {
+                foreach (Reservation reservation in allReservations)
+                {
+                    if (from < reservation.From)
+                    {
+                        reservations.Add(reservation);
+                    }
+                }
+                allReservations = reservations;
+                reservations = new List<Reservation>();
+            }
 
-			if (to != null)
-			{
-				foreach (Reservation reservation in allReservations)
-				{
-					if (to > reservation.To)
-					{
-						reservations.Add(reservation);
-					}
-				}
-				allReservations = reservations;
-				reservations = new List<Reservation>();
-			}
+            if (to != null)
+            {
+                foreach (Reservation reservation in allReservations)
+                {
+                    if (to > reservation.To)
+                    {
+                        reservations.Add(reservation);
+                    }
+                }
+                allReservations = reservations;
+                reservations = new List<Reservation>();
+            }
 
-			if (user != null)
-			{
-				foreach (Reservation reservation in allReservations)
-				{
-					if (user.Equals(reservation.User))
-					{
-						reservations.Add(reservation);
-					}
-				}
-				allReservations = reservations;
-				reservations = new List<Reservation>();
-			}
-			return allReservations;
-		}
-
-			//public void Subscribe(IObserver observer)
-			//{
-			//    _observers.Add(observer);
-			//}
-
-			//public void Unsubscribe(IObserver observer)
-			//{
-			//    _observers.Remove(observer);
-			//}
-
-			//public void Notify()
-			//{
-			//    _observers.ForEach(observer => observer.Update());
-			//}
-		}
+            if (user != null)
+            {
+                foreach (Reservation reservation in allReservations)
+                {
+                    if (user.Equals(reservation.User))
+                    {
+                        reservations.Add(reservation);
+                    }
+                }
+                allReservations = reservations;
+                reservations = new List<Reservation>();
+            }
+            return allReservations;
+        }
+    }
 }

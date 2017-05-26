@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Core.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Core.Interfaces;
-using Core;
+using System;
 
 namespace Core.UnitTest
 {
-    [TestClass]
+	[TestClass]
     public class CreateInstance
     {
         IRoom _room1;

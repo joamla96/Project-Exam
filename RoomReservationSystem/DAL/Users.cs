@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 
-namespace DAL {
-    public interface IUsersForMocking
+namespace DAL
+{
+	public interface IUsersForMocking
     {
         List<Dictionary<string, string>> GetAllUsersFromDatabase();
     }

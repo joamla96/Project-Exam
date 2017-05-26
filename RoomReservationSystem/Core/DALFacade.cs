@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Core.Interfaces;
+﻿using Core.Interfaces;
 using DAL;
+using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Core

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Core;
 using System.Threading;
-using Core;
 using System.Windows;
 
 namespace UI.GUI.ViewModel
 {
-    public class NotificationsVM
+	public class NotificationsVM
     {
         private ReservationsObserver _reservationsObserver = ReservationsObserver.Instance;
 

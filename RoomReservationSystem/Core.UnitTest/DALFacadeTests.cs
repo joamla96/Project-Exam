@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Core;
-using Core.Interfaces;
-using Moq;
+﻿using Core.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using System;
+using System.Collections.Generic;
 
 namespace Core.UnitTest
 {
-    [TestClass]
+	[TestClass]
     public class DALFacadeTests
     {
         IUser testUser;

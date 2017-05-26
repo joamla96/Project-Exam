@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Core.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Core.Interfaces;
-using Core;
+using System;
+using System.Collections.Generic;
 
 namespace Core.IntegrationTest
 {
-    [TestClass]
+	[TestClass]
     public class RepositoryIntegrationTest
     {
         UserRepository _repoUser = UserRepository.Instance;

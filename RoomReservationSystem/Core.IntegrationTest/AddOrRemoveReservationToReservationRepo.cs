@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Core.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Core;
-using Core.Interfaces;
+using System;
 using System.Collections.Generic;
 
-namespace Core.IntegrationTest {
+namespace Core.IntegrationTest
+{
 	[TestClass]
 	public class AddOrRemoveReservationToReservationRepo {
 		ReservationRepository _repoReserv = ReservationRepository.Instance;

@@ -1,14 +1,11 @@
-﻿using Core.Interfaces;
-using Core.Exceptions;
+﻿using Core.Exceptions;
+using Core.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core
 {
-    public class ReservationRepository
+	public class ReservationRepository
     {
         private DALFacade _dalFacade = new DALFacade();
         private List<Reservation> _reservationRepository = new List<Reservation>();

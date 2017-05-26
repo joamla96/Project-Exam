@@ -1,7 +1,7 @@
-﻿using System;
-using Core.Interfaces;
+﻿using Core.Interfaces;
 
-namespace UI.GUI {
+namespace UI.GUI
+{
 	public static class LoggedIn {
 		// Login a user:
 		// Core.LoggedIn.User = new User(...);

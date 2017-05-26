@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Core.Interfaces;
 using System.Collections.Generic;
-using Core.Interfaces;
 using System.Threading;
 
-namespace Core {
+namespace Core
+{
 	public static class Initialize
     {
 		private static DALFacade _dal = new DALFacade();

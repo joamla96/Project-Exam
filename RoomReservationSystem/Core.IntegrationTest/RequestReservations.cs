@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Core.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Core;
-using Core.Interfaces;
 
-namespace Core.IntegrationTest {
+namespace Core.IntegrationTest
+{
 	[TestClass]
 	public class RequestReservations {
 		ReservationRepository _repoReserv = ReservationRepository.Instance;

@@ -1,11 +1,11 @@
-﻿using System;
-using Core.Interfaces;
+﻿using Core.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace Core
 {
 
-    public class Room : IRoom, IComparable
+	public class Room : IRoom, IComparable
     {
 
         public string ID {

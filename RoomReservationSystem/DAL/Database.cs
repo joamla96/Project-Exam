@@ -1,8 +1,8 @@
-﻿using System;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Threading;
 
-namespace DAL {
+namespace DAL
+{
 	public abstract class Database {
 		private static string _connInfo = DatabaseConn.ConnString;
 		private static SqlConnection _conn;

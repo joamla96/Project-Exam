@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Core;
-using Core.Interfaces;
+﻿using Core.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
 
 namespace Core.UnitTest
 {
-    [TestClass]
+	[TestClass]
     public class ReservationRepositoryTests 
     {
         ReservationRepository _repoReservation = ReservationRepository.Instance;

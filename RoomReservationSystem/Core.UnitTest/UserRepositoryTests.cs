@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Core.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Core;
-using Core.Interfaces;
+using System;
+using System.Collections.Generic;
 
 namespace Core.UnitTest
 {
-    [TestClass]
+	[TestClass]
     public class UserRepositoryTests
     {
         UserRepository _repoUser = UserRepository.Instance;

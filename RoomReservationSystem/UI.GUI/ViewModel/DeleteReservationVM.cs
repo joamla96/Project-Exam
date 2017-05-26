@@ -1,10 +1,5 @@
-﻿using System;
+﻿using Core;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Core;
-using Core.Interfaces;
 
 namespace UI.GUI.ViewModel
 {

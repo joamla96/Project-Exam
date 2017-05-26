@@ -1,12 +1,12 @@
 ﻿using Core.Interfaces;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using DAL;
 
 namespace Core
 {
-    class RosysThreads : IObservable 
+	class RosysThreads : IObservable 
     {
         private ReservationRepository _repoReservations = ReservationRepository.Instance;
         private RoomRepository _repoRooms = RoomRepository.Instance;

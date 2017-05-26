@@ -1,7 +1,7 @@
-﻿using System.Windows;
-using Core;
+﻿using Core;
 using Core.Interfaces;
 using System;
+using System.Windows;
 
 namespace UI.GUI
 {

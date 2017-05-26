@@ -1,7 +1,7 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Core.UnitTest {
+namespace Core.UnitTest
+{
 
 	[TestClass]
 	class ClientCancelReservation {

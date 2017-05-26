@@ -1,10 +1,10 @@
-﻿using System;
-using Core.Interfaces;
+﻿using Core.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace Core
 {
-    public class User : IUser
+	public class User : IUser
     {
         public string Username { get; set; }
         public string Email { get; set; }

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace DAL
 {
-    public interface IReservationsForMocking
+	public interface IReservationsForMocking
     {
         List<Dictionary<string, string>> GetAllReservationsFromDatabase();
     }

@@ -1,7 +1,7 @@
-﻿using System;
-using Core;
+﻿using Core;
 using Core.Exceptions;
 using Core.Interfaces;
+using System;
 
 namespace UI.GUI.ViewModel
 {

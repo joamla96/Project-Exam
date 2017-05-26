@@ -202,18 +202,18 @@ AddReservation(reservation)</panel_attributes>
     <coordinates>
       <x>595</x>
       <y>323</y>
-      <w>663</w>
-      <h>136</h>
+      <w>544</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 _reservationRepository.add(reservation)</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;10.0;120.0;60.0;20.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0;50.0;50.0;20.0;50.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
       <x>595</x>
-      <y>425</y>
+      <y>408</y>
       <w>34</w>
       <h>34</h>
     </coordinates>

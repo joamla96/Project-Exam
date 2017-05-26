@@ -15,7 +15,7 @@ namespace Core
         private Change _changesData = new Change();
         IDALFacade _dalFacade = new DALFacade();
         private List<IObserver> _observers = new List<IObserver>();
-        private const int NOTIFICATIONSLEEPTIME = 6000;
+        private const int NOTIFICATIONSLEEPTIME = 60000;
 
         public void NotificationThread()
         {

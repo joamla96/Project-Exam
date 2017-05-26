@@ -202,12 +202,13 @@ _+ Instance : RoomRepository_
       <x>1288</x>
       <y>624</y>
       <w>280</w>
-      <h>264</h>
+      <h>296</h>
     </coordinates>
     <panel_attributes>                                                                                   1
 ReservationRepository
 --
 - _reservationRepository : List&lt;Reservation&gt;
+- _queue : List&lt;Reservation&gt;
 _dalFacade : DALFacade
 _roomRepo : RoomRepository
 _- _instance : ReservationRepository_
@@ -224,7 +225,9 @@ _+ Instance : ReservationRepository_
 + Get() : List&lt;Reservation&gt; // Get all
 + Get(user) : List&lt;Reservation&gt; // Get all by User
 + Get(room) : List&lt;Reservation&gt; // Get all by Room
-+ Get(reservation) : Reservation // Get specific
++ Get(reservation) : Reservation // Get specific\
++ GetQue : List&lt;Reservation&gt;
++ DeleteFromQue(reservation)
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -379,7 +382,7 @@ _+ TimeCollides(now, start, end)_
     <id>UMLClass</id>
     <coordinates>
       <x>1352</x>
-      <y>928</y>
+      <y>968</y>
       <w>240</w>
       <h>112</h>
     </coordinates>
@@ -700,22 +703,22 @@ group=4</panel_attributes>
       <x>1120</x>
       <y>792</y>
       <w>248</w>
-      <h>192</h>
+      <h>232</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>290.0;220.0;10.0;220.0;10.0;10.0</additional_attributes>
+    <additional_attributes>290.0;270.0;10.0;270.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1464</x>
-      <y>880</y>
+      <y>912</y>
       <w>24</w>
-      <h>64</h>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -723,23 +726,23 @@ group=4</panel_attributes>
       <x>1584</x>
       <y>896</y>
       <w>144</w>
-      <h>96</h>
+      <h>136</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>160.0;10.0;160.0;100.0;10.0;100.0</additional_attributes>
+    <additional_attributes>160.0;10.0;160.0;150.0;10.0;150.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1472</x>
-      <y>1032</y>
+      <y>1072</y>
       <w>24</w>
-      <h>304</h>
+      <h>264</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>10.0;360.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;310.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -778,7 +781,7 @@ group=4</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1152</x>
-      <y>896</y>
+      <y>936</y>
       <w>176</w>
       <h>56</h>
     </coordinates>
@@ -810,11 +813,11 @@ NoRoomsAvailable
       <x>1232</x>
       <y>624</y>
       <w>72</w>
-      <h>288</h>
+      <h>328</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>70.0;20.0;10.0;20.0;10.0;340.0</additional_attributes>
+    <additional_attributes>70.0;20.0;10.0;20.0;10.0;390.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -1015,12 +1018,12 @@ group=5</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1416</x>
-      <y>1032</y>
+      <y>1072</y>
       <w>24</w>
-      <h>96</h>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -1037,12 +1040,12 @@ group=5</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1000</x>
-      <y>1016</y>
+      <y>1056</y>
       <w>368</w>
-      <h>152</h>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>440.0;10.0;240.0;10.0;240.0;170.0;10.0;170.0</additional_attributes>
+    <additional_attributes>440.0;10.0;240.0;10.0;240.0;120.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -1103,7 +1106,7 @@ group=5</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1112</x>
-      <y>984</y>
+      <y>1024</y>
       <w>256</w>
       <h>24</h>
     </coordinates>

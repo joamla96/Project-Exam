@@ -28,7 +28,7 @@ namespace Core
             if (availableRooms.Count == 0)
             {
                 _queue.Add(new Reservation(user, null, peopleNr, from, to));
-                throw new NoRoomsAvailable();
+                throw new NoRoomsAvailableException();
             }
             else
             {

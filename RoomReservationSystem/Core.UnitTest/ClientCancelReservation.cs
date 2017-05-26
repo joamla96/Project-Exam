@@ -3,8 +3,9 @@
 namespace Core.UnitTest
 {
 
-	[TestClass]
-	class ClientCancelReservation {
+    [TestClass]
+    class ClientCancelReservation
+    {
 
-	}
+    }
 }

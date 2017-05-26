@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Core.UnitTest
 {
-	[TestClass]
+    [TestClass]
     public class DALFacadeTests
     {
         IUser testUser;
@@ -17,19 +17,19 @@ namespace Core.UnitTest
         RoomRepository repoRooms;
         ReservationRepository repoReservations;
 
-		[ClassInitialize]
-		public static void ClassInit(TestContext testContext)
-		{
-			SystemSettings.Enviroment = Enviroment.Test;
-		}
+        [ClassInitialize]
+        public static void ClassInit(TestContext testContext)
+        {
+            SystemSettings.Enviroment = Enviroment.Test;
+        }
 
-		[ClassCleanup]
-		public static void ClassClean()
-		{
-			SystemSettings.Enviroment = Enviroment.Prod;
-		}
+        [ClassCleanup]
+        public static void ClassClean()
+        {
+            SystemSettings.Enviroment = Enviroment.Prod;
+        }
 
-		[TestInitialize]
+        [TestInitialize]
         public void TestInitialize()
         {
             testUser = new User("matt2694", "matt2694@edu.eal.dk", Permission.Student);
@@ -190,7 +190,7 @@ namespace Core.UnitTest
             mock.Setup(usersMock => usersMock.GetAllUsersFromDatabase()).Returns(() => resultUsersInfo);
 
             List<IUser> returnedUsers = testDALFacade.ConvertFromStringsToUserObjects(mock.Object.GetAllUsersFromDatabase());
-            
+
             Assert.IsTrue(expectedUser1.Equals(returnedUsers[0]) && expectedUser2.Equals(returnedUsers[1]) && expectedUser3.Equals(returnedUsers[2]));
         }
 
@@ -320,7 +320,7 @@ namespace Core.UnitTest
             resultdReservationsInfo.Add(oneReservation1);
             resultdReservationsInfo.Add(oneReservation2);
             resultdReservationsInfo.Add(oneReservation3);
-            
+
             DateTime testDateFrom1 = new DateTime(2017, 05, 05, 18, 00, 00, 00);
             DateTime testDateTo1 = new DateTime(2017, 05, 05, 19, 00, 00, 00);
 

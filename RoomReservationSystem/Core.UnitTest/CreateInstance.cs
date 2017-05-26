@@ -4,7 +4,7 @@ using System;
 
 namespace Core.UnitTest
 {
-	[TestClass]
+    [TestClass]
     public class CreateInstance
     {
         IRoom _room1;
@@ -22,19 +22,19 @@ namespace Core.UnitTest
         DateTime _dateFrom;
         DateTime _dateTo;
 
-		[ClassInitialize]
-		public static void ClassInit(TestContext testContext)
-		{
-			SystemSettings.Enviroment = Enviroment.Test;
-		}
+        [ClassInitialize]
+        public static void ClassInit(TestContext testContext)
+        {
+            SystemSettings.Enviroment = Enviroment.Test;
+        }
 
-		[ClassCleanup]
-		public static void ClassClean()
-		{
-			SystemSettings.Enviroment = Enviroment.Prod;
-		}
+        [ClassCleanup]
+        public static void ClassClean()
+        {
+            SystemSettings.Enviroment = Enviroment.Prod;
+        }
 
-		[TestInitialize]
+        [TestInitialize]
         public void TestInitialize()
         {
             _room1 = new Room('A', 2, 9, 6, Permission.Student);
@@ -49,7 +49,7 @@ namespace Core.UnitTest
             _reservation2 = new Reservation(_teacher, _room2, 6, _dateFrom, _dateTo);
             _reservation3 = new Reservation(_admin, _room3, 6, _dateFrom, _dateTo);
         }
-		
+
         [TestMethod]
         public void CanCreateRoomInstanceID1()
         {

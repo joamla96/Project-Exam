@@ -22,7 +22,7 @@ namespace UI.GUI.ViewModel
 				IRoom room = _reserveRepo.RequestReservation(dateFrom, dateTo, peopleNR, LoggedIn.User);
 				message = "You have been assigned to room: " + room.ID;
 			}
-			catch (NoRoomsAvailable)
+			catch (NoRoomsAvailableException)
 			{
 				message = "No rooms available, placed in Que";
 			}

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>10</zoom_level>
+  <zoom_level>13</zoom_level>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>10</x>
-      <y>180</y>
-      <w>380</w>
-      <h>40</h>
+      <x>0</x>
+      <y>104</y>
+      <w>377</w>
+      <h>52</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 Delete(reservation)</panel_attributes>
-    <additional_attributes>10.0;20.0;360.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>280</x>
-      <y>110</y>
-      <w>200</w>
-      <h>50</h>
+      <x>260</x>
+      <y>13</y>
+      <w>208</w>
+      <h>65</h>
     </coordinates>
-    <panel_attributes>                                                1
+    <panel_attributes>                                      1
 _:ReservationRepository_
 group=1</panel_attributes>
     <additional_attributes/>
@@ -29,22 +29,22 @@ group=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>150</y>
-      <w>30</w>
-      <h>70</h>
+      <x>351</x>
+      <y>65</y>
+      <w>39</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=.
-group=1</panel_attributes>
+</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>370</x>
-      <y>200</y>
-      <w>20</w>
-      <h>750</h>
+      <x>351</x>
+      <y>130</y>
+      <w>26</w>
+      <h>858</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -53,9 +53,9 @@ group=1</panel_attributes>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>0</x>
-      <y>190</y>
-      <w>20</w>
-      <h>20</h>
+      <y>117</y>
+      <w>26</w>
+      <h>26</h>
     </coordinates>
     <panel_attributes>type=initial</panel_attributes>
     <additional_attributes/>
@@ -63,45 +63,34 @@ group=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>210</y>
-      <w>380</w>
-      <h>90</h>
+      <x>364</x>
+      <y>130</y>
+      <w>481</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 _reservationRepository.Remove(reservation)</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;10.0;80.0;70.0;20.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0;70.0;50.0;20.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>300</y>
-      <w>440</w>
-      <h>40</h>
+      <x>364</x>
+      <y>221</y>
+      <w>754</w>
+      <h>52</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 DeleteReservation(reservation)</panel_attributes>
-    <additional_attributes>10.0;20.0;420.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;560.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1360</x>
-      <y>0</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>_:Instance_</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>770</x>
-      <y>120</y>
-      <w>80</w>
-      <h>30</h>
+      <x>1066</x>
+      <y>26</y>
+      <w>78</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>_:IRoom_
 </panel_attributes>
@@ -110,10 +99,10 @@ DeleteReservation(reservation)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>870</x>
-      <y>120</y>
-      <w>80</w>
-      <h>30</h>
+      <x>1157</x>
+      <y>26</y>
+      <w>78</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>_:IUser_</panel_attributes>
     <additional_attributes/>
@@ -121,88 +110,88 @@ DeleteReservation(reservation)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>800</x>
-      <y>140</y>
-      <w>30</w>
-      <h>200</h>
+      <x>1092</x>
+      <y>52</y>
+      <w>39</w>
+      <h>221</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1092</x>
+      <y>247</y>
+      <w>26</w>
+      <h>26</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1183</x>
+      <y>286</y>
+      <w>26</w>
+      <h>26</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1183</x>
+      <y>52</y>
+      <w>39</w>
+      <h>260</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
   </element>
   <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>800</x>
-      <y>320</y>
-      <w>20</w>
-      <h>20</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>900</x>
-      <y>360</y>
-      <w>20</w>
-      <h>20</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>900</x>
-      <y>140</y>
-      <w>30</w>
-      <h>240</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>380</x>
-      <y>340</y>
-      <w>540</w>
-      <h>40</h>
+      <x>364</x>
+      <y>260</y>
+      <w>845</w>
+      <h>52</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 DeleteReservation(reservation)</panel_attributes>
-    <additional_attributes>10.0;20.0;520.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;630.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>800</x>
-      <y>330</y>
-      <w>30</w>
-      <h>320</h>
+      <x>1092</x>
+      <y>260</y>
+      <w>39</w>
+      <h>806</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;300.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;600.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>900</x>
-      <y>370</y>
-      <w>30</w>
-      <h>280</h>
+      <x>1183</x>
+      <y>299</y>
+      <w>39</w>
+      <h>767</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;570.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>160</x>
-      <y>400</y>
-      <w>920</w>
-      <h>380</h>
+      <x>52</x>
+      <y>390</y>
+      <w>1443</w>
+      <h>442</h>
     </coordinates>
     <panel_attributes>foreach
 [Reservation res in _queue]</panel_attributes>
@@ -211,83 +200,72 @@ DeleteReservation(reservation)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>970</x>
-      <y>120</y>
-      <w>120</w>
-      <h>30</h>
+      <x>1378</x>
+      <y>0</y>
+      <w>156</w>
+      <h>65</h>
     </coordinates>
-    <panel_attributes>_:RoomRepository_
+    <panel_attributes>                            1
+_:RoomRepository_
 group=2</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1020</x>
-      <y>140</y>
-      <w>30</w>
-      <h>340</h>
+      <x>1378</x>
+      <y>52</y>
+      <w>39</w>
+      <h>403</h>
     </coordinates>
     <panel_attributes>lt=.
-group=2</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;320.0</additional_attributes>
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;290.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1020</x>
-      <y>460</y>
-      <w>20</w>
-      <h>20</h>
+      <x>1378</x>
+      <y>429</y>
+      <w>26</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>
-group=2</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>440</y>
-      <w>660</w>
-      <h>40</h>
+      <x>364</x>
+      <y>403</y>
+      <w>1040</w>
+      <h>52</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 GetPossible(res.User.PermissionLevel, res.PeopleNr)</panel_attributes>
-    <additional_attributes>640.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>780.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>460</y>
-      <w>660</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-_reservationRepository.Remove(reservation)</panel_attributes>
-    <additional_attributes>640.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>380</x>
-      <y>500</y>
-      <w>410</w>
-      <h>70</h>
+      <x>364</x>
+      <y>481</y>
+      <w>546</w>
+      <h>78</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 List&lt;IRoom&gt; availableRooms =
 RemoveUnavailableRooms(rooms, res.From, res.To)</panel_attributes>
-    <additional_attributes>20.0;50.0;60.0;50.0;60.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>20.0;40.0;70.0;40.0;70.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>380</x>
-      <y>550</y>
-      <w>20</w>
-      <h>20</h>
+      <x>364</x>
+      <y>533</y>
+      <w>26</w>
+      <h>26</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -295,10 +273,10 @@ RemoveUnavailableRooms(rooms, res.From, res.To)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>170</x>
-      <y>580</y>
-      <w>610</w>
-      <h>190</h>
+      <x>78</x>
+      <y>572</y>
+      <w>1352</w>
+      <h>234</h>
     </coordinates>
     <panel_attributes>OPT
 [availableRooms.Count &gt; 0]</panel_attributes>
@@ -307,12 +285,266 @@ RemoveUnavailableRooms(rooms, res.From, res.To)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>380</x>
-      <y>280</y>
-      <w>20</w>
-      <h>20</h>
+      <x>364</x>
+      <y>195</y>
+      <w>26</w>
+      <h>26</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1378</x>
+      <y>455</y>
+      <w>39</w>
+      <h>611</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;450.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1248</x>
+      <y>26</y>
+      <w>117</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>_:DALFacade_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>364</x>
+      <y>299</y>
+      <w>949</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;
+DeleteReservation(reservation)</panel_attributes>
+    <additional_attributes>10.0;20.0;710.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1287</x>
+      <y>52</y>
+      <w>39</w>
+      <h>299</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1287</x>
+      <y>325</y>
+      <w>26</w>
+      <h>26</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1287</x>
+      <y>338</y>
+      <w>39</w>
+      <h>728</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;540.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>364</x>
+      <y>325</y>
+      <w>624</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+List&lt;Reservation&gt; newRegistrations = new List&lt;Reservation&gt;()</panel_attributes>
+    <additional_attributes>10.0;40.0;70.0;40.0;70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>364</x>
+      <y>442</y>
+      <w>1040</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+rooms</panel_attributes>
+    <additional_attributes>780.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>13</x>
+      <y>845</y>
+      <w>1586</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>foreach
+[Reservation res in newRegistrations]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>364</x>
+      <y>572</y>
+      <w>364</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+res.Room = availableRooms[0]</panel_attributes>
+    <additional_attributes>10.0;40.0;70.0;40.0;70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>364</x>
+      <y>637</y>
+      <w>182</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Add(res)</panel_attributes>
+    <additional_attributes>20.0;40.0;70.0;40.0;70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>364</x>
+      <y>689</y>
+      <w>26</w>
+      <h>26</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>364</x>
+      <y>715</y>
+      <w>364</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+res.Room = availableRooms[0]</panel_attributes>
+    <additional_attributes>20.0;40.0;70.0;40.0;70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>364</x>
+      <y>767</y>
+      <w>26</w>
+      <h>26</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1547</x>
+      <y>0</y>
+      <w>195</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>                                    1
+_:ReservationObserver_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>364</x>
+      <y>845</y>
+      <w>1209</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Message</panel_attributes>
+    <additional_attributes>910.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1547</x>
+      <y>52</y>
+      <w>39</w>
+      <h>845</h>
+    </coordinates>
+    <panel_attributes>lt=.
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;630.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1547</x>
+      <y>871</y>
+      <w>26</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>364</x>
+      <y>871</y>
+      <w>286</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+_queue.Remove(res)</panel_attributes>
+    <additional_attributes>20.0;40.0;70.0;40.0;70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>364</x>
+      <y>923</y>
+      <w>26</w>
+      <h>26</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>351</x>
+      <y>975</y>
+      <w>39</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1547</x>
+      <y>897</y>
+      <w>39</w>
+      <h>169</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
   </element>
 </diagram>

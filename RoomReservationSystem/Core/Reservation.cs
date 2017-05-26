@@ -59,12 +59,18 @@ namespace Core
         {
             StringWriter output = new StringWriter();
 
-            output.Write(Room.ID + " " + "|" + " ");
+			if (this.Room != null)
+			{
+				output.Write(Room.ID + " | ");
+			} else
+			{
+				output.Write("In Que | ");
+			}
 
-            string date = From.Day + "." + From.Month + "." + From.Year + " " + "|" + " ";
+            string date = From.Day + "." + From.Month + "." + From.Year + " | ";
             output.Write(date + " ");
 
-            string hourFormat = "{0:00}:{1:00} - {2:00}:{3:00}" + " " + "|" + " ";
+            string hourFormat = "{0:00}:{1:00} - {2:00}:{3:00}" + " | ";
             output.Write(hourFormat, From.Hour, From.Minute, To.Hour, To.Minute);
 
 			string username = this.User.Username;

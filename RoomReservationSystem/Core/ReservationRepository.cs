@@ -20,18 +20,17 @@ namespace Core
         public IRoom RequestReservation(DateTime from, DateTime to, int peopleNr, IUser user)
         {
 
-            if (user.HasReservation(from.AddSeconds(1), to))
+            if (user.HasReservation(from.AddSeconds(1), to.AddSeconds(-1)))
             {
                 throw new UserAlreadyHasRoomException();
             }
 
             List<IRoom> rooms = _roomRepo.GetPossible(user.PermissionLevel, peopleNr);
-
             List<IRoom> availableRooms = RemoveUnavailableRooms(rooms, from, to);
 
             if (availableRooms.Count == 0)
             {
-				// Add to reservationq queue, then throw exception.
+				_queue.Add(new Reservation(user, null, peopleNr, from, to));
                 throw new NoRoomsAvailable();
             }
             else
@@ -104,6 +103,25 @@ namespace Core
             _dalFacade.DeleteReservation(reservation);
 
 			// Check the queue, see if anyone fits the criterias...
+			List<Reservation> newRegistrations = new List<Reservation>();
+			foreach(Reservation res in _queue)
+			{
+				List<IRoom> rooms = _roomRepo.GetPossible(res.User.PermissionLevel, res.PeopleNr);
+				List<IRoom> availableRooms = RemoveUnavailableRooms(rooms, res.From, res.To);
+
+				if (availableRooms.Count > 0)
+				{
+					res.Room = availableRooms[0];
+					this.Add(res);
+					newRegistrations.Add(res);
+				}
+			}
+			
+			// remove the new registrations from the queue.
+			foreach(Reservation res in newRegistrations)
+			{
+				_queue.Remove(res);
+			}
         }
 
         public void Add(IUser user, IRoom room, int peoplenr, DateTime datefrom, DateTime dateto)

@@ -59,12 +59,12 @@
             </Label.ToolTip>
         </Label>
 
-        <TextBox x:Name="MaxPeopleNrTextBox" HorizontalAlignment="Left" Height="29" Margin="15,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
-        <TextBox x:Name="BuildingTextBox" HorizontalAlignment="Left" Height="29" Margin="15,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
-        <TextBox x:Name="FloorTextBox" HorizontalAlignment="Left" Height="29" Margin="15,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
-        <TextBox x:Name="RoomNrTextBox" HorizontalAlignment="Left" Height="29" Margin="15,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
+        <TextBox x:Name="MaxPeopleNrTextBox" HorizontalAlignment="Left" Height="29" Margin="0,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="BuildingTextBox" HorizontalAlignment="Left" Height="29" Margin="0,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="FloorTextBox" HorizontalAlignment="Left" Height="29" Margin="0,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="RoomNrTextBox" HorizontalAlignment="Left" Height="29" Margin="0,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
         <Button x:Name="RegisterRoomPageButton" Content="Register&#xD;&#xA;  Room" HorizontalAlignment="Left" Height="71" Margin="227,42,0,0" VerticalAlignment="Top" Width="107" Click="RegisterRoomPageButtonClick" FontWeight="Bold" FontSize="16"/>
-        <ComboBox x:Name="MinPermissionLevelComboBox" HorizontalAlignment="Left" Margin="15,215,0,0" VerticalAlignment="Top" Width="55" Height="29">
+        <ComboBox x:Name="MinPermissionLevelComboBox" HorizontalAlignment="Left" Margin="0,215,0,0" VerticalAlignment="Top" Width="70" Height="29">
             <ComboBoxItem Tag="0">Student</ComboBoxItem>
             <ComboBoxItem Tag="1">Teacher</ComboBoxItem>
             <ComboBoxItem Tag="2">Admin</ComboBoxItem>

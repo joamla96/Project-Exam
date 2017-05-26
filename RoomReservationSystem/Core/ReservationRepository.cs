@@ -12,7 +12,7 @@ namespace Core
     {
         private DALFacade _dalFacade = new DALFacade();
         private List<Reservation> _reservationRepository = new List<Reservation>();
-		private Queue<Reservation> _queue = new Queue<Reservation>();
+		private List<Reservation> _queue = new List<Reservation>();
 		private  RoomRepository _roomRepo = RoomRepository.Instance;
         private static ReservationRepository _instance = new ReservationRepository();
         public static ReservationRepository Instance { get { return _instance; } }

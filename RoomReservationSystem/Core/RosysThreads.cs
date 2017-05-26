@@ -15,7 +15,8 @@ namespace Core
         IDALFacade _dalFacade = new DALFacade();
         private List<IObserver> _observers = new List<IObserver>();
         private const int NOTIFICATIONSLEEPTIME = 60000;
-
+		private const int MAINTSLEEPTIME = 60 * 60 * 24; // Run daily
+		 
         public void NotificationThread()
         {
             List<Reservation> reservations = new List<Reservation>();
@@ -37,6 +38,12 @@ namespace Core
                 Thread.Sleep(NOTIFICATIONSLEEPTIME);
             }
         }
+
+		public void MaintenanceThread()
+		{
+			// Remove outdated reservations
+			Thread.Sleep(MAINTSLEEPTIME);
+		}
 
         public void CheckChangeTable()
         {

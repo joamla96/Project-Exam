@@ -26,7 +26,7 @@ BEGIN
 END
 
 GO
-CREATE PROCEDURE SP_GetUser (@Username NVarChar(MAX)) AS
+ALTER PROCEDURE SP_GetUser (@Username NVarChar(MAX)) AS
 BEGIN
 	SELECT Username, Email, PermissionLevel
 	FROM Users
@@ -34,7 +34,7 @@ BEGIN
 END
 
 GO
-CREATE PROCEDURE SP_GetRoom (
+ALTER PROCEDURE SP_GetRoom (
 	@Building Char,
 	@FloorNr int,
 	@Nr int
@@ -46,7 +46,7 @@ BEGIN
 END
 
 GO
-CREATE PROCEDURE SP_GetReservation (@ID int) AS
+ALTER PROCEDURE SP_GetReservation (@ID int) AS
 BEGIN
 	SELECT PeopleNr, DateTo, DateFrom, Building, FloorNr, Nr, Username
 	FROM Reservations

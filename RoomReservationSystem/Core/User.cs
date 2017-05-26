@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace Core
 {
-	public class User : IUser
+    public class User : IUser
     {
         public string Username { get; set; }
         public string Email { get; set; }
         public Permission PermissionLevel { get; set; }
 
         List<Reservation> _reservations = new List<Reservation>();
-        
+
 
         public User(string username, string email, Permission premissionLevel)
         {
@@ -33,11 +33,12 @@ namespace Core
             return thesame;
         }
 
-		public override int GetHashCode() {
-			return Username.GetHashCode();
-		}
+        public override int GetHashCode()
+        {
+            return Username.GetHashCode();
+        }
 
-		public List<Reservation> GetReservations()
+        public List<Reservation> GetReservations()
         {
             return _reservations;
         }

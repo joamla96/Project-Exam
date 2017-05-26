@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Core.UnitTest
 {
-	[TestClass]
+    [TestClass]
     public class ClientCreateReservation
     {
 
@@ -22,27 +22,28 @@ namespace Core.UnitTest
         ReservationRepository _repoReserv = ReservationRepository.Instance;
         UserRepository _repoUser = UserRepository.Instance;
 
-		[ClassInitialize]
-		public static void ClassInit(TestContext testContext)
-		{
-			SystemSettings.Enviroment = Enviroment.Test;
-		}
+        [ClassInitialize]
+        public static void ClassInit(TestContext testContext)
+        {
+            SystemSettings.Enviroment = Enviroment.Test;
+        }
 
-		[ClassCleanup]
-		public static void ClassClean()
-		{
-			SystemSettings.Enviroment = Enviroment.Prod;
-		}
+        [ClassCleanup]
+        public static void ClassClean()
+        {
+            SystemSettings.Enviroment = Enviroment.Prod;
+        }
 
-		[TestInitialize]
-        public void TestsInitialize() {
-		    _repoRoom.Clear();
+        [TestInitialize]
+        public void TestsInitialize()
+        {
+            _repoRoom.Clear();
             _repoReserv.Clear();
             _repoUser.Clear();
 
             _room1 = new Room('A', 1, 2, 4, Permission.Student);
             _room2 = new Room('A', 1, 99, 8, Permission.Student);
-			_room3 = new Room('B', 1, 45, 2, Permission.Student);
+            _room3 = new Room('B', 1, 45, 2, Permission.Student);
 
             _repoRoom.Add(_room1);
             _repoRoom.Add(_room2);
@@ -54,36 +55,40 @@ namespace Core.UnitTest
         }
 
         [TestMethod]
-        public void SortRoomsByMaxPeopleIntoFILOStack() {
+        public void SortRoomsByMaxPeopleIntoFILOStack()
+        {
             List<IRoom> StackRooms = _repoRoom.GetPossible(Permission.Student, 4);
 
             Assert.AreEqual(StackRooms[0], _room1);
             Assert.AreEqual(StackRooms[1], _room2);
         }
 
-		[TestMethod]
-		[ExpectedException(typeof(ArgumentOutOfRangeException))]
-		public void SortRoomsByMaxPeopleIntoFILOStackOutOfRooms() {
-			List<IRoom> Rooms = _repoRoom.GetPossible(Permission.Student, 4);
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void SortRoomsByMaxPeopleIntoFILOStackOutOfRooms()
+        {
+            List<IRoom> Rooms = _repoRoom.GetPossible(Permission.Student, 4);
 
-			IRoom test = Rooms[2];
-		}
+            IRoom test = Rooms[2];
+        }
 
-		[TestMethod]
-		public void RoomIsAvailable() {
-			DateTime from = new DateTime(2017, 05, 01, 13, 0, 0);
-			DateTime to = new DateTime(2017, 05, 01, 14, 0, 0);
-			bool roomAvailable = _room1.IsAvailable(from, to);
-			Assert.IsTrue(roomAvailable);
-		}
-		[TestMethod]
-		public void RoomIsNotAvailable() {
-			DateTime from = new DateTime(2017, 05, 01, 13, 0, 0);
-			DateTime to = new DateTime(2017, 05, 01, 14, 0, 0);
-			Reservation res = new Reservation(_student, _room1, 3, from, to);
-			_repoReserv.Add(res);
-			bool roomAvailable = _room1.IsAvailable(from, to);
-			Assert.IsFalse(roomAvailable);
-		}
-	}
+        [TestMethod]
+        public void RoomIsAvailable()
+        {
+            DateTime from = new DateTime(2017, 05, 01, 13, 0, 0);
+            DateTime to = new DateTime(2017, 05, 01, 14, 0, 0);
+            bool roomAvailable = _room1.IsAvailable(from, to);
+            Assert.IsTrue(roomAvailable);
+        }
+        [TestMethod]
+        public void RoomIsNotAvailable()
+        {
+            DateTime from = new DateTime(2017, 05, 01, 13, 0, 0);
+            DateTime to = new DateTime(2017, 05, 01, 14, 0, 0);
+            Reservation res = new Reservation(_student, _room1, 3, from, to);
+            _repoReserv.Add(res);
+            bool roomAvailable = _room1.IsAvailable(from, to);
+            Assert.IsFalse(roomAvailable);
+        }
+    }
 }

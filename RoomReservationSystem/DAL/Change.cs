@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-	public class Change : Database
+    public class Change : Database
     {
         public List<Dictionary<string, string>> GetAllChangesFromDatabase()
         {

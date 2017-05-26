@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Core
 {
-	public class RoomRepository
+    public class RoomRepository
     {
         List<IRoom> _roomRepository = new List<IRoom>();
         private static RoomRepository _instance = new RoomRepository();
@@ -46,35 +46,43 @@ namespace Core
             return _roomRepository;
         }
 
-		public List<IRoom> Get(Permission permissionlevel) {
-			List<IRoom> roomsByPermissionLevel = new List<IRoom>();
+        public List<IRoom> Get(Permission permissionlevel)
+        {
+            List<IRoom> roomsByPermissionLevel = new List<IRoom>();
 
-			foreach(IRoom room in _roomRepository) {
-				if(room.MinPermissionLevel <= permissionlevel) {
-					roomsByPermissionLevel.Add(room);
-				}
-			}
+            foreach (IRoom room in _roomRepository)
+            {
+                if (room.MinPermissionLevel <= permissionlevel)
+                {
+                    roomsByPermissionLevel.Add(room);
+                }
+            }
 
-			return roomsByPermissionLevel;
-		}
+            return roomsByPermissionLevel;
+        }
 
-		public IRoom Get(IRoom checkroom)
-		{
-			IRoom foundRoom = null;
-			foreach(IRoom room in _roomRepository) {
-				if(room.Equals(checkroom)) {
-					foundRoom = room;
-				}
-			}
+        public IRoom Get(IRoom checkroom)
+        {
+            IRoom foundRoom = null;
+            foreach (IRoom room in _roomRepository)
+            {
+                if (room.Equals(checkroom))
+                {
+                    foundRoom = room;
+                }
+            }
 
-			if (foundRoom == null) {
-				throw new IndexOutOfRangeException();
-			} else {
-				return foundRoom;
-			}
-		}
+            if (foundRoom == null)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            else
+            {
+                return foundRoom;
+            }
+        }
 
-		public IRoom Get(Reservation reservation)
+        public IRoom Get(Reservation reservation)
         {
             Room roomsByReservation = null;
             foreach (Room room in _roomRepository)
@@ -102,24 +110,24 @@ namespace Core
 
             possible.Sort();
 
-			return possible;
+            return possible;
         }
 
-		public List<IRoom> GetPossible(Permission permissionlevel)
-		{
-			List<IRoom> possible = this.Get(permissionlevel);
-
-			possible.Sort();
-			return possible;
-
-		}
-
-		public void Delete(IRoom room)
+        public List<IRoom> GetPossible(Permission permissionlevel)
         {
-			foreach(Reservation res in room.GetReservations())
-			{
-				ReservationRepository.Instance.Delete(res);
-			}
+            List<IRoom> possible = this.Get(permissionlevel);
+
+            possible.Sort();
+            return possible;
+
+        }
+
+        public void Delete(IRoom room)
+        {
+            foreach (Reservation res in room.GetReservations())
+            {
+                ReservationRepository.Instance.Delete(res);
+            }
             _roomRepository.Remove(room);
             _dalFacade.DeleteRoom(room);
         }

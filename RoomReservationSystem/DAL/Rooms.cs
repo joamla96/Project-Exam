@@ -4,11 +4,11 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-	public interface IRoomsForMocking
+    public interface IRoomsForMocking
     {
         List<Dictionary<string, string>> GetAllRoomsFromDatabase();
     }
-    public class Rooms: Database, IRoomsForMocking
+    public class Rooms : Database, IRoomsForMocking
     {
         public List<Dictionary<string, string>> GetAllRoomsFromDatabase()
         {
@@ -117,10 +117,12 @@ namespace DAL
                 CommandType = CommandType.StoredProcedure
             };
 
-            try {
+            try
+            {
                 command.ExecuteNonQuery();
             }
-            finally {
+            finally
+            {
                 this.CloseConnection();
             }
         }

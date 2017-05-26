@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Core
 {
-	public class Reservation
+    public class Reservation
     {
 
         public IUser User { get; set; }
@@ -31,10 +31,10 @@ namespace Core
                 Reservation Other = (Reservation)obj;
 
                 if (
-					this.User.Equals(Other.User) 
-				&& this.From.Equals(Other.From)
-				&& this.To.Equals(Other.To)
-				) thesame = true;
+                    this.User.Equals(Other.User)
+                && this.From.Equals(Other.From)
+                && this.To.Equals(Other.To)
+                ) thesame = true;
             }
 
             return thesame;
@@ -42,26 +42,27 @@ namespace Core
 
         public override int GetHashCode()
         {
-			int User = this.User.GetHashCode();
-			int From = this.From.GetHashCode();
-			int To = this.To.GetHashCode();
+            int User = this.User.GetHashCode();
+            int From = this.From.GetHashCode();
+            int To = this.To.GetHashCode();
 
-			int HashCode = User + From + To;
+            int HashCode = User + From + To;
 
-			return HashCode;
+            return HashCode;
         }
 
         public override string ToString()
         {
             StringWriter output = new StringWriter();
 
-			if (this.Room != null)
-			{
-				output.Write(Room.ID + " | ");
-			} else
-			{
-				output.Write("In Que | ");
-			}
+            if (this.Room != null)
+            {
+                output.Write(Room.ID + " | ");
+            }
+            else
+            {
+                output.Write("In Que | ");
+            }
 
             string date = From.Day + "." + From.Month + "." + From.Year + " | ";
             output.Write(date + " ");
@@ -69,8 +70,8 @@ namespace Core
             string hourFormat = "{0:00}:{1:00} - {2:00}:{3:00}" + " | ";
             output.Write(hourFormat, From.Hour, From.Minute, To.Hour, To.Minute);
 
-			string username = this.User.Username;
-			output.Write(username);
+            string username = this.User.Username;
+            output.Write(username);
 
             return output.ToString();
         }
@@ -78,4 +79,3 @@ namespace Core
     }
 }
 
-  

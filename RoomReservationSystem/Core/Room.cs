@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Core
 {
 
-	public class Room : IRoom, IComparable
+    public class Room : IRoom, IComparable
     {
 
         public string ID
@@ -13,7 +13,7 @@ namespace Core
             get { return String.Format("{0}" + "{1}" + "." + "{2:00}", Building, Floor, Nr); }
         }
 
-		private char building;
+        private char building;
 
         public char Building { get { return this.building; } set { this.building = Char.ToUpper(value); } }
         public int Floor { get; set; }
@@ -65,11 +65,12 @@ namespace Core
             return this.ID.GetHashCode();
         }
 
-		public override string ToString() {
-			return ID;
-		}
+        public override string ToString()
+        {
+            return ID;
+        }
 
-		public int CompareTo(object obj)
+        public int CompareTo(object obj)
         {
             int result;
             if (obj is IRoom)

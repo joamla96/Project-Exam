@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 namespace Core.UnitTest
 {
-	[TestClass]
-    public class ReservationRepositoryTests 
+    [TestClass]
+    public class ReservationRepositoryTests
     {
         ReservationRepository _repoReservation = ReservationRepository.Instance;
         RoomRepository _repoRoom = RoomRepository.Instance;
@@ -31,24 +31,24 @@ namespace Core.UnitTest
         DateTime _dateFrom;
         DateTime _dateTo;
 
-		[ClassInitialize]
-		public static void ClassInit(TestContext testContext)
-		{
-			SystemSettings.Enviroment = Enviroment.Test;
-		}
+        [ClassInitialize]
+        public static void ClassInit(TestContext testContext)
+        {
+            SystemSettings.Enviroment = Enviroment.Test;
+        }
 
-		[ClassCleanup]
-		public static void ClassClean()
-		{
-			SystemSettings.Enviroment = Enviroment.Prod;
-		}
+        [ClassCleanup]
+        public static void ClassClean()
+        {
+            SystemSettings.Enviroment = Enviroment.Prod;
+        }
 
-		[TestInitialize]
+        [TestInitialize]
         public void TestInitialize()
         {
             _repoRoom.Clear();
             _repoUser.Clear();
-            _repoReservation.Clear();         
+            _repoReservation.Clear();
 
             _reservationList = new List<Reservation>();
 

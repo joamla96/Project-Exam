@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Core.UnitTest
 {
-	[TestClass]
+    [TestClass]
     public class RoomRespositoryTests
     {
         RoomRepository _repoRoom = RoomRepository.Instance;
@@ -29,19 +29,19 @@ namespace Core.UnitTest
         DateTime _dateFrom;
         DateTime _dateTo;
 
-		[ClassInitialize]
-		public static void ClassInit(TestContext testContext)
-		{
-			SystemSettings.Enviroment = Enviroment.Test;
-		}
+        [ClassInitialize]
+        public static void ClassInit(TestContext testContext)
+        {
+            SystemSettings.Enviroment = Enviroment.Test;
+        }
 
-		[ClassCleanup]
-		public static void ClassClean()
-		{
-			SystemSettings.Enviroment = Enviroment.Prod;
-		}
+        [ClassCleanup]
+        public static void ClassClean()
+        {
+            SystemSettings.Enviroment = Enviroment.Prod;
+        }
 
-		[TestInitialize]
+        [TestInitialize]
         public void TestInitialize()
         {
             _repoRoom.Clear();
@@ -75,7 +75,7 @@ namespace Core.UnitTest
         [TestMethod]
         public void AddRoomFromText()
         { // Remember, override Equals method
-			IRoom testRoom = new Room('A', 3, 9, 7, Permission.Student);
+            IRoom testRoom = new Room('A', 3, 9, 7, Permission.Student);
             _repoRoom.Add('A', 3, 9, 7, Permission.Student);
             _roomList = _repoRoom.Get();
             Assert.IsTrue(_roomList.Contains(testRoom));
@@ -91,24 +91,26 @@ namespace Core.UnitTest
         [TestMethod]
         public void GetAllRooms()
         {
-            _roomList = _repoRoom.Get(); 
+            _roomList = _repoRoom.Get();
             Assert.AreEqual(5, _roomList.Count);
         }
 
-		[TestMethod]
-		public void GetRoomsByPermissionForStudent() {
-			_roomList = _repoRoom.Get(Permission.Student);
-			Assert.IsTrue(_roomList.Contains(_room1));
-		}
+        [TestMethod]
+        public void GetRoomsByPermissionForStudent()
+        {
+            _roomList = _repoRoom.Get(Permission.Student);
+            Assert.IsTrue(_roomList.Contains(_room1));
+        }
 
-		[TestMethod]
-		public void GetRoomsByPermisisonsForStudentDoesentReturnOthers() {
-			_roomList = _repoRoom.Get(Permission.Student);
-			Assert.IsFalse(_roomList.Contains(_room2));
-			Assert.IsFalse(_roomList.Contains(_room3));
-		}
+        [TestMethod]
+        public void GetRoomsByPermisisonsForStudentDoesentReturnOthers()
+        {
+            _roomList = _repoRoom.Get(Permission.Student);
+            Assert.IsFalse(_roomList.Contains(_room2));
+            Assert.IsFalse(_roomList.Contains(_room3));
+        }
 
-		[TestMethod]
+        [TestMethod]
         public void GetRoomsByReservation()
         {
             IRoom room = _repoRoom.Get(_reservation1);

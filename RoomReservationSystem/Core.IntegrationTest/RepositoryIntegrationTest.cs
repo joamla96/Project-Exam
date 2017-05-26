@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Core.IntegrationTest
 {
-	[TestClass]
+    [TestClass]
     public class RepositoryIntegrationTest
     {
         UserRepository _repoUser = UserRepository.Instance;
@@ -32,25 +32,25 @@ namespace Core.IntegrationTest
         DateTime _dateFrom;
         DateTime _dateTo;
 
-		[ClassInitialize]
-		public static void ClassInit(TestContext testContext)
-		{
-			SystemSettings.Enviroment = Enviroment.Test;
-		}
+        [ClassInitialize]
+        public static void ClassInit(TestContext testContext)
+        {
+            SystemSettings.Enviroment = Enviroment.Test;
+        }
 
-		[ClassCleanup]
-		public static void ClassClean()
-		{
-			SystemSettings.Enviroment = Enviroment.Prod;
-		}
+        [ClassCleanup]
+        public static void ClassClean()
+        {
+            SystemSettings.Enviroment = Enviroment.Prod;
+        }
 
-		[TestInitialize]
+        [TestInitialize]
         public void TestInitialize()
         {
             _repoRoom.Clear();
             _repoUser.Clear();
             _repoReservation.Clear();
-            
+
 
             _reservationList = new List<Reservation>();
 

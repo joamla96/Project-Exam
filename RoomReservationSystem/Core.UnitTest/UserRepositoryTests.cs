@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Core.UnitTest
 {
-	[TestClass]
+    [TestClass]
     public class UserRepositoryTests
     {
         UserRepository _repoUser = UserRepository.Instance;
@@ -29,19 +29,19 @@ namespace Core.UnitTest
         DateTime _dateFrom;
         DateTime _dateTo;
 
-		[ClassInitialize]
-		public static void ClassInit(TestContext testContext)
-		{
-			SystemSettings.Enviroment = Enviroment.Test;
-		}
+        [ClassInitialize]
+        public static void ClassInit(TestContext testContext)
+        {
+            SystemSettings.Enviroment = Enviroment.Test;
+        }
 
-		[ClassCleanup]
-		public static void ClassClean()
-		{
-			SystemSettings.Enviroment = Enviroment.Prod;
-		}
+        [ClassCleanup]
+        public static void ClassClean()
+        {
+            SystemSettings.Enviroment = Enviroment.Prod;
+        }
 
-		[TestInitialize]
+        [TestInitialize]
         public void TestInitialize()
         {
             _repoUser.Clear();

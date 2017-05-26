@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-	public interface IReservationsForMocking
+    public interface IReservationsForMocking
     {
         List<Dictionary<string, string>> GetAllReservationsFromDatabase();
     }

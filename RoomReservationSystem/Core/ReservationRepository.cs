@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace Core
 {
-	public class ReservationRepository
+    public class ReservationRepository
     {
         private DALFacade _dalFacade = new DALFacade();
         private List<Reservation> _reservationRepository = new List<Reservation>();
-		private List<Reservation> _queue = new List<Reservation>();
-		private  RoomRepository _roomRepo = RoomRepository.Instance;
+        private List<Reservation> _queue = new List<Reservation>();
+        private RoomRepository _roomRepo = RoomRepository.Instance;
         private static ReservationRepository _instance = new ReservationRepository();
         public static ReservationRepository Instance { get { return _instance; } }
 
@@ -27,8 +27,8 @@ namespace Core
 
             if (availableRooms.Count == 0)
             {
-				_queue.Add(new Reservation(user, null, peopleNr, from, to));
-                throw new NoRoomsAvailable();
+                _queue.Add(new Reservation(user, null, peopleNr, from, to));
+                throw new NoRoomsAvailableException();
             }
             else
             {
@@ -61,17 +61,17 @@ namespace Core
             return availableRooms;
         }
 
-		internal void DeleteFromQueue(Reservation res)
-		{
-			_queue.Remove(res);
-		}
+        internal void DeleteFromQueue(Reservation res)
+        {
+            _queue.Remove(res);
+        }
 
-		internal List<Reservation> GetQueue()
-		{
-			return _queue;
-		}
+        internal List<Reservation> GetQueue()
+        {
+            return _queue;
+        }
 
-		internal void LoadFromDatabase(Reservation reservation)
+        internal void LoadFromDatabase(Reservation reservation)
         {
             _reservationRepository.Add(reservation);
             reservation.Room.AddReservation(reservation);
@@ -109,27 +109,27 @@ namespace Core
             reservation.User.DeleteReservation(reservation);
             _dalFacade.DeleteReservation(reservation);
 
-			// Check the queue, see if anyone fits the criterias...
-			List<Reservation> newRegistrations = new List<Reservation>();
-			foreach(Reservation res in _queue)
-			{
-				List<IRoom> rooms = _roomRepo.GetPossible(res.User.PermissionLevel, res.PeopleNr);
-				List<IRoom> availableRooms = RemoveUnavailableRooms(rooms, res.From, res.To);
+            // Check the queue, see if anyone fits the criterias...
+            List<Reservation> newRegistrations = new List<Reservation>();
+            foreach (Reservation res in _queue)
+            {
+                List<IRoom> rooms = _roomRepo.GetPossible(res.User.PermissionLevel, res.PeopleNr);
+                List<IRoom> availableRooms = RemoveUnavailableRooms(rooms, res.From, res.To);
 
-				if (availableRooms.Count > 0)
-				{
-					res.Room = availableRooms[0];
-					this.Add(res);
-					newRegistrations.Add(res);
-				}
-			}
-			
-			// remove the new registrations from the queue, and send notifications
-			foreach(Reservation res in newRegistrations)
-			{
-				ReservationsObserver.Instance.Message = "Dear " + res.User.Username + "\nYou have recived a reservation in room: " + res.Room.ID + "\nSee your reservations for more info.";
-				_queue.Remove(res);
-			}
+                if (availableRooms.Count > 0)
+                {
+                    res.Room = availableRooms[0];
+                    this.Add(res);
+                    newRegistrations.Add(res);
+                }
+            }
+
+            // remove the new registrations from the queue, and send notifications
+            foreach (Reservation res in newRegistrations)
+            {
+                ReservationsObserver.Instance.Message = "Dear " + res.User.Username + "\nYou have recived a reservation in room: " + res.Room.ID + "\nSee your reservations for more info.";
+                _queue.Remove(res);
+            }
         }
 
         public void Add(IUser user, IRoom room, int peoplenr, DateTime datefrom, DateTime dateto)

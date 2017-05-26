@@ -4,7 +4,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>0</x>
+      <x>204</x>
       <y>289</y>
       <w>408</w>
       <h>68</h>
@@ -16,26 +16,20 @@ Add(reservation)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>255</x>
+      <x>459</x>
       <y>170</y>
       <w>272</w>
       <h>85</h>
     </coordinates>
-<<<<<<< HEAD
-    <panel_attributes>                                     1
-_:ReservationRepository_
-</panel_attributes>
-=======
     <panel_attributes>                                                1
 _:ReservationRepository_
 group=1</panel_attributes>
->>>>>>> origin/master
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>374</x>
+      <x>578</x>
       <y>238</y>
       <w>51</w>
       <h>119</h>
@@ -47,7 +41,7 @@ group=1</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>374</x>
+      <x>578</x>
       <y>323</y>
       <w>34</w>
       <h>255</h>
@@ -58,7 +52,7 @@ group=1</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>0</x>
+      <x>204</x>
       <y>306</y>
       <w>34</w>
       <h>34</h>
@@ -69,30 +63,7 @@ group=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-<<<<<<< HEAD
-      <x>391</x>
-      <y>323</y>
-      <w>544</w>
-      <h>119</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;&gt;&gt;
-_reservationRepository.Add(reservation)</panel_attributes>
-    <additional_attributes>10.0;10.0;50.0;10.0;50.0;50.0;10.0;50.0</additional_attributes>
-=======
-      <x>456</x>
-      <y>252</y>
-      <w>420</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-_reservationRepository.add(reservation)</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;10.0;80.0;80.0;20.0;80.0</additional_attributes>
->>>>>>> origin/master
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>391</x>
+      <x>595</x>
       <y>442</y>
       <w>561</w>
       <h>68</h>
@@ -104,7 +75,7 @@ AddReservation(reservation)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>2295</x>
+      <x>2499</x>
       <y>34</y>
       <w>170</w>
       <h>51</h>
@@ -115,7 +86,7 @@ AddReservation(reservation)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>884</x>
+      <x>1088</x>
       <y>204</y>
       <w>102</w>
       <h>51</h>
@@ -127,7 +98,7 @@ AddReservation(reservation)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1003</x>
+      <x>1207</x>
       <y>204</y>
       <w>102</w>
       <h>51</h>
@@ -138,7 +109,7 @@ AddReservation(reservation)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>918</x>
+      <x>1122</x>
       <y>238</y>
       <w>51</w>
       <h>272</h>
@@ -150,7 +121,7 @@ AddReservation(reservation)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>918</x>
+      <x>1122</x>
       <y>476</y>
       <w>34</w>
       <h>34</h>
@@ -161,7 +132,7 @@ AddReservation(reservation)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1037</x>
+      <x>1241</x>
       <y>544</y>
       <w>34</w>
       <h>34</h>
@@ -172,7 +143,7 @@ AddReservation(reservation)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1037</x>
+      <x>1241</x>
       <y>238</y>
       <w>51</w>
       <h>340</h>
@@ -183,7 +154,7 @@ AddReservation(reservation)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>391</x>
+      <x>595</x>
       <y>510</y>
       <w>680</w>
       <h>68</h>
@@ -195,7 +166,7 @@ AddReservation(reservation)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>918</x>
+      <x>1122</x>
       <y>493</y>
       <w>51</w>
       <h>187</h>
@@ -207,7 +178,7 @@ AddReservation(reservation)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1037</x>
+      <x>1241</x>
       <y>561</y>
       <w>51</w>
       <h>119</h>
@@ -218,7 +189,7 @@ AddReservation(reservation)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>374</x>
+      <x>578</x>
       <y>561</y>
       <w>51</w>
       <h>119</h>
@@ -227,12 +198,24 @@ AddReservation(reservation)</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>595</x>
+      <y>323</y>
+      <w>663</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+_reservationRepository.add(reservation)</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0;120.0;60.0;20.0;60.0</additional_attributes>
+  </element>
+  <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>456</x>
-      <y>348</y>
-      <w>24</w>
-      <h>24</h>
+      <x>595</x>
+      <y>425</y>
+      <w>34</w>
+      <h>34</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>

@@ -6,7 +6,7 @@ namespace DAL {
 	public abstract class Database {
 		private static string _connInfo = DatabaseConn.ConnString;
 		private static SqlConnection _conn;
-		protected object locked = new object();
+		protected static object locked = new object();
 
 		protected SqlConnection OpenConnection() {
 			Monitor.Enter(locked);	

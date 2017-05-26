@@ -226,6 +226,8 @@ _+ Instance : ReservationRepository_
 + Get(user) : List&lt;Reservation&gt; // Get all by User
 + Get(room) : List&lt;Reservation&gt; // Get all by Room
 + Get(reservation) : Reservation // Get specific\
++ GetQueue : List&lt;Reservation&gt;
++ DeleteFromQueue(reservation)
 </panel_attributes>
     <additional_attributes/>
   </element>

@@ -117,9 +117,10 @@ namespace Core
 				}
 			}
 			
-			// remove the new registrations from the queue.
+			// remove the new registrations from the queue, and send notifications
 			foreach(Reservation res in newRegistrations)
 			{
+				ReservationsObserver.Instance.Message = "Dear " + res.User.Username + "\nYou have recived a reservation in room: " + res.Room.ID + "\nSee your reservations for more info.";
 				_queue.Remove(res);
 			}
         }

@@ -24,7 +24,7 @@ namespace UI.GUI.ViewModel
 			}
 			catch (NoRoomsAvailable)
 			{
-				message = "No rooms available";
+				message = "No rooms available, placed in Que";
 			}
 			catch(UserAlreadyHasRoomException)
 			{

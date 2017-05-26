@@ -6,17 +6,17 @@ using System.Threading;
 
 namespace Core
 {
-	class RosysThreads : IObservable 
+    class RosysThreads : IObservable
     {
         private ReservationRepository _repoReservations = ReservationRepository.Instance;
         private RoomRepository _repoRooms = RoomRepository.Instance;
         private UserRepository _repoUsers = UserRepository.Instance;
         private Change _changesData = new Change();
-        IDALFacade _dalFacade = new DALFacade();
+        private IDALFacade _dalFacade = new DALFacade();
         private List<IObserver> _observers = new List<IObserver>();
         private const int NOTIFICATIONSLEEPTIME = 60000;
-		private const int MAINTSLEEPTIME = 60 * 60 * 24; // Run daily
-		 
+        private const int MAINTSLEEPTIME = 60 * 60 * 24; // Run daily
+
         public void NotificationThread()
         {
             List<Reservation> reservations = new List<Reservation>();
@@ -39,47 +39,47 @@ namespace Core
             }
         }
 
-		public void MaintenanceThread()
-		{
-			// Check and remove old/outdated reservations
-			List<Reservation> resRemove = new List<Reservation>();
-			foreach(Reservation res in ReservationRepository.Instance.Get())
-			{
-				if(res.To < DateTime.Now)
-				{
-					resRemove.Add(res);
-				}
-			}
+        public void MaintenanceThread()
+        {
+            // Check and remove old/outdated reservations
+            List<Reservation> resRemove = new List<Reservation>();
+            foreach (Reservation res in ReservationRepository.Instance.Get())
+            {
+                if (res.To < DateTime.Now)
+                {
+                    resRemove.Add(res);
+                }
+            }
 
-			foreach(Reservation res in resRemove)
-			{
-				ReservationRepository.Instance.Delete(res);
-			}
+            foreach (Reservation res in resRemove)
+            {
+                ReservationRepository.Instance.Delete(res);
+            }
 
-			// Check and remove old reservations from the Que
-			resRemove = new List<Reservation>();
-			foreach (Reservation res in ReservationRepository.Instance.GetQueue())
-			{
-				if (res.To < DateTime.Now)
-				{
-					resRemove.Add(res);
-				}
-			}
+            // Check and remove old reservations from the Que
+            resRemove = new List<Reservation>();
+            foreach (Reservation res in ReservationRepository.Instance.GetQueue())
+            {
+                if (res.To < DateTime.Now)
+                {
+                    resRemove.Add(res);
+                }
+            }
 
-			foreach (Reservation res in resRemove)
-			{
-				ReservationRepository.Instance.Delete(res);
-			}
+            foreach (Reservation res in resRemove)
+            {
+                ReservationRepository.Instance.Delete(res);
+            }
 
-			Thread.Sleep(MAINTSLEEPTIME);
-		}
+            Thread.Sleep(MAINTSLEEPTIME);
+        }
 
         public void CheckChangeTable()
         {
             while (SystemSettings._threadRunning)
             {
                 List<Dictionary<string, string>> changesInfo = _changesData.GetAllChangesFromDatabase();
-                foreach(Dictionary<string, string> change in changesInfo)
+                foreach (Dictionary<string, string> change in changesInfo)
                 {
                     switch (int.Parse(change["Command"]))
                     {

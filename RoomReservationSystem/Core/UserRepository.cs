@@ -4,15 +4,15 @@ using System.Collections.Generic;
 
 namespace Core
 {
-	public class UserRepository
+    public class UserRepository
     {
-		private static UserRepository _instance = new UserRepository();
-		public static UserRepository Instance { get { return _instance; } }
+        private static UserRepository _instance = new UserRepository();
+        public static UserRepository Instance { get { return _instance; } }
         private DALFacade _dalFacade = new DALFacade();
 
-		private List<IUser> _userRepository = new List<IUser>();
+        private List<IUser> _userRepository = new List<IUser>();
 
-		public void Clear()
+        public void Clear()
         {
             ReservationRepository.Instance.Clear();
             //foreach(IUser user in _userRepository)
@@ -20,8 +20,8 @@ namespace Core
             //    _dalFacade.DeleteUser(user);
             //}
             _dalFacade.DeleteAllUsers();
-            _userRepository.Clear();            
-		}
+            _userRepository.Clear();
+        }
 
         public void Add(IUser user)
         {
@@ -35,9 +35,10 @@ namespace Core
             this.Add(user);
         }
 
-		public void LoadFromDatabase(IUser user) {
-			_userRepository.Add(user);
-		}
+        public void LoadFromDatabase(IUser user)
+        {
+            _userRepository.Add(user);
+        }
 
         public void DeleteFromRepository(IUser user)
         {
@@ -61,9 +62,10 @@ namespace Core
                 }
             }
 
-			if(result == null) {
-				throw new IndexOutOfRangeException();
-			}
+            if (result == null)
+            {
+                throw new IndexOutOfRangeException();
+            }
 
             return result;
         }
@@ -76,23 +78,23 @@ namespace Core
             {
                 foreach (Reservation reservation in user.GetReservations())
                 {
-                    if(reservation.Room.Equals(checkroom))
+                    if (reservation.Room.Equals(checkroom))
                     {
                         userByRoom.Add(user);
                     }
                 }
             }
             return userByRoom;
-            
+
         }
 
         public List<IUser> Get(Reservation checkreservation)
         {
             List<IUser> userByReservation = new List<IUser>();
 
-            foreach(IUser user in _userRepository)
+            foreach (IUser user in _userRepository)
             {
-                foreach(Reservation reservation in user.GetReservations())
+                foreach (Reservation reservation in user.GetReservations())
                 {
                     if (reservation.Equals(checkreservation))
                     {
@@ -107,10 +109,10 @@ namespace Core
 
         public void Delete(IUser user)
         {
-			foreach(Reservation res in user.GetReservations())
-			{
-				ReservationRepository.Instance.Delete(res);
-			}
+            foreach (Reservation res in user.GetReservations())
+            {
+                ReservationRepository.Instance.Delete(res);
+            }
             _userRepository.Remove(user);
             _dalFacade.DeleteUser(user);
         }

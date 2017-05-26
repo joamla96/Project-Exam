@@ -110,6 +110,10 @@ namespace Core
 
         public void Delete(IUser user)
         {
+			foreach(Reservation res in user.GetReservations())
+			{
+				ReservationRepository.Instance.Delete(res);
+			}
             _userRepository.Remove(user);
             _dalFacade.DeleteUser(user);
         }

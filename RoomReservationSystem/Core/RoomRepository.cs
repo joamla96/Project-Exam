@@ -120,6 +120,10 @@ namespace Core
 
 		public void Delete(IRoom room)
         {
+			foreach(Reservation res in room.GetReservations())
+			{
+				ReservationRepository.Instance.Delete(res);
+			}
             _roomRepository.Remove(room);
             _dalFacade.DeleteRoom(room);
         }

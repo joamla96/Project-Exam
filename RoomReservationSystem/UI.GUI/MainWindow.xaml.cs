@@ -16,7 +16,7 @@ namespace UI.GUI
 		{
 			InitializeComponent();
 			Initialize.StartUp();
-      ViewModel.NotificationsVM notificationsVM = new ViewModel.NotificationsVM();
+            ViewModel.NotificationsVM notificationsVM = new ViewModel.NotificationsVM();
 			this.ResizeMode = ResizeMode.CanMinimize;
 
 		}

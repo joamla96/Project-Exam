@@ -19,8 +19,9 @@ namespace Core
 
             List<IUser> users = _dal.GetAllUsers();
             List<IRoom> rooms = _dal.GetAllRooms();
+			List<Reservation> reservations = _dal.GetAllReservations();
 
-            foreach (IUser user in users)
+			foreach (IUser user in users)
             {
                 _repoUsers.LoadFromDatabase(user);
             }
@@ -30,7 +31,6 @@ namespace Core
                 _repoRooms.LoadFromDatabase(room);
             }
 
-            List<Reservation> reservations = _dal.GetAllReservations();
             foreach (Reservation reservation in reservations)
             {
                 _repoReserv.LoadFromDatabase(reservation);

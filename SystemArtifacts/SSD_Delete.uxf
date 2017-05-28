@@ -90,7 +90,7 @@ List&lt;Reservation&gt; reservations</panel_attributes>
       <h>64</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-Delete(Reservation)</panel_attributes>
+Delete(reservation)</panel_attributes>
     <additional_attributes>10.0;20.0;490.0;20.0</additional_attributes>
   </element>
   <element>
@@ -102,7 +102,7 @@ Delete(Reservation)</panel_attributes>
       <h>64</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
-A message that reservations have been canceled</panel_attributes>
+Confirmation message for deleting reservation</panel_attributes>
     <additional_attributes>490.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -194,7 +194,7 @@ List&lt;Reservation&gt; reservations</panel_attributes>
       <h>64</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-Delete(Reservation)</panel_attributes>
+Delete(reservation)</panel_attributes>
     <additional_attributes>10.0;20.0;490.0;20.0</additional_attributes>
   </element>
   <element>
@@ -206,7 +206,7 @@ Delete(Reservation)</panel_attributes>
       <h>64</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
-A message that reservations have been canceled</panel_attributes>
+Confirmation message for deleting reservation</panel_attributes>
     <additional_attributes>490.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>

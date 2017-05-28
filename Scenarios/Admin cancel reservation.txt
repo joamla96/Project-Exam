@@ -1,5 +1,6 @@
 // Admin cancel a reservation
 Moria is setting at the front information desk when a student approaches.
+
 Despite the new booking system having launched, someone has booked a project room and accepted the booking by the room, yet has still left it empty.
 
 Moria enters the admin side of the reservation system. She finds the room which is empty and marks it. She then clicks the "Delete Reservation" button.

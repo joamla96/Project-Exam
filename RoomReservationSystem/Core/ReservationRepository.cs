@@ -14,7 +14,7 @@ namespace Core
         private static ReservationRepository _instance = new ReservationRepository();
         public static ReservationRepository Instance { get { return _instance; } }
 
-        public IRoom RequestReservation(DateTime from, DateTime to, int peopleNr, IUser user)
+        public IRoom RequestReservation(DateTime from, DateTime to, int peoplenr, IUser user)
         {
 
             if (user.HasReservation(from.AddSeconds(1), to.AddSeconds(-1)))
@@ -22,17 +22,17 @@ namespace Core
                 throw new UserAlreadyHasRoomException();
             }
 
-            List<IRoom> rooms = _roomRepo.GetPossible(user.PermissionLevel, peopleNr);
+            List<IRoom> rooms = _roomRepo.GetPossible(user.PermissionLevel, peoplenr);
             List<IRoom> availableRooms = RemoveUnavailableRooms(rooms, from, to);
 
             if (availableRooms.Count == 0)
             {
-				_queue.Add(new Reservation(user, null, peopleNr, from, to));
+				_queue.Add(new Reservation(user, null, peoplenr, from, to));
                 throw new NoRoomsAvailableException();
             }
             else
             {
-                Reservation reservation = new Reservation(user, availableRooms[0], peopleNr, from, to);
+                Reservation reservation = new Reservation(user, availableRooms[0], peoplenr, from, to);
                 this.Add(reservation);
                 return availableRooms[0];
             }

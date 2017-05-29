@@ -3,7 +3,7 @@ Operation:
 
 Cross References:
  - SSD: SSD_Delete
- - UC: Client cancel own reservation; 
+ - UC: Client deletes own reservation; 
 
 Preconditions:
  - None

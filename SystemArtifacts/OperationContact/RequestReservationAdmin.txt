@@ -1,0 +1,13 @@
+Operation:
+ - ReserveRoom(date, from, to, room, username)
+
+Cross References:
+ - SSD: SSD_Reserve
+ - UC: Admin reserves a room
+
+Preconditions:
+ - No preconditions
+
+Postconditions:
+ - A Reservation was created and stored in the repository, 
+ - A Reservation was associated with a room and user

@@ -21,10 +21,9 @@ namespace Core
         {
             List<Reservation> reservations = new List<Reservation>();
 
-            reservations = _repoReservations.Get();
-
             while (SystemSettings._threadRunning)
             {
+                reservations = _repoReservations.Get();
 
                 foreach (Reservation reserv in reservations)
                 {

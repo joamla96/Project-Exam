@@ -1103,4 +1103,15 @@ Start()</panel_attributes>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;530.0</additional_attributes>
   </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1030</x>
+      <y>250</y>
+      <w>30</w>
+      <h>1140</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1120.0</additional_attributes>
+  </element>
 </diagram>

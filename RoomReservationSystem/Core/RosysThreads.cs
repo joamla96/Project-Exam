@@ -31,7 +31,6 @@ namespace Core
                     if (timeCheck.Date.Equals(DateTime.Now.Date) && timeCheck.Hour.Equals(DateTime.Now.Hour) && timeCheck.Minute.Equals(DateTime.Now.Minute))
                     {
                         this.Notify(reserv);
-                        reservations.Remove(reserv);
                     }
                 }
                 Thread.Sleep(NOTIFICATIONSLEEPTIME);

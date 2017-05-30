@@ -1,5 +1,5 @@
 Operation:
- - ReserveRoom(date, from, to, room, username)
+ - ReserveRoom(date : string, from : string, to : string, room : IRoom, username : string)
 
 Cross References:
  - SSD: SSD_Reserve

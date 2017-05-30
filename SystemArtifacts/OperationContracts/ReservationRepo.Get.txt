@@ -1,5 +1,5 @@
 Operation: 
- - ReservationRepo.Get(IUser)
+ - ReservationRepo.Get(user : IUser)
 
 Cross References:
  - SSD: SSD_Delete

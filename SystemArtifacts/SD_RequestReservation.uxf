@@ -371,18 +371,6 @@ adding to a list</panel_attributes>
     <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
   </element>
   <element>
-    <id>UMLSyncBarHorizontal</id>
-    <coordinates>
-      <x>1815</x>
-      <y>198</y>
-      <w>88</w>
-      <h>22</h>
-    </coordinates>
-    <panel_attributes>lw=5
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>0</x>

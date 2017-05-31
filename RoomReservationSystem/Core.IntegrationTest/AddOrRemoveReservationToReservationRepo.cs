@@ -88,9 +88,9 @@ namespace Core.IntegrationTest
             _repoReserv.Add(testRes);
             _repoReserv.Delete(testRes);
 
-            List<Reservation> Reservations = _room1.GetReservations();
+            List<Reservation> reservations = _room1.GetReservations();
 
-            Assert.IsFalse(Reservations.Contains(testRes));
+            Assert.IsFalse(reservations.Contains(testRes));
         }
     }
 

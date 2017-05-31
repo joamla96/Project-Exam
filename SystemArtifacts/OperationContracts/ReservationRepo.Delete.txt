@@ -1,5 +1,5 @@
 Operation:
- - ReservationRepository.Delete(Reservation)
+ - ReservationRepository.Delete(reservation : Reservation)
 
 Cross Reference:
  - SSD: SSD_Delete

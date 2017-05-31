@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>150</x>
-      <y>10</y>
+      <x>460</x>
+      <y>140</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>680</x>
-      <y>10</y>
+      <x>990</x>
+      <y>140</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -26,8 +26,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>420</x>
-      <y>10</y>
+      <x>730</x>
+      <y>140</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -38,8 +38,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>390</x>
-      <y>440</y>
+      <x>710</x>
+      <y>610</y>
       <w>150</w>
       <h>80</h>
     </coordinates>
@@ -51,8 +51,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>120</x>
-      <y>440</y>
+      <x>430</x>
+      <y>570</y>
       <w>150</w>
       <h>80</h>
     </coordinates>
@@ -64,8 +64,8 @@ Admin</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>120</x>
-      <y>190</y>
+      <x>430</x>
+      <y>320</y>
       <w>150</w>
       <h>80</h>
     </coordinates>
@@ -77,8 +77,8 @@ Student</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>120</x>
-      <y>320</y>
+      <x>430</x>
+      <y>440</y>
       <w>150</w>
       <h>80</h>
     </coordinates>
@@ -90,8 +90,8 @@ Teacher</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>120</x>
-      <y>70</y>
+      <x>430</x>
+      <y>210</y>
       <w>150</w>
       <h>80</h>
     </coordinates>
@@ -103,8 +103,8 @@ Student</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>390</x>
-      <y>70</y>
+      <x>700</x>
+      <y>180</y>
       <w>150</w>
       <h>80</h>
     </coordinates>
@@ -116,8 +116,8 @@ Student</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>390</x>
-      <y>190</y>
+      <x>710</x>
+      <y>290</y>
       <w>150</w>
       <h>80</h>
     </coordinates>
@@ -129,8 +129,8 @@ Student</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>390</x>
-      <y>320</y>
+      <x>710</x>
+      <y>390</y>
       <w>150</w>
       <h>80</h>
     </coordinates>
@@ -142,149 +142,192 @@ Student</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>660</x>
-      <y>320</y>
+      <x>960</x>
+      <y>600</y>
       <w>150</w>
-      <h>90</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>A3.20
 A
+A
 3
 20
-10</panel_attributes>
+10
+Admin</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>660</x>
-      <y>190</y>
+      <x>960</x>
+      <y>320</y>
       <w>150</w>
-      <h>90</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>B1.07
 B
+B
 1
 07
-4</panel_attributes>
+4
+Student</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>660</x>
-      <y>70</y>
+      <x>960</x>
+      <y>180</y>
       <w>150</w>
-      <h>90</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>A2.15
 A
+A
 2
 15
-6</panel_attributes>
+6
+Teacher</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>660</x>
-      <y>450</y>
+      <x>960</x>
+      <y>460</y>
       <w>150</w>
-      <h>90</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>B2.10
 B
+B
 2
 10
-2</panel_attributes>
+2
+Teacher</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>90</y>
-      <w>150</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>260</x>
-      <y>100</y>
-      <w>150</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;130.0;120.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>530</x>
-      <y>100</y>
-      <w>150</w>
-      <h>150</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;130.0;130.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>530</x>
+      <x>570</x>
       <y>210</y>
       <w>150</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;40.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>240</y>
+      <w>160</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;140.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>210</y>
+      <w>140</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;120.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>850</x>
+      <y>320</y>
+      <w>130</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;110.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>600</y>
+      <w>160</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;140.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>850</x>
+      <y>420</y>
+      <w>130</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;110.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>850</x>
+      <y>630</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;110.0;22.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>420</y>
+      <w>160</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;60.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>710</x>
+      <y>490</y>
+      <w>150</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>11
+15.05.2017 8:00
+20.05.2017 16:00</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>850</x>
+      <y>510</y>
+      <w>130</w>
       <h>40</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>460</y>
-      <w>150</w>
-      <h>40</h>
+      <x>570</x>
+      <y>510</y>
+      <w>160</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>530</x>
-      <y>350</y>
-      <w>150</w>
-      <h>160</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;130.0;140.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>530</x>
-      <y>350</y>
-      <w>150</w>
-      <h>150</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;130.0;130.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>260</x>
-      <y>340</y>
-      <w>150</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+    <additional_attributes>10.0;100.0;140.0;10.0</additional_attributes>
   </element>
 </diagram>

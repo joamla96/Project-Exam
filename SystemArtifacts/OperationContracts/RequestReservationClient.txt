@@ -1,9 +1,9 @@
 Operation:
- - ReserveRoom(date, from, to, room, username)
+ - ReserveRoom(date : string, from : string, to : string, peopleNr : string)
 
 Cross References:
  - SSD: SSD_Reserve
- - UC: Admin reserves a room
+ - UC: Client reserves room
 
 Preconditions:
  - No preconditions

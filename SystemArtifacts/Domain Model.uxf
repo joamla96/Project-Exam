@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>16</zoom_level>
+  <zoom_level>12</zoom_level>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>448</x>
-      <y>208</y>
-      <w>224</w>
-      <h>64</h>
+      <x>588</x>
+      <y>264</y>
+      <w>168</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -17,10 +17,10 @@ m2=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1072</x>
-      <y>208</y>
-      <w>224</w>
-      <h>64</h>
+      <x>1056</x>
+      <y>264</y>
+      <w>168</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
@@ -30,10 +30,10 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>32</x>
-      <y>208</y>
-      <w>432</w>
-      <h>320</h>
+      <x>276</x>
+      <y>264</y>
+      <w>324</w>
+      <h>240</h>
     </coordinates>
     <panel_attributes>User
 --
@@ -52,10 +52,10 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>640</x>
-      <y>208</y>
-      <w>448</w>
-      <h>272</h>
+      <x>732</x>
+      <y>264</y>
+      <w>336</w>
+      <h>204</h>
     </coordinates>
     <panel_attributes>Reservation
 --
@@ -71,10 +71,10 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1264</x>
-      <y>208</y>
-      <w>448</w>
-      <h>480</h>
+      <x>1200</x>
+      <y>264</y>
+      <w>336</w>
+      <h>360</h>
     </coordinates>
     <panel_attributes>Room
 --

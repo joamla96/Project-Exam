@@ -82,7 +82,7 @@ namespace Core.IntegrationTest
         }
 
         [TestMethod]
-        public void WhenRemovingReservationToRepoRemoveFromRoomAsWell()
+        public void WhenRemovingReservationFromRepoRemoveFromRoomAsWell()
         {
             Reservation testRes = new Reservation(_student, _room1, 4, _from, _to);
             _repoReserv.Add(testRes);

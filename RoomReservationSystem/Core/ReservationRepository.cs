@@ -11,8 +11,11 @@ namespace Core
         private List<Reservation> _reservationRepository = new List<Reservation>();
         private List<Reservation> _queue = new List<Reservation>();
         private  RoomRepository _roomRepo = RoomRepository.Instance;
-        private static ReservationRepository _instance = new ReservationRepository();
+
+		private static ReservationRepository _instance = new ReservationRepository();
         public static ReservationRepository Instance { get { return _instance; } }
+
+		private ReservationRepository() { }
 
         public IRoom RequestReservation(DateTime from, DateTime to, int peoplenr, IUser user)
         {

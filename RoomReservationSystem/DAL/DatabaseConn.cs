@@ -6,13 +6,13 @@ namespace DAL
 
     public static class DatabaseConn
     {
-        public static int systemEnviroment = 0;
+        public static int systemEnvironment = 0;
         private static ConnInfo conn;
         public static string ConnString
         {
             get
             {
-                switch (systemEnviroment)
+                switch (systemEnvironment)
                 {
                     default: throw new IndexOutOfRangeException();
                     case 0: conn = new ConnProd(); break;

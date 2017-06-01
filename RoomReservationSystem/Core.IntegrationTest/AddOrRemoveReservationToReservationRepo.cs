@@ -21,13 +21,13 @@ namespace Core.IntegrationTest
         [ClassInitialize]
         public static void ClassInit(TestContext testContext)
         {
-            SystemSettings.Enviroment = Enviroment.Test;
+            SystemSettings.Environment = Environment.Test;
         }
 
         [ClassCleanup]
         public static void ClassClean()
         {
-            SystemSettings.Enviroment = Enviroment.Prod;
+            SystemSettings.Environment = Environment.Prod;
         }
 
         [TestInitialize]
@@ -82,7 +82,7 @@ namespace Core.IntegrationTest
         }
 
         [TestMethod]
-        public void WhenRemovingReservationToRepoRemoveFromRoomAsWell()
+        public void WhenRemovingReservationFromRepoRemoveFromRoomAsWell()
         {
             Reservation testRes = new Reservation(_student, _room1, 4, _from, _to);
             _repoReserv.Add(testRes);

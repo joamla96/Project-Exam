@@ -18,13 +18,13 @@ namespace Core.IntegrationTest
         [ClassInitialize]
         public void ClassInit()
         {
-            SystemSettings.Enviroment = Enviroment.Test;
+            SystemSettings.Environment = Environment.Test;
         }
 
         [ClassCleanup]
         public void ClassClean()
         {
-            SystemSettings.Enviroment = Enviroment.Prod;
+            SystemSettings.Environment = Environment.Prod;
         }
 
         [TestInitialize]

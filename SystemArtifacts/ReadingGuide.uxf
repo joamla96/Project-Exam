@@ -4,43 +4,40 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>80</x>
+      <x>70</x>
       <y>160</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>
-group=1</panel_attributes>
+    <panel_attributes/>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>80</x>
+      <x>70</x>
       <y>110</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>lt=.
-group=1</panel_attributes>
+    <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>80</x>
-      <y>200</y>
+      <x>70</x>
+      <y>210</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
-    <panel_attributes>lt=.
-group=1</panel_attributes>
+    <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>350</x>
+      <x>340</x>
       <y>110</y>
       <w>30</w>
       <h>70</h>
@@ -52,7 +49,7 @@ group=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>350</x>
+      <x>340</x>
       <y>210</y>
       <w>30</w>
       <h>70</h>
@@ -64,7 +61,7 @@ group=2</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>350</x>
+      <x>340</x>
       <y>160</y>
       <w>20</w>
       <h>60</h>
@@ -76,7 +73,7 @@ group=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
+      <x>230</x>
       <y>290</y>
       <w>30</w>
       <h>70</h>
@@ -88,7 +85,7 @@ group=3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
+      <x>230</x>
       <y>390</y>
       <w>30</w>
       <h>70</h>
@@ -100,7 +97,7 @@ group=3</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>240</x>
+      <x>230</x>
       <y>340</y>
       <w>20</w>
       <h>60</h>
@@ -112,7 +109,7 @@ group=3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
+      <x>470</x>
       <y>390</y>
       <w>30</w>
       <h>70</h>
@@ -124,7 +121,7 @@ group=4</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>480</x>
+      <x>470</x>
       <y>340</y>
       <w>20</w>
       <h>60</h>
@@ -136,7 +133,7 @@ group=4</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
+      <x>470</x>
       <y>290</y>
       <w>30</w>
       <h>70</h>
@@ -148,7 +145,7 @@ group=4</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>20</x>
+      <x>10</x>
       <y>340</y>
       <w>240</w>
       <h>40</h>
@@ -160,7 +157,7 @@ group=4</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>270</x>
       <y>340</y>
       <w>220</w>
       <h>50</h>
@@ -173,7 +170,7 @@ _calls-to-static-metohds()_
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>90</x>
+      <x>80</x>
       <y>190</y>
       <w>20</w>
       <h>20</h>
@@ -184,7 +181,7 @@ _calls-to-static-metohds()_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>90</x>
+      <x>80</x>
       <y>160</y>
       <w>230</w>
       <h>60</h>
@@ -197,7 +194,7 @@ local reference/variable</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>350</x>
       <y>160</y>
       <w>170</w>
       <h>60</h>
@@ -210,7 +207,7 @@ variable</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>50</x>
+      <x>40</x>
       <y>480</y>
       <w>150</w>
       <h>70</h>

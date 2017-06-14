@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI.GUI"
         mc:Ignorable="d"
-        Title="RoSys" Height="241.176" Width="389.755">
+        Title="RoSys" Height="241.176" Width="389.755"
+        KeyDown="Window_KeyDown">
     <Grid RenderTransformOrigin="0.506,0.487">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="373*"/>

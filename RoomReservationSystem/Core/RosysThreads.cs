@@ -6,14 +6,14 @@ using System.Threading;
 
 namespace Core
 {
-    class RosysThreads : IObservable
+    public class RosysThreads : IObservable
     {
         private ReservationRepository _repoReservations = ReservationRepository.Instance;
         private RoomRepository _repoRooms = RoomRepository.Instance;
         private UserRepository _repoUsers = UserRepository.Instance;
         private Change _changesData = new Change();
         private IDALFacade _dalFacade = new DALFacade();
-        private List<IObserver> _observers = new List<IObserver>();
+        private static List<IObserver> _observers = new List<IObserver>();
         private const int NOTIFICATIONSLEEPTIME = 60000;
         private const int MAINTSLEEPTIME = 60 * 60 * 24; // Run daily
 

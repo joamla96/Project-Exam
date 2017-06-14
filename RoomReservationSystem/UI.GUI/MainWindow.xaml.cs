@@ -1,6 +1,7 @@
 ﻿using Core;
 using Core.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Windows;
 
 namespace UI.GUI
@@ -64,6 +65,15 @@ namespace UI.GUI
 			user.Title = "RoSys: Teacher";
 			user.ResizeMode = ResizeMode.CanMinimize;
 			user.Show();
+		}
+
+		private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+		{
+			if(e.Key == System.Windows.Input.Key.Apps)
+			{
+				List<Reservation> Reservations = ReservationRepository.Instance.Get();
+				new RosysThreads().Notify(Reservations[0]);				
+			}
 		}
 	}
 }

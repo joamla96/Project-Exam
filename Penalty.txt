@@ -1,24 +1,44 @@
 30/30/2017
 Jonas	Late	+5kr
-Roxana	Late	+5kr
+Roxana	Late	+5kr 
 Heviga	Naming	+5kr
 Matt	Late	+5kr
+---------------------
+Sub-total	20 kr.
 
 08/05/2017
 Jonas	Late	+5kr
 Roxana	Late	+5kr
 Hedviga Naming	+5kr
 Roxana	Naming	+5kr
+---------------------
+Sub-total	40 kr.
 
 16/05/2017
 Jonas	Naming	+5kr
+---------------------
+Sub-Total	45 kr.
 
 17/05/2017
 Hedviga	Naming	+5kr
 Roxana	Naming 	+5kr
+---------------------
+Sub-total	55 kr.
 
 19/05/2017
 Jonas	Naming	+5kr
+<<<<<<< HEAD
 
 31/05/2017
 Hedviga nameing +5kr
+=======
+---------------------
+Sub-total	60 kr.
+
+01/06/2017
+Hedviga Late	+5kr
+Jonas	Late	+5kr
+Roxana	Late	+5kr
+---------------------
+Sub-total	75 kr.
+>>>>>>> origin/master
